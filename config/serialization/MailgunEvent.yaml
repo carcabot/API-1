@@ -1,0 +1,42 @@
+App\Entity\MailgunEvent:
+    attributes:
+        id:
+            groups:
+                # -
+        campaign:
+            groups:
+                - mailgun_bounce_event_read
+                - mailgun_click_event_read
+                - mailgun_complain_event_read
+                - mailgun_deliver_event_read
+                - mailgun_open_event_read
+        recipient:
+            groups:
+                - mailgun_bounce_event_read
+                - mailgun_click_event_read
+                - mailgun_complain_event_read
+                - mailgun_deliver_event_read
+                - mailgun_open_event_read
+        mailgunEventId:
+            groups:
+                - mailgun_bounce_event_read
+                - mailgun_click_event_read
+                - mailgun_complain_event_read
+                - mailgun_deliver_event_read
+                - mailgun_open_event_read
+
+        # TimestampableTrait
+        dateCreated:
+            groups:
+                - mailgun_bounce_event_read
+                - mailgun_click_event_read
+                - mailgun_complain_event_read
+                - mailgun_deliver_event_read
+                - mailgun_open_event_read
+        dateModified:
+            groups:
+                - mailgun_bounce_event_read
+                - mailgun_click_event_read
+                - mailgun_complain_event_read
+                - mailgun_deliver_event_read
+                - mailgun_open_event_read

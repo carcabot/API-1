@@ -1,0 +1,7 @@
+App\Entity\ApplicationRequestListItem:
+    attributes:
+        item:
+            groups:
+                - list_item_read
+                - application_request_list_item_read
+                - application_request_list_item_write

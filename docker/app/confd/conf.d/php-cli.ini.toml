@@ -1,0 +1,6 @@
+[template]
+src = "php-cli.ini.tmpl"
+dest = "/usr/local/etc/php/php-cli.ini"
+keys = [
+    "/deploy/env",
+]

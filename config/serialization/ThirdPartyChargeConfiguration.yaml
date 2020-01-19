@@ -1,0 +1,73 @@
+App\Entity\ThirdPartyChargeConfiguration:
+    attributes:
+        id:
+            groups:
+                # -
+        category:
+            groups:
+                - third_party_charge_configuration_read
+                - third_party_charge_configuration_write
+        charges:
+            groups:
+                - third_party_charge_configuration_read
+                - third_party_charge_configuration_write
+        configurationNumber:
+            groups:
+                - third_party_charge_configuration_read
+                - third_party_charge_configuration_write
+        description:
+            groups:
+                - third_party_charge_configuration_read
+                - third_party_charge_configuration_write
+        enabled:
+            groups:
+                - third_party_charge_configuration_read
+                - third_party_charge_configuration_write
+        isBasedOn:
+            groups:
+                - third_party_charge_configuration_read
+                - third_party_charge_configuration_write
+        name:
+            groups:
+                - third_party_charge_configuration_read
+                - third_party_charge_configuration_write
+        plan:
+            groups:
+                - third_party_charge_configuration_read
+                - third_party_charge_configuration_write
+        rate:   
+            groups:
+                - third_party_charge_configuration_read
+                - third_party_charge_configuration_write
+        type:   
+            groups:
+                - third_party_charge_configuration_read
+                - third_party_charge_configuration_write
+        validFrom:
+            groups:
+                - third_party_charge_configuration_read
+                - third_party_charge_configuration_write
+        validThrough:
+            groups:
+                - third_party_charge_configuration_read
+                - third_party_charge_configuration_write
+        value:
+            groups:
+                - third_party_charge_configuration_read
+                - third_party_charge_configuration_write
+
+        # BlameableTrait
+        agent:
+            groups:
+                - third_party_charge_configuration_read
+        creator:
+            groups:
+                - third_party_charge_configuration_read
+
+        # TimestampableTrait
+        dateCreated:
+            groups:
+                - third_party_charge_configuration_read
+        dateModified:
+            groups:
+                - third_party_charge_configuration_read

@@ -1,0 +1,21 @@
+App\Entity\RecurringEmailCampaign:
+    attributes:
+        id:
+            groups:
+                # -
+        campaign:
+            groups:
+                - recurring_email_campaign_read
+                - recurring_email_campaign_write
+        sourceListGeneratorExpression:
+            groups:
+                - recurring_email_campaign_read
+                - recurring_email_campaign_write
+        fromPosition:
+            groups:
+                - recurring_email_campaign_read
+                - recurring_email_campaign_write
+        toPosition:
+            groups:
+                - recurring_email_campaign_read
+                - recurring_email_campaign_write

@@ -1,0 +1,20 @@
+App\Entity\AccountsReceivableInvoice:
+    attributes:
+        id:
+            groups:
+                # -
+        contentType:
+            groups:
+                - accounts_receivable_invoice_attachment_read
+                - accounts_receivable_invoice_read
+        filename:
+            groups:
+                - accounts_receivable_invoice_attachment_read
+                - accounts_receivable_invoice_read
+        filesize:
+            groups:
+                - accounts_receivable_invoice_attachment_read
+                - accounts_receivable_invoice_read
+        url:
+            groups:
+                - accounts_receivable_invoice_attachment_read

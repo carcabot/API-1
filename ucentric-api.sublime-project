@@ -1,0 +1,22 @@
+{
+	"folders":
+	[
+		{
+			"file_exclude_patterns":
+			[
+				"*cache"
+			],
+			"folder_exclude_patterns":
+			[
+				"docker/db/data",
+				"public/bundles",
+				"public/uploads",
+				"internal",
+				"var",
+				"vendor",
+				"docker/mongodb/data"
+			],
+			"path": "."
+		}
+	]
+}

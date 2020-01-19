@@ -1,0 +1,29 @@
+App\Entity\PartnerCommissionStatementData:
+    attributes:
+        id:
+            groups:
+                # -
+        amount:
+            groups:
+                - partner_commission_statement_data_read
+                - partner_commission_statement_generate
+        applicationRequest:
+            groups:
+                - partner_commission_statement_data_read
+                - partner_commission_statement_generate
+        commissionRate:
+            groups:
+                - partner_commission_statement_data_read
+                - partner_commission_statement_generate
+        lead:
+            groups:
+                - partner_commission_statement_data_read
+                - partner_commission_statement_generate
+        statement:
+            groups:
+                - partner_commission_statement_data_read
+                - partner_commission_statement_generate
+        type:
+            groups:
+                - partner_commission_statement_data_read
+                - partner_commission_statement_generate

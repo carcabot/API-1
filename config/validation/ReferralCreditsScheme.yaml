@@ -1,0 +1,8 @@
+App\Entity\ReferralCreditsScheme:
+    properties:
+        referralAmount:
+            - Type:
+                type: App\Entity\QuantitativeValue
+        refereeAmount:
+            - Type:
+                type: App\Entity\QuantitativeValue

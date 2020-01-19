@@ -1,0 +1,41 @@
+App\Entity\TicketType:
+    attributes:
+        id:
+            groups:
+                # -
+        description:
+            groups:
+                - ticket_type_read
+                - ticket_type_write
+        enabled:
+            groups:
+                - ticket_type_read
+                - ticket_type_write
+        name:
+            groups:
+                - ticket_type_read
+                - ticket_type_write
+        ticketCategories:
+            groups:
+                - ticket_type_read
+                - ticket_type_write
+        usedIn:
+            groups:
+                - ticket_type_read
+                - ticket_type_write
+
+        # BlameableTrait
+        agent:
+            groups:
+                - ticket_type_read
+        creator:
+            groups:
+                - ticket_type_read
+
+        # TimestampableTrait
+        dateCreated:
+            groups:
+                - ticket_type_read
+        dateModified:
+            groups:
+                - ticket_type_read

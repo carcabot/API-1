@@ -1,0 +1,79 @@
+App\Entity\CreditsScheme:
+    attributes:
+        id:
+            groups:
+                # -
+        amount:
+            groups:
+                - credits_scheme_read
+                - credits_scheme_write
+                - referral_credits_scheme_read
+                - referral_credits_scheme_write
+        description:
+            groups:
+                - credits_scheme_read
+                - credits_scheme_write
+                - referral_credits_scheme_read
+                - referral_credits_scheme_write
+        isBasedOn:
+            groups:
+                - credits_scheme_read
+                - credits_scheme_write
+                - referral_credits_scheme_read
+                - referral_credits_scheme_write
+        monetaryExchangeValue:
+            groups:
+                - credits_scheme_read
+                - credits_scheme_write
+                - referral_credits_scheme_read
+                - referral_credits_scheme_write
+        schemeId:
+            groups:
+                - credits_scheme_read
+                - credits_scheme_write
+                - referral_credits_scheme_read
+                - referral_credits_scheme_write
+        type:
+            groups:
+                - credits_scheme_read
+                - credits_scheme_write
+                - referral_credits_scheme_read
+                - referral_credits_scheme_write
+        validFrom:
+            groups:
+                - credits_scheme_read
+                - credits_scheme_write
+                - referral_credits_scheme_read
+                - referral_credits_scheme_write
+        validPeriod:
+            groups:
+                - credits_scheme_read
+                - credits_scheme_write
+                - referral_credits_scheme_read
+                - referral_credits_scheme_write
+        validThrough:
+            groups:
+                - credits_scheme_read
+                - credits_scheme_write
+                - referral_credits_scheme_read
+                - referral_credits_scheme_write
+
+        # BlameableTrait
+        agent:
+            groups:
+                - credits_scheme_read
+                - referral_credits_scheme_read
+        creator:
+            groups:
+                - credits_scheme_read
+                - referral_credits_scheme_read
+
+        # TimestampableTrait
+        dateCreated:
+            groups:
+                - credits_scheme_read
+                - referral_credits_scheme_read
+        dateModified:
+            groups:
+                - credits_scheme_read
+                - referral_credits_scheme_read

@@ -1,0 +1,37 @@
+App\Entity\UnsubscribeReason:
+    attributes:
+        id:
+            groups:
+                # -
+        description:
+            groups:
+                - unsubscribe_reason_read
+                - unsubscribe_reason_write
+        name:
+            groups:
+                - unsubscribe_reason_read
+                - unsubscribe_reason_write
+        requireNote:
+            groups:
+                - unsubscribe_reason_read
+                - unsubscribe_reason_write
+        status:
+            groups:
+                - unsubscribe_reason_read
+                - unsubscribe_reason_write
+
+        # BlameableTrait
+        agent:
+            groups:
+                - unsubscribe_reason_read
+        creator:
+            groups:
+                - unsubscribe_reason_read
+
+        # TimestampableTrait
+        dateCreated:
+            groups:
+                - unsubscribe_reason_read
+        dateModified:
+            groups:
+                - unsubscribe_reason_read

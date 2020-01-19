@@ -1,0 +1,29 @@
+App\Entity\FaqConfiguration:
+    attributes:
+        id:
+            groups:
+            # -
+        category:
+            groups:
+                - faq_configuration_read
+                - faq_configuration_write
+        name:
+            groups:
+                - faq_configuration_read
+                - faq_configuration_write
+        position:
+            groups:
+                - faq_configuration_read
+                - faq_configuration_write
+        text:
+            groups:
+                - faq_configuration_read
+                - faq_configuration_write
+
+        # TimestampableTrait
+        dateCreated:
+            groups:
+                - faq_configuration_read
+        dateModified:
+            groups:
+                - faq_configuration_read

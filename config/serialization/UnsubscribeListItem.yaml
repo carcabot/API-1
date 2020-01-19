@@ -1,0 +1,18 @@
+App\Entity\UnsubscribeListItem:
+    attributes:
+        item:
+            groups:
+                - unsubscribe_list_item_read
+                - unsubscribe_list_item_write
+        email:
+            groups:
+                - unsubscribe_list_item_read
+                - unsubscribe_list_item_write
+        note:
+            groups:
+                - unsubscribe_list_item_read
+                - unsubscribe_list_item_write
+        unsubscribeReason:
+            groups:
+                - unsubscribe_list_item_read
+                - unsubscribe_list_item_write

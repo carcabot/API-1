@@ -1,0 +1,5 @@
+App\Entity\MailgunOpenEvent:
+    attributes:
+        datesOpened:
+            groups:
+                - mailgun_open_event_read

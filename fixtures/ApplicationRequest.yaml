@@ -1,0 +1,81 @@
+App\Entity\ApplicationRequest:
+    application_request:
+        type: <generateApplicationRequestType()>    
+        status: <generateApplicationRequestStatus()>
+        addonServices: []
+        addresses: []
+        supplementaryFiles: []        
+        applicationRequestNumber: ''
+        averageConsumption: '@quantitative_value'
+        depositAmount: '@monetary_amount'        
+        bridgeId:
+        contactPerson:
+        contract: 
+        contractSubtype:
+        contractType:  <generateContractType()>
+        corporationDetails:
+        customer:
+        customerType:
+        customized:
+        dateSubmitted: <dateTimeBetween("-10 days", "now")>
+        depositRefundType:
+        ebsAccountNumber:
+        externalApplicationRequestNumber:
+        giroOption:
+        lead:
+        meterType: <generateMeterType()>
+        msslAccountNumber:
+        personDetails:
+        preferredEndDate: <dateTimeBetween("now", "+30 days")>
+        preferredStartDate: <dateTimeBetween("now", "+10 days")>
+        recurringOption:
+        referralSource:
+        refundee:
+        remark:
+        selfReadMeterOption: <generateSelfReadOption($meterType)>
+        specifiedReferralSource:
+        submitter:
+        terminationDate:
+        tariffRate:
+        terminationReason:
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        

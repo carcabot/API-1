@@ -1,0 +1,7 @@
+App\Entity\LeadListItem:
+    attributes:
+        item:
+            groups:
+                - list_item_read
+                - lead_list_item_read
+                - lead_list_item_write

@@ -1,0 +1,9 @@
+App\Entity\SmsActivity:
+    properties:
+        recipientMobileNumber:
+            - Misd\PhoneNumberBundle\Validator\Constraints\PhoneNumber: ~
+            - NotNull: ~
+        type:
+            - Type:
+                type: App\Enum\SMSType
+            - NotNull: ~

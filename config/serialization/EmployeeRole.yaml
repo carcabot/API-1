@@ -1,0 +1,21 @@
+App\Entity\EmployeeRole:
+    attributes:
+        id:
+            groups:
+                # -
+        employee:
+            groups:
+                - employee_role_read
+                - employee_role_write
+        endDate:
+            groups:
+                - employee_role_read
+                - employee_role_write
+        roleName:
+            groups:
+                - employee_role_read
+                - employee_role_write
+        startDate:
+            groups:
+                - employee_role_read
+                - employee_role_write

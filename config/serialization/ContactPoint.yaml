@@ -1,0 +1,72 @@
+App\Entity\ContactPoint:
+    attributes:
+        id:
+            groups:
+                # -
+        contactType:
+            groups:
+                - contact_point_read
+                - contact_point_write
+                - application_request_read
+                - contract_read
+                - customer_account_read
+                - employee_role_read
+                - lead_read
+                - lead_import_write
+                - ticket_read
+                - user_read
+                - public_read
+        emails:
+            groups:
+                - contact_point_read
+                - contact_point_write
+                - application_request_read
+                - contract_form_read
+                - contract_read
+                - customer_account_read
+                - employee_role_read
+                - lead_read
+                - lead_import_write
+                - ticket_read
+                - user_read
+                - public_read
+        faxNumbers:
+            groups:
+                - contact_point_read
+                - contact_point_write
+                - application_request_read
+                - contract_read
+                - customer_account_read
+                - employee_role_read
+                - lead_read
+                - lead_import_write
+                - ticket_read
+                - user_read
+                - public_read
+        mobilePhoneNumbers:
+            groups:
+                - contact_point_read
+                - contact_point_write
+                - application_request_read
+                - contract_form_read
+                - contract_read
+                - customer_account_read
+                - employee_role_read
+                - lead_read
+                - lead_import_write
+                - ticket_read
+                - user_read
+                - public_read
+        telephoneNumbers:
+            groups:
+                - contact_point_read
+                - contact_point_write
+                - application_request_read
+                - contract_read
+                - customer_account_read
+                - employee_role_read
+                - lead_read
+                - lead_import_write
+                - ticket_read
+                - user_read
+                - public_read

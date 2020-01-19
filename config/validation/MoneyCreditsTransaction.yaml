@@ -1,0 +1,16 @@
+App\Entity\MoneyCreditsTransaction:
+    properties:
+        amount:
+            - Type:
+                type: App\Entity\MonetaryAmount
+            - NotNull: ~
+            - Valid: ~
+        balance:
+            - Type:
+                type: App\Entity\MonetaryAmount
+            - NotNull: ~
+            - Valid: ~
+        payments:
+            - All:
+                - Type:
+                    type: App\Entity\Payment

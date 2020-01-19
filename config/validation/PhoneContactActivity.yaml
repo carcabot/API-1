@@ -1,0 +1,9 @@
+App\Entity\PhoneContactActivity:
+    properties:
+        direction:
+            - Type:
+                type: App\Enum\CallDirection
+            - NotNull: ~
+        recipientTelephoneNumber:
+            - Misd\PhoneNumberBundle\Validator\Constraints\PhoneNumber: ~
+            - NotNull: ~

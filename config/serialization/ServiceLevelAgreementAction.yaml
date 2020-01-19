@@ -1,0 +1,60 @@
+App\Entity\ServiceLevelAgreementAction:
+    attributes:
+        id:
+            groups:
+                # -
+        description:
+            groups:
+                - service_level_agreement_action_read
+                - service_level_agreement_action_write
+                - ticket_read
+        endTime:
+            groups:
+                - service_level_agreement_action_read
+                - service_level_agreement_action_write
+                - ticket_read
+        previousStatus:
+            groups:
+                - service_level_agreement_action_read
+                - service_level_agreement_action_write                
+                - ticket_read
+        startTime:
+            groups:
+                - service_level_agreement_action_read
+                - service_level_agreement_action_write
+                - ticket_read
+        status:
+            groups:
+                - service_level_agreement_action_read
+                - service_level_agreement_action_write
+                - ticket_read
+        ticket:
+            groups:
+                - service_level_agreement_action_read
+                - service_level_agreement_action_write
+                - ticket_read
+        value:
+            groups:
+                - service_level_agreement_action_read
+                - service_level_agreement_action_write
+                - ticket_read
+
+        # BlameableTrait
+        agent:
+            groups:
+                - service_level_agreement_action_read
+                - ticket_read
+        creator:
+            groups:
+                - service_level_agreement_action_read
+                - ticket_read
+
+        # TimestampableTrait
+        dateCreated:
+            groups:
+                - service_level_agreement_action_read
+                - ticket_read
+        dateModified:
+            groups:
+                - service_level_agreement_action_read
+                - ticket_read

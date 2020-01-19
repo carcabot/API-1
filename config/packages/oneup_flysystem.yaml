@@ -1,0 +1,19 @@
+# Read the documentation: https://github.com/1up-lab/OneupFlysystemBundle/tree/master/Resources/doc/index.md
+oneup_flysystem:
+    adapters:
+        file_adapter:
+            local:
+                directory: '%kernel.project_dir%/public/uploads'
+        internal_file_adapter:
+            local:
+                directory: '%kernel.project_dir%/public/internal'
+
+    filesystems:
+        file_fs:
+            adapter: file_adapter
+            mount: file_fs
+            visibility: public
+        internal_file_fs:
+            adapter: internal_file_adapter
+            mount: internal_file_fs
+            visibility: private

@@ -1,0 +1,20 @@
+App\Entity\DisqueJob:
+    properties:
+        body:
+            - NotBlank: ~
+        jobNumber:
+            - Type:
+                type: string
+            - NotBlank: ~
+        queue:
+            - Type:
+                type: App\Enum\QueueName
+            - NotBlank: ~
+        status:
+            - Type:
+                type: App\Enum\JobStatus
+            - NotBlank: ~
+        type:
+            - Type:
+                type: string
+            - NotBlank: ~

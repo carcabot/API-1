@@ -1,0 +1,18 @@
+App\Entity\CustomerAccountPostalAddress:
+    properties:
+        address:
+            - Type:
+                type: App\Entity\PostalAddress
+            - NotNull: ~
+            - Valid:
+                traverse: true
+        customerAccount:
+            - Type:
+                type: App\Entity\CustomerAccount
+            - NotNull: ~
+            - Valid:
+                traverse: true
+        validFrom:
+            - DateTime: ~
+        validThrough:
+            - DateTime: ~

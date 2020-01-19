@@ -1,0 +1,3 @@
+ruvents_doctrine_fixes:
+    default:
+        schema_namespace_fix: ~

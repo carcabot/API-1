@@ -1,0 +1,48 @@
+App\Entity\Activity:
+    attributes:
+        id:
+            groups:
+                # -
+        text:
+            groups:
+                - activity_read
+                - activity_write
+                - activity_sms_history_read
+                - email_activity_read
+                - email_activity_write
+                - phone_contact_activity_read
+                - phone_contact_activity_write
+                - sms_activity_read
+                - sms_activity_write
+
+        # BlameableTrait
+        agent:
+            groups:
+                - activity_read
+                - email_activity_read
+                - activity_sms_history_read
+                - phone_contact_activity_read
+                - sms_activity_read
+        creator:
+            groups:
+                - activity_read
+                - email_activity_read
+                - activity_sms_history_read
+                - phone_contact_activity_read
+                - sms_activity_read
+                
+        # TimestampableTrait
+        dateCreated:
+            groups:
+                - activity_read
+                - email_activity_read
+                - activity_sms_history_read
+                - phone_contact_activity_read
+                - sms_activity_read
+        dateModified:
+            groups:
+                - activity_read
+                - email_activity_read
+                - activity_sms_history_read
+                - phone_contact_activity_read
+                - sms_activity_read

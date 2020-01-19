@@ -1,0 +1,37 @@
+App\Entity\OfferCategory:
+    attributes:
+        id:
+            groups:
+                # -
+        categoryNumber:
+            groups:
+                - offer_category_read
+                - offer_category_write
+        description:
+            groups:
+                - offer_category_read
+                - offer_category_write
+        image:
+            groups:
+                - offer_category_read
+                - offer_category_write
+        name:
+            groups:
+                - offer_category_read
+                - offer_category_write
+
+        # BlameableTrait
+        agent:
+            groups:
+                - offer_category_read
+        creator:
+            groups:
+                - offer_category_read
+
+        # TimestampableTrait
+        dateCreated:
+            groups:
+                - offer_category_read
+        dateModified:
+            groups:
+                - offer_category_read

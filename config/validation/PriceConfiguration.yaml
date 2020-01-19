@@ -1,0 +1,36 @@
+App\Entity\PriceConfiguration:
+    properties:
+        description:
+            - Type:
+                type: string
+        enabled:
+            - Type:
+                type: bool
+        name:
+            - Type:
+                type: string
+            - NotNull: ~
+        offerDuration:
+            - Type:
+                type: App\Entity\QuantitativeValue
+            - NotNull: ~
+            - Valid: ~
+        rate:
+            - Type:
+                type: App\Entity\PriceSpecification
+            - NotNull: ~
+            - Valid: ~
+
+        # BlameableTrait
+        agent:
+            - Type:
+                type: App\Entity\User
+        creator:
+            - Type:
+                type: App\Entity\User
+
+        # TimestampableTrait
+        dateCreated:
+            - DateTime: ~
+        dateModified:
+            - DateTime: ~

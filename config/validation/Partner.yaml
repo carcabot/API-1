@@ -1,0 +1,32 @@
+App\Entity\Partner:
+    properties:
+        administrator:
+            - Type:
+                type: App\Entity\User
+        announcementAudiences:
+            - All:
+                - Type:
+                    type: string
+        commissionRates:
+            - All:
+                - Type:
+                    type: App\Entity\CommissionRate
+        homepageUrl:
+            - Url: ~
+        joiningDate:
+            - DateTime: ~
+        payoutCycle:
+            - Type:
+                type: App\Entity\QuantitativeValue
+            - NotNull: ~
+            - Valid: ~
+        payoutStartDate:
+            - DateTime: ~
+        referralUrlHidden:
+            - Type:
+                type: bool
+        tariffRateList:
+            - Type:
+                type: App\Entity\TariffRateList
+        terminationDate:
+            - DateTime: ~

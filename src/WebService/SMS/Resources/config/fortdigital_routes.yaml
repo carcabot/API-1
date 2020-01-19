@@ -1,0 +1,4 @@
+fortdigital_sms_inbound:
+    path: /fortdigital/sms/inbound
+    controller: App\WebService\SMS\Provider\FortDigital\Controller\InboundController
+    methods: [GET]

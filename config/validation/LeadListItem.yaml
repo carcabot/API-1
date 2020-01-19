@@ -1,0 +1,5 @@
+App\Entity\LeadListItem:
+    properties:
+        item:
+            - Type:
+                type: App\Entity\Lead

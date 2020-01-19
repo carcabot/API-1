@@ -1,0 +1,308 @@
+App\Entity\Person:
+    attributes:
+        id:
+            groups:
+                # -
+        additionalName:
+            groups:
+                - application_request_read
+                - contract_read
+                - customer_account_read
+                - employee_role_read
+                - lead_read
+                - person_read
+                - person_write
+                - ticket_read
+                - user_read
+                - user_write
+                - lead_import_write
+                - public_read
+        alternateName:
+            groups:
+                - application_request_read
+                - contract_read
+                - customer_account_read
+                - employee_role_read
+                - lead_read
+                - person_read
+                - person_write
+                - ticket_read
+                - user_read
+                - user_write
+                - lead_import_write
+                - public_read
+        birthDate:
+            groups:
+                - application_request_read
+                - contract_read
+                - customer_account_read
+                - employee_role_read
+                - lead_read
+                - person_read
+                - person_write
+                - ticket_read
+                - user_read
+                - user_write
+                - lead_import_write
+                - public_read
+        birthPlace:
+            groups:
+                - application_request_read
+                - contract_read
+                - customer_account_read
+                - employee_role_read
+                - lead_read
+                - person_read
+                - person_write
+                - ticket_read
+                - user_read
+                - user_write
+                - lead_import_write
+        contactPoints:
+            groups:
+                - application_request_read
+                - contract_form_read
+                - contract_read
+                - customer_account_read
+                - employee_role_read
+                - lead_read
+                - person_read
+                - person_write
+                - ticket_read
+                - user_read
+                - user_write
+                - lead_import_write
+                - role_homepage_customer_account_read
+                - role_homepage_user_read
+                - public_read
+        countryOfOrigin:
+            groups:
+                - application_request_read
+                - contract_read
+                - customer_account_read
+                - employee_role_read
+                - lead_read
+                - person_read
+                - person_write
+                - ticket_read
+                - user_read
+                - user_write
+                - lead_import_write
+        deathDate:
+            groups:
+                - application_request_read
+                - contract_read
+                - customer_account_read
+                - employee_role_read
+                - lead_read
+                - person_read
+                - person_write
+                - ticket_read
+                - user_read
+                - user_write
+                - lead_import_write
+        deathPlace:
+            groups:
+                - application_request_read
+                - contract_read
+                - customer_account_read
+                - employee_role_read
+                - lead_read
+                - person_read
+                - person_write
+                - ticket_read
+                - user_read
+                - user_write
+                - lead_import_write
+        description:
+            groups:
+                - application_request_read
+                - contract_read
+                - customer_account_read
+                - employee_role_read
+                - lead_read
+                - person_read
+                - person_write
+                - ticket_read
+                - user_read
+                - user_write
+                - lead_import_write
+        familyName:
+            groups:
+                - application_request_read
+                - contract_read
+                - customer_account_read
+                - employee_role_read
+                - lead_read
+                - person_read
+                - person_write
+                - ticket_read
+                - user_read
+                - user_write
+                - lead_import_write
+                - public_read
+        gender:
+            groups:
+                - application_request_read
+                - contract_read
+                - customer_account_read
+                - employee_role_read
+                - lead_read
+                - person_read
+                - person_write
+                - ticket_read
+                - user_read
+                - user_write
+                - lead_import_write
+                - public_read
+        givenName:
+            groups:
+                - application_request_read
+                - contract_read
+                - customer_account_read
+                - employee_role_read
+                - lead_read
+                - person_read
+                - person_write
+                - ticket_read
+                - user_read
+                - user_write
+                - lead_import_write
+                - public_read
+        honorificPrefix:
+            groups:
+                - application_request_read
+                - contract_read
+                - customer_account_read
+                - employee_role_read
+                - lead_read
+                - person_read
+                - person_write
+                - ticket_read
+                - user_read
+                - user_write
+                - lead_import_write
+                - public_read
+        identifiers:
+            groups:
+                - application_request_read
+                - contract_form_read
+                - contract_read
+                - customer_account_read
+                - employee_role_read
+                - lead_read
+                - person_read
+                - person_write
+                - ticket_read
+                - user_read
+                - user_write
+                - lead_import_write
+                - role_homepage_customer_account_read
+                - role_homepage_user_read
+                - application_request_sign_on_behalf_read
+                - public_read
+        jobTitle:
+            groups:
+                - application_request_read
+                - contract_read
+                - customer_account_read
+                - employee_role_read
+                - lead_read
+                - person_read
+                - person_write
+                - ticket_read
+                - user_read
+                - user_write
+                - lead_import_write
+                - public_read
+        knowsLanguages:
+            groups:
+                - application_request_read
+                - contract_read
+                - customer_account_read
+                - employee_role_read
+                - lead_read
+                - person_read
+                - person_write
+                - ticket_read
+                - user_read
+                - user_write
+                - lead_import_write
+                - public_read
+        maritalStatus:
+            groups:
+                - application_request_read
+                - contract_read
+                - customer_account_read
+                - employee_role_read
+                - lead_read
+                - person_read
+                - person_write
+                - ticket_read
+                - user_read
+                - user_write
+                - lead_import_write
+        name:
+            groups:
+                - application_request_read
+                - contract_form_read
+                - contract_read
+                - customer_account_read
+                - employee_role_read
+                - lead_read
+                - person_read
+                - person_write
+                - ticket_read
+                - user_read
+                - user_write
+                - lead_import_write
+                - update_credits_action_read
+                - role_homepage_customer_account_read
+                - role_homepage_user_read
+                - application_request_sign_on_behalf_read
+                - public_read
+        nationality:
+            groups:
+                - application_request_read
+                - contract_read
+                - customer_account_read
+                - employee_role_read
+                - lead_read
+                - person_read
+                - person_write
+                - ticket_read
+                - user_read
+                - user_write
+                - lead_import_write
+                - public_read
+        preferredLanguage:
+            groups:
+                - application_request_read
+                - contract_form_read
+                - contract_read
+                - customer_account_read
+                - customer_account_write
+                - contract_form_read
+                - employee_role_read
+                - lead_read
+                - person_read
+                - person_write
+                - ticket_read
+                - user_read
+                - user_write
+                - lead_import_write
+                - public_read
+        sameAsUrls:
+            groups:
+                - application_request_read
+                - contract_read
+                - customer_account_read
+                - employee_role_read
+                - lead_read
+                - person_read
+                - person_write
+                - ticket_read
+                - user_read
+                - user_write
+                - lead_import_write
+                - public_read

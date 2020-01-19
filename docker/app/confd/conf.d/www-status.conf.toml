@@ -1,0 +1,5 @@
+[template]
+src = "www-status.conf.tmpl"
+dest = "/usr/local/etc/php-fpm.d/zz-www-status.conf"
+keys = [
+]

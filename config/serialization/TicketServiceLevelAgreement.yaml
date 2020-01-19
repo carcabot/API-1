@@ -1,0 +1,39 @@
+App\Entity\TicketServiceLevelAgreement:
+    attributes:
+        id:
+            groups:
+                # -
+        description:
+            groups:
+                - ticket_service_level_agreement_read
+        isBasedOn:
+            groups:
+                - ticket_service_level_agreement_read
+        name:
+            groups:
+                - ticket_service_level_agreement_read
+        operationExclusions:
+            groups:
+                - ticket_service_level_agreement_read
+        ticket:
+            groups:
+                - ticket_service_level_agreement_read
+        timer:
+            groups:
+                - ticket_service_level_agreement_read
+
+        # BlameableTrait
+        agent:
+            groups:
+                - ticket_service_level_agreement_read
+        creator:
+            groups:
+                - ticket_service_level_agreement_read
+
+        # TimestampableTrait
+        dateCreated:
+            groups:
+                - ticket_service_level_agreement_read
+        dateModified:
+            groups:
+                - ticket_service_level_agreement_read

@@ -1,0 +1,18 @@
+App\Entity\OpeningHoursSpecification:
+    properties:
+        closes:
+            - DateTime: ~
+        dayOfWeek:
+            - Type:
+                type: App\Enum\DayOfWeek
+            - NotNull: ~
+        name:
+            - Type:
+                type: string
+            - NotNull: ~
+        opens:
+            - DateTime: ~
+        validFrom:
+            - DateTime: ~
+        validThrough:
+            - DateTime: ~

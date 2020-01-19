@@ -1,0 +1,25 @@
+App\Entity\TariffRate:
+    tariff_rate:
+        bridgeId:
+        chargeDescription:
+        contracts: []
+        contractTypes: <generateTariffRateContractType()>
+        customizable:
+        description:
+        internalUseOnly:
+        inventoryLevel: '@quantitative_value'
+        isBasedOn:
+        isDailyRate:
+        minContractTerm: '@quantitative_value'
+        name: <word()>
+        page:
+        remark:
+        startDate:
+        status: <generateTariffRateStatus()>
+        dailyRates: []
+        tariffRateNumber: <randomNumber()>
+        terms:
+        type: <generateTariffRateType()>
+        usedIn: []
+        validFrom:
+        validThrough:

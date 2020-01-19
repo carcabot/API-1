@@ -1,0 +1,8 @@
+App\Entity\Report:
+    attributes:
+        id:
+            groups:
+                - report_read
+        documents:
+            groups:
+                - report_read

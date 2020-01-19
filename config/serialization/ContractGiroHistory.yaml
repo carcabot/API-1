@@ -1,0 +1,30 @@
+App\Entity\ContractGiroHistory:
+    attributes:
+        id:
+            groups:
+                # -
+        bankAccountNumber:
+            groups:
+                - contract_giro_history_read
+                - contract_billing_summary_read
+                - contract_billing_information_read
+        bankName:
+            groups:
+                - contract_giro_history_read
+                - contract_billing_summary_read
+                - contract_billing_information_read
+        endDate:
+            groups:
+                - contract_giro_history_read
+                - contract_billing_summary_read
+                - contract_billing_information_read
+        startDate:
+            groups:
+                - contract_giro_history_read
+                - contract_billing_summary_read
+                - contract_billing_information_read
+        status:
+            groups:
+                - contract_giro_history_read
+                - contract_billing_summary_read
+                - contract_billing_information_read

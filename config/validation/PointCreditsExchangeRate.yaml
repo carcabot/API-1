@@ -1,0 +1,24 @@
+App\Entity\PointCreditsExchangeRate:
+    properties:
+        baseAmount:
+            - Type:
+                type: App\Entity\MonetaryAmount
+            - NotNull: ~
+            - Valid: ~
+        defaultRate:
+            - Type:
+                type: bool
+        isBasedOn:
+            - Type:
+                type: App\Entity\PointCreditsExchangeRate
+        remark:
+            - Type:
+                type: string
+        validFrom:
+            - DateTime: ~
+        validThrough:
+            - DateTime: ~
+        value:
+            - Type:
+                type: string
+            - NotNull: ~

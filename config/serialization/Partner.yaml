@@ -1,0 +1,73 @@
+App\Entity\Partner:
+    attributes:
+        id:
+            groups:
+                # -
+        administrator:
+            groups:
+                - customer_account_read
+                - partner_read
+                - partner_write
+                - user_read
+        announcementAudiences:
+            groups:
+                - customer_account_read
+                - partner_read
+                - partner_write
+                - user_read
+        commissionRates:
+            groups:
+                - customer_account_read
+                - partner_read
+                - partner_write
+                - user_read
+        homepageUrl:
+            groups:
+                - customer_account_read
+                - partner_read
+                - partner_write
+                - user_read
+                - role_homepage_customer_account_read
+                - role_homepage_user_read
+        joiningDate:
+            groups:
+                - customer_account_read
+                - partner_read
+                - partner_write
+                - user_read
+                - role_homepage_customer_account_read
+                - role_homepage_user_read
+        payoutCycle:
+            groups:
+                - customer_account_read
+                - partner_read
+                - partner_write
+                - user_read
+        payoutStartDate:
+            groups:
+                - customer_account_read
+                - partner_read
+                - partner_write
+                - user_read
+        referralUrlHidden:
+            groups:
+                - customer_account_read
+                - partner_read
+                - partner_write
+                - user_read
+        tariffRateList:
+            groups:
+                - customer_account_read
+                - partner_read
+                - partner_write
+                - user_read
+                - role_homepage_customer_account_read
+                - role_homepage_user_read
+        terminationDate:
+            groups:
+                - customer_account_read
+                - partner_read
+                - partner_write
+                - user_read
+                - role_homepage_customer_account_read
+                - role_homepage_user_read

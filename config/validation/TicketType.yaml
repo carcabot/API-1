@@ -1,0 +1,35 @@
+App\Entity\TicketType:
+    properties:
+        description:
+            - Type:
+                type: string
+        enabled:
+            - Type:
+                type: bool
+        name:
+            - Type:
+                type: string
+            - NotNull: ~
+        ticketCategories:
+            - All:
+                - Type:
+                    type: App\Entity\TicketCategory
+            - NotNull: ~
+        usedIn:
+            - All:
+                - Type:
+                    type: string
+
+        # BlameableTrait
+        agent:
+            - Type:
+                type: App\Entity\User
+        creator:
+            - Type:
+                type: App\Entity\User
+
+        # TimestampableTrait
+        dateCreated:
+            - DateTime: ~
+        dateModified:
+            - DateTime: ~

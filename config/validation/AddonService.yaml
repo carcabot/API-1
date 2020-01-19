@@ -1,0 +1,17 @@
+App\Entity\AddonService:
+    properties:
+        description:
+            - Type:
+                type: string
+        isBasedOn:
+            - Type:
+                type: App\Entity\AddonService
+        name:
+            - Type:
+                type: string
+        note:
+            - Type:
+                type: string
+        optional:
+            - Type:
+                type: bool

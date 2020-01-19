@@ -1,0 +1,36 @@
+App\Entity\InternalDocument:
+    properties:
+        contentFile:
+            - File: ~
+        contentPath:
+            - Type:
+                type: string
+        name:
+            - Type:
+                type: string
+        owner:
+            - Type:
+                type: App\Entity\CustomerAccount
+        text:
+            - Type:
+                type: string
+        type:
+            - Type:
+                type: App\Enum\DocumentType
+            - NotNull: ~
+        url:
+            - Url: ~
+
+        # BlameableTrait
+        agent:
+            - Type:
+                type: App\Entity\User
+        creator:
+            - Type:
+                type: App\Entity\User
+
+        # TimestampableTrait
+        dateCreated:
+            - DateTime: ~
+        dateModified:
+            - DateTime: ~

@@ -1,0 +1,79 @@
+App\Entity\Payment:
+    attributes:
+        id:
+            groups:
+                # -
+        amount:
+            groups:
+                - payment_read
+                - payment_write
+        bankAccountHolderName:
+            groups:
+                - payment_read
+                - payment_write
+        bankAccountNumber:
+            groups:
+                - payment_read
+                - payment_write
+        bankCode:
+            groups:
+                - payment_read
+                - payment_write
+        bankName:
+            groups:
+                - payment_read
+                - payment_write
+        confirmationNumber:
+            groups:
+                - payment_read
+                - payment_write
+        contactNumber:
+            groups:
+                - payment_read
+                - payment_write
+        email:
+            groups:
+                - payment_read
+                - payment_write
+        invoiceNumber:
+            groups:
+                - payment_read
+                - payment_write
+        paymentMethod:
+            groups:
+                - payment_read
+                - payment_write
+        paymentNumber:
+            groups:
+                - payment_read
+        paymentReceipt:
+            groups:
+                - payment_read
+                - payment_write
+        paymentUrl:
+            groups:
+                - payment_read
+        returnMessage:
+            groups:
+                - payment_read
+                - payment_write
+        status:
+            groups:
+                - payment_read
+                - payment_write
+
+        # BlameableTrait
+        agent:
+            groups:
+                - payment_read
+        creator:
+            groups:
+                - payment_read
+
+        # TimestampableTrait
+        dateCreated:
+            groups:
+                - payment_read
+        dateModified:
+            groups:
+                - payment_read

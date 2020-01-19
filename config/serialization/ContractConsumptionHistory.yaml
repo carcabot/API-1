@@ -1,0 +1,25 @@
+App\Entity\ContractConsumptionHistory:
+    attributes:
+        id:
+            groups:
+                # -
+        consumptionValue:
+            groups:
+                - contract_consumption_history_read
+                - contract_billing_summary_read
+                - contract_billing_information_read
+        endDate:
+            groups:
+                - contract_consumption_history_read
+                - contract_billing_summary_read
+                - contract_billing_information_read
+        meterNumber:
+            groups:
+                - contract_consumption_history_read
+                - contract_billing_summary_read
+                - contract_billing_information_read
+        startDate:
+            groups:
+                - contract_consumption_history_read
+                - contract_billing_summary_read
+                - contract_billing_information_read

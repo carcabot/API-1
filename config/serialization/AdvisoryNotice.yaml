@@ -1,0 +1,29 @@
+App\Entity\AdvisoryNotice:
+    attributes:
+        id:
+            groups:
+                # -
+        description:
+            groups:
+                - advisory_notice_read
+                - advisory_notice_write
+        file: 
+            groups: 
+                - advisory_notice_read
+                - advisory_notice_write
+        validFrom: 
+            groups: 
+                - advisory_notice_read
+                - advisory_notice_write
+        validThrough: 
+            groups: 
+                - advisory_notice_read
+                - advisory_notice_write
+                    
+        # TimestampableTrait
+        dateCreated:
+            groups:
+                - advisory_notice_read
+        dateModified:
+            groups:
+                - advisory_notice_read

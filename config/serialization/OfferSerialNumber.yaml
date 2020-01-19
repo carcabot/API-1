@@ -1,0 +1,41 @@
+App\Entity\OfferSerialNumber:
+    attributes:
+        id:
+            groups:
+            # -
+        datePurchased:
+            groups:
+                - offer_serial_number_read
+                - offer_serial_number_write
+        expires:
+            groups:
+                - offer_serial_number_read
+                - offer_serial_number_write
+        offerListItem:
+            groups:
+                - offer_serial_number_read
+                - offer_serial_number_write
+        orderItem:
+            groups:
+                - offer_serial_number_read
+                - offer_serial_number_write
+        serialNumber:
+            groups:
+                - offer_serial_number_read
+                - offer_serial_number_write
+
+        # BlameableTrait
+        agent:
+            groups:
+                - offer_serial_number_read            
+        creator:
+            groups:
+                - offer_serial_number_read
+
+        # TimestampableTrait
+        dateCreated:
+            groups:
+                - offer_serial_number_read
+        dateModified:
+            groups:
+                - offer_serial_number_read

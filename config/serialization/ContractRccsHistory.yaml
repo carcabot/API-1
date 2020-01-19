@@ -1,0 +1,40 @@
+App\Entity\ContractRccsHistory:
+    attributes:
+        id:
+            groups:
+            # -
+        contractNumber:
+            groups:
+                - contract_rccs_history_read
+                - contract_billing_summary_read
+                - contract_billing_information_read
+        cardNumber:
+            groups:
+                - contract_rccs_history_read
+                - contract_billing_summary_read
+                - contract_billing_information_read
+        dateEffective:
+            groups:
+                - contract_rccs_history_read
+                - contract_billing_summary_read
+                - contract_billing_information_read
+        dateExpired:
+            groups:
+                - contract_rccs_history_read
+                - contract_billing_summary_read
+                - contract_billing_information_read
+        dateTerminated:
+            groups:
+                - contract_rccs_history_read
+                - contract_billing_summary_read
+                - contract_billing_information_read
+        groupNumber:
+            groups:
+                - contract_rccs_history_read
+                - contract_billing_summary_read
+                - contract_billing_information_read
+        status:
+            groups:
+                - contract_rccs_history_read
+                - contract_billing_summary_read
+                - contract_billing_information_read

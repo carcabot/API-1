@@ -1,0 +1,150 @@
+version: '3.4'
+
+services:
+    app:
+        image: ${CONTAINER_REGISTRY_URL}/app:${VERSION}
+        labels:
+            - traefik.enable=false
+        networks:
+            - private
+        restart: always
+        volumes:
+            - app-vendor:/srv/api/vendor
+            - ./var/log:/srv/api/var/log
+
+    cache-proxy:
+        labels:
+            - traefik.backend=api.${DOMAIN}
+            - traefik.docker.network=proxy
+            - traefik.enable=true
+            - traefik.frontend.rule=Host:api.${DOMAIN}
+            - traefik.port=80
+        networks:
+            - proxy
+        restart: always
+
+    db:
+        labels:
+            - traefik.enable=false
+        networks:
+            - private
+        restart: always
+
+    mongo-cache-db:
+        labels:
+            - traefik.enable=false
+        networks:
+            - private
+        restart: always
+
+    nginx-backend:
+        labels:
+            - traefik.enable=false
+        networks:
+            - private
+        restart: always
+
+    application-requests-worker:
+        environment:
+            - COMMAND=bin/console app:application-request-worker:start --env=worker
+            - WORKER_MEMORY_LIMIT=-1
+        entrypoint: docker-worker-entrypoint
+        image: ${CONTAINER_REGISTRY_URL}/app:${VERSION}
+        labels:
+            - traefik.enable=false
+        networks:
+            - private
+        restart: always
+        volumes:
+            - app-vendor:/srv/api/vendor
+
+    campaigns-worker:
+        environment:
+            - COMMAND=bin/console app:campaign-worker:start --env=worker
+            - WORKER_MEMORY_LIMIT=-1
+        entrypoint: docker-worker-entrypoint
+        image: ${CONTAINER_REGISTRY_URL}/app:${VERSION}
+        labels:
+            - traefik.enable=false
+        networks:
+            - private
+        restart: always
+        volumes:
+            - app-vendor:/srv/api/vendor
+
+    contracts-worker:
+        environment:
+            - COMMAND=bin/console app:contract-worker:start --env=worker
+            - WORKER_MEMORY_LIMIT=-1
+        entrypoint: docker-worker-entrypoint
+        image: ${CONTAINER_REGISTRY_URL}/app:${VERSION}
+        lables:
+            - traefik.enable=false
+        networks:
+            - private
+        restart: always
+        volumes:
+            - app-vendor:/srv/api/vendor
+
+    cron-worker:
+        environment:
+            - COMMAND=bin/console app:cron-worker:start --env=worker
+            - WORKER_MEMORY_LIMIT=-1
+        entrypoint: docker-worker-entrypoint
+        image: ${CONTAINER_REGISTRY_URL}/app:${VERSION}
+        labels:
+            - traefik.enable=false
+        networks:
+            - private
+        restart: always
+        volumes:
+            - app-vendor:/srv/api/vendor
+
+    messages-worker:
+        environment:
+            - COMMAND=bin/console app:messages-worker:start --env=worker
+            - WORKER_MEMORY_LIMIT=-1
+        entrypoint: docker-worker-entrypoint
+        image: ${CONTAINER_REGISTRY_URL}/app:${VERSION}
+        labels:
+            - traefik.enable=false
+        networks:
+            - private
+        restart: always
+        volumes:
+            - app-vendor:/srv/api/vendor
+
+    reports-worker:
+        environment:
+            - COMMAND=bin/console app:worker:start --queue=reports --env=worker
+            - WORKER_MEMORY_LIMIT=-1
+        entrypoint: docker-worker-entrypoint
+        image: ${CONTAINER_REGISTRY_URL}/app:${VERSION}
+        labels:
+            - traefik.enable=false
+        networks:
+            - private
+        restart: always
+        volumes:
+            - app-vendor:/srv/api/vendor
+
+    webservices-worker:
+        environment:
+            - COMMAND=bin/console app:worker:start --queue=web_services --env=worker
+            - WORKER_MEMORY_LIMIT=-1
+        entrypoint: docker-worker-entrypoint
+        image: ${CONTAINER_REGISTRY_URL}/app:${VERSION}
+        labels:
+            - traefik.enable=false
+        networks:
+            - private
+        restart: always
+        volumes:
+            - app-vendor:/srv/api/vendor
+
+networks:
+    proxy:
+        external: true
+
+volumes:
+    app-vendor: ~

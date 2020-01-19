@@ -1,0 +1,5 @@
+App\Entity\SecurityDepositListItem:
+    properties:
+        item:
+            - Type:
+                type: App\Entity\SecurityDeposit

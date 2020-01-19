@@ -1,0 +1,26 @@
+App\Entity\OfferCatalog:
+    attributes:
+        coverImage:
+            groups:
+                - offer_catalog_read
+                - offer_catalog_write
+        image:
+            groups:
+                - offer_catalog_read
+                - offer_catalog_write
+        remarks:
+            groups:
+                - offer_catalog_read
+                - offer_catalog_write
+        status:
+            groups:
+                - offer_catalog_read
+                - offer_catalog_write
+        validFrom:
+            groups:
+                - offer_catalog_read
+                - offer_catalog_write
+        validThrough:
+            groups:
+                - offer_catalog_read
+                - offer_catalog_write

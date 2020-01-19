@@ -1,0 +1,15 @@
+App\Entity\UnsubscribeReason:
+    properties:
+        description:
+            - Type:
+                type: string
+        name:
+            - Type:
+                type: string
+            - NotNull: ~
+        requireNote:
+            - Type:
+                type: bool
+        status:
+            - Type:
+                type: App\Enum\UnsubscribeReasonStatus

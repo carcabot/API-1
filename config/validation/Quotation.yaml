@@ -1,0 +1,130 @@
+App\Entity\Quotation:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields:
+                - quotationNumber
+    properties:
+        acceptedOffer:
+            - Type:
+                type: App\Entity\QuotationPriceConfiguration
+        activities:
+            - All:
+                - Type:
+                    type: App\Entity\Activity
+            - Valid:
+                traverse: true
+        addresses:
+            - All:
+                - Type:
+                    type: App\Entity\QuotationPostalAddress
+            - Valid:
+                traverse: true
+        applicationRequests:
+            - All:
+                - Type:
+                    type: App\Entity\ApplicationRequest
+        assignee:
+            - Type:
+                type: App\Entity\User
+            - NotNull: { groups: [finalized] }
+        averageConsumption:
+            - Type:
+                type: App\Entity\QuantitativeValue
+            - NotNull: ~
+            - Valid: ~
+        brentCrudeDate:
+            - DateTime: ~
+        brentCrudePrice:
+            - Type:
+                type: App\Entity\PriceSpecification
+            - Valid: ~
+        contactPerson:
+            - Type:
+                type: App\Entity\CustomerAccount
+            - NotNull: { groups: [finalized] }
+        contractDurations:
+            - All:
+                - Type:
+                    type: App\Entity\ContractDuration
+        contractSubtype:
+            - Type:
+                type: string
+            - NotNull: { groups: [finalized] }
+        contractType:
+            - Type:
+                type: App\Enum\ContractType
+            - NotNull: ~
+        corporationDetails:
+            - Type:
+                type: App\Entity\Corporation
+            - Valid:
+                traverse: true
+        customer:
+            - Type:
+                type: App\Entity\CustomerAccount
+            - NotNull: { groups: [finalized] }
+        depositNegotiated:
+            - Type:
+                type: bool
+        expires:
+            - DateTime: ~
+        notes:
+            - All:
+                - Type:
+                    type: App\Entity\Note
+        offers:
+            - All:
+                - Type:
+                    type: App\Entity\QuotationPriceConfiguration
+        paymentMode:
+            - Type:
+                type: string
+        paymentTerm:
+            - Type:
+                type: string
+        personDetails:
+            - Type:
+                type: App\Entity\Person
+            - Valid:
+                traverse: true
+        securityDeposit:
+            - Type:
+                type: App\Entity\PriceSpecification
+            - NotNull: { groups: [finalized] }
+            - Valid: ~
+        status:
+            - Type:
+                type: App\Enum\QuotationStatus
+            - NotNull: ~
+        terms:
+            - NotNull: { groups: [finalized] }
+        validFrom:
+            - DateTime: ~
+        validThrough:
+            - DateTime: ~
+        voltageType:
+            - Type:
+                type: App\Enum\VoltageType
+
+        # BlameableTrait
+        agent:
+            - Type:
+                type: App\Entity\User
+        creator:
+            - Type:
+                type: App\Entity\User
+
+        # SourceableTrait
+        acquiredFrom:
+            - Type:
+                type: App\Entity\CustomerAccount
+        source:
+            - Type:
+                type: string
+                # type: App\Enum\Source
+
+        # TimestampableTrait
+        dateCreated:
+            - DateTime: ~
+        dateModified:
+            - DateTime: ~

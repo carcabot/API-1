@@ -1,0 +1,1633 @@
+services:
+    ###> advisory notice ###
+    advisory_notice.date_filter:
+        parent: api_platform.doctrine.orm.date_filter
+        arguments:
+            - validFrom: include_null_before
+              validThrough: include_null_after
+        tags:
+            - name: api_platform.filter
+              id: advisory_notice.date
+    ###< advisory notice ###
+
+    ###> addon service ###
+    addon_service.exists_filter:
+        parent: api_platform.doctrine.orm.exists_filter
+        arguments:
+            - isBasedOn: ~
+        tags:
+            - name: api_platform.filter
+              id: addon_service.exists
+    ###< addon service ###
+
+    ###> activity sms history ###
+    activity_sms_history.date_filter:
+        parent: api_platform.doctrine.orm.date_filter
+        arguments:
+            - dateCreated: exclude_null
+              inboundSMS.dateReceived: exclude_null
+              outboundSMS.dateSent: exclude_null
+        tags:
+            - name: api_platform.filter
+              id: activity_sms_history.date
+
+    activity_sms_history.order_filter:
+        parent: api_platform.doctrine.orm.order_filter
+        arguments:
+            - dateCreated: ~
+        tags:
+            - name: api_platform.filter
+              id: activity_sms_history.order
+
+    activity_sms_history.search_filter:
+        parent: api_platform.doctrine.orm.search_filter
+        arguments:
+            - activity.creator: exact
+              activity.type: exact
+              inboundSMS.message: exact
+        tags:
+            - name: api_platform.filter
+              id: activity_sms_history.search
+    ###< activity sms history ###
+
+    ###> affiliate program ###
+    affiliate_program.date_filter:
+        parent: api_platform.doctrine.orm.date_filter
+        arguments:
+            - validFrom: include_null_before
+              validThrough: include_null_after
+        tags:
+            - name: api_platform.filter
+              id: affiliate_program.date
+
+    affiliate_program.order_filter:
+        parent: api_platform.doctrine.orm.order_filter
+        arguments:
+            - dateCreated: ~
+              validFrom: ~
+              validThrough: ~
+        tags:
+            - name: api_platform.filter
+              id: affiliate_program.order
+
+    affiliate_program.search_filter:
+        parent: api_platform.doctrine.orm.search_filter
+        arguments:
+            - name: iword_start
+              programNumber: iword_start
+              provider: exact
+              status: exact
+        tags:
+            - name: api_platform.filter
+              id: affiliate_program.search
+    ###< affiliate program ###
+
+    ###> affiliate program commission configuration ###
+    affiliate_program_commission_configuration.exists_filter:
+        parent: api_platform.doctrine.orm.exists_filter
+        arguments:
+            - isBasedOn: ~
+        tags:
+            - name: api_platform.filter
+              id: affiliate_program_commission_configuration.exists
+
+    affiliate_program_commission_configuration.order_filter:
+        parent: api_platform.doctrine.orm.order_filter
+        arguments:
+            - dateCreated: ~
+        tags:
+            - name: api_platform.filter
+              id: affiliate_program_commission_configuration.order
+    ###< affiliate program commission configuration ###
+
+    ###> application request ###
+    application_request.boolean_filter:
+        parent: api_platform.doctrine.orm.boolean_filter
+        arguments:
+            - selfApplication: exact
+        tags:
+            - name: api_platform.filter
+              id: application_request.boolean
+              
+    application_request.date_filter:
+        parent: api_platform.doctrine.orm.date_filter
+        arguments:
+            - dateCreated: exclude_null
+              preferredEndDate: include_null_after
+              preferredStartDate: include_null_before
+              startDate: include_null_before
+              endDate: include_null_after
+        tags:
+            - name: api_platform.filter
+              id: application_request.date
+
+    application_request.json_search_filter:
+        parent: App\ApiPlatform\Doctrine\Orm\Filter\JsonSearchFilter
+        arguments:
+            - billSubscriptionTypes: ~
+              customer.corporationDetails.contactPoints.emails: ~
+              customer.personDetails.contactPoints.emails: ~
+        tags:
+            - name: api_platform.filter
+              id: application_request.json_search
+
+    application_request.order_filter:
+        parent: api_platform.doctrine.orm.order_filter
+        arguments:
+            - applicationRequestNumber: ~
+              dateCreated: ~
+              preferredStartDate: ~
+        tags:
+            - name: api_platform.filter
+              id: application_request.order
+
+    application_request.search_filter:
+        parent: App\ApiPlatform\Doctrine\Orm\Filter\ApplicationRequestSearchFilter
+        arguments:
+            - acquiredFrom: exact
+              acquiredFrom.accountNumber: exact
+              acquiredFrom.corporationDetails.name: iword_start
+              applicationRequestNumber: exact
+              contactPerson: exact
+              contract.contractNumber: exact
+              contract: exact
+              contractSubtype: exact
+              contractType: exact
+              creator: exact
+              creator.name: iexact
+              customer: exact
+              customer.corporationDetails.contactPoints.faxNumbers.phoneNumber: exact
+              customer.corporationDetails.contactPoints.mobilePhoneNumbers.phoneNumber: exact
+              customer.corporationDetails.contactPoints.telephoneNumbers.phoneNumber: exact
+              customer.corporationDetails.employees.employee: exact
+              customer.corporationDetails.employees.roleName: exact
+              customer.corporationDetails.identifiers.name: exact
+              customer.corporationDetails.identifiers.value: exact
+              customer.corporationDetails.industry: exact
+              customer.corporationDetails.legalName: iword_start
+              customer.corporationDetails.name: iword_start              
+              customer.personDetails.additionalName: iword_start
+              customer.personDetails.alternateName: iword_start
+              customer.personDetails.contactPoints.faxNumbers.phoneNumber: exact
+              customer.personDetails.contactPoints.mobilePhoneNumbers.phoneNumber: exact
+              customer.personDetails.contactPoints.telephoneNumbers.phoneNumber: exact
+              customer.personDetails.familyName: iword_start
+              customer.personDetails.gender: exact
+              customer.personDetails.givenName: iword_start
+              customer.personDetails.identifiers.name: exact
+              customer.personDetails.identifiers.value: exact
+              customer.personDetails.preferredLanguage: exact
+              customer.personDetails.name: iword_start
+              customerType: exact
+              ebsAccountNumber: exact
+              meterType: exact
+              msslAccountNumber: exact
+              referralCode: exact
+              source: exact
+              status: exact
+              tariffRate: exact
+              tariffRate.isBasedOn: exact
+              tariffRate.name: exact
+              tariffRate.tariffRateNumber: iword_start
+              urlToken.token: exact
+              type: exact
+        tags:
+            - name: api_platform.filter
+              id: application_request.search
+    ###< application request ###
+    
+    ###> campaign ###
+    campaign.order_filter:
+        parent: api_platform.doctrine.orm.order_filter
+        arguments:
+            - dateCreated: ~
+        tags:
+            - name: api_platform.filter
+              id: campaign.order
+
+    campaign.range_filter:
+        parent: api_platform.doctrine.orm.range_filter
+        arguments:
+              - recipientLists.itemListElement.position: exact
+        tags:
+            - name: api_platform.filter
+              id: campaign.range
+
+    campaign.search_filter:
+        parent: api_platform.doctrine.orm.search_filter
+        arguments:
+              - campaignNumber: exact
+                name: iword_start
+        tags:
+            - name: api_platform.filter
+              id: campaign.search
+    ###< campaign ###
+
+    ###> campaign expectation ###
+    campaign_expectation.order_filter:
+        parent: api_platform.doctrine.orm.order_filter
+        arguments:
+            - dateCreated: ~
+        tags:
+            - name: api_platform.filter
+              id: campaign_expectation.order
+
+    campaign_expectation.search_filter:
+        parent: api_platform.doctrine.orm.search_filter
+        arguments:
+            - name: iword_start
+        tags:
+            - name: api_platform.filter
+              id: campaign_expectation.search
+    ###< campaign expectation ###
+
+    ###> campaign objective ###
+    campaign_objective.order_filter:
+        parent: api_platform.doctrine.orm.order_filter
+        arguments:
+            - dateCreated: ~
+        tags:
+            - name: api_platform.filter
+              id: campaign_objective.order
+
+    campaign_objective.search_filter:
+        parent: api_platform.doctrine.orm.search_filter
+        arguments:
+            - name: iword_start
+        tags:
+            - name: api_platform.filter
+              id: campaign_objective.search
+    ###< campaign objective ###
+
+    ###> campaign template ###
+    campaign_template.exists_filter:
+        parent: api_platform.doctrine.orm.exists_filter
+        arguments:
+            - isBasedOn: ~
+        tags:
+            - name: api_platform.filter
+              id: campaign_template.exists
+
+    campaign_template.order_filter:
+        parent: api_platform.doctrine.orm.order_filter
+        arguments:
+            - dateCreated: ~
+        tags:
+            - name: api_platform.filter
+              id: campaign_template.order
+
+    campaign_template.search_filter:
+        parent: api_platform.doctrine.orm.search_filter
+        arguments:
+            - name: iword_start
+        tags:
+            - name: api_platform.filter
+              id: campaign_template.search
+    ###< campaign template ###
+
+    ###> commission rate ###
+    commission_rate.exists_filter:
+        parent: api_platform.doctrine.orm.exists_filter
+        arguments:
+            - isBasedOn: ~
+        tags:
+            - name: api_platform.filter
+              id: commission_rate.exists
+
+    commission_rate.order_filter:
+        parent: api_platform.doctrine.orm.order_filter
+        arguments:
+            - dateCreated: ~
+        tags:
+            - name: api_platform.filter
+              id: commission_rate.order
+    ###< commission template ###
+
+    ###> contract ###
+    contract.date_filter:
+        parent: api_platform.doctrine.orm.date_filter
+        arguments:
+            - dateCreated: exclude_null
+              endDate: include_null_after
+              lockInDate: include_null_after
+              startDate: include_null_before
+        tags:
+            - name: api_platform.filter
+              id: contract.date
+
+    contract.exists_filter:
+        parent: api_platform.doctrine.orm.exists_filter
+        arguments:
+            - contractNumber: ~
+              lockInDate: ~
+              endDate: ~
+        tags:
+            - name: api_platform.filter
+              id: contract.exists
+
+    contract.json_search_filter:
+        parent: App\ApiPlatform\Doctrine\Orm\Filter\JsonSearchFilter
+        arguments:
+            - customer.corporationDetails.contactPoints.emails: ~
+              customer.personDetails.contactPoints.emails: ~
+        tags:
+            - name: api_platform.filter
+              id: contract.json_search
+
+    contract.order_filter:
+        parent: api_platform.doctrine.orm.order_filter
+        arguments:
+            - dateCreated: ~
+              lockInDate: ~
+              startDate: ~
+              endDate: ~
+        tags:
+            - name: api_platform.filter
+              id: contract.order
+
+    contract.search_filter:
+        parent: api_platform.doctrine.orm.search_filter
+        arguments:
+            - acquiredFrom: exact
+              contractNumber: exact
+              creator: exact
+              customer: exact
+              customer.corporationDetails.contactPoints.faxNumbers.phoneNumber: exact
+              customer.corporationDetails.contactPoints.mobilePhoneNumbers.phoneNumber: exact
+              customer.corporationDetails.contactPoints.telephoneNumbers.phoneNumber: exact
+              customer.corporationDetails.employees.employee: exact
+              customer.corporationDetails.employees.roleName: exact
+              customer.corporationDetails.identifiers.name: exact
+              customer.corporationDetails.identifiers.value: exact
+              customer.corporationDetails.industry: exact
+              customer.corporationDetails.legalName: iword_start
+              customer.corporationDetails.name: iword_start              
+              customer.personDetails.additionalName: iword_start
+              customer.personDetails.alternateName: iword_start
+              customer.personDetails.contactPoints.faxNumbers.phoneNumber: exact
+              customer.personDetails.contactPoints.mobilePhoneNumbers.phoneNumber: exact
+              customer.personDetails.contactPoints.telephoneNumbers.phoneNumber: exact
+              customer.personDetails.familyName: iword_start
+              customer.personDetails.gender: exact
+              customer.personDetails.givenName: iword_start
+              customer.personDetails.identifiers.name: exact
+              customer.personDetails.identifiers.value: exact
+              customer.personDetails.preferredLanguage: exact
+              customer.personDetails.name: iword_start
+              customerType: exact
+              ebsAccountNumber: exact
+              meterType: exact
+              msslAccountNumber: exact
+              source: exact
+              status: exact
+              subType: exact
+              tariffRate: exact
+              tariffRate.isBasedOn: exact
+              tariffRate.name: exact
+              tariffRate.tariffRateNumber: iword_start
+              type: exact
+        tags:
+            - name: api_platform.filter
+              id: contract.search
+    ###< contract ###
+    
+    ###> contract_postal_address ###
+    contract_postal_address.search_filter:
+        parent: api_platform.doctrine.orm.search_filter
+        arguments:
+            - contract: exact
+        tags:
+            - name: api_platform.filter
+              id: contract_postal_address.search
+    ###< contract_postal_address ###
+
+    ###> credits_category ###
+    credits_category.order_filter:
+        parent: api_platform.doctrine.orm.order_filter
+        arguments:
+            - dateCreated: ~
+        tags:
+            - name: api_platform.filter
+              id: credits_category.order
+    ###< credits_category ###
+    
+    ###> credits_configuration ###
+    credits_configuration.order_filter:
+        parent: api_platform.doctrine.orm.order_filter
+        arguments:
+            - dateCreated: ~
+        tags:
+            - name: api_platform.filter
+              id: credits_configuration.order
+    ###< credits_configuration ###
+    
+    ###> credits_scheme ###
+    credits_scheme.exists_filter:
+        parent: api_platform.doctrine.orm.exists_filter
+        arguments:
+            - isBasedOn: ~
+        tags:
+            - name: api_platform.filter
+              id: credits_scheme.exists
+
+    credits_scheme.order_filter:
+        parent: api_platform.doctrine.orm.order_filter
+        arguments:
+            - dateCreated: ~
+        tags:
+            - name: api_platform.filter
+              id: credits_scheme.order
+
+    credits_scheme.search_filter:
+        parent: api_platform.doctrine.orm.search_filter
+        arguments:
+            - schemeId: exact
+        tags:
+            - name: api_platform.filter
+              id: credits_scheme.search
+    ###< credits_scheme ###
+
+    ###> customer account ###
+    customer_account.date_filter:
+        parent: api_platform.doctrine.orm.date_filter
+        arguments:
+            - dateCreated: exclude_null
+              partnerDetails.joiningDate: include_null_before
+              partnerDetails.terminationDate: exclude_null
+              personDetails.identifiers.validFrom: include_null_before
+              personDetails.identifiers.validThrough: include_null_after
+              corporationDetails.identifiers.validFrom: include_null_before
+              corporationDetails.identifiers.validThrough: include_null_after
+              relationships.validFrom: include_null_before
+              relationships.validThrough: include_null_after
+        tags:
+            - name: api_platform.filter
+              id: customer_account.date
+
+    customer_account.json_search_filter:
+        parent: App\ApiPlatform\Doctrine\Orm\Filter\JsonSearchFilter
+        arguments:
+            - categories: ~
+              corporationDetails.contactPoints.emails: ~
+              partnerDetails.announcementAudiences: ~
+              personDetails.contactPoints.emails: ~
+              user.roles: ~
+        tags:
+            - name: api_platform.filter
+              id: customer_account.json_search
+
+    customer_account.order_filter:
+        parent: api_platform.doctrine.orm.order_filter
+        arguments:
+            - accountNumber: ~
+              dateCreated: ~
+        tags:
+            - name: api_platform.filter
+              id: customer_account.order
+
+    customer_account.search_filter:
+        parent: App\ApiPlatform\Doctrine\Orm\Filter\CustomerAccountSearchFilter
+        arguments:
+            - accountNumber: exact
+              applicationRequests.applicationRequestNumber: exact
+              contracts.contractNumber: exact
+              corporationDetails.contactPoints.faxNumbers.phoneNumber: exact
+              corporationDetails.contactPoints.mobilePhoneNumbers.phoneNumber: exact
+              corporationDetails.contactPoints.telephoneNumbers.phoneNumber: exact
+              corporationDetails.employees.employee: exact
+              corporationDetails.employees.roleName: exact
+              corporationDetails.identifiers.name: exact
+              corporationDetails.identifiers.value: iexact
+              corporationDetails.industry: exact
+              corporationDetails.legalName: iword_start
+              corporationDetails.name: iword_start
+              externalCustomerNumber: exact
+              partnerDetails: exact
+              partnerDetails.administrator: exact
+              personDetails.additionalName: iword_start
+              personDetails.alternateName: iword_start
+              personDetails.contactPoints.faxNumbers.phoneNumber: exact
+              personDetails.contactPoints.mobilePhoneNumbers.phoneNumber: exact
+              personDetails.contactPoints.telephoneNumbers.phoneNumber: exact
+              personDetails.familyName: iword_start
+              personDetails.gender: exact
+              personDetails.givenName: iword_start
+              personDetails.identifiers.name: exact
+              personDetails.identifiers.value: iexact
+              personDetails.preferredLanguage: exact
+              personDetails.name: iword_start
+              personDetails.nationality: exact
+              preferredContactMethod: exact
+              referralCode: iexact
+              relationships.from: exact
+              relationships.to: exact
+              relationships.type: exact
+              source: exact
+              status: exact
+              type: exact
+              user: exact
+        tags:
+            - name: api_platform.filter
+              id: customer_account.search
+
+    customer_account.exists_filter:
+        parent: api_platform.doctrine.orm.exists_filter
+        arguments:
+            - accountNumber: ~
+              dateBlacklisted: ~
+        tags:
+            - name: api_platform.filter
+              id: customer_account.exists
+    ###< customer account ###
+    
+    ###> customer_account_relationship ###
+    customer_account_relationship.date_filter:
+        parent: api_platform.doctrine.orm.date_filter
+        arguments:
+            - validThrough: ~
+              validFrom: ~
+        tags:
+            - name: api_platform.filter
+              id: customer_account_relationship.date
+              
+    customer_account_relationship.exists_filter:
+        parent: api_platform.doctrine.orm.exists_filter
+        arguments:
+            - to: ~
+              from: ~
+        tags:
+            - name: api_platform.filter
+              id: customer_account_relationship.exists
+              
+    customer_account_relationship.order_filter:
+        parent: api_platform.doctrine.orm.order_filter
+        arguments:
+            - validThrough: ~
+              validFrom: ~
+              dateCreated: ~
+        tags:
+            - name: api_platform.filter
+              id: customer_account_relationship.order
+              
+    customer_account_relationship.search_filter:
+        parent: App\ApiPlatform\Doctrine\Orm\Filter\CustomerAccountRelationshipSearchFilter
+        arguments:
+            - from: exact
+              from.corporationDetails.name: iword_start
+              from.personDetails.name: iword_start
+              to: exact
+              to.corporationDetails.name: iword_start
+              to.personDetails.name: iword_start
+        tags:
+            - name: api_platform.filter
+              id: customer_account_relationship.search
+    ###< customer_account_relationship ###
+    
+    ###> customer_account_postal_address ###
+    customer_account_postal_address.search_filter:
+        parent: api_platform.doctrine.orm.search_filter
+        arguments:
+            - customerAccount: exact
+        tags:
+            - name: api_platform.filter
+              id: customer_account_postal_address.search
+    ###< customer_account_postal_address ###
+
+    ###> disque_job ###
+    disque_job.search_filter:
+        parent: api_platform.doctrine.orm.search_filter
+        arguments:
+            - jobNumber: exact
+              queue: exact
+              status: exact
+              type: exact
+        tags:
+            - name: api_platform.filter
+              id: disque_job.search
+    ###< disque_job ###
+
+    ###> earn_contract_credits_action ###
+    earn_contract_credits_action.date_filter:
+        parent:  api_platform.doctrine.orm.date_filter
+        arguments:
+            - dateCreated: ~
+        tags:
+            - name: api_platform.filter
+              id: earn_contract_credits_action.date
+              
+    earn_contract_credits_action.order_filter:
+        parent: api_platform.doctrine.orm.order_filter
+        arguments:
+            - dateCreated: ~
+        tags:
+            - name: api_platform.filter
+              id: earn_contract_credits_action.order
+              
+    earn_contract_credits_action.search_filter:
+        parent: App\ApiPlatform\Doctrine\Orm\Filter\EarnContractCreditsActionSearchFilter
+        arguments:
+            - object: exact
+              object.customer: exact
+              object.customer.personDetails.name: iword_start
+              object.customer.corporationDetails.name: iword_start
+              object.customer.corporationDetails.legalName: iword_start
+              object.contractNumber: exact
+              scheme: exact
+              scheme.schemeId: exact
+        tags:
+            - name: api_platform.filter
+              id: earn_contract_credits_action.search
+    ###< earn_contract_credits_action ###
+
+    ###> email campaign schedule ###
+    email_campaign_schedule.search_filter:
+        parent: api_platform.doctrine.orm.search_filter
+        arguments:
+            - campaign: exact
+        tags:
+            - name: api_platform.filter
+              id: email_campaign_schedule.search
+    ###< email campaign schedule ###
+
+    ###> employee role ###
+    employee_role.search_filter:
+        parent: App\ApiPlatform\Doctrine\Orm\Filter\EmployeeRoleSearchFilter
+        arguments:
+            - employee: exact
+              roleName: exact
+        tags:
+            - name: api_platform.filter
+              id: employee_role.search
+    ###< employee role ###
+
+    ###> faq_configuration ###
+    faq_configuration.order_filter:
+        parent: api_platform.doctrine.orm.order_filter
+        arguments:
+            - dateCreated: ~
+              position: ~
+        tags:
+            - name: api_platform.filter
+              id: faq_configuration.order
+    ###< faq_configuration ###
+
+    ###> faq_configuration_category ###
+    faq_configuration_category.order_filter:
+        parent: api_platform.doctrine.orm.order_filter
+        arguments:
+            - dateCreated: ~
+              position: ~
+        tags:
+            - name: api_platform.filter
+              id: faq_configuration_category.order
+            
+    faq_configuration_category.boolean_filter:
+        parent: api_platform.doctrine.orm.boolean_filter
+        arguments:
+            - enabled: ~
+        tags:
+            - name: api_platform.filter
+              id: faq_configuration_category.boolean
+    ###< faq_configuration_category ###
+
+    ###> internal_document ###
+    internal_document.date_filter:
+        parent: api_platform.doctrine.orm.date_filter
+        arguments:
+            - dateCreated: ~
+        tags:
+            - name: api_platform.filter
+              id: internal_document.date
+
+    internal_document.order_filter:
+        parent: api_platform.doctrine.orm.order_filter
+        arguments:
+            - dateCreated: ~
+        tags:
+            - name: api_platform.filter
+              id: internal_document.order
+
+    internal_document.search_filter:
+        parent: api_platform.doctrine.orm.search_filter
+        arguments:
+            - creator: exact
+              owner: exact
+              type: exact
+        tags:
+            - name: api_platform.filter
+              id: internal_document.search
+    ###< item list ###
+
+    ###> item list ###
+    item_list.order_filter:
+        parent: api_platform.doctrine.orm.order_filter
+        arguments:
+            - dateCreated: ~
+        tags:
+            - name: api_platform.filter
+              id: item_list.order
+
+    item_list.search_filter:
+        parent: api_platform.doctrine.orm.search_filter
+        arguments:
+            - name: iword_start
+        tags:
+            - name: api_platform.filter
+              id: item_list.search
+    ###< item list ###
+
+    ###> lead ###
+    lead.date_filter:
+        parent: api_platform.doctrine.orm.date_filter
+        arguments:
+            - dateCreated: exclude_null
+              dateFollowedUp: exclude_null
+              personDetails.identifiers.validFrom: include_null_before
+              personDetails.identifiers.validThrough: include_null_after
+              corporationDetails.identifiers.validFrom: include_null_before
+              corporationDetails.identifiers.validThrough: include_null_after
+        tags:
+            - name: api_platform.filter
+              id: lead.date
+
+    lead.json_search_filter:
+        parent: App\ApiPlatform\Doctrine\Orm\Filter\JsonSearchFilter
+        arguments:
+            - corporationDetails.sameAsUrls: ~
+              personDetails.contactPoints.emails: ~
+        tags:
+            - name: api_platform.filter
+              id: lead.json_search
+
+    lead.order_filter:
+        parent: api_platform.doctrine.orm.order_filter
+        arguments:
+            - dateCreated: ~
+        tags:
+            - name: api_platform.filter
+              id: lead.order
+
+    lead.range_filter:
+        parent: api_platform.doctrine.orm.range_filter
+        arguments:  
+            - purchaseTimeFrame.value: ~
+        tags:
+            - name: api_platform.filter
+              id: lead.range
+
+    lead.search_filter:
+        parent: App\ApiPlatform\Doctrine\Orm\Filter\LeadSearchFilter
+        arguments:
+            - assignee: exact
+              acquiredFrom: exact
+              contractSubtype: exact
+              contractType: exact
+              corporationDetails.contactPoints.faxNumbers.phoneNumber: exact
+              corporationDetails.contactPoints.mobilePhoneNumbers.phoneNumber: exact
+              corporationDetails.contactPoints.telephoneNumbers.phoneNumber: exact
+              corporationDetails.identifiers.name: exact
+              corporationDetails.identifiers.value: exact
+              corporationDetails.industry: exact
+              corporationDetails.legalName: iword_start
+              corporationDetails.name: iword_start
+              corporationDetails.url: exact
+              creator: exact
+              leadNumber: iword_start
+              personDetails.additionalName: iword_start
+              personDetails.alternateName: iword_start
+              personDetails.contactPoints.faxNumbers.phoneNumber: exact
+              personDetails.contactPoints.mobilePhoneNumbers.phoneNumber: exact
+              personDetails.contactPoints.telephoneNumbers.phoneNumber: exact
+              personDetails.familyName: iword_start
+              personDetails.gender: exact
+              personDetails.givenName: iword_start
+              personDetails.identifiers.name: exact
+              personDetails.identifiers.value: exact
+              personDetails.preferredLanguage: exact
+              personDetails.name: iword_start
+              personDetails.nationality: exact
+              purchaseTimeFrame.unitCode: exact
+              score: exact
+              source: exact
+              status: exact
+              type: exact
+        tags:
+            - name: api_platform.filter
+              id: lead.search
+    ###< lead ###
+
+    ###> mailgun event ###
+    mailgun_event.search_filter:
+        parent: api_platform.doctrine.orm.search_filter
+        arguments:
+            - campaign: exact
+        tags:
+            - name: api_platform.filter
+              id: mailgun_event.search
+              
+    mailgun_event.date_filter:
+        parent: api_platform.doctrine.orm.date_filter
+        arguments:
+            - dateCreated: exclude_null
+        tags:
+            - name: api_platform.filter
+              id: mailgun_event.date
+    ###< mailgun event ###
+
+    ###> mailgun bounced event ###
+    mailgun_bounced_event.date_filter:
+        parent: api_platform.doctrine.orm.date_filter
+        arguments:
+            - dateBounced: exclude_null
+        tags:
+            - name: api_platform.filter
+              id: mailgun_bounced_event.date
+    ###< mailgun bounced event ###
+
+    ###> mailgun click event ###
+    mailgun_click_event.json_filter:
+        parent: App\ApiPlatform\Doctrine\Orm\Filter\JsonObjectSearchFilter
+        arguments:
+            - datesClicked: ~
+        tags:
+            - name: api_platform.filter
+              id: mailgun_click_event.json
+    ###< mailgun click event ###
+
+    ###> mailgun complain event ###
+    mailgun_complain_event.date_filter:
+        parent: api_platform.doctrine.orm.date_filter
+        arguments:
+            - dateComplained: exclude_null
+        tags:
+            - name: api_platform.filter
+              id: mailgun_complain_event.date
+    ###< mailgun complain event ###
+
+    ###> mailgun delivered event ###
+    mailgun_delivered_event.date_filter:
+        parent: api_platform.doctrine.orm.date_filter
+        arguments:
+            - dateDelivered: exclude_null
+        tags:
+            - name: api_platform.filter
+              id: mailgun_delivered_event.date
+    ###< mailgun delivered event ###
+
+    ###> mailgun open event ###
+    mailgun_open_event.json_filter:
+        parent: App\ApiPlatform\Doctrine\Orm\Filter\JsonObjectSearchFilter
+        arguments:
+            - datesOpened: ~
+        tags:
+            - name: api_platform.filter
+              id: mailgun_open_event.json
+    ###< mailgun open event ###
+    
+    ###> merchant ###
+    merchant.order_filter:
+        parent: api_platform.doctrine.orm.order_filter
+        arguments:
+            - dateCreated: ~
+        tags:
+            - name: api_platform.filter
+              id: merchant.order
+    
+    merchant.search_filter:
+        parent: api_platform.doctrine.orm.search_filter
+        arguments:
+            - merchantNumber: exact
+        tags:
+            - name: api_platform.filter
+              id: merchant.search
+    ###< merchant ###
+
+    ###> message ###
+    message.date_filter:
+        parent: api_platform.doctrine.orm.date_filter
+        arguments:
+            - dateCreated: ~
+              dateSent: ~
+              dateReceived: ~
+              dateRead: ~
+        tags:
+            - name: api_platform.filter
+              id: message.date
+                
+    message.order_filter:
+        parent: api_platform.doctrine.orm.order_filter
+        arguments:
+            - dateCreated: ~
+        tags:
+            -   name: api_platform.filter
+                id: message.order
+                
+    message.search_filter:
+        parent: api_platform.doctrine.orm.search_filter
+        arguments:
+            - recipient.customer: exact
+              status: exact
+              messageTemplate: exact
+              messageTemplate.type: exact
+        tags:
+            -   name: api_platform.filter
+                id: message.search
+    ###< message ###
+
+    ###> merchant ###
+    message_template.order_filter:
+        parent: api_platform.doctrine.orm.order_filter
+        arguments:
+            - dateCreated: ~
+              plannedStartDate: ~
+              plannedEndDate: ~
+              startDate: ~
+              endDate: ~
+        tags:
+            - name: api_platform.filter
+              id: message_template.order
+
+    message_template.search_filter:
+        parent: api_platform.doctrine.orm.search_filter
+        arguments:
+            - messageNumber: exact
+        tags:
+            - name: api_platform.filter
+              id: message_template.search
+        ###< merchant ###
+
+    ###> note ###
+    note.search_filter:
+        parent: api_platform.doctrine.orm.search_filter
+        arguments:
+            - type: exact
+        tags:
+            - name: api_platform.filter
+              id: note.search
+    ###< note ###
+    
+    ###> offer ###
+    offer.order_filter:
+        parent: api_platform.doctrine.orm.order_filter
+        arguments:
+            - dateCreated: ~
+        tags:
+            - name: api_platform.filter
+              id: offer.order
+
+    offer.exists_filter:
+        parent: api_platform.doctrine.orm.exists_filter
+        arguments:
+            - isBasedOn: ~
+        tags:
+            - name: api_platform.filter
+              id: offer.exists
+
+    offer.search_filter:
+        parent: api_platform.doctrine.orm.search_filter
+        arguments:
+            - seller.name: iword_start
+        tags:
+            - name: api_platform.filter
+              id: offer.search
+    ###< offer ###
+    
+    ###> offer_catalog ###
+    offer_catalog.date_filter:
+        parent: api_platform.doctrine.orm.date_filter
+        arguments:
+            - validFrom: include_null_before
+              validThrough: include_null_after
+        tags:
+            - name: api_platform.filter
+              id: offer_catalog.date
+
+    offer_catalog.order_filter:
+        parent: api_platform.doctrine.orm.order_filter
+        arguments:
+            - dateCreated: ~
+        tags:
+            - name: api_platform.filter
+              id: offer_catalog.order
+
+    offer_catalog.search_filter:
+        parent: api_platform.doctrine.orm.search_filter
+        arguments:
+            - status: exact
+        tags:
+            - name: api_platform.filter
+              id: offer_catalog.search
+    ###< offer_catalog ###
+    
+    ###> offer_catagory ###
+    offer_category.exists_filter:
+        parent: api_platform.doctrine.orm.exists_filter
+        arguments:
+            - isBasedOn: ~
+        tags:
+            - name: api_platform.filter
+              id: offer_category.exists
+
+    offer_catagory.order_filter:
+        parent: api_platform.doctrine.orm.order_filter
+        arguments:
+            - dateCreated: ~
+        tags:
+            - name: api_platform.filter
+              id: offer_catagory.order
+    
+    offer_category.search_filter:
+        parent: api_platform.doctrine.orm.search_filter
+        arguments:
+            - categoryNumber: exact
+              name: exact
+        tags:
+            - name: api_platform.filter
+              id: offer_category.search
+    ###< offer_catagory ###
+    
+    ###> offer_list_item ###
+    offer_catalogoffer_list_item.date_filter:
+        parent: api_platform.doctrine.orm.date_filter
+        arguments:
+            - validFrom: include_null_before
+              validThrough: include_null_after
+        tags:
+            - name: api_platform.filter
+              id: offer_list_item.date
+
+    offer_list_item.exists_filter:
+        parent: api_platform.doctrine.orm.exists_filter
+        arguments:
+            - isBasedOn: ~
+        tags:
+            - name: api_platform.filter
+              id: offer_list_item.exists
+    ###< offer_list_item ###
+
+    ###> offer_serial_number ###
+    offer_serial_number.search_filter:
+        parent: api_platform.doctrine.orm.search_filter
+        arguments:
+            - offerListItem: exact
+        tags:
+            - name: api_platform.filter
+              id: offer_serial_number.search
+    ###< offer_serial_number ###
+
+    ###> order ###
+    order.date_filter:
+        parent: api_platform.doctrine.orm.date_filter
+        arguments:
+            - orderDate: include_null_before
+        tags:
+            - name: api_platform.filter
+              id: order.date
+
+    order.order_filter:
+        parent: api_platform.doctrine.orm.order_filter
+        arguments:
+            - orderDate: ~
+        tags:
+            - name: api_platform.filter
+              id: order.order
+
+    order.search_filter:
+        parent: App\ApiPlatform\Doctrine\Orm\Filter\OrderSearchFilter
+        arguments:
+            - orderStatus: exact
+              orderNumber: exact
+              object: exact
+              object.contractNumber: exact
+              customer: exact
+              customer.personDetails.name: iword_start
+              customer.corporationDetails.name: iword_start
+              customer.corporationDetails.legalName: iword_start
+        tags:
+            - name: api_platform.filter
+              id: order.search
+    ###< order ###
+    
+    ###> point_credits_exchange_rate ###
+    point_credits_exchange_rate.date_filter:
+        parent: api_platform.doctrine.orm.date_filter
+        arguments:
+            - validFrom: include_null_before
+              validThrough: include_null_after
+        tags:
+            - name: api_platform.filter
+              id: point_credits_exchange_rate.date
+
+    point_credits_exchange_rate.exists_filter:
+        parent: api_platform.doctrine.orm.exists_filter
+        arguments:
+            - isBasedOn: ~
+        tags:
+            - name: api_platform.filter
+              id: point_credits_exchange_rate.exists
+
+    point_credits_exchange_rate.order_filter:
+        parent: api_platform.doctrine.orm.order_filter
+        arguments:
+            - dateCreated: ~
+              validFrom: ~
+              validThrough: ~
+        tags:
+            - name: api_platform.filter
+              id: point_credits_exchange_rate.order
+    ###< point_credits_exchange_rate ###
+
+    ###> recurring_email_campaign ###
+    recurring_email_campaign.search_filter:
+        parent: api_platform.doctrine.orm.search_filter
+        arguments:
+            - campaign: exact
+        tags:
+            - name: api_platform.filter
+              id: recurring_email_campaign.search
+    ###< email campaign schedule ###
+
+    ###> promotion###
+    promotion.date_filter:
+      parent: api_platform.doctrine.orm.date_filter
+      arguments:
+        - validFrom: include_null_before
+          validThrough: include_null_after
+      tags:
+        - name: api_platform.filter
+          id: promotion.date
+
+    promotion.exists_filter:
+      parent: api_platform.doctrine.orm.exists_filter
+      arguments:
+        - isBasedOn: ~
+      tags:
+        - name: api_platform.filter
+          id: promotion.exists
+
+    promotion.json_search_filter:
+      parent: App\ApiPlatform\Doctrine\Orm\Filter\JsonSearchFilter
+      arguments:
+        - contractTypes: ~
+          customerTypes: ~
+      tags:
+        - name: api_platform.filter
+          id: promotion.json_search
+
+    promotion.search_filter:
+      parent: api_platform.doctrine.orm.search_filter
+      arguments:
+        - name: iword_start
+          status: exact
+          page.position: exact
+          promotionNumber: exact
+      tags:
+        - name: api_platform.filter
+          id: promotion.search
+    ###< promotion###
+
+    ###> quotation ###
+    quotation.date_filter:
+        parent: api_platform.doctrine.orm.date_filter
+        arguments:
+            - dateCreated: exclude_null
+              validThrough: include_null_after
+        tags:
+            - name: api_platform.filter
+              id: quotation.date
+              
+    quotation.order_filter:
+        parent: api_platform.doctrine.orm.order_filter
+        arguments:
+            - dateCreated: ~
+              quotationNumber: ~
+        tags:
+            - name: api_platform.filter
+              id: quotation.order
+              
+    quotation.search_filter:
+        parent: api_platform.doctrine.orm.search_filter
+        arguments:
+            - assignee: exact
+              creator: exact
+              source: exact
+              status: exact
+              quotationNumber: exact
+        tags:
+            - name: api_platform.filter
+              id: quotation.search
+    ###< quotation ###
+
+    ###> quotation_price_configuration ###
+    quotation_price_configuration.boolean_filter:
+        parent: api_platform.doctrine.orm.boolean_filter
+        arguments:
+            - enabled: exact
+        tags:
+            - name: api_platform.filter
+              id: quotation_price_configuration.boolean
+
+    quotation_price_configuration.date_filter:
+        parent: api_platform.doctrine.orm.date_filter
+        arguments:
+            - dateCreated: ~
+        tags:
+            - name: api_platform.filter
+              id: quotation_price_configuration.date
+              
+    quotation_price_configuration.exists_filter:
+        parent: api_platform.doctrine.orm.exists_filter
+        arguments:
+            - isBasedOn: ~
+        tags:
+            - name: api_platform.filter
+              id: quotation_price_configuration.exists
+              
+    quotation_price_configuration.order_filter:
+        parent: api_platform.doctrine.orm.order_filter
+        arguments:
+            - dateCreated: ~
+        tags:
+            - name: api_platform.filter
+              id: quotation_price_configuration.order
+              
+    quotation_price_configuration.search_filter:
+        parent: api_platform.doctrine.orm.search_filter
+        arguments:
+            - isBasedOn: exact
+              name: iword_start
+        tags:
+            - name: api_platform.filter
+              id: quotation_price_configuration.search
+    ###< quotation_price_configuration ###
+
+    ###> redeem_credits_action ###
+    redeem_credits_action.date_filter:
+        parent: api_platform.doctrine.orm.date_filter
+        arguments:
+            - dateCreated: ~
+        tags:
+            - name: api_platform.filter
+              id: redeem_credits_action.date
+
+    redeem_credits_action.order_filter:
+        parent: api_platform.doctrine.orm.order_filter
+        arguments:
+            - dateCreated: ~
+        tags:
+            - name: api_platform.filter
+              id: redeem_credits_action.order
+
+    redeem_credits_action.search_filter:
+        parent: App\ApiPlatform\Doctrine\Orm\Filter\RedeemCreditsActionSearchFilter
+        arguments:
+            - object: exact
+              object.customer: exact
+              object.customer.personDetails.name: iword_start
+              object.customer.corporationDetails.name: iword_start
+              object.customer.corporationDetails.legalName: iword_start
+              object.contractNumber: exact
+        tags:
+            - name: api_platform.filter
+              id: redeem_credits_action.search
+    ###< earn_contract_credits_action ###
+    
+    ###> role_profile_module ###
+    role_profile_module.search_filter:
+        parent: api_platform.doctrine.orm.search_filter
+        arguments:
+              - profile: exact
+        tags:
+            - name: api_platform.filter
+              id: role_profile_module.search
+    ###< role_profile_module ###
+
+    ###> service_level_agreement ###
+    service_level_agreement.order_filter:
+        parent: api_platform.doctrine.orm.order_filter
+        arguments:
+            - dateCreated: ~
+        tags:
+            - name: api_platform.filter
+              id: service_level_agreement.order
+
+    service_level_agreement.search_filter:
+        parent: api_platform.doctrine.orm.search_filter
+        arguments:
+            - name: exact
+              priority: exact
+              ticketCategories: exact
+              ticketTypes: exact
+        tags:
+            - name: api_platform.filter
+              id: service_level_agreement.search
+    ###< service_level_agreement ###
+
+    ###> tariff_rate ###
+    tariff_rate.date_filter:
+        parent: api_platform.doctrine.orm.date_filter
+        arguments:
+            - startDate: include_null_before
+              validFrom: include_null_before
+              validThrough: include_null_after
+        tags:
+            - name: api_platform.filter
+              id: tariff_rate.date
+
+    tariff_rate.exists_filter:
+        parent: api_platform.doctrine.orm.exists_filter
+        arguments:
+            - isBasedOn: ~
+        tags:
+            - name: api_platform.filter
+              id: tariff_rate.exists
+
+    tariff_rate.json_search_filter:
+        parent: App\ApiPlatform\Doctrine\Orm\Filter\JsonSearchFilter
+        arguments:
+            - contractTypes: ~
+              usedIn: ~
+        tags:
+            - name: api_platform.filter
+              id: tariff_rate.json_search
+
+    tariff_rate.order_filter:
+        parent: api_platform.doctrine.orm.order_filter
+        arguments:
+            - dateCreated: ~
+              startDate: ~
+              validFrom: ~
+              validThrough: ~
+              page.position: ~
+        tags:
+            - name: api_platform.filter
+              id: tariff_rate.order
+
+    tariff_rate.search_filter:
+        parent: api_platform.doctrine.orm.search_filter
+        arguments:
+            - internalUseOnly: exact
+              name: iword_start
+              status: exact
+              tariffRateNumber: iword_start
+              page.position: exact
+        tags:
+            - name: api_platform.filter
+              id: tariff_rate.search
+    ###< tariff_rate ###
+
+    ###> third_party_charge_configuration ###
+    third_party_charge_configuration.date_filter:
+        parent: api_platform.doctrine.orm.date_filter
+        arguments:
+            - validFrom: ~
+              validThrough: ~
+        tags:
+            - name: api_platform.filter
+              id: third_party_charge_configuration.date
+
+    third_party_charge_configuration.order_filter:
+        parent: api_platform.doctrine.orm.order_filter
+        arguments:
+            - dateCreated: ~
+        tags:
+            - name: api_platform.filter
+              id: third_party_charge_configuration.order
+
+    third_party_charge_configuration.search_filter:
+        parent: api_platform.doctrine.orm.search_filter
+        arguments:
+            - configurationNumber: exact
+        tags:
+            - name: api_platform.filter
+              id: third_party_charge_configuration.search
+
+    third_party_charge_configuration.exists_filter:
+        parent: api_platform.doctrine.orm.exists_filter
+        arguments:
+            - isBasedOn: ~
+        tags:
+            - name: api_platform.filter
+              id: third_party_charge_configuration.exists
+        ###< third_party_charge_configuration ###
+
+    ###> ticket ###
+    ticket.date_filter:
+        parent: api_platform.doctrine.orm.date_filter
+        arguments:
+            - dateClosed: include_null_after
+              dateCreated: exclude_null
+              dateOpened: include_null_before
+              plannedCompletionDate: ~
+        tags:
+            - name: api_platform.filter
+              id: ticket.date
+
+    ticket.order_filter:
+        parent: api_platform.doctrine.orm.order_filter
+        arguments:
+            - dateClosed: ~
+              dateCreated: ~
+              dateOpened: ~
+              plannedCompletionDate: ~
+        tags:
+            - name: api_platform.filter
+              id: ticket.order
+
+    ticket.search_filter:
+        parent: App\ApiPlatform\Doctrine\Orm\Filter\TicketSearchFilter
+        arguments:
+            - assignee: exact
+              category: exact
+              channel: exact
+              creator: exact
+              customer.type: exact
+              customer: exact
+              personDetails.additionalName: iword_start
+              personDetails.alternateName: iword_start
+              personDetails.contactPoints.faxNumbers.phoneNumber: exact
+              personDetails.contactPoints.mobilePhoneNumbers.phoneNumber: exact
+              personDetails.contactPoints.telephoneNumbers.phoneNumber: exact
+              personDetails.familyName: iword_start
+              personDetails.gender: exact
+              personDetails.givenName: iword_start
+              personDetails.identifiers.name: exact
+              personDetails.identifiers.value: exact
+              personDetails.preferredLanguage: exact
+              personDetails.name: iword_start
+              personDetails.nationality: exact
+              priority: exact
+              source: exact
+              status: exact
+              subcategory: exact
+              ticketNumber: exact
+              type: exact
+        tags:
+            - name: api_platform.filter
+              id: ticket.search
+              
+    ticket.exists_filter:
+        parent: api_platform.doctrine.orm.exists_filter
+        arguments:
+            - customer: ~
+        tags:
+            - name: api_platform.filter
+              id: ticket.exists
+              
+    ticket.range_filter:
+        parent: api_platform.doctrine.orm.range_filter
+        arguments:
+            - timeLeft.value: ~
+        tags:
+            - name: api_platform.filter
+              id: ticket.range
+    ###< ticket ###
+
+    ###> ticket category ###
+    ticket_category.exists_filter:
+        parent: api_platform.doctrine.orm.exists_filter
+        arguments:
+            - parent: ~
+        tags:
+            - name: api_platform.filter
+              id: ticket_category.exists
+
+    ticket_category.order_filter:
+        parent: api_platform.doctrine.orm.order_filter
+        arguments:
+            - dateCreated: ~
+        tags:
+            - name: api_platform.filter
+              id: ticket_category.order
+
+    ticket_category.search_filter:
+        parent: api_platform.doctrine.orm.search_filter
+        arguments:
+            - name: iword_start
+              code: exact
+              parent: exact
+        tags:
+            - name: api_platform.filter
+              id: ticket_category.search
+    ###< ticket category ###
+
+    ###> ticket type ###
+    ticket_type.json_search_filter:
+        parent: App\ApiPlatform\Doctrine\Orm\Filter\JsonSearchFilter
+        arguments:
+            - usedIn: ~
+        tags:
+            - name: api_platform.filter
+              id: ticket_type.json_search
+                
+    ticket_type.order_filter:
+        parent: api_platform.doctrine.orm.order_filter
+        arguments:
+            - dateCreated: ~
+        tags:
+            - name: api_platform.filter
+              id: ticket_type.order
+
+    ticket_type.search_filter:
+        parent: api_platform.doctrine.orm.search_filter
+        arguments:
+            - name: iword_start
+        tags:
+            - name: api_platform.filter
+              id: ticket_type.search
+    ###< ticket type ###
+
+    ###> update_credits_action ###
+    update_credits_action.date_filter:
+        parent: api_platform.doctrine.orm.date_filter
+        arguments:
+            - dateCreated: ~
+        tags:
+            - name: api_platform.filter
+              id: update_credits_action.date
+                
+    update_credits_action.order_filter:
+        parent: api_platform.doctrine.orm.order_filter
+        arguments:
+            - dateCreated: ~
+        tags:
+            - name: api_platform.filter
+              id: update_credits_action.order
+
+    update_credits_action.search_filter:
+        parent: App\ApiPlatform\Doctrine\Orm\Filter\DiscriminatorColumnSearchFilter
+        arguments:
+            - status: exact
+        tags:
+            - name: api_platform.filter
+              id: update_credits_action.search
+    ###< update_credits_action ###
+
+    ###> user ###
+    user.boolean_filter:
+        parent: api_platform.doctrine.orm.boolean_filter
+        arguments:
+            - mobileDeviceLogin: exact
+        tags:
+            - name: api_platform.filter
+              id: user.boolean
+              
+    user.date_filter:
+        parent: api_platform.doctrine.orm.date_filter
+        arguments:
+            - dateCreated: exclude_null
+              dateModified: ~
+        tags:
+            - name: api_platform.filter
+              id: user.date
+              
+    user.exists_filter:
+        parent: api_platform.doctrine.orm.exists_filter
+        arguments:
+            - mobileDeviceLogin: ~
+              expoPushNotificationTokens: ~
+        tags:
+            - name: api_platform.filter
+              id: user.exists
+
+    user.json_search_filter:
+        parent: App\ApiPlatform\Doctrine\Orm\Filter\JsonSearchFilter
+        arguments:
+            - customerAccount.categories: ~
+              roles: ~
+        tags:
+            - name: api_platform.filter
+              id: user.json_search
+
+    user.order_filter:
+        parent: api_platform.doctrine.orm.order_filter
+        arguments:
+            - dateCreated: ~
+              customerAccount.personDetails.birthDate: ~
+        tags:
+            - name: api_platform.filter
+              id: user.order
+
+    user.search_filter:
+        parent: App\ApiPlatform\Doctrine\Orm\Filter\UserSearchFilter
+        arguments:
+            - customerAccount: exact
+              customerAccount.accountNumber: exact
+              customerAccount.personDetails.name: iword_start
+              customerAccount.personDetails.gender: iword_start
+              customerAccount.personDetails.familyName: iword_start
+              customerAccount.personDetails.givenName: iword_start
+              customerAccount.addresses.address.postalCode: exact
+              customerAccount.contracts.paymentMode: exact
+              customerAccount.contracts.subtype: exact
+              customerAccount.contracts.tariffRate: exact
+              customerAccount.contracts.tariffRate.isBasedOn: exact
+              customerAccount.status: exact
+              customerAccount.type: exact
+              email: iexact
+              referralCode: exact
+              username: iexact
+        tags:
+            - name: api_platform.filter
+              id: user.search
+    ###< user ###

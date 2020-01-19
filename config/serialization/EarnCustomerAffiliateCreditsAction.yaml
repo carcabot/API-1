@@ -1,0 +1,20 @@
+App\Entity\EarnCustomerAffiliateCreditsAction:
+    attributes:
+        instrument:
+            groups:
+                - earn_customer_affiliate_credits_action_read
+                - earn_customer_affiliate_credits_action_write
+                - update_credits_action_read
+        object:
+            groups:
+                - earn_customer_affiliate_credits_action_read
+                - earn_customer_affiliate_credits_action_write
+                - update_credits_action_read
+        transactions:
+            groups:
+                - earn_customer_affiliate_credits_action_read
+                - earn_customer_affiliate_credits_action_write
+        totalTransactionsAmount:
+            groups:
+                - earn_customer_affiliate_credits_action_read
+                - earn_customer_affiliate_credits_action_write

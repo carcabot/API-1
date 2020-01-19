@@ -1,0 +1,13 @@
+App\Entity\EmployeeRole:
+    properties:
+        employee:
+            - Type:
+                type: App\Entity\CustomerAccount
+            - NotNull: ~
+        endDate:
+            - DateTime: ~
+        roleName:
+            - Type:
+                type: App\Enum\Role
+        startDate:
+            - DateTime: ~

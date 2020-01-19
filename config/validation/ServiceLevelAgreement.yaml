@@ -1,0 +1,46 @@
+App\Entity\ServiceLevelAgreement:
+    properties:
+        description:
+            - Type:
+                type: string
+        name:
+            - Type:
+                type: string
+            - NotNull: ~
+        operationExclusions:
+            - All:
+                - Type:
+                    type: App\Entity\OpeningHoursSpecification
+            - NotNull: ~
+        priority:
+            - Type:
+                type: App\Enum\Priority
+        ticketCategories:
+            - All:
+                - Type:
+                    type: App\Entity\TicketCategory
+            - NotNull: ~
+        ticketTypes:
+            - All:
+                - Type:
+                    type: App\Entity\TicketType
+            - NotNull: ~
+        timer:
+            - Type:
+                type: App\Entity\QuantitativeValue
+            - NotNull: ~
+            - Valid: ~
+
+        # BlameableTrait
+        agent:
+            - Type:
+                type: App\Entity\User
+        creator:
+            - Type:
+                type: App\Entity\User
+
+        # TimestampableTrait
+        dateCreated:
+            - DateTime: ~
+        dateModified:
+            - DateTime: ~

@@ -1,0 +1,8 @@
+App\Entity\SmsCampaignSourceListItem:
+    attributes:
+        mobileNumber:
+            groups:
+                - sms_campaign_source_list_item_read
+                - sms_campaign_source_list_item_write
+                - sms_campaign_source_list_read
+                - source_list_read

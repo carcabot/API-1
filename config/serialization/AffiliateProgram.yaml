@@ -1,0 +1,64 @@
+App\Entity\AffiliateProgram:
+    attributes:
+        id:
+            groups:
+                # -
+        baseTrackingUrl:
+            groups:
+                - affiliate_program_read
+                - affiliate_program_write
+        coverImage:
+            groups:
+                - affiliate_program_read
+                - affiliate_program_write
+        description:
+            groups:
+                - affiliate_program_read
+                - affiliate_program_write
+        disambiguatingDescription:
+            groups:
+                - affiliate_program_read
+                - affiliate_program_write
+        image:
+            groups:
+                - affiliate_program_read
+                - affiliate_program_write
+        name:
+            groups:
+                - affiliate_program_read
+                - affiliate_program_write
+        programNumber:
+            groups:
+                - affiliate_program_read
+                - affiliate_program_write
+        provider:
+            groups:
+                - affiliate_program_read
+                - affiliate_program_write
+        status:
+            groups:
+                - affiliate_program_read
+                - affiliate_program_write
+        terms:
+            groups:
+                - affiliate_program_read
+                - affiliate_program_write
+        trackingUrl:
+            groups:
+                - affiliate_program_read
+        validFrom:
+            groups:
+                - affiliate_program_read
+                - affiliate_program_write
+        validThrough:
+            groups:
+                - affiliate_program_read
+                - affiliate_program_write
+
+        # TimestampableTrait
+        dateCreated:
+            groups:
+                - affiliate_program_read
+        dateModified:
+            groups:
+                - affiliate_program_read

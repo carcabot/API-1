@@ -1,0 +1,137 @@
+App\Entity\CustomerAccount:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields:
+                - accountNumber
+                - referralCode
+        - App\Validator\Constraints\UniqueIdentification: ~
+    properties:
+        accountNumber:
+            - Type:
+                type: string
+        activities:
+            - All:
+                - Type:
+                    type: App\Entity\Activity
+            - Valid:
+                traverse: true
+        addresses:
+            - All:
+                - Type:
+                    type: App\Entity\CustomerAccountPostalAddress
+            - Valid:
+                traverse: true
+        applicationRequests:
+            - All:
+                - Type:
+                    type: App\Entity\ApplicationRequest
+        categories:
+            - Choice:
+                callback: [App\Enum\AccountCategory, keys]
+                multiple: true
+        contracts:
+            - All:
+                - Type:
+                    type: App\Entity\Contract
+        corporationDetails:
+            - Type:
+                type: App\Entity\Corporation
+            - Valid:
+                traverse: true
+        customerPortalEnabled:
+            - Type:
+                type: bool
+        dateBlacklisted:
+            - DateTime: ~
+        defaultCreditsContract:
+            - Type:
+                type: App\Entity\Contract
+        doNotContact:
+            - Type:
+                type: bool
+        externalCustomerNumber:
+            - Type:
+                type: string
+        image:
+            - Type:
+                type: App\Entity\DigitalDocument
+        lpgUser:
+            - Type:
+                type: bool
+        moneyCreditsActions:
+            - All:
+                - Type:
+                    type: App\Entity\UpdateCreditsAction
+        notes:
+            - All:
+                - Type:
+                    type: App\Entity\Note
+        partnerDetails:
+            - Type:
+                type: App\Entity\Partner
+            - Valid:
+                traverse: true
+        personDetails:
+            - Type:
+                type: App\Entity\Person
+            - Valid:
+                traverse: true
+        pointCreditsActions:
+            - All:
+                - Type:
+                    type: App\Entity\UpdateCreditsAction
+        preferredContactMethod:
+            - Type:
+                type: App\Enum\ContactMethod
+        referralCode:
+            - Type:
+                  type: string
+        relationships:
+            - All:
+                - Type:
+                    type: App\Entity\CustomerAccountRelationship
+            - Valid:
+                traverse: true
+        status:
+            - Type:
+                type: App\Enum\CustomerAccountStatus
+            - NotNull: ~
+        supplementaryFiles:
+            - All:
+                - Type:
+                    type: App\Entity\DigitalDocument
+            - Valid:
+                traverse: true
+        tenant:
+            - Type:
+                type: bool
+        type:
+            - Type:
+                type: App\Enum\AccountType
+            - NotNull: ~
+        user:
+            - Type:
+                type: App\Entity\User
+
+        # BlameableTrait
+        agent:
+            - Type:
+                type: App\Entity\User
+        creator:
+            - Type:
+                type: App\Entity\User
+
+        # SourceableTrait
+        acquiredFrom:
+            - Type:
+                type: App\Entity\CustomerAccount
+        source:
+            - Type:
+                type: string
+                # type: App\Enum\Source
+
+        # TimestampableTrait
+        dateCreated:
+            - DateTime: ~
+        dateModified:
+            - DateTime: ~

@@ -1,0 +1,17 @@
+App\Entity\WithdrawCreditsAction:
+    attributes:
+        contract:
+            groups:
+                - withdraw_credits_action_read
+                - withdraw_credits_action_write
+                - update_credits_action_read
+        instrument:
+            groups:
+                - withdraw_credits_action_read
+                - withdraw_credits_action_write
+                - update_credits_action_read
+        object:
+            groups:
+                - withdraw_credits_action_read
+                - withdraw_credits_action_write
+                - update_credits_action_read

@@ -1,0 +1,15 @@
+App\Entity\EarnCustomerCreditsAction:
+    properties:
+        instrument:
+            - Type:
+                type: App\Entity\Contract
+        object:
+            - Type:
+                type: App\Entity\CustomerAccount
+            - NotNull: ~
+        scheme:
+            - Type:
+                type: App\Entity\CreditsScheme
+        sender:
+            - Type:
+                type: App\Entity\CustomerAccount

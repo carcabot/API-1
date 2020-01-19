@@ -1,0 +1,30 @@
+App\Entity\OfferSerialNumber:
+    properties:
+        datePurchased:
+            - DateTime: ~
+        expires:
+            - DateTime: ~
+        offerListItem:
+            - Type:
+                type: App\Entity\OfferListItem
+        orderItem:
+            - Type:
+                type: App\Entity\OrderItem
+        serialNumber:
+            - Type:
+                type: string
+            - NotNull: ~
+
+        # BlameableTrait
+        agent:
+            - Type:
+                type: App\Entity\User
+        creator:
+            - Type:
+                type: App\Entity\User
+
+        # TimestampableTrait
+        dateCreated:
+            - DateTime: ~
+        dateModified:
+            - DateTime: ~

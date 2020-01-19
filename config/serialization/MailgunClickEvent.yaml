@@ -1,0 +1,8 @@
+App\Entity\MailgunClickEvent:
+    attributes:
+        url:
+            groups:
+                - mailgun_click_event_read
+        datesClicked:
+            groups:
+                - mailgun_click_event_read

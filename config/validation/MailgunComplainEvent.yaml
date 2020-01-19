@@ -1,0 +1,5 @@
+App\Entity\MailgunComplainEvent:
+    properties:
+        dateComplained:
+            - DateTime: ~
+            - NotNull: ~

@@ -1,0 +1,10 @@
+App\Entity\ExpireCustomerCreditsAction:
+    properties:
+        object:
+            - Type:
+                type: App\Entity\CustomerAccount
+            - NotNull: ~
+        scheme:
+            - Type:
+                type: App\Entity\CreditsScheme
+            - NotNull: ~

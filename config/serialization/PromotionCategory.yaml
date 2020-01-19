@@ -1,0 +1,25 @@
+App\Entity\PromotionCategory:
+  attributes:
+      id:
+          groups:
+            # -
+      name:
+          groups:
+              - promotion_category_read
+              - promotion_category_write
+
+      # BlameableTrait
+      agent:
+          groups:
+              - promotion_category_read
+      creator:
+          groups:
+              - promotion_category_read
+
+      # TimestampableTrait
+      dateCreated:
+          groups:
+              - promotion_category_read
+      dateModified:
+          groups:
+              - promotion_category_read

@@ -1,0 +1,6 @@
+App\Entity\UpdateContractAction:
+    attributes:
+        type:
+            groups:
+                - update_contract_action_read
+                - update_contract_action_write

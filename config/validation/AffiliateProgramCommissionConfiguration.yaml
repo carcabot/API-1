@@ -1,0 +1,22 @@
+App\Entity\AffiliateProgramCommissionConfiguration:
+    properties:
+        allocationType:
+            - Type:
+                type: App\Enum\CommissionAllocation
+        currency:
+            - Type:
+                type: string
+        isBasedOn:
+            - Type:
+                type: App\Entity\AffiliateProgramCommissionConfiguration
+        provider:
+            - Type:
+                type: App\Enum\AffiliateWebServicePartner
+            - Valid: ~
+        type:
+            - Type:
+                type: App\Enum\CommissionType
+        value:
+            - Type:
+                type: string
+            - NotNull: ~

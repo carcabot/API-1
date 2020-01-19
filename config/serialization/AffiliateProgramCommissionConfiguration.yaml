@@ -1,0 +1,46 @@
+App\Entity\AffiliateProgramCommissionConfiguration:
+    attributes:
+        id:
+            groups:
+                # -
+        allocationType:
+            groups:
+                - affiliate_program_commission_configuration_read
+                - affiliate_program_commission_configuration_write
+        currency:
+            groups:
+                - affiliate_program_commission_configuration_read
+                - affiliate_program_commission_configuration_write
+        isBasedOn:
+            groups:
+                - affiliate_program_commission_configuration_read
+                - affiliate_program_commission_configuration_write
+        provider:
+            groups:
+                - affiliate_program_commission_configuration_read
+                - affiliate_program_commission_configuration_write
+        type:
+            groups:
+                - affiliate_program_commission_configuration_read
+                - affiliate_program_commission_configuration_write
+        value:
+            groups:
+                - affiliate_program_commission_configuration_read
+                - affiliate_program_commission_configuration_write
+
+        # BlameableTrait
+        agent:
+            groups:
+                - affiliate_program_commission_configuration_read
+        creator:
+            groups:
+                - affiliate_program_commission_configuration_read
+                
+        # TimestampableTrait
+        dateCreated:
+            groups:
+                - affiliate_program_commission_configuration_read
+        dateModified:
+            groups:
+                - affiliate_program_commission_configuration_read
+            

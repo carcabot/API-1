@@ -1,0 +1,188 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Migration;
+
+use Doctrine\DBAL\Schema\Schema;
+use Doctrine\Migrations\AbstractMigration;
+
+final class Version20190128120524 extends AbstractMigration
+{
+    public function up(Schema $schema): void
+    {
+        $this->abortIf('postgresql' !== $this->connection->getDatabasePlatform()->getName(), 'Migration can only be executed safely on \'postgresql\'.');
+
+        $this->addSql('CREATE SEQUENCE contract_durations_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
+        $this->addSql('CREATE SEQUENCE price_configurations_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
+        $this->addSql('CREATE SEQUENCE quotations_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
+        $this->addSql('CREATE SEQUENCE third_party_charge_configurations_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
+        $this->addSql('CREATE SEQUENCE quotation_postal_addresses_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
+        $this->addSql('CREATE SEQUENCE third_party_charges_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
+        $this->addSql('CREATE TABLE contract_durations (id INT NOT NULL, agent_id INT DEFAULT NULL, creator_id INT DEFAULT NULL, enabled BOOLEAN NOT NULL, valid_from TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, valid_through TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, date_created TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT NULL, date_modified TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT NULL, term_max_value NUMERIC(19, 4) DEFAULT NULL, term_min_value NUMERIC(19, 4) DEFAULT NULL, term_unit_code TEXT DEFAULT NULL, term_value NUMERIC(19, 4) DEFAULT NULL, PRIMARY KEY(id))');
+        $this->addSql('CREATE INDEX IDX_AD7B0AAD3414710B ON contract_durations (agent_id)');
+        $this->addSql('CREATE INDEX IDX_AD7B0AAD61220EA6 ON contract_durations (creator_id)');
+        $this->addSql('CREATE INDEX IDX_AD7B0AAD8BDAB045 ON contract_durations (date_created)');
+        $this->addSql('CREATE TABLE price_configurations (id INT NOT NULL, agent_id INT DEFAULT NULL, creator_id INT DEFAULT NULL, description TEXT DEFAULT NULL, enabled BOOLEAN NOT NULL, name TEXT NOT NULL, date_created TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT NULL, date_modified TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT NULL, offer_duration_max_value NUMERIC(19, 4) DEFAULT NULL, offer_duration_min_value NUMERIC(19, 4) DEFAULT NULL, offer_duration_unit_code TEXT DEFAULT NULL, offer_duration_value NUMERIC(19, 4) DEFAULT NULL, rate_max_price NUMERIC(19, 4) DEFAULT NULL, rate_min_price NUMERIC(19, 4) DEFAULT NULL, rate_price NUMERIC(19, 4) DEFAULT NULL, rate_price_currency VARCHAR(3) DEFAULT NULL, entity_type VARCHAR(128) NOT NULL, PRIMARY KEY(id))');
+        $this->addSql('CREATE INDEX IDX_B874DF653414710B ON price_configurations (agent_id)');
+        $this->addSql('CREATE INDEX IDX_B874DF6561220EA6 ON price_configurations (creator_id)');
+        $this->addSql('CREATE INDEX IDX_B874DF658BDAB045 ON price_configurations (date_created)');
+        $this->addSql('CREATE TABLE quotations (id INT NOT NULL, assignee_id INT NOT NULL, contact_person_id INT NOT NULL, corporation_details_id INT DEFAULT NULL, customer_id INT NOT NULL, person_details_id INT DEFAULT NULL, agent_id INT DEFAULT NULL, creator_id INT DEFAULT NULL, acquired_from_id INT DEFAULT NULL, brent_crude_date TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT NULL, contract_sub_type VARCHAR(254) NOT NULL, contract_type VARCHAR(254) NOT NULL, deposit_negotiated BOOLEAN DEFAULT NULL, expires TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT NULL, payment_mode VARCHAR(128) DEFAULT NULL, payment_term VARCHAR(128) DEFAULT NULL, quotation_number VARCHAR(128) NOT NULL, status VARCHAR(254) NOT NULL, terms JSON NOT NULL, valid_from TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT NULL, valid_through TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT NULL, source VARCHAR(254) DEFAULT NULL, source_url TEXT DEFAULT NULL, date_created TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT NULL, date_modified TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT NULL, average_consumption_max_value NUMERIC(19, 4) DEFAULT NULL, average_consumption_min_value NUMERIC(19, 4) DEFAULT NULL, average_consumption_unit_code TEXT DEFAULT NULL, average_consumption_value NUMERIC(19, 4) DEFAULT NULL, brent_crude_price_max_price NUMERIC(19, 4) DEFAULT NULL, brent_crude_price_min_price NUMERIC(19, 4) DEFAULT NULL, brent_crude_price_price NUMERIC(19, 4) DEFAULT NULL, brent_crude_price_price_currency VARCHAR(3) DEFAULT NULL, security_deposit_max_price NUMERIC(19, 4) DEFAULT NULL, security_deposit_min_price NUMERIC(19, 4) DEFAULT NULL, security_deposit_price NUMERIC(19, 4) DEFAULT NULL, security_deposit_price_currency VARCHAR(3) DEFAULT NULL, PRIMARY KEY(id))');
+        $this->addSql('CREATE UNIQUE INDEX UNIQ_A9F48EAE6CE0D5CE ON quotations (quotation_number)');
+        $this->addSql('CREATE INDEX IDX_A9F48EAE59EC7D60 ON quotations (assignee_id)');
+        $this->addSql('CREATE INDEX IDX_A9F48EAE4F8A983C ON quotations (contact_person_id)');
+        $this->addSql('CREATE UNIQUE INDEX UNIQ_A9F48EAE42F6D1D6 ON quotations (corporation_details_id)');
+        $this->addSql('CREATE INDEX IDX_A9F48EAE9395C3F3 ON quotations (customer_id)');
+        $this->addSql('CREATE UNIQUE INDEX UNIQ_A9F48EAE8DA16437 ON quotations (person_details_id)');
+        $this->addSql('CREATE INDEX IDX_A9F48EAE3414710B ON quotations (agent_id)');
+        $this->addSql('CREATE INDEX IDX_A9F48EAE61220EA6 ON quotations (creator_id)');
+        $this->addSql('CREATE INDEX IDX_A9F48EAEB43AA055 ON quotations (acquired_from_id)');
+        $this->addSql('COMMENT ON COLUMN quotations.contract_sub_type IS \'(DC2Type:contract_subtype_enum)\'');
+        $this->addSql('COMMENT ON COLUMN quotations.contract_type IS \'(DC2Type:contract_type_enum)\'');
+        $this->addSql('COMMENT ON COLUMN quotations.status IS \'(DC2Type:quotation_status_enum)\'');
+        $this->addSql('COMMENT ON COLUMN quotations.source IS \'(DC2Type:source_enum)\'');
+        $this->addSql('CREATE TABLE quotations_activities (quotation_id INT NOT NULL, activity_id INT NOT NULL, PRIMARY KEY(quotation_id, activity_id))');
+        $this->addSql('CREATE INDEX IDX_F3659950B4EA4E60 ON quotations_activities (quotation_id)');
+        $this->addSql('CREATE UNIQUE INDEX UNIQ_F365995081C06096 ON quotations_activities (activity_id)');
+        $this->addSql('CREATE TABLE quotations_quotation_postal_addresses (quotation_id INT NOT NULL, quotation_postal_address_id INT NOT NULL, PRIMARY KEY(quotation_id, quotation_postal_address_id))');
+        $this->addSql('CREATE INDEX IDX_AE17116BB4EA4E60 ON quotations_quotation_postal_addresses (quotation_id)');
+        $this->addSql('CREATE UNIQUE INDEX UNIQ_AE17116B377969A4 ON quotations_quotation_postal_addresses (quotation_postal_address_id)');
+        $this->addSql('CREATE TABLE quotations_contract_durations (quotation_id INT NOT NULL, contract_duration_id INT NOT NULL, PRIMARY KEY(quotation_id, contract_duration_id))');
+        $this->addSql('CREATE INDEX IDX_A99ABBBAB4EA4E60 ON quotations_contract_durations (quotation_id)');
+        $this->addSql('CREATE UNIQUE INDEX UNIQ_A99ABBBA75125E15 ON quotations_contract_durations (contract_duration_id)');
+        $this->addSql('CREATE TABLE quotations_notes (quotation_id INT NOT NULL, note_id INT NOT NULL, PRIMARY KEY(quotation_id, note_id))');
+        $this->addSql('CREATE INDEX IDX_794ED362B4EA4E60 ON quotations_notes (quotation_id)');
+        $this->addSql('CREATE UNIQUE INDEX UNIQ_794ED36226ED0855 ON quotations_notes (note_id)');
+        $this->addSql('CREATE TABLE quotations_quotation_price_configurations (quotation_id INT NOT NULL, price_configuration_id INT NOT NULL, PRIMARY KEY(quotation_id, price_configuration_id))');
+        $this->addSql('CREATE INDEX IDX_84552885B4EA4E60 ON quotations_quotation_price_configurations (quotation_id)');
+        $this->addSql('CREATE UNIQUE INDEX UNIQ_8455288580883007 ON quotations_quotation_price_configurations (price_configuration_id)');
+        $this->addSql('CREATE TABLE third_party_charge_configurations (id INT NOT NULL, is_based_on_id INT DEFAULT NULL, agent_id INT DEFAULT NULL, creator_id INT DEFAULT NULL, configuration_number VARCHAR(128) NOT NULL, description TEXT DEFAULT NULL, enabled BOOLEAN NOT NULL, name TEXT DEFAULT NULL, valid_from TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT NULL, valid_through TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT NULL, date_created TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT NULL, date_modified TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT NULL, PRIMARY KEY(id))');
+        $this->addSql('CREATE INDEX IDX_643823566E363BB ON third_party_charge_configurations (is_based_on_id)');
+        $this->addSql('CREATE INDEX IDX_643823563414710B ON third_party_charge_configurations (agent_id)');
+        $this->addSql('CREATE INDEX IDX_6438235661220EA6 ON third_party_charge_configurations (creator_id)');
+        $this->addSql('CREATE TABLE quotation_postal_addresses (id INT NOT NULL, agent_id INT DEFAULT NULL, creator_id INT DEFAULT NULL, ebs_account_number VARCHAR(254) DEFAULT NULL, mssl_account_number VARCHAR(254) DEFAULT NULL, date_created TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT NULL, date_modified TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT NULL, PRIMARY KEY(id))');
+        $this->addSql('CREATE INDEX IDX_76F303AA3414710B ON quotation_postal_addresses (agent_id)');
+        $this->addSql('CREATE INDEX IDX_76F303AA61220EA6 ON quotation_postal_addresses (creator_id)');
+        $this->addSql('CREATE TABLE quotation_postal_addresses_postal_addresses (quotation_postal_address_id INT NOT NULL, address_id INT NOT NULL, PRIMARY KEY(quotation_postal_address_id, address_id))');
+        $this->addSql('CREATE INDEX IDX_8CCC39CB377969A4 ON quotation_postal_addresses_postal_addresses (quotation_postal_address_id)');
+        $this->addSql('CREATE UNIQUE INDEX UNIQ_8CCC39CBF5B7AF75 ON quotation_postal_addresses_postal_addresses (address_id)');
+        $this->addSql('CREATE TABLE quotation_notes (id INT NOT NULL, retailer TEXT DEFAULT NULL, PRIMARY KEY(id))');
+        $this->addSql('CREATE TABLE quotation_notes_contract_durations (quotation_note_id INT NOT NULL, contract_duration_id INT NOT NULL, PRIMARY KEY(quotation_note_id, contract_duration_id))');
+        $this->addSql('CREATE INDEX IDX_319E91DD36CD02C5 ON quotation_notes_contract_durations (quotation_note_id)');
+        $this->addSql('CREATE UNIQUE INDEX UNIQ_319E91DD75125E15 ON quotation_notes_contract_durations (contract_duration_id)');
+        $this->addSql('CREATE TABLE quotation_notes_price_configurations (quotation_note_id INT NOT NULL, price_configuration_id INT NOT NULL, PRIMARY KEY(quotation_note_id, price_configuration_id))');
+        $this->addSql('CREATE INDEX IDX_F09670BA36CD02C5 ON quotation_notes_price_configurations (quotation_note_id)');
+        $this->addSql('CREATE UNIQUE INDEX UNIQ_F09670BA80883007 ON quotation_notes_price_configurations (price_configuration_id)');
+        $this->addSql('CREATE TABLE quotation_price_configurations (id INT NOT NULL, third_party_charges_id INT DEFAULT NULL, category VARCHAR(254) NOT NULL, term_max_value NUMERIC(19, 4) DEFAULT NULL, term_min_value NUMERIC(19, 4) DEFAULT NULL, term_unit_code TEXT DEFAULT NULL, term_value NUMERIC(19, 4) DEFAULT NULL, PRIMARY KEY(id))');
+        $this->addSql('CREATE INDEX IDX_E71CBAF6FB7F25D6 ON quotation_price_configurations (third_party_charges_id)');
+        $this->addSql('COMMENT ON COLUMN quotation_price_configurations.category IS \'(DC2Type:quotation_price_plan_type_enum)\'');
+        $this->addSql('CREATE TABLE third_party_charges (id INT NOT NULL, configuration_id INT DEFAULT NULL, agent_id INT DEFAULT NULL, creator_id INT DEFAULT NULL, category VARCHAR(254) DEFAULT NULL, description TEXT DEFAULT NULL, enabled BOOLEAN NOT NULL, name TEXT DEFAULT NULL, plan_types JSONB NOT NULL, rate_description TEXT DEFAULT NULL, third_party_charge_number VARCHAR(128) NOT NULL, valid_from TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT NULL, valid_through TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT NULL, date_created TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT NULL, date_modified TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT NULL, rate_max_value NUMERIC(19, 4) DEFAULT NULL, rate_min_value NUMERIC(19, 4) DEFAULT NULL, rate_unit_code TEXT DEFAULT NULL, rate_value NUMERIC(19, 4) DEFAULT NULL, PRIMARY KEY(id))');
+        $this->addSql('CREATE INDEX IDX_6F16901673F32DD8 ON third_party_charges (configuration_id)');
+        $this->addSql('CREATE INDEX IDX_6F1690163414710B ON third_party_charges (agent_id)');
+        $this->addSql('CREATE INDEX IDX_6F16901661220EA6 ON third_party_charges (creator_id)');
+        $this->addSql('CREATE INDEX IDX_6F1690168BDAB045 ON third_party_charges (date_created)');
+        $this->addSql('COMMENT ON COLUMN third_party_charges.category IS \'(DC2Type:third_party_charge_enum)\'');
+        $this->addSql('ALTER TABLE contract_durations ADD CONSTRAINT FK_AD7B0AAD3414710B FOREIGN KEY (agent_id) REFERENCES users (id) ON DELETE SET NULL NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE contract_durations ADD CONSTRAINT FK_AD7B0AAD61220EA6 FOREIGN KEY (creator_id) REFERENCES users (id) ON DELETE SET NULL NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE price_configurations ADD CONSTRAINT FK_B874DF653414710B FOREIGN KEY (agent_id) REFERENCES users (id) ON DELETE SET NULL NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE price_configurations ADD CONSTRAINT FK_B874DF6561220EA6 FOREIGN KEY (creator_id) REFERENCES users (id) ON DELETE SET NULL NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE quotations ADD CONSTRAINT FK_A9F48EAE59EC7D60 FOREIGN KEY (assignee_id) REFERENCES users (id) ON DELETE RESTRICT NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE quotations ADD CONSTRAINT FK_A9F48EAE4F8A983C FOREIGN KEY (contact_person_id) REFERENCES customer_accounts (id) ON DELETE RESTRICT NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE quotations ADD CONSTRAINT FK_A9F48EAE42F6D1D6 FOREIGN KEY (corporation_details_id) REFERENCES corporations (id) ON DELETE SET NULL NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE quotations ADD CONSTRAINT FK_A9F48EAE9395C3F3 FOREIGN KEY (customer_id) REFERENCES customer_accounts (id) ON DELETE RESTRICT NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE quotations ADD CONSTRAINT FK_A9F48EAE8DA16437 FOREIGN KEY (person_details_id) REFERENCES people (id) ON DELETE SET NULL NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE quotations ADD CONSTRAINT FK_A9F48EAE3414710B FOREIGN KEY (agent_id) REFERENCES users (id) ON DELETE SET NULL NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE quotations ADD CONSTRAINT FK_A9F48EAE61220EA6 FOREIGN KEY (creator_id) REFERENCES users (id) ON DELETE SET NULL NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE quotations ADD CONSTRAINT FK_A9F48EAEB43AA055 FOREIGN KEY (acquired_from_id) REFERENCES customer_accounts (id) ON DELETE SET NULL NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE quotations_activities ADD CONSTRAINT FK_F3659950B4EA4E60 FOREIGN KEY (quotation_id) REFERENCES quotations (id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE quotations_activities ADD CONSTRAINT FK_F365995081C06096 FOREIGN KEY (activity_id) REFERENCES activities (id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE quotations_quotation_postal_addresses ADD CONSTRAINT FK_AE17116BB4EA4E60 FOREIGN KEY (quotation_id) REFERENCES quotations (id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE quotations_quotation_postal_addresses ADD CONSTRAINT FK_AE17116B377969A4 FOREIGN KEY (quotation_postal_address_id) REFERENCES quotation_postal_addresses (id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE quotations_contract_durations ADD CONSTRAINT FK_A99ABBBAB4EA4E60 FOREIGN KEY (quotation_id) REFERENCES quotations (id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE quotations_contract_durations ADD CONSTRAINT FK_A99ABBBA75125E15 FOREIGN KEY (contract_duration_id) REFERENCES contract_durations (id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE quotations_notes ADD CONSTRAINT FK_794ED362B4EA4E60 FOREIGN KEY (quotation_id) REFERENCES quotations (id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE quotations_notes ADD CONSTRAINT FK_794ED36226ED0855 FOREIGN KEY (note_id) REFERENCES notes (id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE quotations_quotation_price_configurations ADD CONSTRAINT FK_84552885B4EA4E60 FOREIGN KEY (quotation_id) REFERENCES quotations (id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE quotations_quotation_price_configurations ADD CONSTRAINT FK_8455288580883007 FOREIGN KEY (price_configuration_id) REFERENCES quotation_price_configurations (id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE third_party_charge_configurations ADD CONSTRAINT FK_643823566E363BB FOREIGN KEY (is_based_on_id) REFERENCES third_party_charge_configurations (id) ON DELETE SET NULL NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE third_party_charge_configurations ADD CONSTRAINT FK_643823563414710B FOREIGN KEY (agent_id) REFERENCES users (id) ON DELETE SET NULL NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE third_party_charge_configurations ADD CONSTRAINT FK_6438235661220EA6 FOREIGN KEY (creator_id) REFERENCES users (id) ON DELETE SET NULL NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE quotation_postal_addresses ADD CONSTRAINT FK_76F303AA3414710B FOREIGN KEY (agent_id) REFERENCES users (id) ON DELETE SET NULL NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE quotation_postal_addresses ADD CONSTRAINT FK_76F303AA61220EA6 FOREIGN KEY (creator_id) REFERENCES users (id) ON DELETE SET NULL NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE quotation_postal_addresses_postal_addresses ADD CONSTRAINT FK_8CCC39CB377969A4 FOREIGN KEY (quotation_postal_address_id) REFERENCES quotation_postal_addresses (id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE quotation_postal_addresses_postal_addresses ADD CONSTRAINT FK_8CCC39CBF5B7AF75 FOREIGN KEY (address_id) REFERENCES postal_addresses (id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE quotation_notes ADD CONSTRAINT FK_7EEC5F92BF396750 FOREIGN KEY (id) REFERENCES notes (id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE quotation_notes_contract_durations ADD CONSTRAINT FK_319E91DD36CD02C5 FOREIGN KEY (quotation_note_id) REFERENCES quotation_notes (id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE quotation_notes_contract_durations ADD CONSTRAINT FK_319E91DD75125E15 FOREIGN KEY (contract_duration_id) REFERENCES contract_durations (id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE quotation_notes_price_configurations ADD CONSTRAINT FK_F09670BA36CD02C5 FOREIGN KEY (quotation_note_id) REFERENCES quotation_notes (id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE quotation_notes_price_configurations ADD CONSTRAINT FK_F09670BA80883007 FOREIGN KEY (price_configuration_id) REFERENCES price_configurations (id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE quotation_price_configurations ADD CONSTRAINT FK_E71CBAF6FB7F25D6 FOREIGN KEY (third_party_charges_id) REFERENCES third_party_charge_configurations (id) NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE quotation_price_configurations ADD CONSTRAINT FK_E71CBAF6BF396750 FOREIGN KEY (id) REFERENCES price_configurations (id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE third_party_charges ADD CONSTRAINT FK_6F16901673F32DD8 FOREIGN KEY (configuration_id) REFERENCES third_party_charge_configurations (id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE third_party_charges ADD CONSTRAINT FK_6F1690163414710B FOREIGN KEY (agent_id) REFERENCES users (id) ON DELETE SET NULL NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE third_party_charges ADD CONSTRAINT FK_6F16901661220EA6 FOREIGN KEY (creator_id) REFERENCES users (id) ON DELETE SET NULL NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE application_requests ADD quotation_id INT DEFAULT NULL');
+        $this->addSql('ALTER TABLE application_requests ADD quotation_offer_id INT DEFAULT NULL');
+        $this->addSql('ALTER TABLE application_requests ADD CONSTRAINT FK_C4BE0942B4EA4E60 FOREIGN KEY (quotation_id) REFERENCES quotations (id) ON DELETE RESTRICT NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE application_requests ADD CONSTRAINT FK_C4BE0942A3D9C7A0 FOREIGN KEY (quotation_offer_id) REFERENCES quotation_price_configurations (id) ON DELETE RESTRICT NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('CREATE INDEX IDX_C4BE0942B4EA4E60 ON application_requests (quotation_id)');
+        $this->addSql('CREATE INDEX IDX_C4BE0942A3D9C7A0 ON application_requests (quotation_offer_id)');
+        $this->addSql('ALTER TABLE notes ADD entity_type VARCHAR(128)');
+        $this->addSql('UPDATE notes SET entity_type=\'note\'');
+        $this->addSql('ALTER TABLE notes ALTER entity_type SET NOT NULL');
+        $this->addSql('CREATE INDEX IDX_11BA68C8BDAB045 ON notes (date_created)');
+    }
+
+    public function down(Schema $schema): void
+    {
+        $this->abortIf('postgresql' !== $this->connection->getDatabasePlatform()->getName(), 'Migration can only be executed safely on \'postgresql\'.');
+
+        $this->addSql('ALTER TABLE quotations_contract_durations DROP CONSTRAINT FK_A99ABBBA75125E15');
+        $this->addSql('ALTER TABLE quotation_notes_contract_durations DROP CONSTRAINT FK_319E91DD75125E15');
+        $this->addSql('ALTER TABLE quotation_notes_price_configurations DROP CONSTRAINT FK_F09670BA80883007');
+        $this->addSql('ALTER TABLE quotation_price_configurations DROP CONSTRAINT FK_E71CBAF6BF396750');
+        $this->addSql('ALTER TABLE application_requests DROP CONSTRAINT FK_C4BE0942B4EA4E60');
+        $this->addSql('ALTER TABLE quotations_activities DROP CONSTRAINT FK_F3659950B4EA4E60');
+        $this->addSql('ALTER TABLE quotations_quotation_postal_addresses DROP CONSTRAINT FK_AE17116BB4EA4E60');
+        $this->addSql('ALTER TABLE quotations_contract_durations DROP CONSTRAINT FK_A99ABBBAB4EA4E60');
+        $this->addSql('ALTER TABLE quotations_notes DROP CONSTRAINT FK_794ED362B4EA4E60');
+        $this->addSql('ALTER TABLE quotations_quotation_price_configurations DROP CONSTRAINT FK_84552885B4EA4E60');
+        $this->addSql('ALTER TABLE third_party_charge_configurations DROP CONSTRAINT FK_643823566E363BB');
+        $this->addSql('ALTER TABLE quotation_price_configurations DROP CONSTRAINT FK_E71CBAF6FB7F25D6');
+        $this->addSql('ALTER TABLE third_party_charges DROP CONSTRAINT FK_6F16901673F32DD8');
+        $this->addSql('ALTER TABLE quotations_quotation_postal_addresses DROP CONSTRAINT FK_AE17116B377969A4');
+        $this->addSql('ALTER TABLE quotation_postal_addresses_postal_addresses DROP CONSTRAINT FK_8CCC39CB377969A4');
+        $this->addSql('ALTER TABLE quotation_notes_contract_durations DROP CONSTRAINT FK_319E91DD36CD02C5');
+        $this->addSql('ALTER TABLE quotation_notes_price_configurations DROP CONSTRAINT FK_F09670BA36CD02C5');
+        $this->addSql('ALTER TABLE application_requests DROP CONSTRAINT FK_C4BE0942A3D9C7A0');
+        $this->addSql('ALTER TABLE quotations_quotation_price_configurations DROP CONSTRAINT FK_8455288580883007');
+        $this->addSql('DROP SEQUENCE contract_durations_id_seq CASCADE');
+        $this->addSql('DROP SEQUENCE price_configurations_id_seq CASCADE');
+        $this->addSql('DROP SEQUENCE quotations_id_seq CASCADE');
+        $this->addSql('DROP SEQUENCE third_party_charge_configurations_id_seq CASCADE');
+        $this->addSql('DROP SEQUENCE quotation_postal_addresses_id_seq CASCADE');
+        $this->addSql('DROP SEQUENCE third_party_charges_id_seq CASCADE');
+        $this->addSql('DROP TABLE contract_durations');
+        $this->addSql('DROP TABLE price_configurations');
+        $this->addSql('DROP TABLE quotations');
+        $this->addSql('DROP TABLE quotations_activities');
+        $this->addSql('DROP TABLE quotations_quotation_postal_addresses');
+        $this->addSql('DROP TABLE quotations_contract_durations');
+        $this->addSql('DROP TABLE quotations_notes');
+        $this->addSql('DROP TABLE quotations_quotation_price_configurations');
+        $this->addSql('DROP TABLE third_party_charge_configurations');
+        $this->addSql('DROP TABLE quotation_postal_addresses');
+        $this->addSql('DROP TABLE quotation_postal_addresses_postal_addresses');
+        $this->addSql('DROP TABLE quotation_notes');
+        $this->addSql('DROP TABLE quotation_notes_contract_durations');
+        $this->addSql('DROP TABLE quotation_notes_price_configurations');
+        $this->addSql('DROP TABLE quotation_price_configurations');
+        $this->addSql('DROP TABLE third_party_charges');
+        $this->addSql('DROP INDEX IDX_C4BE0942B4EA4E60');
+        $this->addSql('DROP INDEX IDX_C4BE0942A3D9C7A0');
+        $this->addSql('ALTER TABLE application_requests DROP quotation_id');
+        $this->addSql('ALTER TABLE application_requests DROP quotation_offer_id');
+        $this->addSql('DROP INDEX IDX_11BA68C8BDAB045');
+        $this->addSql('ALTER TABLE notes DROP entity_type');
+    }
+}

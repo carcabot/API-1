@@ -1,0 +1,16 @@
+App\Entity\AffiliateProgramTransactionFetchHistory:
+    properties:
+        pendingConversions:
+            - Type:
+                type: App\Entity\QuantitativeValue
+            - NotNull: ~
+        endDate:
+            - DateTime: ~
+            - NotNull: ~
+        provider:
+            - Type:
+                type: App\Enum\AffiliateWebServicePartner
+            - NotNull: ~
+        startDate:
+            - DateTime: ~
+            - NotNull: ~

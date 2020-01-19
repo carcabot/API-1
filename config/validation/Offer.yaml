@@ -1,0 +1,41 @@
+App\Entity\Offer:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields:
+                - sku
+    properties:
+        category:
+            - Type:
+                type: App\Entity\OfferCategory
+            - NotNull: ~
+        description:
+            - Type:
+                type: string
+            - NotNull: ~
+        image:
+            - Type:
+                type: App\Entity\DigitalDocument
+            - Valid:
+                traverse: true
+        name:
+            - Type:
+                type: string
+            - NotNull: ~
+        offerNumber:
+            - Type:
+                type: string
+        seller:
+            - Type:
+                type: App\Entity\Merchant
+        sku:
+            - Type:
+                type: string
+            - NotNull: ~
+        type:
+            - Type:
+                type: App\Enum\OfferType
+            - NotNull: ~
+        validFrom:
+            - DateTime: ~
+        validThrough:
+            - DateTime: ~

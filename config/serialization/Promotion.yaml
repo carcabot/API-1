@@ -1,0 +1,78 @@
+App\Entity\Promotion:
+    attributes:
+        id:
+            groups:
+                # -
+        amount:
+            groups:
+                - promotion_read
+                - promotion_write
+        category:
+            groups:
+                - promotion_read
+                - promotion_write
+        contractTypes:
+            groups:
+                - promotion_read
+                - promotion_write
+        currency:
+            groups:
+                - promotion_read
+                - promotion_write
+        customerTypes:
+            groups:
+                - promotion_read
+                - promotion_write
+        inventoryLevel:
+            groups:
+                - promotion_read
+                - promotion_write
+        name:
+            groups:
+                - promotion_read
+                - promotion_write
+        page:
+            groups:
+                - promotion_read
+                - promotion_write
+        promotionNumber:
+            groups:
+                - application_request_read
+                - promotion_read
+                - promotion_write
+        recurringDuration:
+            groups:
+                - promotion_read
+                - promotion_write
+        status:
+            groups:
+                - promotion_read
+                - promotion_write
+        tariffRates:
+            groups:
+                - promotion_read
+                - promotion_write
+        validFrom:
+            groups:
+                - promotion_read
+                - promotion_write
+        validThrough:
+            groups:
+                - promotion_read
+                - promotion_write
+
+    # BlameableTrait
+        agent:
+            groups:
+                - promotion_read
+        creator:
+            groups:
+                - promotion_read
+
+    # TimestampableTrait
+        dateCreated:
+            groups:
+                - promotion_read
+        dateModified:
+            groups:
+                - promotion_read

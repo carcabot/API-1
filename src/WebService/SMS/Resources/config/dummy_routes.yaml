@@ -1,0 +1,4 @@
+dummy_sms_inbound:
+    path: /dummy/sms/inbound
+    controller: App\WebService\SMS\Controller\InboundController
+    methods: [GET]

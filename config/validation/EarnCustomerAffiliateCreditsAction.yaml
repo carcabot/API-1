@@ -1,0 +1,13 @@
+App\Entity\EarnCustomerAffiliateCreditsAction:
+    properties:
+        instrument:
+            - Type:
+                type: App\Entity\Contract
+        object:
+            - Type:
+                type: App\Entity\CustomerAccount
+            - NotNull: ~
+        transactions:
+            - All:
+                - Type:
+                    type: App\Entity\AffiliateProgramTransaction

@@ -1,0 +1,58 @@
+App\Entity\PriceSpecification:
+    attributes:
+        maxPrice:
+            groups:
+                - offer_list_item_read
+                - offer_list_item_write
+                - order_read
+                - order_write
+                - order_item_read
+                - order_item_write
+                - price_configuration_read
+                - price_configuration_write
+                - quotation_price_configuration_read
+                - quotation_price_configuration_write
+                - quotation_read
+                - quotation_write
+        minPrice:
+            groups:
+                - offer_list_item_read
+                - offer_list_item_write
+                - order_read
+                - order_write
+                - order_item_read
+                - order_item_write
+                - price_configuration_read
+                - price_configuration_write
+                - quotation_price_configuration_read
+                - quotation_price_configuration_write
+                - quotation_read
+                - quotation_write
+        price:
+            groups:
+                - offer_list_item_read
+                - offer_list_item_write
+                - order_read
+                - order_write
+                - order_item_read
+                - order_item_write
+                - price_configuration_read
+                - price_configuration_write
+                - quotation_price_configuration_read
+                - quotation_price_configuration_write
+                - quotation_read
+                - quotation_write
+        priceCurrency:
+            groups:
+                - offer_list_item_read
+                - offer_list_item_write
+                - order_read
+                - order_write
+                - order_item_read
+                - order_item_write
+                - price_configuration_read
+                - price_configuration_write
+                - quotation_price_configuration_read
+                - quotation_price_configuration_write
+                - quotation_read
+                - quotation_write

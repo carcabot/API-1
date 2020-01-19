@@ -1,0 +1,10 @@
+promotion_create:
+  path: /discount_codes
+  controller: App\WebService\Billing\Controller\PromotionController::createAction
+  methods: [POST]
+
+promotion_update:
+  path: /discount_codes
+  controller: App\WebService\Billing\Controller\PromotionController::updateAction
+  methods: [PUT]
+

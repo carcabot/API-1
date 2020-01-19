@@ -1,0 +1,5 @@
+App\Entity\ApplicationRequestListItem:
+    properties:
+        item:
+            - Type:
+                type: App\Entity\ApplicationRequest

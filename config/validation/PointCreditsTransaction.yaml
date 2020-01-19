@@ -1,0 +1,12 @@
+App\Entity\PointCreditsTransaction:
+    properties:
+        amount:
+            - Type:
+                type: App\Entity\QuantitativeValue
+            - NotNull: ~
+            - Valid: ~
+        balance:
+            - Type:
+                type: App\Entity\QuantitativeValue
+            - NotNull: ~
+            - Valid: ~

@@ -1,0 +1,37 @@
+App\Entity\SecurityDeposit:
+    attributes:
+        id:
+            groups:
+                # -
+        amount:
+            groups:
+                - security_deposit_read
+                - security_deposit_write
+        isBasedOn:
+            groups:
+                - security_deposit_read
+                - security_deposit_write
+        name:
+            groups:
+                - security_deposit_read
+                - security_deposit_write
+        type:
+            groups:
+                - security_deposit_read
+                - security_deposit_write
+
+        # BlameableTrait
+        agent:
+            groups:
+                - security_deposit_read
+        creator:
+            groups:
+                - security_deposit_read
+
+        # TimestampableTrait
+        dateCreated:
+            groups:
+                - security_deposit_read
+        dateModified:
+            groups:
+                - security_deposit_read

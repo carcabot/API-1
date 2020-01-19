@@ -1,0 +1,24 @@
+App\Entity\OfferListItem:
+    properties:
+        inventoryLevel:
+            - Type:
+                type: App\Entity\QuantitativeValue
+            - NotNull: ~
+            - Valid: ~
+        item:
+            - Type:
+                type: App\Entity\Offer
+        monetaryExchangeValue:
+            - Type:
+                type: App\Entity\MonetaryAmount
+            - NotNull: ~
+            - Valid: ~
+        priceSpecification:
+            - Type:
+                type: App\Entity\PriceSpecification
+            - NotNull: ~
+            - Valid: ~
+        validFrom:
+            - DateTime: ~
+        validThrough:
+            - DateTime: ~

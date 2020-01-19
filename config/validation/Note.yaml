@@ -1,0 +1,29 @@
+App\Entity\Note:
+    properties:
+        files:
+            - All:
+                - Type:
+                    type: App\Entity\DigitalDocument
+            - Valid:
+                traverse: true
+        text:
+            - Type:
+                type: string
+        type:
+            - Type:
+                type: App\Enum\NoteType
+            - NotNull: ~
+
+        # BlameableTrait
+        agent:
+            - Type:
+                type: App\Entity\User
+        creator:
+            - Type:
+                type: App\Entity\User
+
+        # TimestampableTrait
+        dateCreated:
+            - DateTime: ~
+        dateModified:
+            - DateTime: ~

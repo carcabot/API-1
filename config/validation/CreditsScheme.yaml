@@ -1,0 +1,36 @@
+App\Entity\CreditsScheme:
+    constraints:
+        - App\Validator\Constraints\CreditsSchemeValidityPeriod: ~
+    properties:
+        amount:
+            - Type:
+                type: App\Entity\QuantitativeValue
+            - NotNull: ~
+            - Valid: ~
+        description:
+            - Type:
+                type: string
+        isBasedOn:
+            - Type:
+                  type: App\Entity\CreditsScheme
+        monetaryExchangeValue:
+            - Type:
+                type: App\Entity\MonetaryAmount
+            - NotNull: ~
+            - Valid: ~
+        schemeId:
+            - Type:
+                type: string
+        type:
+            - Type:
+                type: App\Enum\CreditsType
+            - NotNull: ~
+        validFrom:
+            - DateTime: ~
+        validPeriod:
+            - Type:
+                type: App\Entity\QuantitativeValue
+            - NotNull: ~
+            - Valid: ~
+        validThrough:
+            - DateTime: ~

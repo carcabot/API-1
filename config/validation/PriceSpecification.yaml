@@ -1,0 +1,14 @@
+App\Entity\PriceSpecification:
+    properties:
+        maxPrice:
+            - Type:
+                type: string
+        minPrice:
+            - Type:
+                type: string
+        price:
+            - Type:
+                type: string
+        priceCurrency:
+            - Type:
+                type: string

@@ -1,0 +1,19 @@
+App\Entity\Merchant:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields:
+                - merchantNumber
+    properties:
+        description:
+            - Type:
+                type: string
+        image:
+            - Type:
+                type: App\Entity\DigitalDocument
+        merchantNumber:
+            - Type:
+                type: string
+            - NotNull: ~
+        name:
+            - Type:
+                type: string

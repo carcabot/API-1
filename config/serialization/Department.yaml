@@ -1,0 +1,50 @@
+App\Entity\Department:
+    attributes:
+        id:
+            groups:
+                # -
+        children:
+            groups:
+                - department_read
+                - department_write
+                - user_read            
+        description:
+            groups:
+                - department_read
+                - department_write
+                - user_read
+        enabled:
+            groups:
+                - department_read
+                - department_write   
+                - user_read
+        name:
+            groups:
+                - department_read
+                - department_write
+                - user_read          
+        parent:
+            groups:
+                - department_read
+                - department_write  
+                - user_read 
+        roles:
+            groups:
+                - department_read
+                - department_write
+                - user_read
+        # BlameableTrait
+        agent:
+            groups:        
+                - department_read
+        creator:
+            groups:        
+                - department_read
+
+        # TimestampableTrait
+        dateCreated:
+            groups:        
+                - department_read
+        dateModified:
+            groups:        
+                - department_read                

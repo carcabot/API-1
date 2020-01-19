@@ -1,0 +1,104 @@
+App\Entity\Identification:
+    attributes:
+        id:
+            groups:
+                # -
+        description:
+            groups:
+                - identification_read
+                - identification_write
+                - application_request_read
+                - contract_read
+                - customer_account_read
+                - employee_role_read
+                - lead_read
+                - lead_import_write
+                - ticket_read
+                - user_read
+                - application_request_sign_on_behalf_read
+                - public_read
+        name:
+            groups:
+                - identification_read
+                - identification_write
+                - application_request_read
+                - contract_form_read
+                - contract_read
+                - customer_account_read
+                - employee_role_read
+                - lead_read
+                - lead_import_write
+                - ticket_read
+                - user_read
+                - application_request_sign_on_behalf_read
+                - public_read
+        validFrom:
+            groups:
+                - identification_read
+                - identification_write
+                - application_request_read
+                - contract_read
+                - customer_account_read
+                - employee_role_read
+                - lead_read
+                - lead_import_write
+                - ticket_read
+                - user_read
+                - application_request_sign_on_behalf_read
+        validThrough:
+            groups:
+                - identification_read
+                - identification_write
+                - application_request_read
+                - contract_read
+                - customer_account_read
+                - employee_role_read
+                - lead_read
+                - lead_import_write
+                - ticket_read
+                - user_read
+                - application_request_sign_on_behalf_read
+        value:
+            groups:
+                - identification_read
+                - identification_write
+                - application_request_read
+                - contract_form_read
+                - contract_read
+                - customer_account_read
+                - employee_role_read
+                - lead_read
+                - lead_import_write
+                - ticket_read
+                - user_read
+                - application_request_sign_on_behalf_read
+                - quotation_file_generate
+                - public_read
+
+        # BlameableTrait
+        agent:
+            groups:
+                - identification_read
+        creator:
+            groups:
+                - identification_read
+                
+        # TimestampableTrait
+        dateCreated:
+            groups:
+                - identification_read
+                - application_request_read
+                - contract_read
+                - customer_account_read
+                - lead_read
+                - ticket_read
+                - application_request_sign_on_behalf_read
+        dateModified:
+            groups:
+                - identification_read
+                - application_request_read
+                - contract_read
+                - customer_account_read
+                - lead_read
+                - ticket_read
+                - application_request_sign_on_behalf_read

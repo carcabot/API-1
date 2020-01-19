@@ -1,0 +1,26 @@
+App\Entity\CustomerBlacklistConfiguration:
+    properties:
+        action:
+            - Type:
+                type: App\Enum\BlacklistConfigurationAction
+            -   NotNull: ~
+        description:
+            - Type:
+                type: string
+        enabled:
+            - Type:
+                type: bool
+            - NotNull: ~
+        # BlameableTrait
+        agent:
+            - Type:
+                type: App\Entity\User
+        creator:
+            - Type:
+                type: App\Entity\User
+
+        # TimestampableTrait
+        dateCreated:
+            - DateTime: ~
+        dateModified:
+            - DateTime: ~

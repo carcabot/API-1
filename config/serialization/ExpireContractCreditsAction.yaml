@@ -1,0 +1,12 @@
+App\Entity\ExpireContractCreditsAction:
+    attributes:
+        object:
+            groups:
+                - expire_contract_credits_action_read
+                - expire_contract_credits_action_write
+                - update_credits_action_read
+        scheme:
+            groups:
+                - expire_contract_credits_action_read
+                - expire_contract_credits_action_write
+                - update_credits_action_read

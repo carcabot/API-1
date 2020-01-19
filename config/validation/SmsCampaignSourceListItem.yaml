@@ -1,0 +1,5 @@
+App\Entity\SmsCampaignSourceListItem:
+    properties:
+        mobileNumber:
+        - Misd\PhoneNumberBundle\Validator\Constraints\PhoneNumber: ~
+        - NotNull: ~

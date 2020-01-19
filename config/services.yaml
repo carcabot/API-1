@@ -1,0 +1,2045 @@
+imports:
+    - { resource: filters.yaml }
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration    
+parameters:
+    env(ACCOUNT_CLOSURE_PREFIX): ''
+    env(APPLICATION_REQUEST_LENGTH): ''
+    env(APPLICATION_REQUEST_SERIES): ''
+    env(APP_PROFILE): ''
+    env(APP_TIMEZONE): ''
+    env(APP_WEB_SERVICE_ACCOUNT_INFORMATION_ALTERNATIVE_URL): ''
+    env(APP_WEB_SERVICE_APPLICATION_REQUEST_ALTERNATIVE_URL): ''
+    env(APP_WEB_SERVICE_ATTACHMENT_ALTERNATIVE_URL): ''
+    env(APP_WEB_SERVICE_AUTH_TOKEN): ''
+    env(APP_WEB_SERVICE_EMAIL_AUTH_TOKEN): ''
+    env(APP_WEB_SERVICE_EMAIL_PROVIDERS): ''
+    env(APP_WEB_SERVICE_ENABLE_FTP_UPLOAD): ''
+    env(APP_WEB_SERVICE_FTP_PASSWORD): ''
+    env(APP_WEB_SERVICE_FTP_URL): ''
+    env(APP_WEB_SERVICE_FTP_USERNAME): ''
+    env(APP_WEB_SERVICE_HAS_OFFERS_API_KEY): ''
+    env(APP_WEB_SERVICE_HAS_OFFERS_API_SECRET): ''
+    env(APP_WEB_SERVICE_HAS_OFFERS_URL): ''
+    env(APP_WEB_SERVICE_INVOLVE_ASIA_API_KEY): ''
+    env(APP_WEB_SERVICE_INVOLVE_ASIA_API_SECRET): ''
+    env(APP_WEB_SERVICE_INVOLVE_ASIA_URL): ''
+    env(APP_WEB_SERVICE_PASSWORD): ''
+    env(APP_WEB_SERVICE_PROVIDER): ''
+    env(APP_WEB_SERVICE_S3_BUCKET_NAME): ''
+    env(APP_WEB_SERVICE_SMS_URL): ''
+    env(APP_WEB_SERVICE_SMS_USERNAME): ''
+    env(APP_WEB_SERVICE_SMS_PASSWORD): ''
+    env(APP_WEB_SERVICE_SMS_ORIGIN_NUMBER): ''
+    env(APP_WEB_SERVICE_SMS_PROVIDER): ''
+    env(APP_WEB_SERVICE_SMS_TEST_NUMBER): ''
+    env(APP_WEB_SERVICE_TAG_URL): ''
+    env(APP_WEB_SERVICE_TAG_USERNAME): ''
+    env(APP_WEB_SERVICE_TAG_API_KEY): ''
+    env(APP_WEB_SERVICE_URL): ''
+    env(APP_WEB_SERVICE_USERNAME): ''
+    env(BRIDGE_API_AUTH_URL): ''
+    env(CACHE_MONGODB_URL): ''
+    env(CACHE_MONGODB_REPORTS_DB): ''
+    env(CONTRACT_APP_PREFIX): ''
+    env(CONTRACT_RENEWAL_PREFIX): ''
+    env(CUSTOMER_ACCOUNT_LENGTH): ''
+    env(CUSTOMER_ACCOUNT_PREFIX): ''
+    env(CUSTOMER_ACCOUNT_SERIES): ''
+    env(CUSTOMER_PORTAL_URL): ''
+    env(DOCUMENT_CONVERTER_HOST): ''
+    env(GIRO_TERMINATION_PREFIX): ''
+    env(HOMEPAGE_URL): ''
+    env(LEAD_NUMBER_LENGTH): ''
+    env(LEAD_NUMBER_PREFIX): ''
+    env(LEAD_NUMBER_SERIES): ''
+    env(ORDER_LENGTH): ''
+    env(ORDER_PREFIX): ''
+    env(ORDER_SERIES): ''
+    env(PARTNER_NUMBER_LENGTH): ''
+    env(PARTNER_NUMBER_PREFIX): ''
+    env(PARTNER_NUMBER_SERIES): ''
+    env(RCCS_TERMINATION_PREFIX): ''
+    env(PARTNERSHIP_PORTAL_URL): ''
+    env(PAYMENT_GATEWAY_BASE_URL): ''
+    env(PAYMENT_GATEWAY_MERCHANT_ID): ''
+    env(PAYMENT_GATEWAY_MERCHANT_RECURRING_ID): ''
+    env(PAYMENT_GATEWAY_MERCHANT_SECRET): ''
+    env(PAYMENT_GATEWAY_PROVIDER): ''
+    env(PAYMENT_GATEWAY_RETURN_URL): ''
+    env(PAYMENT_GATEWAY_STATUS_URL): ''
+    env(REDIS_HOST): ''
+    env(REDIS_PORT): ''
+    env(S3_PUBLIC_DOCUMENT_BUCKET_NAME): ''
+    env(SECURE_PASSWORD): ''
+    env(SERIAL_NUMBER_LENGTH): ''
+    env(SERIAL_NUMBER_SERIES): ''
+    env(SLACK_EMERGENCY_WEBHOOK_URL): ''
+    env(TICKET_LENGTH): ''
+    env(TICKET_PREFIX): ''
+    env(TICKET_SERIES): ''
+    env(TRANSFER_OUT_PREFIX): ''
+    env(WORKER_MEMORY_LIMIT): ''
+    app.profile: '%env(APP_PROFILE)%'
+    app.running_number_parameters:
+        account_closure_prefix: '%env(ACCOUNT_CLOSURE_PREFIX)%'
+        application_request_length: '%env(APPLICATION_REQUEST_LENGTH)%'
+        application_request_series: '%env(APPLICATION_REQUEST_SERIES)%'
+        contract_application_prefix: '%env(CONTRACT_APP_PREFIX)%'
+        contract_renewal_prefix: '%env(CONTRACT_RENEWAL_PREFIX)%'
+        customer_account_length: '%env(CUSTOMER_ACCOUNT_LENGTH)%'
+        customer_account_prefix: '%env(CUSTOMER_ACCOUNT_PREFIX)%'
+        customer_account_series: '%env(CUSTOMER_ACCOUNT_SERIES)%'
+        giro_termination_prefix: '%env(GIRO_TERMINATION_PREFIX)%'
+        lead_number_prefix: '%env(LEAD_NUMBER_PREFIX)%'
+        lead_number_length: '%env(LEAD_NUMBER_LENGTH)%'
+        lead_number_series: '%env(LEAD_NUMBER_SERIES)%'
+        order_length: '%env(ORDER_LENGTH)%'
+        order_prefix: '%env(ORDER_PREFIX)%'
+        order_series: '%env(ORDER_SERIES)%'
+        partner_number_length: '%env(PARTNER_NUMBER_LENGTH)%'
+        partner_number_prefix: '%env(PARTNER_NUMBER_PREFIX)%'
+        partner_number_series: '%env(PARTNER_NUMBER_SERIES)%'
+        rccs_termination_prefix: '%env(RCCS_TERMINATION_PREFIX)%'
+        ticket_length: '%env(TICKET_LENGTH)%'
+        ticket_prefix: '%env(TICKET_PREFIX)%'
+        ticket_series: '%env(TICKET_SERIES)%'
+        transfer_out_prefix: '%env(TRANSFER_OUT_PREFIX)%'
+    app.security.authentication_token_ttl: 86400
+    app.timezone: '%env(APP_TIMEZONE)%'
+    app.redis_host: '%env(REDIS_HOST)%'
+    app.redis_port: '%env(REDIS_PORT)%'
+    app.url:
+        customer_portal_url: '%env(CUSTOMER_PORTAL_URL)%'
+        homepage_url: '%env(HOMEPAGE_URL)%'
+        partnership_portal_url: '%env(PARTNERSHIP_PORTAL_URL)%'
+    locale: en
+    env(MERCURE_PUBLISH_URL): ''
+    env(MERCURE_JWT_SECRET): ''
+    env(RECAPTCHA_SECRET_KEY): ''
+
+services:
+    # default configuration for services in *this* file
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+        public: false       # Allows optimizing the container by removing unused services; this also means
+                            # fetching services directly from the container via $container->get() won't work.
+                            # The best practice is to be explicit about your dependencies anyway.
+
+    # makes classes in src/ available to be used as services
+    # this creates a service per class whose id is the fully-qualified class name
+    App\:
+        resource: '../src/*'
+        exclude: '../src/{Entity,Migration,Test}'
+
+    # controllers are imported separately to make sure services can be injected
+    # as action arguments even if you don't extend any base controller class
+    App\Controller\:
+        resource: '../src/Controller'
+        tags: ['controller.service_arguments']
+        
+    App\Security\TwoFactorAuthentication\TwoFactorAuthenticationHelper:
+        arguments:
+            $emailsQueue: '@app.disque.queue.emails'
+
+    App\Controller\ReCaptchaAuthenticationController:
+        arguments:
+            $SECRET_KEY: '%env(RECAPTCHA_SECRET_KEY)%'
+        tags:
+            - controller.service_arguments
+
+    App\Controller\CampaignReportController:
+        arguments:
+            $timezone: '%app.timezone%'
+        tags:
+            - controller.service_arguments
+
+    App\Controller\ApplicationRequestReportController:
+        arguments:
+            $reportsQueue: '@app.disque.queue.reports'
+        tags:
+            - controller.service_arguments
+
+    App\Controller\ContractReportController:
+        arguments:
+            $reportsQueue: '@app.disque.queue.reports'
+        tags:
+            - controller.service_arguments
+
+    App\Controller\CreditsActionReportController:
+        arguments:
+            $reportsQueue: '@app.disque.queue.reports'
+        tags:
+            - controller.service_arguments
+
+    App\Controller\CustomerAccountContactUpdateController:
+        arguments:
+            $webServicesQueue: '@app.disque.queue.web_services'
+        tags:
+            - controller.service_arguments
+
+    App\Controller\CustomerAccountRelationshipReportController:
+        arguments:
+            $reportsQueue: '@app.disque.queue.reports'
+        tags:
+            - controller.service_arguments
+
+    App\Controller\CustomerAccountReportController:
+        arguments:
+            $reportsQueue: '@app.disque.queue.reports'
+        tags:
+            - controller.service_arguments
+
+    App\Controller\LeadReportController:
+        arguments:
+            $reportsQueue: '@app.disque.queue.reports'
+        tags:
+            - controller.service_arguments
+
+    App\Controller\OrderReportController:
+        arguments:
+            $reportsQueue: '@app.disque.queue.reports'
+        tags:
+            - controller.service_arguments
+
+    App\Controller\TicketReportController:
+        arguments:
+            $reportsQueue: '@app.disque.queue.reports'
+        tags:
+            - controller.service_arguments
+
+    App\Controller\UserReportController:
+        arguments:
+            $reportsQueue: '@app.disque.queue.reports'
+        tags:
+            - controller.service_arguments
+
+    App\Bridge\Controller\:
+        resource: '../src/Bridge/Controller'
+        tags: ['controller.service_arguments']
+
+    App\DataFixtures\Alice\Locator\CustomOrderFilesLocator:
+        arguments:
+            - '@hautelook_alice.locator.environmentless'
+
+    hautelook_alice.locator: '@App\DataFixtures\Alice\Locator\CustomOrderFilesLocator'
+
+    acme.fidry_alice_data_fixtures.loader.simple:
+        class: Fidry\AliceDataFixtures\Loader\SimpleLoader
+        arguments:
+            - '@nelmio_alice.files_loader'
+
+    fidry_alice_data_fixtures.loader.simple:
+        class: App\DataFixtures\Alice\Loader\CustomOrderLoader
+        arguments:
+            - '@acme.fidry_alice_data_fixtures.loader.simple'
+
+    App\DataFixtures\Faker\Provider\:
+        resource: '../src/DataFixtures/Faker/Provider'
+        tags: [ { name: nelmio_alice.faker.provider } ]
+
+    App\DataFixtures\Processor\:
+        resource: '../src/DataFixtures/Processor'
+        tags: [ { name: fidry_alice_data_fixtures.processor } ]
+
+    App\Serializer\MaxDepthContextBuilder:
+        decorates: api_platform.serializer.context_builder
+        autoconfigure: false
+
+    App\Serializer\HomepageCustomerAccountContextBuilder:
+        decorates: 'api_platform.serializer.context_builder'
+        arguments: [ '@App\Serializer\HomepageCustomerAccountContextBuilder.inner' ]
+
+    App\Serializer\HomepageUserContextBuilder:
+        decorates: 'api_platform.serializer.context_builder'
+        arguments: [ '@App\Serializer\HomepageUserContextBuilder.inner' ]
+
+    App\Serializer\PublicApiUserContextBuilder:
+        decorates: 'api_platform.serializer.context_builder'
+        arguments: [ '@App\Serializer\PublicApiUserContextBuilder.inner' ]
+
+    App\WebService\Billing\Controller\:
+        resource: '../src/WebService/Billing/Controller'
+        tags: ['controller.service_arguments']
+
+    App\WebService\Email\Provider\Mailgun\Controller\:
+        resource: '../src/WebService/Email/Provider/Mailgun/Controller'
+        arguments:
+            $authToken: '%env(APP_WEB_SERVICE_EMAIL_AUTH_TOKEN)%'
+        tags: ['controller.service_arguments']
+
+    App\WebService\SMS\Provider\FortDigital\Controller\:
+        resource: '../src/WebService/SMS/Provider/FortDigital/Controller'
+        arguments:
+            $logger: '@monolog.logger.web_service'
+        tags: ['controller.service_arguments']
+
+    App\WebService\SMS\Controller\:
+        resource: '../src/WebService/SMS/Controller'
+        arguments:
+            $logger: '@monolog.logger.web_service'
+        tags: ['controller.service_arguments']
+
+    ###> aliases ###
+    App\WebService\Billing\ClientInterface: '@app.web_service.billing_client'
+    App\WebService\PaymentGateway\ClientInterface: '@app.web_service.payment_gateway_client'
+    App\WebService\SMS\ClientInterface: '@app.web_service.sms_client'
+    League\Flysystem\MountManager: '@oneup_flysystem.mount_manager'
+    League\Tactician\CommandBus: '@tactician.commandbus'
+    Lexik\Bundle\JWTAuthenticationBundle\Services\JWTManagerInterface: '@lexik_jwt_authentication.jwt_manager'
+    Solvecrew\ExpoNotificationsBundle\Manager\NotificationManager: '@sc_expo_notifications.notification_manager'
+    ###< aliases ###
+
+    ###> clients ###
+    app.aws.s3_client:
+        lazy: true
+        class: Aws\S3\S3Client
+        arguments:
+            - version: '2006-03-01'
+              region: '%env(S3_REGION)%'
+              credentials:
+                  key: '%env(S3_ACCESS_KEY_ID)%'
+                  secret: '%env(S3_SECRET_ACCESS_KEY)%'
+
+    app.disque.client:
+        lazy: true
+        class: App\Disque\Client
+        factory: 'App\Disque\ClientFactory:create'
+        arguments:
+            $host: '%env(DISQUE_HOST)%'
+            $port: '%env(DISQUE_PORT)%'
+
+    app.disque.queue.application_requests:
+        lazy: true
+        class: App\Disque\Queue
+        factory: 'app.disque.client:queue'
+        arguments:
+            - application_requests
+
+    app.disque.queue.contracts:
+        lazy: true
+        class: App\Disque\Queue
+        factory: 'app.disque.client:queue'
+        arguments:
+            - contracts
+
+    app.disque.queue.campaigns:
+        lazy: true
+        class: App\Disque\Queue
+        factory: 'app.disque.client:queue'
+        arguments:
+            - campaigns
+
+    app.disque.queue.cron:
+        lazy: true
+        class: App\Disque\Queue
+        factory: 'app.disque.client:queue'
+        arguments:
+            - cron
+
+    app.disque.queue.emails:
+        lazy: true
+        class: App\Disque\Queue
+        factory: 'app.disque.client:queue'
+        arguments:
+            - emails
+
+    app.disque.queue.migration:
+        lazy: true
+        class: App\Disque\Queue
+        factory: 'app.disque.client:queue'
+        arguments:
+            - migration
+    app.disque.queue.messages:
+        lazy: true
+        class: App\Disque\Queue
+        factory: 'app.disque.client:queue'
+        arguments:
+            - messages
+
+    app.disque.queue.reports:
+        lazy: true
+        class: App\Disque\Queue
+        factory: 'app.disque.client:queue'
+        arguments:
+            - reports
+
+    app.disque.queue.web_services:
+        lazy: true
+        class: App\Disque\Queue
+        factory: 'app.disque.client:queue'
+        arguments:
+            - web_services
+
+    app.jwt_token_authenticator:
+        autowire: false
+        autoconfigure: false
+        public: true
+        class: App\Security\Guard\JWTTokenAuthenticator
+        parent: lexik_jwt_authentication.security.guard.jwt_token_authenticator
+    ###< clients ###
+
+    ###> command buses ###
+    App\Domain\Command\:
+        resource: '../src/Domain/Command'
+        tags:
+            - name: tactician.handler
+              typehints: true
+
+    App\WebService\Billing\Provider\Anacle\Domain\Command\:
+        resource: '../src/WebService/Billing/Provider/Anacle/Domain/Command'
+        tags:
+            - name: tactician.handler
+              typehints: true
+
+    App\WebService\Billing\Provider\Enworkz\Domain\Command\:
+        resource: '../src/WebService/Billing/Provider/Enworkz/Domain/Command'
+        tags:
+            - name: tactician.handler
+              typehints: true
+    ###< command buses ###
+
+    ###> console commands ###
+    App\Command\LeadConverterCommand:
+        arguments:
+            $logger: '@monolog.logger.disque'
+        tags:
+            -   name: console.command
+    
+    App\Command\ApplicationRequestWorkerStartCommand:
+        arguments:
+            $logger: '@monolog.logger.disque'
+            $applicationRequestQueue: '@app.disque.queue.application_requests'
+            $mailerQueue: '@app.disque.queue.emails'
+            $timezone: '%app.timezone%'
+            $emergencyWebhookUrl: '%env(SLACK_EMERGENCY_WEBHOOK_URL)%'
+            $memoryLimit: '%env(WORKER_MEMORY_LIMIT)%'
+        tags:
+            - name: console.command
+
+    App\Command\AwardCredits:
+        arguments:
+            $documentConverterHost: '%env(DOCUMENT_CONVERTER_HOST)%'
+        tags:
+            - name: console.command
+
+    App\Command\CampaignWorkerStartCommand:
+        arguments:
+            $logger: '@monolog.logger.disque'
+            $campaignQueue: '@app.disque.queue.campaigns'
+            $mailerQueue: '@app.disque.queue.emails'
+            $timezone: '%app.timezone%'
+            $emergencyWebhookUrl: '%env(SLACK_EMERGENCY_WEBHOOK_URL)%'
+            $memoryLimit: '%env(WORKER_MEMORY_LIMIT)%'
+        tags:
+            - name: console.command
+
+    App\Command\ContractWorkerStartCommand:
+        arguments:
+            $logger: '@monolog.logger.disque'
+            $contractQueue: '@app.disque.queue.contracts'
+            $mailerQueue: '@app.disque.queue.emails'
+            $timezone: '%app.timezone%'
+            $emergencyWebhookUrl: '%env(SLACK_EMERGENCY_WEBHOOK_URL)%'
+            $profile: '%app.profile%'
+            $memoryLimit: '%env(WORKER_MEMORY_LIMIT)%'
+        tags:
+            - name: console.command
+
+    App\Command\CronWorkerStartCommand:
+        arguments:
+            $logger: '@monolog.logger.disque'
+            $cronQueue: '@app.disque.queue.cron'
+            $reportsQueue: '@app.disque.queue.reports'
+            # $campaignQueue: '@app.disque.queue.campaigns'
+            $documentConverterHost: '%env(DOCUMENT_CONVERTER_HOST)%'
+            $timezone: '%app.timezone%'
+            $emergencyWebhookUrl: '%env(SLACK_EMERGENCY_WEBHOOK_URL)%'
+            $memoryLimit: '%env(WORKER_MEMORY_LIMIT)%'
+        tags:
+            - name: console.command
+
+    App\Command\CreateAPIUserCommand:
+        tags:
+            - name: console.command
+
+    App\Command\CreateTask:
+        arguments:
+            $logger: '@monolog.logger.web_service'
+        tags:
+            - name: console.command
+
+    App\Command\CustomerAccountEnableCustomerPortal:
+        arguments:
+            $contractQueue: '@app.disque.queue.contracts'
+            $logger: '@monolog.logger.disque'
+        tags:
+            - name: console.command
+
+    App\Command\CustomerAccountReferralCodeGeneratorCommand:
+        arguments:
+            $logger: '@monolog.logger'
+        tags:
+            - name: console.command
+
+    App\Command\DownloadXML:
+        tags:
+            - name: console.command
+
+    App\Command\GenerateCampaignZipFileCommand:
+        tags:
+            - name: console.command
+
+    App\Command\GenerateContractFormCommand:
+        tags:
+            - name: console.command
+
+    App\Command\SubmitRedeemCreditsCommand:
+        arguments:
+            $timezone: '%app.timezone%'
+        tags:
+            - name: console.command
+
+    App\Swagger\SwaggerDecorator:
+        decorates: 'api_platform.swagger.normalizer.documentation'
+        arguments:
+            $decorated: '@App\Swagger\SwaggerDecorator.inner'
+
+    App\Command\GenerateReconciliationFile:
+        arguments:
+            $emailsQueue: '@app.disque.queue.emails'
+            $logger: '@monolog.logger.web_service'
+            $timezone: '%app.timezone%'
+        tags:
+            - name: console.command
+
+    App\Command\GenerateReport:
+        arguments:
+            $logger: '@monolog.logger'
+            $timezone: '%app.timezone%'
+        tags:
+            - name: console.command
+
+    App\Command\GetAffiliateConversionData:
+        arguments:
+            $timezone: '%app.timezone%'
+        tags:
+            - name: console.command
+
+    App\Command\InitiateFixtureCommand:
+        tags:
+            - name: console.command
+              
+    App\Command\MessagesWorkerStartCommand:
+        arguments:
+            $logger: '@monolog.logger.disque'
+            $messageQueue: '@app.disque.queue.messages'
+            $timezone: '%app.timezone%'
+            $emergencyWebhookUrl: '%env(SLACK_EMERGENCY_WEBHOOK_URL)%'
+            $memoryLimit: '%env(WORKER_MEMORY_LIMIT)%'
+        tags:
+            -   name: console.command
+
+    App\Command\MigrationWorkerStartCommand:
+        arguments:
+            $logger: '@monolog.logger.disque'
+            $migrationQueue: '@app.disque.queue.migration'
+            $emergencyWebhookUrl: '%env(SLACK_EMERGENCY_WEBHOOK_URL)%'
+        tags:
+            - name: console.command
+
+    App\Command\PatchContractApplicationRequestTariffRate:
+        tags:
+            - name: console.command
+
+    App\Command\PatchContractLockInDateFromExpiryDate:
+        arguments:
+            $documentConverterHost: '%env(DOCUMENT_CONVERTER_HOST)%'
+            $timezone: '%app.timezone%'
+        tags:
+            - name: console.command
+
+    App\Command\ProcessAccountClosureRequestXML:
+        arguments:
+            $logger: '@monolog.logger.web_service'
+            $documentConverterHost: '%env(DOCUMENT_CONVERTER_HOST)%'
+            $timezone: '%app.timezone%'
+            $emergencyWebhookUrl: '%env(SLACK_EMERGENCY_WEBHOOK_URL)%'
+        tags:
+            - name: console.command
+
+    App\Command\ProcessCreditsWithdrawalReturnXML:
+        arguments:
+            $logger: '@monolog.logger.web_service'
+            $documentConverterHost: '%env(DOCUMENT_CONVERTER_HOST)%'
+            $timezone: '%app.timezone%'
+        tags:
+            - name: console.command
+
+    App\Command\ProcessCustomerBlacklistXMLFile:
+        arguments:
+            $logger: '@monolog.logger.web_service'
+            $documentConverterHost: '%env(DOCUMENT_CONVERTER_HOST)%'
+            $timezone: '%app.timezone%'
+        tags:
+            - name: console.command
+
+    App\Command\ProcessContractApplicationRequestXML:
+        arguments:
+            $logger: '@monolog.logger.web_service'
+            $documentConverterHost: '%env(DOCUMENT_CONVERTER_HOST)%'
+            $timezone: '%app.timezone%'
+            $emergencyWebhookUrl: '%env(SLACK_EMERGENCY_WEBHOOK_URL)%'
+        tags:
+            - name: console.command
+
+    App\Command\ProcessContractRenewalApplicationRequestXML:
+        arguments:
+            $logger: '@monolog.logger.web_service'
+            $documentConverterHost: '%env(DOCUMENT_CONVERTER_HOST)%'
+            $timezone: '%app.timezone%'
+            $emergencyWebhookUrl: '%env(SLACK_EMERGENCY_WEBHOOK_URL)%'
+        tags:
+            - name: console.command
+
+    App\Command\ProcessEventActivityXML:
+        arguments:
+            $logger: '@monolog.logger.web_service'
+            $documentConverterHost: '%env(DOCUMENT_CONVERTER_HOST)%'
+            $timezone: '%app.timezone%'
+        tags:
+            - name: console.command
+
+    App\Command\ProcessGiroTerminationRequestXML:
+        arguments:
+            $logger: '@monolog.logger.web_service'
+            $documentConverterHost: '%env(DOCUMENT_CONVERTER_HOST)%'
+            $timezone: '%app.timezone%'
+        tags:
+            - name: console.command
+
+    App\Command\ProcessMassAccountClosureRequestXML:
+        arguments:
+            $logger: '@monolog.logger.web_service'
+            $documentConverterHost: '%env(DOCUMENT_CONVERTER_HOST)%'
+            $timezone: '%app.timezone%'
+        tags:
+            - name: console.command
+
+    App\Command\ProcessMassContractApplicationRequestRenewalXML:
+        arguments:
+            $logger: '@monolog.logger.web_service'
+            $documentConverterHost: '%env(DOCUMENT_CONVERTER_HOST)%'
+            $timezone: '%app.timezone%'
+        tags:
+            - name: console.command
+
+    App\Command\ProcessMassContractApplicationRequestXML:
+        arguments:
+            $logger: '@monolog.logger.web_service'
+            $documentConverterHost: '%env(DOCUMENT_CONVERTER_HOST)%'
+            $timezone: '%app.timezone%'
+        tags:
+            - name: console.command
+
+    App\Command\ProcessMassTransferOutRequestXML:
+        arguments:
+            $logger: '@monolog.logger.web_service'
+            $documentConverterHost: '%env(DOCUMENT_CONVERTER_HOST)%'
+            $timezone: '%app.timezone%'
+        tags:
+            - name: console.command
+
+    App\Command\ProcessRCCSTerminationRequestXML:
+        arguments:
+            $logger: '@monolog.logger.web_service'
+            $documentConverterHost: '%env(DOCUMENT_CONVERTER_HOST)%'
+            $timezone: '%app.timezone%'
+        tags:
+            - name: console.command
+
+    App\Command\ProcessTariffRateXML:
+        arguments:
+            $logger: '@monolog.logger.web_service'
+            $documentConverterHost: '%env(DOCUMENT_CONVERTER_HOST)%'
+            $timezone: '%app.timezone%'
+        tags:
+            - name: console.command
+
+    App\Command\ProcessTransferOutRequestXML:
+        arguments:
+            $logger: '@monolog.logger.web_service'
+            $documentConverterHost: '%env(DOCUMENT_CONVERTER_HOST)%'
+            $timezone: '%app.timezone%'
+            $emergencyWebhookUrl: '%env(SLACK_EMERGENCY_WEBHOOK_URL)%'
+        tags:
+            - name: console.command
+
+    App\Command\QueueAffiliateDisqueJob:
+        arguments:
+            $webServicesQueue: '@app.disque.queue.web_services'
+            $timezone: '%app.timezone%'
+        tags:
+            - name: console.command
+
+    App\Command\QueueCronDisqueJob:
+        arguments:
+            $applicationRequestQueue: '@app.disque.queue.application_requests'
+            $campaignQueue: '@app.disque.queue.campaigns'
+            $contractQueue: '@app.disque.queue.contracts'
+            $cronQueue: '@app.disque.queue.cron'
+            $messageQueue: '@app.disque.queue.messages'
+            $timezone: '%app.timezone%'
+        tags:
+            - name: console.command
+
+    App\Command\QueueCronJobScheduleDisqueJob:
+        arguments:
+            $applicationRequestsQueue: '@app.disque.queue.application_requests'
+            $campaignsQueue: '@app.disque.queue.campaigns'
+            $contractsQueue: '@app.disque.queue.contracts'
+            $cronQueue: '@app.disque.queue.cron'
+            $messagesQueue: '@app.disque.queue.messages'
+            $timezone: '%app.timezone%'
+        tags:
+            - name: console.command
+
+    App\Command\QueueDisqueJob:
+        arguments:
+            $applicationRequestsQueue: '@app.disque.queue.application_requests'
+            $campaignsQueue: '@app.disque.queue.campaigns'
+            $contractsQueue: '@app.disque.queue.contracts'
+            $cronQueue: '@app.disque.queue.cron'
+            $emailsQueue: '@app.disque.queue.emails'
+            $messagesQueue: '@app.disque.queue.messages'
+            $reportsQueue: '@app.disque.queue.reports'
+            $timezone: '%app.timezone%'
+        tags:
+            - name: console.command
+
+    App\Command\QueueEmailJob:
+        arguments:
+            $emailsQueue: '@app.disque.queue.emails'
+        tags:
+            - name: console.command
+
+    App\Command\ResetUserPasswordCommand:
+        tags:
+            - name: console.command
+
+    App\Command\SubmitApplicationRequest:
+        arguments:
+            $logger: '@monolog.logger.web_service'
+        tags:
+            - name: console.command
+
+    App\Command\SubmitWithdrawCreditsCommand:
+        arguments:
+            $logger: '@monolog.logger.web_service'
+        tags:
+            - name: console.command
+
+    App\Command\TriggerPartnerCommissionStatement:
+        arguments:
+            $logger: '@monolog.logger'
+            $timezone: '%app.timezone%'
+        tags:
+            - name: console.command
+              
+    App\Command\UpdateApplicationRequestCacheTable:
+        arguments:
+            $documentManager: '@doctrine_mongodb.odm.reports_cache_db_document_manager'
+            $logger: '@monolog.logger.disque'
+        tags:
+            - name: console.command
+              
+    App\Command\UpdateContractCacheTable:
+        arguments:
+            $documentManager: '@doctrine_mongodb.odm.reports_cache_db_document_manager'
+            $logger: '@monolog.logger.disque'
+        tags:
+            - name: console.command
+
+    App\Command\UpdateCustomerContact:
+        arguments:
+            $logger: '@monolog.logger.disque'
+        tags:
+            - name: console.command
+
+    App\Command\UpdateEarnContractsCreditsActionsInstruments:
+        arguments:
+            $migrationQueue: '@app.disque.queue.migration'
+        tags:
+            - name: console.command
+
+    App\Command\UploadXML:
+        arguments:
+            $logger: '@monolog.logger.web_service'
+            $timezone: '%app.timezone%'
+        tags:
+            - name: console.command
+
+    App\Command\WorkerStartCommand:
+        arguments:
+            $logger: '@monolog.logger.disque'
+            $reportsQueue: '@app.disque.queue.reports'
+            $webServicesQueue: '@app.disque.queue.web_services'
+            $documentConverterHost: '%env(DOCUMENT_CONVERTER_HOST)%'
+            $profile: '%app.profile%'
+            $timezone: '%app.timezone%'
+            $emergencyWebhookUrl: '%env(SLACK_EMERGENCY_WEBHOOK_URL)%'
+            $memoryLimit: '%env(WORKER_MEMORY_LIMIT)%'
+        tags:
+            - name: console.command
+
+    # App\Controller\TestController:
+    #     tags: ['controller.service_arguments']
+    ###< console commands ###
+
+    ###> custom data providers ###
+    App\DataProvider\ContractBillingInformationDataProvider:
+        arguments:
+            $webServicesQueue: '@app.disque.queue.web_services'
+
+    App\DataProvider\ContractBillingSummaryDataProvider:
+        arguments:
+            $webServicesQueue: '@app.disque.queue.web_services'
+
+    App\DataProvider\ContractRCCSHistoryDataProvider:
+        arguments:
+            $webServicesQueue: '@app.disque.queue.web_services'
+
+    App\DataProvider\ThirdPartyChargeConfigurationDataProvider:
+        arguments:
+            $timezone: '%app.timezone%'
+    ###< custom data providers ###
+
+    ###> custom doctrine extensions ###
+    App\Doctrine\ActivityExtension:
+        tags:
+            - { name: api_platform.doctrine.orm.query_extension.collection, priority: 9 }
+            - { name: api_platform.doctrine.orm.query_extension.item }
+
+    App\Doctrine\ApplicationRequestExtension:
+        tags:
+            - { name: api_platform.doctrine.orm.query_extension.collection, priority: 9 }
+            - { name: api_platform.doctrine.orm.query_extension.item }
+
+    App\Doctrine\ContractExtension:
+        tags:
+            - { name: api_platform.doctrine.orm.query_extension.collection, priority: 9 }
+            - { name: api_platform.doctrine.orm.query_extension.item }
+
+    App\Doctrine\DigitalDocumentExtension:
+        tags:
+            - { name: api_platform.doctrine.orm.query_extension.item }
+
+    App\Doctrine\UserExtension:
+        tags:
+            - { name: api_platform.doctrine.orm.query_extension.collection, priority: 9 }
+            - { name: api_platform.doctrine.orm.query_extension.item }
+    ###< custom doctrine extensions ###
+
+    ###> custom filters ###
+    App\ApiPlatform\Doctrine\Orm\Filter\ApplicationRequestSearchFilter:
+        arguments:
+            - '@doctrine'
+            - '@request_stack'
+            - '@api_platform.iri_converter'
+            - '@property_accessor'
+            - '@?logger'
+
+    App\ApiPlatform\Doctrine\Orm\Filter\CustomerAccountSearchFilter:
+        arguments:
+            - '@doctrine'
+            - '@request_stack'
+            - '@api_platform.iri_converter'
+            - '@property_accessor'
+            - '@?logger'
+                
+    App\ApiPlatform\Doctrine\Orm\Filter\EmployeeRoleSearchFilter:
+        arguments:
+            - '@doctrine'
+            - '@request_stack'
+            - '@api_platform.iri_converter'
+            - '@property_accessor'
+            - '@?logger'
+                
+    App\ApiPlatform\Doctrine\Orm\Filter\LeadSearchFilter:
+        arguments:
+            - '@doctrine'
+            - '@request_stack'
+            - '@api_platform.iri_converter'
+            - '@property_accessor'
+            - '@?logger'
+
+    App\ApiPlatform\Doctrine\Orm\Filter\JsonObjectSearchFilter:
+        arguments:
+            - '@doctrine'
+            - '@request_stack'
+            - '@?logger'
+
+    App\ApiPlatform\Doctrine\Orm\Filter\JsonSearchFilter:
+        arguments:
+            - '@doctrine'
+            - '@request_stack'
+            - '@?logger'
+
+    App\ApiPlatform\Doctrine\Orm\Filter\TicketSearchFilter:
+        arguments:
+            - '@doctrine'
+            - '@request_stack'
+            - '@api_platform.iri_converter'
+            - '@property_accessor'
+            - '@?logger'
+
+    App\ApiPlatform\Doctrine\Orm\Filter\CustomerAccountRelationshipSearchFilter:
+        arguments:
+            - '@doctrine'
+            - '@request_stack'
+            - '@api_platform.iri_converter'
+            - '@property_accessor'
+            - '@?logger'
+
+    App\ApiPlatform\Doctrine\Orm\Filter\EarnContractCreditsActionSearchFilter:
+        arguments:
+            - '@doctrine'
+            - '@request_stack'
+            - '@api_platform.iri_converter'
+            - '@property_accessor'
+            - '@?logger'
+                
+    App\ApiPlatform\Doctrine\Orm\Filter\DiscriminatorColumnSearchFilter:
+        arguments:
+            - '@doctrine'
+            - '@request_stack'
+            - '@api_platform.iri_converter'
+            - '@property_accessor'
+            - '@?logger'
+
+    App\ApiPlatform\Doctrine\Orm\Filter\RedeemCreditsActionSearchFilter:
+        arguments:
+            - '@doctrine'
+            - '@request_stack'
+            - '@api_platform.iri_converter'
+            - '@property_accessor'
+            - '@?logger'
+
+    App\ApiPlatform\Doctrine\Orm\Filter\OrderSearchFilter:
+        arguments:
+            - '@doctrine'
+            - '@request_stack'
+            - '@api_platform.iri_converter'
+            - '@property_accessor'
+            - '@?logger'
+
+    App\ApiPlatform\Doctrine\Orm\Filter\UserSearchFilter:
+        arguments:
+            - '@doctrine'
+            - '@request_stack'
+            - '@api_platform.iri_converter'
+            - '@property_accessor'
+            - '@?logger'
+    ###< custom filters ###
+    
+    ###> event listeners ###
+    App\EventListener\RequestsListener:
+        tags:
+            - name: kernel.event_listener
+              event: kernel.request
+              method: onCoreRequest
+              priority: 3
+
+    App\Security\TwoFactorAuthentication\LoginAttemptListener:
+        tags:
+            - name: kernel.event_listener
+              event: security.interactive_login
+              method: onSecurityInteractiveLogin
+              priority: 400
+              
+    App\EventListener\ApplicationRequestCreationListener:
+        tags:
+            - name: kernel.event_listener
+              event: kernel.view
+              method: onKernelView
+              priority: 102
+
+    App\EventListener\ApplicationRequestDeletionListener:
+        tags:
+            - name: kernel.event_listener
+              event: kernel.view
+              method: onKernelView
+              priority: 102
+              
+    App\EventListener\ApplicationRequestDoctrineListener:
+        arguments:
+            $applicationRequestQueue: '@app.disque.queue.application_requests'
+        public: true
+        tags:
+            - name: doctrine.event_listener
+              event: onFlush
+              priority: 0
+              lazy: true
+
+    App\EventListener\ApplicationRequestNumberGenerationListener:
+        arguments:
+            $emailsQueue: '@app.disque.queue.emails'
+        tags:
+            - name: kernel.event_listener
+              event: kernel.request
+              method: onKernelRequest
+              priority: 3
+            - name: kernel.event_listener
+              event: kernel.view
+              method: onKernelView
+              priority: 102
+            - name: kernel.event_listener
+              event: kernel.view
+              method: onPostWrite
+              priority: 31
+
+    App\EventListener\ApplicationRequestSignOnBehalfReminderReTriggerListener:
+        arguments:
+            $emailsQueue: '@app.disque.queue.emails'
+        tags:
+            - name: kernel.event_listener
+              event: kernel.request
+              method: onKernelRequest
+              priority: 3
+            - name: kernel.event_listener
+              event: kernel.view
+              method: onKernelView
+              priority: 30
+
+    App\EventListener\ApplicationRequestSubmissionListener:
+        arguments:
+            $applicationRequestQueue: '@app.disque.queue.application_requests'
+            $emailsQueue: '@app.disque.queue.emails'
+            $webServicesQueue: '@app.disque.queue.web_services'
+        tags:
+            - name: kernel.event_listener
+              event: kernel.request
+              method: onKernelRequest
+              priority: 3
+            - name: kernel.event_listener
+              event: kernel.view
+              method: onKernelViewPreWrite
+              priority: 34
+            - name: kernel.event_listener
+              event: kernel.view
+              method: onKernelView
+              priority: 30
+
+    App\EventListener\ApplicationRequestTariffRateCustomizableListener:
+        tags:
+            - name: kernel.event_listener
+              event: kernel.view
+              method: onKernelView
+              priority: 103
+
+    App\EventListener\CampaignExpectationDeletionEventListener:
+        tags:
+            -   name: kernel.event_listener
+                event: kernel.view
+                method: onKernelView
+                priority: 102
+                
+    App\EventListener\CampaignNumberGenerationListener:
+        tags:
+            - name: kernel.event_listener
+              event: kernel.view
+              method: onKernelView
+              priority: 102
+            - name: kernel.event_listener
+              event: kernel.view
+              method: onPostWrite
+              priority: 31
+              
+    App\EventListener\CampaignObjectiveDeletionEventListener:
+        tags:
+            -   name: kernel.event_listener
+                event: kernel.view
+                method: onKernelView
+                priority: 102
+
+    App\EventListener\ContractDoctrineListener:
+        arguments:
+            $contractsQueue: '@app.disque.queue.contracts'
+        public: true
+        tags:
+            - name: doctrine.event_listener
+              event: onFlush
+              priority: 0
+              lazy: true
+
+    App\EventListener\ContractPostalAddressAdditionListener:
+        tags:
+            - name: kernel.event_listener
+              event: kernel.view
+              method: onKernelView
+              priority: 30
+
+    App\EventListener\CreditsTransactionNumberGenerationListener:
+        tags:
+            - name: kernel.event_listener
+              event: kernel.view
+              method: onKernelView
+              priority: 102
+            - name: kernel.event_listener
+              event: kernel.view
+              method: onPostWrite
+              priority: 31
+
+    App\EventListener\CustomerAccountEmailActivityAdditionListener:
+        arguments:
+            $disqueQueue: '@app.disque.queue.emails'
+        tags:
+            - name: kernel.event_listener
+              event: kernel.request
+              method: onKernelRequest
+              priority: 3
+            - name: kernel.event_listener
+              event: kernel.view
+              method: onKernelView
+              priority: 30
+
+    App\EventListener\CustomerAccountNumberGenerationListener:
+        tags:
+            - name: kernel.event_listener
+              event: kernel.view
+              method: onKernelView
+              priority: 33
+            - name: kernel.event_listener
+              event: kernel.view
+              method: onPostWrite
+              priority: 31
+
+    App\EventListener\CustomerAccountRelationshipsUpdaterListener:
+        tags:
+            - name: kernel.event_listener
+              event: kernel.view
+              method: onKernelView
+              priority: 102
+
+    App\EventListener\CustomerAccountSMSActivityAdditionListener:
+        arguments:
+            $disqueQueue: '@app.disque.queue.web_services'
+        tags:
+            - name: kernel.event_listener
+              event: kernel.request
+              method: onKernelRequest
+              priority: 3
+            - name: kernel.event_listener
+              event: kernel.view
+              method: onKernelView
+              priority: 30
+
+    App\EventListener\DirectMailCampaignEventSubscriber:
+        arguments:
+            $campaignQueue: '@app.disque.queue.campaigns'
+
+    App\EventListener\DigitalDocumentContentListener:
+        arguments:
+            - '%kernel.project_dir%/var/tmp'
+        tags:
+            - name: kernel.event_listener
+              event: kernel.request
+              method: onKernelRequest
+              priority: 6
+            - name: kernel.event_listener
+              event: kernel.terminate
+              method: onKernelTerminate
+              priority: 100
+
+    App\EventListener\DoctrineExtensionsBlameableUserInjectionListener:
+        tags:
+            - name: kernel.event_listener
+              event: kernel.request
+              method: onKernelRequest
+              priority: 3
+
+    App\EventListener\EmailCampaignEndEventListener:
+        arguments:
+            $campaignQueue: '@app.disque.queue.campaigns'
+            $timezone: '%app.timezone%'
+        tags:
+            - name: kernel.event_listener
+              event: kernel.view
+              method: onKernelView
+              priority: 30
+
+    App\EventListener\EmailCampaignExecutionEventListener:
+        arguments:
+            $campaignQueue: '@app.disque.queue.campaigns'
+            $timezone: '%app.timezone%'
+        tags:
+            - name: kernel.event_listener
+              event: kernel.request
+              method: onKernelRequest
+              priority: 3
+            - name: kernel.event_listener
+              event: kernel.view
+              method: onKernelView
+              priority: 31
+
+    App\EventListener\EmailCampaignSourceListItemPositionGenerationListener:
+        tags:
+            - name: kernel.event_listener
+              event: kernel.view
+              method: onKernelView
+              priority: 102
+
+    App\EventListener\InternalDocumentContentListener:
+        arguments:
+            - '%kernel.project_dir%/var/tmp'
+        tags:
+            - name: kernel.event_listener
+              event: kernel.request
+              method: onKernelRequest
+              priority: 6
+            - name: kernel.event_listener
+              event: kernel.terminate
+              method: onKernelTerminate
+              priority: 100
+
+    App\EventListener\JwtApiUserTokenUpdaterListener:
+        tags:
+            - name: kernel.event_listener
+              event: lexik_jwt_authentication.on_jwt_created
+              method: onJWTCreated
+
+    App\EventListener\JwtUserLastLogonUpdaterListener:
+        arguments:
+            $requestStack: '@request_stack'
+        tags:
+            - name: kernel.event_listener
+              event: lexik_jwt_authentication.on_jwt_created
+              method: onJWTCreated
+
+    App\EventListener\JwtUserSubjectInjectionListener:
+        tags:
+            - name: kernel.event_listener
+              event: lexik_jwt_authentication.on_jwt_created
+              method: onJWTCreated
+
+    App\EventListener\LeadAssignedEventSubscriber:
+        arguments:
+            $emailsQueue: '@app.disque.queue.emails'
+
+    App\EventListener\LeadEmailActivityAdditionListener:
+        arguments:
+            $disqueQueue: '@app.disque.queue.emails'
+        tags:
+            - name: kernel.event_listener
+              event: kernel.request
+              method: onKernelRequest
+              priority: 3
+            - name: kernel.event_listener
+              event: kernel.view
+              method: onKernelView
+              priority: 30
+
+    App\EventListener\LeadNumberGenerationListener:
+        tags:
+            - name: kernel.event_listener
+              event: kernel.view
+              method: onKernelView
+              priority: 102
+            - name: kernel.event_listener
+              event: kernel.view
+              method: onPostWrite
+              priority: 31
+
+    App\EventListener\LeadSMSActivityAdditionListener:
+        arguments:
+            $disqueQueue: '@app.disque.queue.web_services'
+        tags:
+            - name: kernel.event_listener
+              event: kernel.request
+              method: onKernelRequest
+              priority: 3
+            - name: kernel.event_listener
+              event: kernel.view
+              method: onKernelView
+              priority: 30
+              
+    App\EventListener\MaintenanceConfigurationListener:
+        arguments:
+            $cronQueue: '@app.disque.queue.cron'
+            $timezone: '%app.timezone%'
+            $url: '%app.url%'
+        tags:
+            - name: kernel.event_listener
+              event: kernel.request
+              method: onKernelRequest
+              priority: 3
+            - name: kernel.event_listener
+              event: kernel.view
+              method: onPostWrite
+              priority: 31
+    
+    App\EventListener\MessageNumberGenerationListener:
+        tags:
+            - name: kernel.event_listener
+              event: kernel.view
+              method: onKernelView
+              priority: 102
+            - name: kernel.event_listener
+              event: kernel.view
+              method: onPostWrite
+              priority: 31
+              
+    App\EventListener\MessageTemplateEventSubscriber:
+        arguments:
+            $messageQueue: '@app.disque.queue.messages'
+            $timezone: '%app.timezone%'
+
+    App\EventListener\OfferListItemDeletionEventListener:
+        tags:
+            - name: kernel.event_listener
+              event: kernel.view
+              method: onKernelView
+              priority: 102
+
+    App\EventListener\LegacyUserAuthenticationListener:
+        arguments:
+            $bridgeAuthApiUrl: '%env(BRIDGE_API_AUTH_URL)%'
+            $logger: '@monolog.logger.bridge'
+
+    App\EventListener\OfferNumberGenerationListener:
+        tags:
+            - name: kernel.event_listener
+              event: kernel.view
+              method: onKernelView
+              priority: 102
+            - name: kernel.event_listener
+              event: kernel.view
+              method: onPostWrite
+              priority: 31
+
+    App\EventListener\OrderItemUpdateEventListener:
+        tags:
+            - name: kernel.event_listener
+              event: kernel.view
+              method: onKernelView
+              priority: 102
+
+    App\EventListener\OrderNumberGeneratorListener:
+        tags:
+            - name: kernel.event_listener
+              event: kernel.request
+              method: onKernelRequest
+              priority: 3
+            - name: kernel.event_listener
+              event: kernel.view
+              method: onKernelView
+              priority: 66 # Just before validation
+            - name: kernel.event_listener
+              event: kernel.view
+              method: onPostWrite
+              priority: 31
+
+    App\EventListener\OrderPaymentDueEventListener:
+        tags:
+            - name: kernel.event_listener
+              event: kernel.request
+              method: onKernelRequest
+              priority: 3
+            - name: kernel.event_listener
+              event: kernel.view
+              method: onKernelView
+              priority: 63
+            - name: kernel.event_listener
+              event: kernel.view
+              method: onPostWrite
+              priority: 31
+
+    App\EventListener\PaymentNumberGenerationListener:
+        tags:
+            - name: kernel.event_listener
+              event: kernel.view
+              method: onKernelView
+              priority: 102
+            - name: kernel.event_listener
+              event: kernel.view
+              method: onPostWrite
+              priority: 31
+              
+    App\EventListener\QuotationSubmissionListener:
+        arguments:
+            $applicationRequestQueue: '@app.disque.queue.application_requests'
+            $emailsQueue: '@app.disque.queue.emails'
+        tags:
+            -   name: kernel.event_listener
+                event: kernel.request
+                method: onKernelRequest
+                priority: 3
+            -   name: kernel.event_listener
+                event: kernel.view
+                method: onKernelView
+                priority: 62
+
+    App\EventListener\CustomerAccountEventSubscriber:
+        arguments:
+            $timezone: '%app.timezone%'
+
+    App\EventListener\PartnerEventSubscriber:
+        arguments:
+            $timezone: '%app.timezone%'
+
+    App\EventListener\PostalAddressFieldsUpdateDoctrineListener:
+        public: true
+        tags:
+            - name: doctrine.event_listener
+              event: onFlush
+              priority: 0
+              lazy: true
+
+    App\EventListener\TariffDailyRateGenerationListener:
+        tags:
+            - name: kernel.event_listener
+              event: kernel.view
+              method: onKernelViewPreWrite
+              priority: 34
+
+    App\EventListener\TicketEmailActivityAdditionListener:
+        arguments:
+            $disqueQueue: '@app.disque.queue.emails'
+        tags:
+            - name: kernel.event_listener
+              event: kernel.request
+              method: onKernelRequest
+              priority: 3
+            - name: kernel.event_listener
+              event: kernel.view
+              method: onKernelView
+              priority: 30
+
+    App\EventListener\TicketEventSubscriber:
+        arguments:
+            $mailerQueue: '@app.disque.queue.emails'
+
+    App\EventListener\TicketStatusUpdaterListener:
+        tags:
+            - name: kernel.event_listener
+              event: kernel.request
+              method: onKernelRequest
+              priority: 3
+            - name: kernel.event_listener
+              event: kernel.view
+              method: onKernelViewPreWrite
+              priority: 34
+
+    App\EventListener\TicketNumberGenerationListener:
+        tags:
+            - name: kernel.event_listener
+              event: kernel.view
+              method: onKernelView
+              priority: 102
+            - name: kernel.event_listener
+              event: kernel.view
+              method: onPostWrite
+              priority: 31
+
+    App\EventListener\TsvectorFieldsUpdateDoctrineListener:
+        public: true
+        tags:
+            - name: doctrine.event_listener
+              event: onFlush
+              priority: 0
+              lazy: true
+
+    App\EventListener\UpdateCreditsActionCreationListener:
+        tags:
+            - name: kernel.event_listener
+              event: kernel.view
+              method: onKernelView
+              priority: 65
+
+    App\EventListener\UserEventSubscriber:
+        arguments:
+            $disqueQueue: '@app.disque.queue.emails'
+
+    App\EventListener\UserPasswordResetRequestedUserEmailSendingListener:
+        arguments:
+            $disqueQueue: '@app.disque.queue.emails'
+        tags:
+            - name: kernel.event_listener
+              event: coop_tilleuls_forgot_password.create_token
+              method: onCreateToken
+              priority: 0
+
+    App\EventListener\UserResetPasswordUpdaterListener:
+        tags:
+            - name: kernel.event_listener
+              event: coop_tilleuls_forgot_password.update_password
+              method: onUpdatePassword
+              priority: 0
+
+    App\EventListener\QuotationNumberGenerationListener:
+        tags:
+            - name: kernel.event_listener
+              event: kernel.view
+              method: onKernelView
+              priority: 102
+            - name: kernel.event_listener
+              event: kernel.view
+              method: onPostWrite
+              priority: 31
+
+    App\EventListener\WithdrawCreditsActionEventSubscriber:
+        arguments:
+            $webServicesQueue: '@app.disque.queue.web_services'
+
+    Gedmo\Blameable\BlameableListener:
+        calls:
+            - method: setAnnotationReader
+              arguments:
+                  - '@annotation_reader'
+        tags:
+            - doctrine.event_subscriber
+
+    Gedmo\Timestampable\TimestampableListener:
+        calls:
+            - method: setAnnotationReader
+              arguments:
+                  - '@annotation_reader'
+        tags:
+            - doctrine.event_subscriber
+
+    Gedmo\Tree\TreeListener:
+        calls:
+            - method: setAnnotationReader
+              arguments:
+                  - '@annotation_reader'
+        tags:
+            - doctrine.event_subscriber
+    ###< event listeners ###
+
+    ###> metadata ###
+    App\ApiPlatform\Metadata\Property\Factory\ContactPointPropertyMetadataFactory:
+        decorates: api_platform.metadata.property.metadata_factory
+        decoration_priority: 0
+        arguments:
+            $decorated: '@App\ApiPlatform\Metadata\Property\Factory\ContactPointPropertyMetadataFactory.inner'
+    ###< metadata ###
+
+    ###> model ###
+    App\Model\AffiliateProgramCommissionConversionCalculator:
+        arguments:
+            $timezone: '%app.timezone%'
+
+    App\Model\AffiliateProgramURLGenerator:
+        arguments:
+            $disqueQueue: '@app.disque.queue.web_services'
+
+    App\Model\ApplicationRequestNumberGenerator:
+        arguments:
+            $runningNumberParameters: '%app.running_number_parameters%'
+            $timezone: '%app.timezone%'
+
+    App\Model\AuthorizationLetterFileGenerator:
+        arguments:
+            $documentConverterHost: '%env(DOCUMENT_CONVERTER_HOST)%'
+            $timezone: '%app.timezone%'
+
+    App\Model\ApplicationRequestAccountClosureCreator:
+        arguments:
+            $timezone: '%app.timezone%'
+
+    App\Model\ApplicationRequestTransferOutCreator:
+        arguments:
+            $timezone: '%app.timezone%'
+
+    App\Model\RedemptionOrderVoucherGenerator:
+        arguments:
+            $documentConverterHost: '%env(DOCUMENT_CONVERTER_HOST)%'
+            $timezone: '%app.timezone%'
+
+    App\Model\ContractApplicationRequestRenewalCreator:
+        arguments:
+            - '%kernel.project_dir%/var/tmp'
+            - '%app.timezone%'
+            - '@monolog.logger.web_service'
+
+    App\Model\ContractApplicationRequestCreator:
+        arguments:
+            - '%kernel.project_dir%/var/tmp'
+            - '%app.timezone%'
+
+    App\Model\ContractApplicationRequestStatusUpdater:
+        arguments:
+            $timezone: '%app.timezone%'
+            $emailsQueue: '@app.disque.queue.emails'
+            $webServicesQueue: '@app.disque.queue.web_services'
+            $documentConverterHost: '%env(DOCUMENT_CONVERTER_HOST)%'
+            $appProfile: '%env(APP_PROFILE)%'
+
+    App\Model\ContractRenewalApplicationRequestStatusUpdater:
+        arguments:
+            $timezone: '%app.timezone%'
+            $emailsQueue: '@app.disque.queue.emails'
+            $webServicesQueue: '@app.disque.queue.web_services'
+            $documentConverterHost: '%env(DOCUMENT_CONVERTER_HOST)%'
+
+    App\Model\ContractCreditsUpdater:
+        arguments:
+            $documentConverterHost: '%env(DOCUMENT_CONVERTER_HOST)%'
+
+    App\Model\CustomerAccountNumberGenerator:
+        arguments:
+            - '%app.timezone%'
+            - '%app.running_number_parameters%'
+
+    App\Model\DirectMailCampaignFileGenerator:
+        arguments:
+            $documentConverterHost: '%env(DOCUMENT_CONVERTER_HOST)%'
+
+    App\Model\LeadImporter:
+        arguments:
+            $documentConverterHost: '%env(DOCUMENT_CONVERTER_HOST)%'
+
+    App\Model\SourceListImporter:
+        arguments:
+            $documentConverterHost: '%env(DOCUMENT_CONVERTER_HOST)%'
+
+    App\Model\LeadNumberGenerator:
+        arguments:
+            $runningNumberParameters: '%app.running_number_parameters%'
+            $timezone: '%app.timezone%'
+
+    App\Model\OrderNumberGenerator:
+        arguments:
+            $runningNumberParameters: '%app.running_number_parameters%'
+            $timezone: '%app.timezone%'
+
+    App\Model\PartnerCommissionProcessor:
+        arguments:
+            $emailsQueue: '@app.disque.queue.emails'
+            $reportsQueue: '@app.disque.queue.reports'
+            $documentConverterHost: '%env(DOCUMENT_CONVERTER_HOST)%'
+            $profile: '%app.profile%'
+            $timezone: '%app.timezone%'
+            
+    App\Model\QuotationFileGenerator:
+        arguments:
+            $documentConverterHost: '%env(DOCUMENT_CONVERTER_HOST)%'
+            $timezone: '%app.timezone%'
+            $profile: '%app.profile%'
+
+    App\Model\ReportGenerator:
+        arguments:
+            $documentConverterHost: '%env(DOCUMENT_CONVERTER_HOST)%'
+            $emailsQueue: '@app.disque.queue.emails'
+            $timezone: '%app.timezone%'
+            $documentManager: '@doctrine_mongodb.odm.reports_cache_db_document_manager'
+            $appProfile: '%env(APP_PROFILE)%'
+
+    App\Model\TariffDailyRateValidator:
+        arguments:
+            $timezone: '%app.timezone%'
+
+    App\Model\TicketNumberGenerator:
+        arguments:
+            $runningNumberParameters: '%app.running_number_parameters%'
+            $timezone: '%app.timezone%'
+
+    App\Model\WorkingHourCalculator:
+        arguments:
+            $timezone: '%app.timezone%'
+    ###< model ###
+
+    ###> normalizers ###
+    App\Serializer\Normalizer\AffiliateProgramNormalizer:
+        decorates: api_platform.jsonld.normalizer.item
+        decoration_priority: 20
+        arguments:
+            $decorated: '@App\Serializer\Normalizer\AffiliateProgramNormalizer.inner'
+
+    App\Serializer\Normalizer\ApplicationRequestNormalizer:
+        decorates: api_platform.jsonld.normalizer.item
+        decoration_priority: 20
+        arguments:
+            $decorated: '@App\Serializer\Normalizer\ApplicationRequestNormalizer.inner'
+
+    App\Serializer\Normalizer\ContactPointNormalizer:
+        decorates: api_platform.jsonld.normalizer.item
+        decoration_priority: 20
+        arguments:
+            $decorated: '@App\Serializer\Normalizer\ContactPointNormalizer.inner'
+
+    App\Serializer\Normalizer\ContractNormalizer:
+        decorates: api_platform.jsonld.normalizer.item
+        decoration_priority: 20
+        arguments:
+            $decorated: '@App\Serializer\Normalizer\ContractNormalizer.inner'
+
+    App\Serializer\Normalizer\CustomerAccountNormalizer:
+        decorates: api_platform.jsonld.normalizer.item
+        decoration_priority: 20
+        arguments:
+            $decorated: '@App\Serializer\Normalizer\CustomerAccountNormalizer.inner'
+
+    App\Serializer\Normalizer\DigitalDocumentNormalizer:
+        decorates: api_platform.jsonld.normalizer.item
+        decoration_priority: 20
+        arguments:
+            $decorated: '@App\Serializer\Normalizer\DigitalDocumentNormalizer.inner'
+
+    App\Serializer\Normalizer\InternalDocumentNormalizer:
+        decorates: api_platform.jsonld.normalizer.item
+        decoration_priority: 20
+        arguments:
+            $decorated: '@App\Serializer\Normalizer\InternalDocumentNormalizer.inner'
+
+    App\Serializer\Normalizer\OfferListItemNormalizer:
+        decorates: api_platform.jsonld.normalizer.item
+        decoration_priority: 20
+        arguments:
+            $decorated: '@App\Serializer\Normalizer\OfferListItemNormalizer.inner'
+
+    App\Serializer\Normalizer\PromotionNormalizer:
+        decorates: api_platform.jsonld.normalizer.item
+        decoration_priority: 20
+        arguments:
+            $decorated: '@App\Serializer\Normalizer\PromotionNormalizer.inner'
+
+    App\Serializer\Normalizer\TariffRateNormalizer:
+        decorates: api_platform.jsonld.normalizer.item
+        decoration_priority: 20
+        arguments:
+            $decorated: '@App\Serializer\Normalizer\TariffRateNormalizer.inner'
+
+    App\Serializer\Normalizer\TicketNormalizer:
+        decorates: api_platform.jsonld.normalizer.item
+        decoration_priority: 20
+        arguments:
+            $decorated: '@App\Serializer\Normalizer\TicketNormalizer.inner'
+
+    App\Serializer\Normalizer\UserNormalizer:
+        decorates: api_platform.jsonld.normalizer.item
+        decoration_priority: 32
+        arguments:
+            $decorated: '@App\Serializer\Normalizer\UserNormalizer.inner'
+        calls:
+            - method: setEventDispatcher
+
+    App\Serializer\Normalizer\DocumentationNormalizer:
+        decorates: 'api_platform.hydra.normalizer.documentation'
+        arguments:
+            $decorated: '@App\Serializer\Normalizer\DocumentationNormalizer.inner'
+    ###< normalizers ###
+
+    ###> services ###
+    App\Service\SGLocateApi:
+        arguments:
+            - '%env(SGLOCATE_API_KEY)%'
+            - '%env(SGLOCATE_API_SECRET)%'
+              
+    App\Service\AwsS3FileUploadHelper:
+        arguments:
+            $bucket: '%env(S3_PUBLIC_DOCUMENT_BUCKET_NAME)%'
+            $s3arguments:
+                credentials:
+                    key: '%env(S3_ACCESS_KEY_ID)%'
+                    secret: '%env(S3_SECRET_ACCESS_KEY)%'
+                region: '%env(S3_REGION)%'
+                version: '2006-03-01'
+
+    App\Service\UserCreationHelper:
+        arguments:
+            $disqueQueue: '@app.disque.queue.emails'
+    ###< services ###
+
+    ###> web service services ###
+    App\WebService\Billing\Controller\PromotionController:
+        arguments:
+            $timezone: '%app.timezone%'
+        tags:
+            - controller.service_arguments
+
+    App\WebService\Billing\Controller\TariffRateController:
+        arguments:
+            $timezone: '%app.timezone%'
+        tags:
+            - controller.service_arguments
+
+    App\WebService\Billing\Services\RouteLoader:
+        public: true
+        arguments:
+            $provider: '%env(APP_WEB_SERVICE_PROVIDER)%'
+            $yamlFileLoader: '@routing.loader.yml'
+
+    App\WebService\Email\Services\RouteLoader:
+        public: true
+        arguments:
+            $providers: '%env(APP_WEB_SERVICE_EMAIL_PROVIDERS)%'
+            $yamlFileLoader: '@routing.loader.yml'
+
+    App\WebService\SMS\Services\RouteLoader:
+        public: true
+        arguments:
+            $provider: '%env(APP_WEB_SERVICE_SMS_PROVIDER)%'
+            $yamlFileLoader: '@routing.loader.yml'
+
+    App\WebService\Affiliate\ClientFactory:
+        arguments:
+            $config:
+                has_offers_api_key: '%env(APP_WEB_SERVICE_HAS_OFFERS_API_KEY)%'
+                has_offers_api_secret: '%env(APP_WEB_SERVICE_HAS_OFFERS_API_SECRET)%'
+                has_offers_api_url: '%env(APP_WEB_SERVICE_HAS_OFFERS_URL)%'
+                involve_api_key: '%env(APP_WEB_SERVICE_INVOLVE_ASIA_API_KEY)%'
+                involve_api_secret: '%env(APP_WEB_SERVICE_INVOLVE_ASIA_API_SECRET)%'
+                involve_api_url: '%env(APP_WEB_SERVICE_INVOLVE_ASIA_URL)%'
+                tag_api_url: '%env(APP_WEB_SERVICE_TAG_URL)%'
+                tag_api_username: '%env(APP_WEB_SERVICE_TAG_USERNAME)%'
+                tag_api_key: '%env(APP_WEB_SERVICE_TAG_API_KEY)%'
+            $logger: '@monolog.logger.web_service'
+            $timezone: '%app.timezone%'
+
+    app.web_service.billing_client:
+        lazy: true
+        class: App\WebService\Billing\ClientInterface
+        factory: 'App\WebService\Billing\WebServiceFactory:create'
+        arguments:
+            $config:
+                account_info_alternative_url: '%env(APP_WEB_SERVICE_ACCOUNT_INFORMATION_ALTERNATIVE_URL)%'
+                application_request_alternative_url: '%env(APP_WEB_SERVICE_APPLICATION_REQUEST_ALTERNATIVE_URL)%'
+                attachment_alternative_url: '%env(APP_WEB_SERVICE_ATTACHMENT_ALTERNATIVE_URL)%'
+                auth_token: '%env(APP_WEB_SERVICE_AUTH_TOKEN)%'
+                bucket_name: '%env(APP_WEB_SERVICE_S3_BUCKET_NAME)%'
+                ftp_password: '%env(APP_WEB_SERVICE_FTP_PASSWORD)%'
+                ftp_url: '%env(APP_WEB_SERVICE_FTP_URL)%'
+                ftp_username: '%env(APP_WEB_SERVICE_FTP_USERNAME)%'
+                password: '%env(APP_WEB_SERVICE_PASSWORD)%'
+                provider: '%env(APP_WEB_SERVICE_PROVIDER)%'
+                url: '%env(APP_WEB_SERVICE_URL)%'
+                username: '%env(APP_WEB_SERVICE_USERNAME)%'
+                ftp_upload_enabled: '%env(APP_WEB_SERVICE_ENABLE_FTP_UPLOAD)%'
+            $commandBus: '@tactician.commandbus'
+            $logger: '@monolog.logger.web_service'
+            $s3Client: '@app.aws.s3_client'
+            $timezone: '%app.timezone%'
+
+    app.web_service.payment_gateway_client:
+        lazy: true
+        class: App\WebService\PaymentGateway\ClientInterface
+        factory: 'App\WebService\PaymentGateway\ClientFactory:create'
+        arguments:
+            $config:
+                merchant_url: '%env(PAYMENT_GATEWAY_BASE_URL)%'
+                merchant_id: '%env(PAYMENT_GATEWAY_MERCHANT_ID)%'
+                merchant_recurring_id: '%env(PAYMENT_GATEWAY_MERCHANT_RECURRING_ID)%'
+                merchant_secret: '%env(PAYMENT_GATEWAY_MERCHANT_SECRET)%'
+                provider: '%env(PAYMENT_GATEWAY_PROVIDER)%'
+                return_url: '%env(PAYMENT_GATEWAY_RETURN_URL)%'
+                status_url: '%env(PAYMENT_GATEWAY_STATUS_URL)%'
+                profile: '%env(APP_PROFILE)%'
+            $commandBus: '@tactician.commandbus'
+            $logger: '@monolog.logger.web_service'
+            $timezone: '%app.timezone%'
+
+    app.web_service.sms_client:
+        lazy: true
+        class: App\WebService\SMS\ClientInterface
+        factory: 'App\WebService\SMS\ClientFactory:create'
+        arguments:
+            $config:
+                api_url: '%env(APP_WEB_SERVICE_SMS_URL)%'
+                api_username: '%env(APP_WEB_SERVICE_SMS_USERNAME)%'
+                api_password: '%env(APP_WEB_SERVICE_SMS_PASSWORD)%'
+                origin_number: '%env(APP_WEB_SERVICE_SMS_ORIGIN_NUMBER)%'
+                provider: '%env(APP_WEB_SERVICE_SMS_PROVIDER)%'
+                test_number: '%env(APP_WEB_SERVICE_SMS_TEST_NUMBER)%'
+            $logger: '@monolog.logger.web_service'
+            $timezone: '%app.timezone%'
+    ###< web service services ###
+
+    ###> bridge ###
+    App\Bridge\Command\CleanContractCommand:
+        arguments:
+            $migrationQueue: '@app.disque.queue.migration'
+        tags:
+            - name: console.command
+
+    App\Bridge\Command\CleanCustomerCommand:
+        arguments:
+            $migrationQueue: '@app.disque.queue.migration'
+        tags:
+            - name: console.command
+
+    App\Bridge\Command\UpdateCustomerContactPoint:
+        arguments:
+            $migrationQueue: '@app.disque.queue.migration'
+            $timezone: '%app.timezone%'
+        tags:
+            - name: console.command
+
+    App\Bridge\Services\ApplicationRequestApi:
+        arguments:
+            $bridgeApiUrl: '%env(BRIDGE_API_URL)%'
+
+    App\Bridge\Services\CustomerApi:
+        arguments:
+            $bridgeApiUrl: '%env(BRIDGE_API_URL)%'
+            $logger: '@monolog.logger.bridge'
+
+    App\Bridge\Services\TicketApi:
+        arguments:
+            $bridgeApiUrl: '%env(BRIDGE_API_URL)%'
+            $logger: '@monolog.logger.bridge'
+
+    App\Bridge\Command\FetchTariffRates:
+        arguments:
+            $bridgeApiUrl: '%env(BRIDGE_API_URL)%'
+            $logger: '@monolog.logger.bridge'
+        tags:
+            - name: console.command
+
+    App\Bridge\Command\MigrateApplicationIds:
+        arguments:
+            $logger: '@monolog.logger.bridge'
+        tags:
+            - name: console.command
+
+    App\Bridge\Command\MigrateContractAction:
+        arguments:
+            $migrationQueue: '@app.disque.queue.migration'
+        tags:
+            - name: console.command
+
+    App\Bridge\Command\MigrateCustomer:
+        arguments:
+            $logger: '@monolog.logger.bridge'
+        tags:
+            - name: console.command
+
+    App\Bridge\Command\MigrateCustomerActivity:
+        arguments:
+            $logger: '@monolog.logger.bridge'
+        tags:
+            - name: console.command
+
+    App\Bridge\Command\MigrateCustomerAttachment:
+        arguments:
+            $logger: '@monolog.logger.bridge'
+        tags:
+            - name: console.command
+
+    App\Bridge\Command\MigrateCustomerNote:
+        arguments:
+            $logger: '@monolog.logger.bridge'
+        tags:
+            - name: console.command
+
+    App\Bridge\Command\MigrateCustomerRelationship:
+        arguments:
+            $logger: '@monolog.logger.bridge'
+        tags:
+            - name: console.command
+
+    App\Bridge\Command\MigrateOfferCategory:
+        arguments:
+            $logger: '@monolog.logger.bridge'
+        tags:
+            - name: console.command
+
+    App\Bridge\Command\MigrateTariffRate:
+        arguments:
+            $logger: '@monolog.logger.bridge'
+        tags:
+            - name: console.command
+
+    App\Bridge\Command\MigrateTicket:
+        arguments:
+            $logger: '@monolog.logger.bridge'
+        tags:
+            - name: console.command
+
+    App\Bridge\Command\MigrateTicketCategory:
+        arguments:
+            $logger: '@monolog.logger.bridge'
+        tags:
+            - name: console.command
+
+    App\Bridge\Command\MigrateTicketIds:
+        arguments:
+            $logger: '@monolog.logger.bridge'
+        tags:
+            - name: console.command
+
+    App\Bridge\Command\MigrateTicketType:
+        arguments:
+            $logger: '@monolog.logger.bridge'
+        tags:
+            - name: console.command
+
+    App\Bridge\Command\MigrateTicketTypeCategory:
+        arguments:
+            $logger: '@monolog.logger.bridge'
+        tags:
+            - name: console.command
+
+    App\Bridge\Command\MigrateUser:
+        arguments:
+            $logger: '@monolog.logger.bridge'
+        tags:
+            - name: console.command
+
+    App\Bridge\Security\Guard\BridgeApiTokenAuthenticator:
+        arguments:
+            $bridgeApiUrl: '%env(BRIDGE_API_URL)%'
+
+    App\Bridge\Services\BridgeDataMapper:
+        arguments:
+            $bridgeApiUrl: '%env(BRIDGE_API_URL)%'
+
+    App\Bridge\Services\ContractApi:
+        arguments:
+            $bridgeApiUrl: '%env(BRIDGE_API_URL)%'
+            $webServicesQueue: '@app.disque.queue.web_services'
+            $logger: '@monolog.logger.bridge'
+
+    App\Bridge\Services\LeadApi:
+        arguments:
+            $bridgeApiUrl: '%env(BRIDGE_API_URL)%'
+            $logger: '@monolog.logger.bridge'
+
+    App\Bridge\Services\OldLeadApi:
+        arguments:
+            $bridgeApiUrl: '%env(BRIDGE_API_URL)%'
+            $logger: '@monolog.logger.bridge'
+
+    App\Bridge\Services\SettingsApi:
+        arguments:
+            $bridgeApiUrl: '%env(BRIDGE_API_URL)%'
+
+    App\Bridge\Services\TariffRateApi:
+        arguments:
+            $bridgeApiUrl: '%env(BRIDGE_API_URL)%'
+
+    App\Bridge\Services\TariffApi:
+        arguments:
+            $bridgeApiUrl: '%env(BRIDGE_API_URL)%'
+
+    App\Bridge\Services\UploadApi:
+        arguments:
+            $bridgeApiUrl: '%env(BRIDGE_API_URL)%'
+
+    App\Bridge\Services\UserApi:
+        arguments:
+            $bridgeApiUrl: '%env(BRIDGE_API_URL)%'
+
+    App\Bridge\Services\UsersApi:
+        arguments:
+            $logger: '@monolog.logger.bridge'
+    ###< bridge ###
+
+    ###< temp ###
+    App\Security\Guard\SecurePasswordAuthenticator:
+        arguments:
+            $securePassword: '%env(SECURE_PASSWORD)%'
+    ###> temp ###
+

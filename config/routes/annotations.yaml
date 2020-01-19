@@ -1,0 +1,7 @@
+controllers:
+    resource: ../../src/Controller/
+    type: annotation
+
+bridge_controllers:
+    resource: ../../src/Bridge/Controller/
+    type: annotation

@@ -1,0 +1,12 @@
+App\Entity\CampaignObjective:
+    properties:
+        name:
+            - Type:
+                type: string
+            - NotNull: ~
+        description:
+            - Type:
+                type: string
+        enabled:
+            - Type:
+                type: bool

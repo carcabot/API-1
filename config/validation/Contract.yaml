@@ -1,0 +1,181 @@
+App\Entity\Contract:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields:
+                - contractNumber
+    properties:
+        actions:
+            - All:
+                - Type:
+                    type: App\Entity\ContractAction
+            - Valid:
+                traverse: true
+        addonServices:
+            - All:
+                - Type:
+                    type: App\Entity\AddonService
+            - Valid:
+                traverse: true
+        addresses:
+            - All:
+                - Type:
+                    type: App\Entity\ContractPostalAddress
+            - Valid:
+                traverse: true
+        averageConsumption:
+            - Type:
+                type: App\Entity\QuantitativeValue
+            - NotNull: ~
+            - Valid: ~
+        billingPeriodId:
+            - Type:
+                type: string
+        billSubscriptionTypes:
+            - Choice:
+                callback: [App\Enum\BillSubscriptionType, keys]
+                multiple: true
+        contactPerson:
+            - Type:
+                type: App\Entity\CustomerAccount
+            - NotNull: ~
+        closureNoticePeriod:
+            - Type:
+                type: App\Entity\QuantitativeValue
+            - NotNull: ~
+            - Valid: ~
+        contractNumber:
+            - Type:
+                type: string
+        contractPeriod:
+            - Type:
+                type: App\Entity\QuantitativeValue
+            - NotNull: ~
+            - Valid: ~
+        corporationDetails:
+            - Type:
+                type: App\Entity\Corporation
+            - Valid:
+                traverse: true
+        customer:
+            - Type:
+                type: App\Entity\CustomerAccount
+            - NotNull: ~
+        customerType:
+            - Type:
+                type: App\Enum\AccountType
+        customized:
+            - Type:
+                type: bool
+        depositAmount:
+            - Type:
+                type: App\Entity\MonetaryAmount
+        depositRefundType:
+            - Type:
+                type: App\Enum\RefundType
+        endDate:
+            - DateTime: ~
+        ebsAccountNumber:
+            - Type:
+                type: string
+            # - Regex:
+            #     pattern: '/^(?!93)[0-9]{9}[0-9-]{1}$/'
+        giroOption:
+            - Type:
+                type: bool
+        location:
+            - Type:
+                type: string
+        lockInDate:
+            - DateTime: ~
+        meterType:
+            - Type:
+                type: App\Enum\MeterType
+        msslAccountNumber:
+            - Type:
+                type: string
+            # - Regex:
+            #     pattern: '/^(93)[0-9]{8}$/'
+        name:
+            - Type:
+                type: string
+        payments:
+            - All:
+                - Type:
+                    type: App\Entity\Payment
+            - Valid:
+                traverse: true
+        paymentMode:
+            - Type:
+                type: App\Enum\PaymentMode
+        personDetails:
+            - Type:
+                type: App\Entity\Person
+            - Valid:
+                traverse: true
+        pointCreditsActions:
+            - All:
+                - Type:
+                    type: App\Entity\UpdateCreditsAction
+        recurringOption:
+            - Type:
+                type: bool
+        refundee:
+            - Type:
+                type: App\Entity\CustomerAccount
+        refundeeDetails:
+            - Type:
+                  type: App\Entity\Person
+        remark:
+            - Type:
+                type: string
+        selfApplication:
+            - Type:
+                type: bool
+        selfReadMeterOption:
+            - Type:
+                type: bool
+        startDate:
+            - DateTime: ~
+        status:
+            - Type:
+                type: App\Enum\ContractStatus
+            - NotNull: ~
+        subtype:
+            - Type:
+                type: string
+        supplementaryFiles:
+            - All:
+                - Type:
+                    type: App\Entity\DigitalDocument
+        tariffRate:
+            - Type:
+                type: App\Entity\TariffRate
+        type:
+            - Type:
+                type: App\Enum\ContractType
+            - NotNull: ~
+
+        # BlameableTrait
+        agent:
+            - Type:
+                type: App\Entity\User
+        creator:
+            - Type:
+                type: App\Entity\User
+
+        # SourceableTrait
+        acquiredFrom:
+            - Type:
+                type: App\Entity\CustomerAccount
+        source:
+            - Type:
+                type: string
+                # type: App\Enum\Source
+        sourceUrl:
+            - Url: ~
+
+        # TimestampableTrait
+        dateCreated:
+            - DateTime: ~
+        dateModified:
+            - DateTime: ~

@@ -1,0 +1,14 @@
+App\Entity\QuantitativeValue:
+    properties:
+        maxValue:
+            - Type:
+                type: string
+        minValue:
+            - Type:
+                type: string
+        unitCode:
+            - Type:
+                type: string
+        value:
+            - Type:
+                type: string

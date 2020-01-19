@@ -1,0 +1,3 @@
+App\Entity\QuantitativeValue:
+    quantitative_value:
+        __construct: false

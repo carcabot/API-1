@@ -1,0 +1,44 @@
+App\Entity\Module:
+    attributes:
+        id:
+            groups:
+                # -
+        category:
+            groups:
+                - module_read
+                - module_write
+        children:
+            groups:
+                - module_read
+                - module_write
+        description:
+            groups:
+                - module_read
+                - module_write
+        enabled:
+            groups:
+                - module_read
+                - module_write               
+        name:
+            groups:
+                - module_read
+                - module_write        
+        parent:
+            groups:
+                - module_read
+                - module_write                    
+        # BlameableTrait
+        agent:
+            groups:        
+                - module_read
+        creator:
+            groups:        
+                - module_read
+
+        # TimestampableTrait
+        dateCreated:
+            groups:        
+                - module_read
+        dateModified:
+            groups:        
+                - module_read                            

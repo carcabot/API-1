@@ -1,0 +1,37 @@
+App\Entity\TariffDailyRate:
+    attributes:
+        id:
+            groups:
+                # -
+        rate:
+            groups:
+                - tariff_daily_rate_read
+                - tariff_daily_rate_write
+        tariffRate: 
+            groups:
+                - tariff_daily_rate_read
+                - tariff_daily_rate_write               
+        validFrom:
+            groups:
+                - tariff_daily_rate_read
+                - tariff_daily_rate_write
+        validThrough:
+            groups:
+                - tariff_daily_rate_read
+                - tariff_daily_rate_write
+
+        # BlameableTrait
+        agent:
+            groups:
+                - tariff_daily_rate_read
+        creator:
+            groups:
+                - tariff_daily_rate_read
+
+        # TimestampableTrait
+        dateCreated:
+            groups:
+                - tariff_daily_rate_read
+        dateModified:
+            groups:
+                - tariff_daily_rate_read                

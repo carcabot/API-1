@@ -1,0 +1,25 @@
+App\Entity\ContractWelcomePackage:
+    attributes:
+        id:
+            groups:
+                - contract_welcome_package_attachment_read
+                - contract_welcome_package_read
+        contentType:
+            groups:
+                - contract_welcome_package_attachment_read
+                - contract_welcome_package_read
+        dateCreated:
+            groups:
+                - contract_welcome_package_attachment_read
+                - contract_welcome_package_read
+        filename:
+            groups:
+                - contract_welcome_package_attachment_read
+                - contract_welcome_package_read
+        filesize:
+            groups:
+                - contract_welcome_package_attachment_read
+                - contract_welcome_package_read
+        url:
+            groups:
+                - contract_welcome_package_attachment_read

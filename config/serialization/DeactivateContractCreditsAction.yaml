@@ -1,0 +1,22 @@
+App\Entity\DeactivateContractCreditsAction:
+    attributes:
+        instrument:
+            groups:
+                - deactivate_contract_credits_action_read
+                - deactivate_contract_credits_action_write
+                - update_credits_action_read
+        object:
+            groups:
+                - deactivate_contract_credits_action_read
+                - deactivate_contract_credits_action_write
+                - update_credits_action_read
+        scheme:
+            groups:
+                - deactivate_contract_credits_action_read
+                - deactivate_contract_credits_action_write
+                - update_credits_action_read
+        sender:
+            groups:
+                - deactivate_contract_credits_action_read
+                - deactivate_contract_credits_action_write
+                - update_credits_action_read

@@ -1,0 +1,6 @@
+App\Entity\MailgunOpenEvent:
+    properties:
+        datesOpened:
+            - All:
+                - DateTime: ~
+                - NotNull: ~

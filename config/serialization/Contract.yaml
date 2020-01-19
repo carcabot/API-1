@@ -1,0 +1,258 @@
+App\Entity\Contract:
+    attributes:
+        id:
+            groups:
+                # -
+        actions:
+            groups:
+                - contract_read
+                - contract_write
+        addonServices:
+            groups:
+                - contract_read
+                - contract_write
+                - contract_form_read
+        addresses:
+            groups:
+                - contract_read
+                - contract_write
+                - contract_activation_create
+                - contract_form_read
+        arrearsHistory:
+            groups:
+                - contract_read
+        averageConsumption:
+            groups:
+                - contract_read
+                - contract_write
+                - contract_form_read
+        billingInformation:
+            groups:
+                - contract_read
+        billingPeriodId:
+            groups:
+                - contract_read
+                - contract_activation_create
+        billingSummary:
+            groups:
+                - contract_read
+        billSubscriptionTypes:
+            groups:
+                - contract_read
+                - contract_write
+                - contract_form_read
+        closureNoticePeriod:
+            groups:
+                - contract_read
+                - contract_activation_create
+        consumptionHistory:
+            groups:
+                - contract_read
+        contactPerson:
+            groups:
+                - contract_read
+                - contract_activation_create
+                - update_credits_action_read
+        contractNumber:
+            groups:
+                - contract_read
+                - contract_activation_create
+                - contract_form_read
+                - update_credits_action_read
+        contractPeriod:
+            groups:
+                - contract_read
+        corporationDetails:
+            groups:
+                - contract_read
+                - contract_activation_create
+                - contract_form_read
+        customer:
+            groups:
+                - contract_read
+                - contract_write
+                - contract_form_read
+        customerType:
+            groups:
+                - contract_read
+                - contract_write
+                - contract_form_read
+        customized:
+            groups:
+                - contract_read
+        depositAmount:
+            groups:
+                - contract_read
+                - contract_write
+        depositRefundType:
+            groups:
+                - contract_read
+                - contract_write
+        endDate:
+            groups:
+                - contract_read
+                - contract_write
+                - contract_form_read
+        ebsAccountNumber:
+            groups:
+                - contract_read
+                - contract_write
+                - contract_activation_create
+                - contract_form_read
+        emailMessageHistory:
+            groups:
+                - contract_read
+        financialHistory:
+            groups:
+                - contract_read
+        giroHistory:
+            groups:
+                - contract_read
+        giroOption:
+            groups:
+                - contract_read
+                - contract_write
+                - contract_form_read
+        lifetimePointCreditsEarnings:
+            groups:
+                - contract_read
+        location:
+            groups:
+                - contract_read
+                - contract_write
+        lockInDate:
+            groups:
+                - contract_activation_create
+                - contract_read
+                - contract_form_read
+        meterType:
+            groups:
+                - contract_read
+                - contract_write
+                - contract_activation_create
+                - contract_form_read
+        msslAccountNumber:
+            groups:
+                - contract_read
+                - contract_write
+                - contract_activation_create
+                - contract_form_read
+        name:
+            groups:
+                - contract_read
+                - contract_write
+        payments:
+            groups:
+                - contract_read
+                - contract_write
+        paymentMode:
+            groups:
+                - contract_read
+                - contract_write
+        personDetails:
+            groups:
+                - contract_read
+                - contract_activation_create
+                - contract_form_read
+        pointCreditsActions:
+            groups:
+                - contract_read
+                - contract_write
+        pointCreditsBalance:
+            groups:
+                - contract_read
+                - update_credits_action_read
+        rccsHistory:
+            groups:
+                - contract_read
+        recurringOption:
+            groups:
+                - contract_read
+                - contract_activation_create
+                - contract_form_read
+        refundee:
+            groups:
+                - contract_read
+                - contract_write
+        refundeeDetails:
+            groups:
+                - contract_read
+                - contract_write
+        remark:
+            groups:
+                - contract_read
+                - contract_write
+        selfApplication:
+            groups:
+                - contract_read
+                - contract_write
+        selfReadMeterOption:
+            groups:
+                - contract_read
+                - contract_write
+                - contract_form_read
+        startDate:
+            groups:
+                - contract_read
+                - contract_write
+                - contract_activation_create
+                - contract_form_read
+        status:
+            groups:
+                - contract_read
+                - contract_write
+        subtype:
+            groups:
+                - contract_read
+                - contract_write
+                - contract_activation_create
+                - contract_form_read
+        supplementaryFiles:
+            groups:
+                - contract_read
+                - contract_write
+        tariffRate:
+            groups:
+                - contract_read
+                - contract_write
+                - contract_form_read
+        type:
+            groups:
+                - contract_read
+                - contract_write
+                - contract_activation_create
+                - contract_form_read
+        welcomePackages:
+            groups:
+                - contract_read
+
+        # BlameableTrait
+        agent:
+            groups:
+                - contract_read
+        creator:
+            groups:
+                - contract_read
+
+        # SourceableTrait
+        acquiredFrom:
+            groups:
+                - contract_read
+                - contract_write
+        source:
+            groups:
+                - contract_read
+                - contract_write
+        sourceUrl:
+            groups:
+                - contract_read
+                - contract_write
+
+        # TimestampableTrait
+        dateCreated:
+            groups:
+                - contract_read
+                - contract_form_read
+        dateModified:
+            groups:
+                - contract_read

@@ -1,0 +1,15 @@
+App\Entity\TariffDailyRate:
+    properties:
+        rate:
+            - Type:
+                type: App\Entity\QuantitativeValue
+            - NotNull: ~
+            - Valid: ~
+        tariffRate:
+            - Type:
+                type: App\Entity\TariffRate
+            - NotNull: { groups: [finalized] }            
+        validFrom:
+            - DateTime: ~
+        validThrough:
+            - DateTime: ~                        

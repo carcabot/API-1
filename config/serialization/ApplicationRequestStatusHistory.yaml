@@ -1,0 +1,8 @@
+App\Entity\ApplicationRequestStatusHistory:
+    attributes:
+        dateCreated:
+            groups:
+                - application_request_read
+        text:
+            groups:
+                - application_request_read

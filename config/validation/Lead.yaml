@@ -1,0 +1,127 @@
+App\Entity\Lead:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields:
+                - leadNumber
+    properties:
+        activities:
+            - All:
+                - Type:
+                    type: App\Entity\Activity
+            - Valid:
+                traverse: true
+        addresses:
+            - All:
+                - Type:
+                    type: App\Entity\PostalAddress
+            - Valid:
+                traverse: true
+        assignee:
+            - Type:
+                type: App\Entity\User
+        assignor:
+            - Type:
+                type: App\Entity\User
+        averageConsumption:
+            - Type:
+                type: App\Entity\QuantitativeValue
+            - NotNull: ~
+            - Valid: ~
+        contractSubtype:
+            - Type:
+                type: string
+        contractType:
+            - Type:
+                type: App\Enum\ContractType
+        corporationDetails:
+            - Type:
+                type: App\Entity\Corporation
+            - Valid:
+                traverse: true
+        customerOf:
+            - Type:
+                type: string
+        dateFollowedUp:
+            - DateTime: ~
+        doNotContact:
+            - Type:
+                type: bool
+        existingCustomer:
+            - Type:
+                type: bool
+        leadNumber:
+            - Type:
+                type: string
+        lpgUser:
+            - Type:
+                type: bool
+        meterType:
+            - Type:
+                type: App\Enum\MeterType
+        notes:
+            - All:
+                - Type:
+                    type: App\Entity\Note
+        personDetails:
+            - Type:
+                type: App\Entity\Person
+            - Valid:
+                traverse: true
+        preferredContactMethod:
+            - Type:
+                type: App\Enum\ContactMethod
+        purchaseTimeFrame:
+            - Type:
+                type: App\Entity\QuantitativeValue
+            - NotNull: ~
+            - Valid: ~
+        referralSource:
+            - Type:
+                  type: App\Enum\ReferralSource
+        score:
+            - Type:
+                type: App\Enum\LeadScore
+        specifiedReferralSource:
+            - Type:
+                  type: string
+        status:
+            - Type:
+                type: App\Enum\LeadStatus
+            - NotNull: ~
+        tariffRate:
+            - Type:
+                type: App\Entity\TariffRate
+            - Valid:
+                traverse: true
+        tenant:
+            - Type:
+                type: bool
+        type:
+            - Type:
+                type: App\Enum\AccountType
+            - NotNull: ~
+
+        # BlameableTrait
+        agent:
+            - Type:
+                type: App\Entity\User
+        creator:
+            - Type:
+                type: App\Entity\User
+
+        # SourceableTrait
+        acquiredFrom:
+            - Type:
+                type: App\Entity\CustomerAccount
+        source:
+            - Type:
+                type: string
+                # type: App\Enum\Source
+        sourceUrl:
+            - Url: ~
+
+        # TimestampableTrait
+        dateCreated:
+            - DateTime: ~
+        dateModified:
+            - DateTime: ~

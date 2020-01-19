@@ -1,0 +1,10 @@
+App\Entity\ExpireContractCreditsAction:
+    properties:
+        object:
+            - Type:
+                type: App\Entity\Contract
+            - NotNull: ~
+        scheme:
+            - Type:
+                type: App\Entity\CreditsScheme
+            - NotNull: ~

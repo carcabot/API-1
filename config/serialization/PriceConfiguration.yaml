@@ -1,0 +1,53 @@
+App\Entity\PriceConfiguration:
+    attributes:
+        id:
+            groups:
+                # -
+        description:
+            groups:
+                - price_configuration_read
+                - price_configuration_write
+                - quotation_price_configuration_read
+                - quotation_price_configuration_write
+        enabled:
+            groups:
+                - price_configuration_read
+                - price_configuration_write
+                - quotation_price_configuration_read
+                - quotation_price_configuration_write
+        name:
+            groups:
+                - price_configuration_read
+                - price_configuration_write
+                - quotation_price_configuration_read
+                - quotation_price_configuration_write
+        offerDuration:
+            groups:
+                - price_configuration_read
+                - price_configuration_write
+                - quotation_price_configuration_read
+                - quotation_price_configuration_write
+        rate:
+            groups:
+                - price_configuration_read
+                - price_configuration_write
+                - quotation_price_configuration_read
+                - quotation_price_configuration_write
+        # BlameableTrait
+        agent:
+            groups:
+                - price_configuration_read
+                - quotation_price_configuration_read
+        creator:
+            groups:
+                - price_configuration_read
+                - quotation_price_configuration_read
+        # TimestampableTrait
+        dateCreated:
+            groups:
+                - price_configuration_read
+                - quotation_price_configuration_read
+        dateModified:
+            groups:
+                - price_configuration_read
+                - quotation_price_configuration_read

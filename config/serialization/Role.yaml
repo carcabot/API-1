@@ -1,0 +1,73 @@
+App\Entity\Role:
+    attributes:
+        id:
+            groups:
+                # -
+        children:
+            max_depth: 1
+            groups:
+                - role_read
+                - role_write
+                - user_read                
+        department:
+            groups:        
+                - role_read
+                - role_write
+                - user_read                
+        description:
+            groups:
+                - role_read
+                - role_write
+                - user_read
+        enabled:
+            groups:
+                - role_read
+                - role_write   
+                - user_read   
+        name:
+            groups:
+                - role_read
+                - role_write   
+                - user_read   
+        parent:
+            max_depth: 1
+            groups:
+                - role_read
+                - role_write  
+                - user_read
+        profiles:
+            groups:
+                - role_read
+                - role_write  
+                - user_read                                                      
+        profilePrivilege:
+            groups:
+                - role_read
+                - role_write  
+                - user_read                       
+        roleProfileModules:
+            groups:
+                - role_read
+                - role_write
+                - user_read
+        users:
+            max_depth: 1
+            groups:
+                - role_read
+                - role_write
+                - user_read                
+        # BlameableTrait
+        agent:
+            groups:        
+                - role_read
+        creator:
+            groups:
+                - role_read
+
+        # TimestampableTrait
+        dateCreated:
+            groups:        
+                - role_read
+        dateModified:
+            groups:        
+                - role_read

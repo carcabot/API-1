@@ -1,0 +1,73 @@
+App\Entity\Person:
+    properties:
+        additionalName:
+            - Type:
+                type: string
+        alternateName:
+            - Type:
+                type: string
+        birthDate:
+            - DateTime: ~
+        birthPlace:
+            - Type:
+                type: string
+        contactPoints:
+            - All:
+                - Type:
+                    type: App\Entity\ContactPoint
+            - Valid:
+                traverse: true
+        countryOfOrigin:
+            - Type:
+                type: string
+        deathDate:
+            - DateTime: ~
+        deathPlace:
+            - Type:
+                type: string
+        description:
+            - Type:
+                type: string
+        familyName:
+            - Type:
+                type: string
+        gender:
+            - Type:
+                type: App\Enum\GenderType
+        givenName:
+            - Type:
+                type: string
+        honorificPrefix:
+            - Type:
+                type: string
+        identifiers:
+            - All:
+                - Type:
+                    type: App\Entity\Identification
+            - Valid:
+                traverse: true
+        jobTitle:
+            - Type:
+                type: string
+        knowsLanguages:
+            - All:
+                - Type:
+                    type: string
+            - NotNull: ~
+        maritalStatus:
+            - Type:
+                type: App\Enum\MaritalStatus
+        name:
+            - Type:
+                type: string
+            - NotNull: { groups: [finalized_contract_application] }
+        nationality:
+            - Type:
+                type: string
+        preferredLanguage:
+            - Type:
+                  type: string
+        sameAsUrls:
+            - All:
+                - Url: ~
+            - NotNull: ~

@@ -1,0 +1,53 @@
+App\Entity\CampaignSourceListItem:
+    attributes:
+        source:
+            groups:
+                - direct_mail_campaign_source_list_item_read
+                - direct_mail_campaign_source_list_item_write
+                - direct_mail_campaign_source_list_read
+                - email_campaign_source_list_item_read
+                - email_campaign_source_list_item_write
+                - email_campaign_source_list_read
+                - sms_campaign_source_list_item_read
+                - sms_campaign_source_list_item_write
+                - sms_campaign_source_list_read
+                - source_list_read
+                - mailgun_bounce_event_read
+                - mailgun_click_event_read
+                - mailgun_complain_event_read
+                - mailgun_deliver_event_read
+                - mailgun_open_event_read
+        customer:
+            groups:
+                - direct_mail_campaign_source_list_item_read
+                - direct_mail_campaign_source_list_item_write
+                - direct_mail_campaign_source_list_read
+                - email_campaign_source_list_item_read
+                - email_campaign_source_list_item_write
+                - email_campaign_source_list_read
+                - sms_campaign_source_list_item_read
+                - sms_campaign_source_list_item_write
+                - sms_campaign_source_list_read
+                - source_list_read
+                - mailgun_bounce_event_read
+                - mailgun_click_event_read
+                - mailgun_complain_event_read
+                - mailgun_deliver_event_read
+                - mailgun_open_event_read
+        lead:
+            groups:
+                - direct_mail_campaign_source_list_item_read
+                - direct_mail_campaign_source_list_item_write
+                - direct_mail_campaign_source_list_read
+                - email_campaign_source_list_item_read
+                - email_campaign_source_list_item_write
+                - email_campaign_source_list_read
+                - sms_campaign_source_list_item_read
+                - sms_campaign_source_list_item_write
+                - sms_campaign_source_list_read
+                - source_list_read
+                - mailgun_bounce_event_read
+                - mailgun_click_event_read
+                - mailgun_complain_event_read
+                - mailgun_deliver_event_read
+                - mailgun_open_event_read

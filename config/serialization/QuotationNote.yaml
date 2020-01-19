@@ -1,0 +1,14 @@
+App\Entity\QuotationNote:
+    attributes:
+        offers:
+            groups:
+                - quotation_note_read
+                - quotation_note_write
+        retailer:
+            groups:
+                - quotation_note_read
+                - quotation_note_write
+        terms:
+            groups:
+                - quotation_note_read
+                - quotation_note_write

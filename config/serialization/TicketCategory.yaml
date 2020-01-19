@@ -1,0 +1,57 @@
+App\Entity\TicketCategory:
+    attributes:
+        id:
+            groups:
+                # -
+        children:
+            groups:
+                - ticket_category_read
+                - ticket_category_write
+        code:
+            groups:
+                - ticket_category_read
+                - ticket_category_write
+        description:
+            groups:
+                - ticket_category_read
+                - ticket_category_write
+        enabled:
+            groups:
+                - ticket_category_read
+                - ticket_category_write
+        name:
+            groups:
+                - ticket_category_read
+                - ticket_category_write
+        parent:
+            groups:
+                - ticket_category_read
+                - ticket_category_write
+        taskIndicator:
+            groups:
+                - ticket_category_read
+                - ticket_category_write
+        ticketTypes:
+            groups:
+                - ticket_category_read
+                - ticket_category_write
+        type:
+            groups:
+                - ticket_category_read
+                - ticket_category_write
+
+        # BlameableTrait
+        agent:
+            groups:
+                - ticket_category_read
+        creator:
+            groups:
+                - ticket_category_read
+
+        # TimestampableTrait
+        dateCreated:
+            groups:
+                - ticket_category_read
+        dateModified:
+            groups:
+                - ticket_category_read

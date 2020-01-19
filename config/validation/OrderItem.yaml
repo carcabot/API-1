@@ -1,0 +1,29 @@
+App\Entity\OrderItem:
+    properties:
+        offerListItem:
+            - Type:
+                type: App\Entity\OfferListItem
+        order:
+            - Type:
+                type: App\Entity\Order
+        orderQuantity:
+            - Type:
+                type: App\Entity\QuantitativeValue
+            - NotNull: ~
+        orderItemNumber:
+            - Type:
+                type: string
+        orderItemStatus:
+            - Type:
+                type: string
+        unitPrice:
+            - Type:
+                type: App\Entity\PriceSpecification
+            - NotNull: ~
+            - Valid: ~
+        serialNumbers:
+            - All:
+                - Type:
+                    type: App\Entity\OfferSerialNumber
+            - Valid:
+                  traverse: true

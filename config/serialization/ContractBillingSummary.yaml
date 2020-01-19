@@ -1,0 +1,49 @@
+App\Entity\ContractBillingSummary:
+    attributes:
+        id:
+            groups:
+                # -
+        arrearHistories:
+            groups:
+                - contract_billing_summary_read
+                - contract_billing_information_read
+        consumptionHistories:
+            groups:
+                - contract_billing_summary_read
+                - contract_billing_information_read
+        currentArrearsStatus:
+            groups:
+                - contract_billing_summary_read
+                - contract_billing_information_read
+        currentGIROAccountStatus:
+            groups:
+                - contract_billing_summary_read
+                - contract_billing_information_read
+        depositAmount:
+            groups:
+                - contract_billing_summary_read
+                - contract_billing_information_read
+        emailHistories:
+            groups:
+                - contract_billing_summary_read
+                - contract_billing_information_read
+        financialHistories:
+            groups:
+                - contract_billing_summary_read
+                - contract_billing_information_read
+        giroHistories:
+            groups:
+                - contract_billing_summary_read
+                - contract_billing_information_read
+        latestInvoicePrintOutDate:
+            groups:
+                - contract_billing_summary_read
+                - contract_billing_information_read
+        outstandingBalance:
+            groups:
+                - contract_billing_summary_read
+                - contract_billing_information_read
+        paymentMode:
+            groups:
+                - contract_billing_summary_read
+                - contract_billing_information_read

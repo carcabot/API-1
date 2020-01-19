@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- https://phpunit.de/manual/current/en/appendixes.configuration.html -->
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://schema.phpunit.de/6.5/phpunit.xsd"
+    backupGlobals="false"
+    colors="true"
+    bootstrap="vendor/autoload.php"
+>
+    <php>
+        <ini name="error_reporting" value="-1" />
+        <server name="KERNEL_CLASS" value="App\Kernel" />
+
+        <!-- ###+ nelmio/cors-bundle ### -->
+        <env name="CORS_ALLOW_ORIGIN" value="^https?://localhost:?[0-9]*$"/>
+        <!-- ###- nelmio/cors-bundle ### -->
+
+        <!-- ###+ doctrine/mongodb-odm-bundle ### -->
+        <env name="MONGODB_URL" value="mongodb://localhost:27017"/>
+        <env name="MONGODB_DB" value="symfony"/>
+        <!-- ###- doctrine/mongodb-odm-bundle ### -->
+
+        <!-- ###+ symfony/mercure-bundle ### -->
+        <env name="MERCURE_PUBLISH_URL" value="https://demo.mercure.rocks/hub"/>
+        <env name="MERCURE_JWT_SECRET" value="#see https://mercure.rocks"/>
+        <!-- ###- symfony/mercure-bundle ### -->
+    </php>
+
+    <testsuites>
+        <testsuite name="Project Test Suite">
+            <directory>tests/</directory>
+        </testsuite>
+    </testsuites>
+
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory>src</directory>
+            <exclude>
+                <directory>src/ApiPlatform</directory>
+                <directory>src/Bridge</directory>
+                <directory>src/DataFixtures</directory>
+                <directory>src/Disque</directory>
+                <directory>src/Doctrine/DBAL</directory>
+                <directory>src/Doctrine/ORM</directory>
+                <directory>src/Document</directory>
+                <directory>src/Entity</directory>
+                <directory>src/Enum</directory>
+                <directory>src/Migration</directory>
+                <directory>src/Repository</directory>
+                <directory>src/Security</directory>
+                <directory>src/Serializer</directory>
+                <directory>src/Validator</directory>
+            </exclude>
+        </whitelist>
+    </filter>
+</phpunit>

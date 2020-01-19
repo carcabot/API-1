@@ -1,0 +1,18 @@
+App\Entity\RecurringEmailCampaign:
+    properties:
+        campaign:
+            - Type:
+                type: App\Entity\Campaign
+            - NotNull: ~
+        sourceListGeneratorExpression:
+            - Type:
+                type: string
+            - NotNull: ~
+        fromPosition:
+            - Type:
+                type: integer
+            - NotNull: ~
+        toPosition:
+            - Type:
+                type: integer
+            - NotNull: ~

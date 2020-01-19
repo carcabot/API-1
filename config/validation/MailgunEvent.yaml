@@ -1,0 +1,14 @@
+App\Entity\MailgunEvent:
+    properties:
+        campaign:
+            - Type:
+                type: App\Entity\Campaign
+            - NotNull: ~
+        recipient:
+            - Type:
+                type: App\Entity\EmailCampaignSouceListItem
+            - NotNull: ~
+        mailgunEventId:
+            - Type:
+                type: string
+            - NotNull: ~

@@ -1,0 +1,49 @@
+App\Entity\CustomerAccountRelationship:
+    attributes:
+        id:
+            groups:
+                # -
+        contracts:
+            groups:
+                - customer_account_relationship_read
+                - customer_account_relationship_write
+        customerPortalEnabled:
+            groups:
+                - customer_account_relationship_read
+                - customer_account_relationship_write
+        from:
+            groups:
+                - customer_account_relationship_read
+                - customer_account_relationship_write
+        to:
+            groups:
+                - customer_account_relationship_read
+                - customer_account_relationship_write
+        type:
+            groups:
+                - customer_account_relationship_read
+                - customer_account_relationship_write
+        validFrom:
+            groups:
+                - customer_account_relationship_read
+                - customer_account_relationship_write
+        validThrough:
+            groups:
+                - customer_account_relationship_read
+                - customer_account_relationship_write
+
+        # BlameableTrait
+        agent:
+            groups:
+                - customer_account_relationship_read
+        creator:
+            groups:
+                - customer_account_relationship_read
+                
+        # TimestampableTrait
+        dateCreated:
+            groups:
+                - customer_account_relationship_read
+        dateModified:
+            groups:
+                - customer_account_relationship_read

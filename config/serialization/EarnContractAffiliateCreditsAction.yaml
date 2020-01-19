@@ -1,0 +1,22 @@
+App\Entity\EarnContractAffiliateCreditsAction:
+    attributes:
+        instrument:
+            groups:
+                - earn_contract_affiliate_credits_action_read
+                - earn_contract_affiliate_credits_action_write
+                - update_credits_action_read
+        object:
+            groups:
+                - earn_contract_affiliate_credits_action_read
+                - earn_contract_affiliate_credits_action_write
+                - update_credits_action_read
+        transactions:
+            groups:
+                - earn_contract_affiliate_credits_action_read
+                - earn_contract_affiliate_credits_action_write
+                - update_credits_action_read
+        totalTransactionsAmount:
+            groups:
+                - earn_contract_affiliate_credits_action_read
+                - earn_contract_affiliate_credits_action_write
+                - update_credits_action_read

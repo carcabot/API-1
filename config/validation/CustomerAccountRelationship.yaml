@@ -1,0 +1,39 @@
+App\Entity\CustomerAccountRelationship:
+    properties:
+        contracts:
+            - All:
+                - Type:
+                    type: App\Entity\Contract
+        customerPortalEnabled:
+            - Type:
+                  type: bool
+        from:
+            - Type:
+                type: App\Entity\CustomerAccount
+            - NotNull: ~
+        to:
+            - Type:
+                type: App\Entity\CustomerAccount
+            - NotNull: ~
+        type:
+            - Type:
+                type: App\Enum\CustomerRelationshipType
+            - NotNull: ~
+        validFrom:
+            - DateTime: ~
+        validThrough:
+            - DateTime: ~
+
+        # BlameableTrait
+        agent:
+            - Type:
+                type: App\Entity\User
+        creator:
+            - Type:
+                type: App\Entity\User
+
+        # TimestampableTrait
+        dateCreated:
+            - DateTime: ~
+        dateModified:
+            - DateTime: ~

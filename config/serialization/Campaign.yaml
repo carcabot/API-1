@@ -1,0 +1,108 @@
+App\Entity\Campaign:
+    attributes:
+        id:
+            groups:
+                # -
+        about:
+            groups:
+                - campaign_read
+                - campaign_write
+        actualCost:
+            groups:
+                - campaign_read
+                - campaign_write
+        assignee:
+            groups:
+                - campaign_read
+                - campaign_write
+        campaignNumber:
+            groups:
+                - campaign_read
+        category:
+            groups:
+                - campaign_read
+                - campaign_write
+        currentStage:
+            groups:
+                - campaign_read
+                - campaign_write
+        description:
+            groups:
+                - campaign_read
+                - campaign_write
+        endDate:
+            groups:
+                - campaign_read
+                - campaign_write
+        estimatedCost:
+            groups:
+                - campaign_read
+                - campaign_write
+        expectationList:
+            groups:
+                - campaign_read
+                - campaign_write
+        file:
+            groups:
+                - campaign_read
+                - campaign_write
+        name:
+            groups:
+                - campaign_read
+                - campaign_write
+        note:
+            groups:
+                - campaign_read
+                - campaign_write
+        priority:
+            groups:
+                - campaign_read
+                - campaign_write
+        objective:
+            groups:
+                - campaign_read
+                - campaign_write
+        plannedEndDate:
+            groups:
+                - campaign_read
+                - campaign_write
+        plannedStartDate:
+            groups:
+                - campaign_read
+                - campaign_write
+        startDate:
+            groups:
+                - campaign_read
+                - campaign_write
+        status:
+            groups:
+                - campaign_read
+                - campaign_write
+        tariffRate:
+            groups:
+                - campaign_read
+                - campaign_write
+        template:
+            groups:
+                - campaign_read
+                - campaign_write
+        recipientLists:
+            groups:
+                - campaign_read
+                - campaign_write
+
+        # BlameableTrait
+        agent:
+            groups:
+                - campaign_read
+        creator:
+            groups:
+                - campaign_read
+
+        # TimestampableTrait
+        dateCreated:
+            groups:
+                - campaign_read
+        dateModified:
+            groups:
+                - campaign_read

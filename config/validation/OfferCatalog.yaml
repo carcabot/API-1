@@ -1,0 +1,23 @@
+App\Entity\OfferCatalog:
+    properties:
+        coverImage:
+            - Type:
+                  type: App\Entity\DigitalDocument
+            - Valid:
+                  traverse: true
+        image:
+            - Type:
+                  type: App\Entity\DigitalDocument
+            - Valid:
+                  traverse: true
+        remarks:
+            - Type:
+                type: string
+        status:
+            - Type:
+                type: App\Enum\CatalogStatus
+            - NotNull: ~
+        validFrom:
+            - DateTime: ~
+        validThrough:
+            - DateTime: ~

@@ -1,0 +1,30 @@
+App\Entity\CampaignExpectation:
+    attributes:
+        name:
+            groups:
+                - campaign_expectation_read
+                - campaign_expectation_write
+        description:
+            groups:
+                - campaign_expectation_read
+                - campaign_expectation_write
+        enabled:
+            groups:
+                - campaign_expectation_read
+                - campaign_expectation_write
+
+        # BlameableTrait
+        agent:
+            groups:
+                - campaign_expectation_read
+        creator:
+            groups:
+                - campaign_expectation_read
+
+        # TimestampableTrait
+        dateCreated:
+            groups:
+                - campaign_expectation_read
+        dateModified:
+            groups:
+                - campaign_expectation_read

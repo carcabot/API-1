@@ -1,0 +1,17 @@
+App\Entity\CronJobSchedule:
+    constraints:
+        - App\Validator\Constraints\CronJobScheduleInterval: ~
+    properties:
+        enabled:
+            - Type:
+                type: bool
+            - NotNull: ~
+        jobType:
+            - Type:
+                type: string
+        queue:
+            - Type:
+                type: App\Enum\QueueName
+            - NotBlank: ~
+        time:
+            - Time: ~

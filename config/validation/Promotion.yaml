@@ -1,0 +1,52 @@
+App\Entity\Promotion:
+    properties:
+        amount:
+            - Type:
+                  type: App\Entity\QuantitativeValue
+            - NotNull: ~
+            - Valid: ~
+        category:
+            - Type:
+                type: App\Entity\PromotionCategory
+            - NotNull: ~
+        contractTypes:
+            - Choice:
+                callback: [App\Enum\ContractType, keys]
+                multiple: true
+        currency:
+            - Type:
+                type: string
+        customerTypes:
+            - Choice:
+                callback: [App\Enum\AccountType, keys]
+                multiple: true
+        inventoryLevel:
+            - Type:
+                type: App\Entity\QuantitativeValue
+            - Valid: ~
+        name:
+            - Type:
+                type: string
+        page:
+            - Type:
+                type: App\Entity\WebPage
+        promotionNumber:
+            - Type:
+                type: string
+            - NotNull: ~
+        recurringDuration:
+            - Type:
+                  type: App\Entity\QuantitativeValue
+            - Valid: ~
+        status:
+            - Type:
+                type: App\Enum\PromotionStatus
+            - NotNull: ~
+        tariffRates:
+            - All:
+                - Type:
+                    type: App\Entity\TariffRate
+        validFrom:
+            - DateTime: ~
+        validThrough:
+            - DateTime: ~

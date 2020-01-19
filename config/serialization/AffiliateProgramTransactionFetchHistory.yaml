@@ -1,0 +1,30 @@
+App\Entity\AffiliateProgramTransactionFetchHistory:
+    attributes:
+        id:
+            groups:
+                # -
+        pendingConversions:
+            groups:
+                - affiliate_program_transaction_fetch_history_read
+                - affiliate_program_transaction_fetch_history_write
+        endDate:
+            groups:
+                - affiliate_program_transaction_fetch_history_read
+                - affiliate_program_transaction_fetch_history_write
+        provider:
+            groups:
+                - affiliate_program_transaction_fetch_history_read
+                - affiliate_program_transaction_fetch_history_write
+        startDate:
+            groups:
+                - affiliate_program_transaction_fetch_history_read
+                - affiliate_program_transaction_fetch_history_write
+                
+        # TimestampableTrait
+        dateCreated:
+            groups:
+                - affiliate_program_transaction_fetch_history_read
+        dateModified:
+            groups:
+                - affiliate_program_transaction_fetch_history_read
+            

@@ -1,0 +1,29 @@
+App\Entity\RunningNumber:
+    running_number_{1}:
+        type: 'customer_account'
+        series: 'c-'
+        number: 1
+    running_number_{2}:
+        type: 'user_account'
+        series: 'U-'
+        number: 1
+    running_number_{3}:
+        type: 'partner'
+        series: 'P-'
+        number: 1           
+    running_number_{4}:
+        type: 'partner_contact_person'
+        series: 'PC-'
+        number: 1            
+    running_number_{5}:
+        type: 'application_request'
+        series: '9'
+        number: 1
+    running_number_{6}:
+        type: 'lead'
+        series: '8'
+        number: 1
+    running_number_{7}:
+        type: 'contract'
+        series: '8'
+        number: 1        

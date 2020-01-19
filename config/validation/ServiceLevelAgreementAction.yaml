@@ -1,0 +1,39 @@
+App\Entity\ServiceLevelAgreementAction:
+    properties:
+        description:
+            - Type:
+                type: string
+        endTime:
+            - DateTime: ~
+        previousStatus:
+            - Type:
+                type: App\Enum\TicketStatus            
+        startTime:
+            - DateTime: ~
+            - NotNull: ~
+        status:
+            - Type:
+                type: App\Enum\TicketStatus
+            - NotNull: ~
+        ticket:
+            - Type:
+                type: App\Entity\Ticket
+            - NotNull: ~
+        value:
+            - Type:
+                type: App\Entity\QuantitativeValue
+            - Valid: ~
+
+        # BlameableTrait
+        agent:
+            - Type:
+                type: App\Entity\User
+        creator:
+            - Type:
+                type: App\Entity\User
+
+        # TimestampableTrait
+        dateCreated:
+            - DateTime: ~
+        dateModified:
+            - DateTime: ~

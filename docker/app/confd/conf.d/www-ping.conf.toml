@@ -1,0 +1,5 @@
+[template]
+src = "www-ping.conf.tmpl"
+dest = "/usr/local/etc/php-fpm.d/zz-www-ping.conf"
+keys = [
+]

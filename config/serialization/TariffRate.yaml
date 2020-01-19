@@ -1,0 +1,116 @@
+App\Entity\TariffRate:
+    attributes:
+        id:
+            groups:
+                # -
+        chargeDescription:
+            groups:
+                - tariff_rate_read
+                - tariff_rate_write
+        contracts:
+            groups:
+                - tariff_rate_read
+        contractTypes:
+            groups:
+                - tariff_rate_read
+                - tariff_rate_write
+        customizable:
+            groups:
+                - tariff_rate_read
+                - tariff_rate_write                
+        description:
+            groups:
+                - tariff_rate_read
+                - tariff_rate_write
+        internalUseOnly:
+            groups:
+                - tariff_rate_read
+                - tariff_rate_write
+        inventoryLevel:
+            groups:
+                - tariff_rate_read
+                - tariff_rate_write
+        isBasedOn:
+            groups:
+                - tariff_rate_read
+                - tariff_rate_write
+        isDailyRate:
+            groups:
+                - tariff_rate_read
+                - tariff_rate_write                
+        minContractTerm:
+            groups:
+                - tariff_rate_read
+                - tariff_rate_write
+                - contract_form_read
+        name:
+            groups:
+                - tariff_rate_read
+                - tariff_rate_write
+                - contract_form_read
+        page:
+            groups:
+                - tariff_rate_read
+                - tariff_rate_write
+        promotions:
+            groups:
+                - tariff_rate_read
+                - tariff_rate_write
+        remark:
+            groups:
+                - tariff_rate_read
+                - tariff_rate_write
+        startDate:
+            groups:
+                - tariff_rate_read
+                - tariff_rate_write
+        status:
+            groups:
+                - tariff_rate_read
+                - tariff_rate_write
+        dailyRates:  
+            groups:
+                - tariff_rate_read
+                - tariff_rate_write              
+        tariffRateNumber:
+            groups:
+                - tariff_rate_read
+                - tariff_rate_write
+                - contract_form_read
+        terms:
+            groups:
+                - tariff_rate_read
+                - tariff_rate_write
+                - contract_form_read
+        type:
+            groups:
+                - tariff_rate_read
+                - tariff_rate_write                
+        usedIn:
+            groups:
+                - tariff_rate_read
+                - tariff_rate_write
+        validFrom:
+            groups:
+                - tariff_rate_read
+                - tariff_rate_write
+        validThrough:
+            groups:
+                - tariff_rate_read
+                - tariff_rate_write
+
+        # BlameableTrait
+        agent:
+            groups:
+                - tariff_rate_read
+        creator:
+            groups:
+                - tariff_rate_read
+
+        # TimestampableTrait
+        dateCreated:
+            groups:
+                - tariff_rate_read
+        dateModified:
+            groups:
+                - tariff_rate_read

@@ -1,0 +1,25 @@
+App\Entity\ServiceLevelAgreementNotification:
+    properties:
+        name:
+            - Type:
+                type: string
+            - NotNull: ~
+        value:
+            - Type:
+                type: App\Entity\QuantitativeValue
+            - NotNull: ~
+            - Valid: ~
+
+        # BlameableTrait
+        agent:
+            - Type:
+                type: App\Entity\User
+        creator:
+            - Type:
+                type: App\Entity\User
+
+        # TimestampableTrait
+        dateCreated:
+            - DateTime: ~
+        dateModified:
+            - DateTime: ~

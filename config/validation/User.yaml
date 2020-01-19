@@ -1,0 +1,69 @@
+App\Entity\User:
+    constraints:
+        - App\Validator\Constraints\UserUniqueUsernameOrEmail: ~
+        - App\Validator\Constraints\UserTwoFactorAuthenticationSetup: ~
+    properties:
+        agent:
+            - Type:
+                type: App\Entity\User
+        creator:
+            - Type:
+                type: App\Entity\User
+        dateActivated:
+            - DateTime: ~
+        dateCreated:
+            - DateTime: ~
+        dateLastLogon:
+            - DateTime: ~
+        dateModified:
+            - DateTime: ~
+        email:
+            - Email:
+                mode: strict
+            - Length:
+                max: 254
+        expoPushNotificationTokens:
+            - All:
+                - Type:
+                    type: string
+        password:
+            - Type:
+                type: string
+        plainPassword:
+            - Type:
+                type: string
+            - Length:
+                min: 8
+                max: 4096
+        modules:
+            - Choice:
+                callback: [App\Enum\ModuleType, keys]
+                multiple: true
+        roles:
+            - Choice:
+                callback: [App\Enum\AuthorizationRole, keys]
+                multiple: true
+        twoFactorAuthentication:
+            - Type:
+                  type: bool
+        twoFactorAuthenticationCode:
+            - Type:
+                  type: string
+        twoFactorAuthenticationRecipient:
+            - Type:
+                  type: string
+        twoFactorAuthenticationType:
+            - Type:
+                  type: App\Enum\TwoFactorAuthenticationType
+        username:
+            - Type:
+                type: string
+            - Length:
+                max: 254
+        userRoles:
+            - All:
+                - Type:
+                    type: App\Entity\Role
+            - Valid:
+                traverse: true        
+                

@@ -1,0 +1,29 @@
+App\Entity\DigitalDocument:
+    properties:
+        contentFile:
+            - File: ~
+        contentPath:
+            - Type:
+                type: string
+        name:
+            - Type:
+                type: string
+        text:
+            - Type:
+                type: string
+        url:
+            - Url: ~
+
+        # BlameableTrait
+        agent:
+            - Type:
+                type: App\Entity\User
+        creator:
+            - Type:
+                type: App\Entity\User
+
+        # TimestampableTrait
+        dateCreated:
+            - DateTime: ~
+        dateModified:
+            - DateTime: ~

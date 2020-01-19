@@ -1,0 +1,6 @@
+App\Entity\TariffRateListItem:
+    attributes:
+        item:
+            groups:
+                - tariff_rate_list_item_read
+                - tariff_rate_list_item_write

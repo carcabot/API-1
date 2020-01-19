@@ -1,0 +1,47 @@
+App\Entity\Order:
+    attributes:
+        id:
+            groups:
+                # -
+        customer:
+            groups:
+                - order_read
+                - order_write
+        items:
+            groups:
+                - order_read
+                - order_write
+        object:
+            groups:
+                - order_read
+                - order_write
+        orderDate:
+            groups:
+                - order_read
+                - order_write
+        orderNumber:
+            groups:
+                - order_read
+        orderStatus:
+            groups:
+                - order_read
+                - order_write
+        totalPrice:
+            groups:
+                - order_read
+
+        # BlameableTrait
+        agent:
+            groups:
+                - order_read
+        creator:
+            groups:
+                - order_read
+
+        # TimestampableTrait
+        dateCreated:
+            groups:
+                - order_read
+        dateModified:
+            groups:
+                - order_read

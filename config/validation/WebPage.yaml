@@ -1,0 +1,32 @@
+App\Entity\WebPage:
+    properties:
+        coverImage:
+            - Type:
+                type: App\Entity\DigitalDocument
+        description:
+            - Type:
+                type: string
+        disambiguatingDescription:
+            - Type:
+                type: string
+        image:
+            - Type:
+                type: App\Entity\DigitalDocument
+        status:
+            - Type:
+                type: App\Enum\WebPageStatus
+            - NotNull: ~
+
+        # BlameableTrait
+        agent:
+            - Type:
+                type: App\Entity\User
+        creator:
+            - Type:
+                type: App\Entity\User
+
+        # TimestampableTrait
+        dateCreated:
+            - DateTime: ~
+        dateModified:
+            - DateTime: ~

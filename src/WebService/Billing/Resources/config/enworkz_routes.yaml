@@ -1,0 +1,9 @@
+tariff_rate_create:
+    path: /promotion_codes
+    controller: App\WebService\Billing\Controller\TariffRateController::createAction
+    methods: [POST]
+
+tariff_rate_update:
+    path: /promotion_codes/{tariffRateNumber}
+    controller: App\WebService\Billing\Controller\TariffRateController::updateAction
+    methods: [PUT]

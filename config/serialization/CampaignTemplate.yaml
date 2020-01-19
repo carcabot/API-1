@@ -1,0 +1,38 @@
+App\Entity\CampaignTemplate:
+    attributes:
+        isBasedOn:
+            groups:
+                - campaign_template_read
+                - campaign_template_write
+        name:
+            groups:
+                - campaign_template_read
+                - campaign_template_write
+        rawText:
+            groups:
+                - campaign_template_read
+                - campaign_template_write
+        text:
+            groups:
+                - campaign_template_read
+                - campaign_template_write
+        thumbnailImage:
+            groups:
+                - campaign_template_read
+                - campaign_template_write
+
+        # BlameableTrait
+        agent:
+            groups:
+                - campaign_template_read
+        creator:
+            groups:
+                - campaign_template_read
+
+        # TimestampableTrait
+        dateCreated:
+            groups:
+                - campaign_template_read
+        dateModified:
+            groups:
+                - campaign_template_read

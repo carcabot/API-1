@@ -1,0 +1,21 @@
+App\Entity\EmailCampaignSchedule:
+    attributes:
+        id:
+            groups:
+                # -
+        campaign:
+            groups:
+                - email_campaign_schedule_read
+                - email_campaign_schedule_write
+        date:
+            groups:
+                - email_campaign_schedule_read
+                - email_campaign_schedule_write
+        fromPosition:
+            groups:
+                - email_campaign_schedule_read
+                - email_campaign_schedule_write
+        toPosition:
+            groups:
+                - email_campaign_schedule_read
+                - email_campaign_schedule_write

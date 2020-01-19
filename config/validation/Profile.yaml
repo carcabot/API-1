@@ -1,0 +1,37 @@
+App\Entity\Profile:
+    properties:
+        children:
+            - All:
+                - Type:
+                    type: App\Entity\Profile
+        description:
+            - Type:
+                type: string
+        enabled:
+            - Type:
+                type: bool
+            - NotNull: ~                
+        name:
+            - Type:
+                type: string
+            - NotNull: ~            
+        parent:
+            - Type:
+                type: App\Entity\Profile              
+        roleProfileModules:
+            - All:
+                - Type:
+                    type: App\Entity\RoleProfileModule 
+        # BlameableTrait
+        agent:
+            - Type:
+                type: App\Entity\User
+        creator:
+            - Type:
+                type: App\Entity\User
+
+        # TimestampableTrait
+        dateCreated:
+            - DateTime: ~
+        dateModified:
+            - DateTime: ~

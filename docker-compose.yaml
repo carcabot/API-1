@@ -1,0 +1,133 @@
+version: '3.4'
+
+services:
+    app:
+        env_file:
+            - ./.env
+            - ./docker/app/.env
+        image: ${CONTAINER_REGISTRY_URL}/app:stable
+        networks:
+            - internal
+        volumes:
+            - ./config/jwt:/srv/api/config/jwt:ro
+
+    db:
+        env_file: ./docker/db/.env
+        image: postgres:9.6-alpine
+        networks:
+            - internal
+        volumes:
+            - ./docker/db/data:/var/lib/postgresql/data:rw
+              
+    mongo-cache-db:
+        env_file:
+            - ./docker/mongodb/.env
+        image: bitnami/mongodb:4.0
+        networks:
+            - internal
+
+    nginx-backend:
+        depends_on:
+            - app
+        image: quay.io/api-platform/nginx
+        networks:
+            - internal
+        volumes:
+            - ./docker/nginx-backend/conf.d:/etc/nginx/conf.d:ro
+            - ./public:/srv/api/public:ro
+
+    cache-proxy:
+        depends_on:
+            - nginx-backend
+        image: ${CONTAINER_REGISTRY_URL}/cache-proxy:stable
+        tmpfs:
+            - /usr/local/var/varnish:exec
+        networks:
+            - internal
+            - private
+        volumes:
+            - ./docker/varnish/conf:/usr/local/etc/varnish:ro
+
+    application-requests-worker:
+        env_file:
+            - ./.env
+            - ./docker/app/.env
+        environment:
+            - COMMAND=php bin/console app:application-request-worker:start
+        entrypoint: docker-worker-entrypoint
+        image: ${CONTAINER_REGISTRY_URL}/app:stable
+        networks:
+            - internal
+
+    campaigns-worker:
+        env_file:
+            - ./.env
+            - ./docker/app/.env
+        environment:
+            - COMMAND=php bin/console app:campaign-worker:start --env=worker
+        entrypoint: docker-worker-entrypoint
+        image: ${CONTAINER_REGISTRY_URL}/app:stable
+        networks:
+            - internal
+
+    contracts-worker:
+        env_file:
+            - ./.env
+            - ./docker/app/.env
+        environment:
+            - COMMAND=php bin/console app:contract-worker:start --env=worker
+        entrypoint: docker-worker-entrypoint
+        image: ${CONTAINER_REGISTRY_URL}/app:stable
+        networks:
+            - internal
+
+    cron-worker:
+        env_file:
+            - ./.env
+            - ./docker/app/.env
+        environment:
+            - COMMAND=php bin/console app:cron-worker:start --env=worker
+        entrypoint: docker-worker-entrypoint
+        image: ${CONTAINER_REGISTRY_URL}/app:stable
+        networks:
+            - internal
+
+    messages-worker:
+        env_file:
+            - ./.env
+            - ./docker/app/.env
+        environment:
+            - COMMAND=bin/console app:messages-worker:start --env=worker
+        entrypoint: docker-worker-entrypoint
+        image: ${CONTAINER_REGISTRY_URL}/app:stable
+        networks:
+            - internal
+
+    reports-worker:
+        env_file:
+            - ./.env
+            - ./docker/app/.env
+        environment:
+            - COMMAND=php bin/console app:worker:start --queue=reports --env=worker
+        entrypoint: docker-worker-entrypoint
+        image: ${CONTAINER_REGISTRY_URL}/app:stable
+        networks:
+            - internal
+            - private
+
+    webservices-worker:
+        env_file:
+            - ./.env
+            - ./docker/app/.env
+        environment:
+            - COMMAND=php bin/console app:worker:start --queue=web_services --env=worker
+        entrypoint: docker-worker-entrypoint
+        image: ${CONTAINER_REGISTRY_URL}/app:stable
+        networks:
+            - internal
+
+networks:
+    internal:
+        external: false
+    private:
+        external: true

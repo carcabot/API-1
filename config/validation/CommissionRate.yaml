@@ -1,0 +1,45 @@
+App\Entity\CommissionRate:
+    properties:
+        category:
+            - Type:
+                type: App\Enum\CommissionCategory
+            - NotNull: ~
+        currency:
+            - Type:
+                type: string
+        description:
+            - Type:
+                type: string
+        endDate:
+            - DateTime: ~
+        name:
+            - Type:
+                type: string
+            - NotNull: ~
+        partners:
+            - All:
+                - Type:
+                    type: App\Entity\Partner
+        startDate:
+            - DateTime: ~
+        type:
+            - Type:
+                type: App\Enum\CommissionType
+            - NotNull: ~
+        value:
+            - Type:
+                type: numeric
+
+        # BlameableTrait
+        agent:
+            - Type:
+                type: App\Entity\User
+        creator:
+            - Type:
+                type: App\Entity\User
+
+        # TimestampableTrait
+        dateCreated:
+            - DateTime: ~
+        dateModified:
+            - DateTime: ~

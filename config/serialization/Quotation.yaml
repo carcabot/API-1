@@ -1,0 +1,153 @@
+App\Entity\Quotation:
+    attributes:
+        id:
+            groups:
+                # -
+        acceptedOffer:
+            groups:
+                - quotation_read
+                - quotation_write
+        activities:
+            groups:
+                - quotation_read
+                - quotation_write
+        addresses:
+            groups:
+                - quotation_read
+                - quotation_write
+                - quotation_file_generate
+        applicationRequests:
+            groups:
+                - quotation_read
+                - quotation_write
+        assignee:
+            groups:
+                - quotation_read
+                - quotation_write
+        averageConsumption:
+            groups:
+                - quotation_read
+                - quotation_write
+        brentCrudeDate:
+            groups:
+                - quotation_read
+                - quotation_write
+        brentCrudePrice:
+            groups:
+                - quotation_read
+                - quotation_write
+        contactPerson:
+            groups:
+                - quotation_read
+                - quotation_write
+        contractDurations:
+            groups:
+                - quotation_read
+                - quotation_write
+        contractSubtype:
+            groups:
+                - quotation_read
+                - quotation_write
+        contractType:
+            groups:
+                - quotation_read
+                - quotation_write
+        corporationDetails:
+            groups:
+                - quotation_read
+                - quotation_write
+        customer:
+            groups:
+                - quotation_read
+                - quotation_write
+                - quotation_file_generate
+        depositNegotiated:
+            groups:
+                - quotation_read
+                - quotation_write
+        expires:
+            groups:
+                - quotation_read
+                - quotation_write
+        file:
+            groups:
+                - quotation_read
+                - quotation_write
+                - quotation_file_generate
+        notes:
+            groups:
+                - quotation_read
+                - quotation_write
+        offers:
+            groups:
+                - quotation_read
+                - quotation_write
+                - quotation_file_generate
+        paymentMode:
+            groups:
+                - quotation_read
+                - quotation_write
+        paymentTerm:
+            groups:
+                - quotation_read
+                - quotation_write
+        personDetails:
+            groups:
+                - quotation_read
+                - quotation_write
+                - quotation_file_generate
+        quotationNumber:
+            groups:
+                - quotation_read
+        securityDeposit:
+            groups:
+                - quotation_read
+                - quotation_write
+        status:
+            groups:
+                - quotation_read
+                - quotation_write 
+        terms:
+            groups:
+                - quotation_read
+                - quotation_write
+        validFrom:
+            groups:
+                - quotation_read
+                - quotation_write
+        validThrough:
+            groups:
+                - quotation_read
+                - quotation_write
+        voltageType:
+            groups:
+                - quotation_read
+                - quotation_write
+
+        # BlameableTrait
+        agent:
+            groups:
+                - quotation_read
+        creator:
+            groups:
+                - quotation_read
+                - quotation_file_generate
+
+        # SourceableTrait
+        acquiredFrom:
+            groups:
+                - quotation_read
+                - quotation_write
+        source:
+            groups:
+                - quotation_read
+                - quotation_write
+
+        # TimestampableTrait
+        dateCreated:
+            groups:
+                - quotation_read
+        dateModified:
+            groups:
+                - quotation_read
+

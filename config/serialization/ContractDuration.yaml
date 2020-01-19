@@ -1,0 +1,33 @@
+App\Entity\ContractDuration:
+    attributes:
+        id:
+            groups:
+                # -               
+        term: 
+            groups:
+                - contract_duration_read
+                - contract_duration_write                                   
+        validFrom:
+            groups:
+                - contract_duration_read
+                - contract_duration_write
+        validThrough:
+            groups:
+                - contract_duration_read
+                - contract_duration_write
+
+        # BlameableTrait
+        agent:
+            groups:
+                - contract_duration_read
+        creator:
+            groups:
+                - contract_duration_read
+
+        # TimestampableTrait
+        dateCreated:
+            groups:
+                - contract_duration_read
+        dateModified:
+            groups:
+                - contract_duration_read                          

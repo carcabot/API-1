@@ -1,0 +1,17 @@
+App\Entity\UserLoginHistory:
+    attributes:
+        id:
+            groups:
+            # -
+        date:
+            groups:
+                - user_login_history_read
+        device:
+            groups:
+                - user_login_history_read
+        ipAddress:
+            groups:
+                - user_login_history_read
+        user:
+            groups:
+                - user_login_history_read

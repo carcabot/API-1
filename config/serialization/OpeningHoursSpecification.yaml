@@ -1,0 +1,26 @@
+App\Entity\OpeningHoursSpecification:
+    attributes:
+        closes:
+            groups:
+                - opening_hours_specification_read
+                - opening_hours_specification_write
+        dayOfWeek:
+            groups:
+                - opening_hours_specification_read
+                - opening_hours_specification_write
+        name:
+            groups:
+                - opening_hours_specification_read
+                - opening_hours_specification_write
+        opens:
+            groups:
+                - opening_hours_specification_read
+                - opening_hours_specification_write
+        validFrom:
+            groups:
+                - opening_hours_specification_read
+                - opening_hours_specification_write
+        validThrough:
+            groups:
+                - opening_hours_specification_read
+                - opening_hours_specification_write

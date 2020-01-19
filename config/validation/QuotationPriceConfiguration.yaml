@@ -1,0 +1,22 @@
+App\Entity\QuotationPriceConfiguration:
+    properties:
+        category:
+            - Type:
+                type: App\Enum\QuotationPricePlanType
+            - NotNull: ~
+        duration:
+            - Type:
+                type: App\Entity\ContractDuration
+        offerInput:
+            - Type:
+                type: App\Entity\QuantitativeValue
+        isBasedOn:
+            - Type:
+                type: App\Entity\QuotationPriceConfiguration
+        term:
+            - Type:
+                type: App\Entity\QuantitativeValue
+            - NotNull: ~
+        thirdPartyChargeConfiguration:
+            - Type:
+                type: App\Entity\ThirdPartyChargeConfiguration

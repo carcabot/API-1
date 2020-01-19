@@ -1,0 +1,23 @@
+App\Entity\CustomerBlacklist:
+    constraints:
+        - App\Validator\Constraints\CustomerBlacklistReason: ~
+    properties:
+        action:
+            - Type:
+                type: string
+            - NotNull: ~
+        identification:
+            - Type:
+                type: string
+            - NotNull: ~
+        name:
+            - Type:
+                type: string
+            - NotNull: ~
+        reason:
+            - Type:
+                type: string
+        remarks:
+            - Type:
+                type: string
+            - NotNull: ~

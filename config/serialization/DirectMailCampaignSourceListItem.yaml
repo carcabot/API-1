@@ -1,0 +1,8 @@
+App\Entity\DirectMailCampaignSourceListItem:
+    attributes:
+        item:
+            groups:
+                - direct_mail_campaign_source_list_item_read
+                - direct_mail_campaign_source_list_item_write
+                - direct_mail_campaign_source_list_read
+                - source_list_read

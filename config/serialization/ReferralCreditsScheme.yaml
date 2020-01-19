@@ -1,0 +1,12 @@
+App\Entity\ReferralCreditsScheme:
+    attributes:
+        referralAmount:
+            groups:
+                - referral_credits_scheme_read
+                - referral_credits_scheme_write
+                - credits_scheme_read
+        refereeAmount:
+            groups:
+                - referral_credits_scheme_read
+                - referral_credits_scheme_write
+                - credits_scheme_read

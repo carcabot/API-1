@@ -1,0 +1,50 @@
+App\Entity\Profile:
+    attributes:
+        id:
+            groups:
+                # -
+        children:
+            groups:
+                - profile_read
+                - profile_write
+                - user_read
+        description:
+            groups:
+                - profile_read
+                - profile_write
+                - user_read
+        enabled:
+            groups:
+                - profile_read
+                - profile_write   
+                - user_read
+        name:
+            groups:
+                - profile_read
+                - profile_write
+                - user_read          
+        parent:
+            groups:
+                - profile_read
+                - profile_write  
+                - user_read        
+        roleProfileModules:
+            groups:
+                - profile_read
+                - profile_write
+                - user_read
+        # BlameableTrait
+        agent:
+            groups:        
+                - profile_read
+        creator:
+            groups:        
+                - profile_read
+
+        # TimestampableTrait
+        dateCreated:
+            groups:        
+                - profile_read
+        dateModified:
+            groups:        
+                - profile_read

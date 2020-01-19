@@ -1,0 +1,20 @@
+App\Entity\OfferCategory:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields:
+                - categoryNumber
+    properties:
+        categoryNumber:
+            - Type:
+                type: string
+            - NotNull: ~
+        description:
+            - Type:
+                type: string
+        image:
+            - Type:
+                type: App\Entity\DigitalDocument
+        name:
+            - Type:
+                type: string
+            - NotNull: ~

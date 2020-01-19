@@ -1,0 +1,12 @@
+App\Entity\User:
+    user:    
+        bridgeUser:
+        customerAccount: '@customer_account*'
+        dateActivated: <dateTime('now', 'UTC')>
+        dateLastLogon:
+        email: <email()>
+        expoPushNotificationTokens: []
+        password:
+        plainPassword: '123456'
+        roles: ['ROLE_SUPER_ADMIN']
+        username: <userName()>

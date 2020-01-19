@@ -1,0 +1,14 @@
+App\Entity\ListItem:
+    properties:
+        description:
+            - Type:
+                type: string
+        name:
+            - Type:
+                type: string
+        position:
+            - Type:
+                type: integer
+        value:
+            - Type:
+                type: string

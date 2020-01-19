@@ -1,0 +1,177 @@
+App\Entity\ItemList:
+    attributes:
+        id:
+            groups:
+                # -
+        description:
+            groups:
+                - item_list_read
+                - item_list_write
+                - addon_service_list_read
+                - addon_service_list_write
+                - contract_form_read
+                - direct_mail_campaign_source_list_read
+                - direct_mail_campaign_source_list_write
+                - email_campaign_source_list_read
+                - email_campaign_source_list_write
+                - free_gift_list_read
+                - free_gift_list_write
+                - offer_catalog_read
+                - offer_catalog_write
+                - security_deposit_list_read
+                - security_deposit_list_write
+                - tariff_rate_list_read
+                - tariff_rate_list_write
+                - unsubscribe_list_read
+                - unsubscribe_list_write
+                - campaign_expectation_list_read
+                - campaign_expectation_list_write
+                - sms_campaign_source_list_read
+                - sms_campaign_source_list_write
+                - source_list_read
+                - source_list_write
+        itemListElement:
+            groups:
+                - item_list_read
+                - item_list_write
+                - addon_service_list_read
+                - addon_service_list_write
+                - contract_form_read
+                - direct_mail_campaign_source_list_read
+                - direct_mail_campaign_source_list_write
+                - email_campaign_source_list_read
+                - email_campaign_source_list_write
+                - free_gift_list_read
+                - free_gift_list_write
+                - offer_catalog_read
+                - offer_catalog_write
+                - security_deposit_list_read
+                - security_deposit_list_write
+                - tariff_rate_list_read
+                - tariff_rate_list_write
+                - unsubscribe_list_read
+                - unsubscribe_list_write
+                - campaign_expectation_list_read
+                - campaign_expectation_list_write
+                - sms_campaign_source_list_read
+                - sms_campaign_source_list_write
+                - source_list_read
+                - source_list_write
+        name:
+            groups:
+                - item_list_read
+                - item_list_write
+                - addon_service_list_read
+                - addon_service_list_write
+                - contract_form_read
+                - direct_mail_campaign_source_list_read
+                - direct_mail_campaign_source_list_write
+                - email_campaign_source_list_read
+                - email_campaign_source_list_write
+                - free_gift_list_read
+                - free_gift_list_write
+                - offer_catalog_read
+                - offer_catalog_write
+                - security_deposit_list_read
+                - security_deposit_list_write
+                - tariff_rate_list_read
+                - tariff_rate_list_write
+                - unsubscribe_list_read
+                - unsubscribe_list_write
+                - campaign_expectation_list_read
+                - campaign_expectation_list_write
+                - sms_campaign_source_list_read
+                - sms_campaign_source_list_write
+                - source_list_read
+                - source_list_write
+        type:
+            groups:
+                - item_list_read
+                - item_list_write
+                - addon_service_list_read
+                - addon_service_list_write
+                - contract_form_read
+                - direct_mail_campaign_source_list_read
+                - direct_mail_campaign_source_list_write
+                - email_campaign_source_list_read
+                - email_campaign_source_list_write
+                - free_gift_list_read
+                - free_gift_list_write
+                - offer_catalog_read
+                - offer_catalog_write
+                - security_deposit_list_read
+                - security_deposit_list_write
+                - tariff_rate_list_read
+                - tariff_rate_list_write
+                - unsubscribe_list_read
+                - unsubscribe_list_write
+                - campaign_expectation_list_read
+                - campaign_expectation_list_write
+                - sms_campaign_source_list_read
+                - sms_campaign_source_list_write
+                - source_list_read
+                - source_list_write
+
+        # BlameableTrait
+        agent:
+            groups:
+                - item_list_read
+                - addon_service_list_read
+                - contract_form_read
+                - direct_mail_campaign_source_list_read
+                - email_campaign_source_list_read
+                - free_gift_list_read
+                - offer_catalog_read
+                - security_deposit_list_read
+                - tariff_rate_list_read
+                - unsubscribe_list_read
+                - campaign_expectation_list_read
+                - sms_campaign_source_list_read
+                - source_list_read
+        creator:
+            groups:
+                - item_list_read
+                - addon_service_list_read
+                - contract_form_read
+                - direct_mail_campaign_source_list_read
+                - email_campaign_source_list_read
+                - free_gift_list_read
+                - offer_catalog_read
+                - security_deposit_list_read
+                - tariff_rate_list_read
+                - unsubscribe_list_read
+                - campaign_expectation_list_read
+                - sms_campaign_source_list_read
+                - source_list_read
+                
+        # TimestampableTrait
+        dateCreated:
+            groups:
+                - item_list_read
+                - addon_service_list_read
+                - contract_form_read
+                - direct_mail_campaign_source_list_read
+                - email_campaign_source_list_read
+                - free_gift_list_read
+                - offer_catalog_read
+                - security_deposit_list_read
+                - tariff_rate_list_read
+                - unsubscribe_list_read
+                - campaign_expectation_list_read
+                - sms_campaign_source_list_read
+                - source_list_read
+        dateModified:
+            groups:
+                - item_list_read
+                - addon_service_list_read
+                - contract_form_read
+                - direct_mail_campaign_source_list_read
+                - email_campaign_source_list_read
+                - free_gift_list_read
+                - offer_catalog_read
+                - security_deposit_list_read
+                - tariff_rate_list_read
+                - unsubscribe_list_read
+                - campaign_expectation_list_read
+                - sms_campaign_source_list_read
+                - source_list_read

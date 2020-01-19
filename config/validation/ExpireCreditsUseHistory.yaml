@@ -1,0 +1,14 @@
+App\Entity\ExpireCreditsUseHistory:
+    properties:
+        expireAction:
+            - Type:
+                type: App\Entity\UpdateCreditsAction
+            - NotNull: ~
+        useAction:
+            - Type:
+                type: App\Entity\UpdateCreditsAction
+            - NotNull: ~
+        useAmount:
+            - Type:
+                type: string
+            - NotNull: ~

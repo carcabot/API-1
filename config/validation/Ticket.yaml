@@ -1,0 +1,106 @@
+App\Entity\Ticket:
+    properties:
+        activities:
+            - All:
+                - Type:
+                    type: App\Entity\Activity
+        assignee:
+            - Type:
+                type: App\Entity\User
+        category:
+            - Type:
+                type: App\Entity\TicketCategory
+            - NotNull: ~
+        channel:
+            - Type:
+                  type: string
+        contract:
+            - Type:
+                type: App\Entity\Contract
+        customer:
+            - Type:
+                type: App\Entity\CustomerAccount
+        dateClosed:
+            - DateTime: ~
+        dateOpened:
+            - DateTime: ~
+        description:
+            - Type:
+                type: string
+        notes:
+            - All:
+                - Type:
+                    type: App\Entity\Note
+        parent:
+            - Type:
+                type: App\Entity\Ticket
+        paused:
+            - Type:
+                type: bool
+        personDetails:
+            - Type:
+                type: App\Entity\Person
+        plannedCompletionDate:
+            - DateTime: ~
+        priority:
+            - Type:
+                type: App\Enum\Priority
+            - NotNull: ~
+        resolutionOfficer:
+            - Type:
+                type: string
+        startDate:
+            - DateTime: ~
+            - NotNull: ~
+        status:
+            - Type:
+                type: App\Enum\TicketStatus
+            - NotNull: ~
+        subcategory:
+            - Type:
+                type: App\Entity\TicketCategory
+            - NotNull: ~
+        supplementaryFiles:
+            - All:
+                - Type:
+                    type: App\Entity\DigitalDocument
+        ticketNumber:
+            - Type:
+                type: string
+            - NotNull: ~
+        timeLeft:
+            - Type:
+                type: App\Entity\QuantitativeValue
+        timer:
+            - Type:
+                type: App\Entity\QuantitativeValue
+        type:
+            - Type:
+                type: App\Entity\TicketType
+            - NotNull: ~
+
+        # BlameableTrait
+        agent:
+            - Type:
+                type: App\Entity\User
+        creator:
+            - Type:
+                type: App\Entity\User
+
+        # SourceableTrait
+        acquiredFrom:
+            - Type:
+                type: App\Entity\CustomerAccount
+        source:
+            - Type:
+                type: string
+                # type: App\Enum\Source
+        sourceUrl:
+            - Url: ~
+
+        # TimestampableTrait
+        dateCreated:
+            - DateTime: ~
+        dateModified:
+            - DateTime: ~
+

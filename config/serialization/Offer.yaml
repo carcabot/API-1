@@ -1,0 +1,61 @@
+App\Entity\Offer:
+    attributes:
+        id:
+            groups:
+                # -
+        category:
+            groups:
+                - offer_read
+                - offer_write
+        description:
+            groups:
+                - offer_read
+                - offer_write
+        image:
+            groups:
+                - offer_read
+                - offer_write
+        name:
+            groups:
+                - offer_read
+                - offer_write
+        offerNumber:
+            groups:
+                - offer_read
+                - offer_write
+        seller:
+            groups:
+                - offer_read
+                - offer_write
+        sku:
+            groups:
+                - offer_read
+                - offer_write
+        type:
+            groups:
+                - offer_read
+                - offer_write
+        validFrom:
+            groups:
+                - offer_read
+                - offer_write
+        validThrough:
+            groups:
+                - offer_read
+                - offer_write
+
+        # BlameableTrait
+        agent:
+            groups:
+                - offer_read
+        creator:
+            groups:
+                - offer_read
+
+        # TimestampableTrait
+        dateCreated:
+            groups:
+                - offer_read
+        dateModified:
+            groups:
+                - offer_read

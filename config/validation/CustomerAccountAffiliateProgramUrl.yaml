@@ -1,0 +1,18 @@
+App\Entity\CustomerAccountAffiliateProgramUrl:
+    properties:
+        affiliateProgram:
+            - Type:
+                type: App\Entity\Activity
+            - NotNull: ~
+        customer:
+            - Type:
+                type: App\Entity\CustomerAccount
+            - NotNull: ~
+        status:
+            - Type:
+                type: App\Enum\URLStatus
+            - NotNull: ~
+        url:
+            - Type:
+                type: string
+            - NotBlank: ~

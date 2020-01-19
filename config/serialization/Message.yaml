@@ -1,0 +1,38 @@
+App\Entity\Message:
+    attributes:
+        id:
+            groups:
+                # -
+        dateRead:
+            groups:
+                - message_read
+                - message_write
+        dateReceived:
+            groups:
+                - message_read
+                - message_write
+        dateSent:
+            groups:
+                - message_read
+                - message_write
+        messageTemplate:
+            groups:
+                - message_read
+                - message_write
+                
+        recipient:
+            groups:
+                - message_read
+                - message_write
+        responseDetails:
+            groups:
+                - message_read
+                - message_write
+        responseMessage:
+            groups:
+                - message_read
+                - message_write
+        status:
+            groups:
+                - message_read
+                - message_write

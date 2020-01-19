@@ -1,0 +1,25 @@
+App\Entity\CronJobSchedule:
+    attributes:
+        id:
+            groups:
+                # -
+        enabled:
+            groups:
+                - cron_job_schedule_read
+                - cron_job_schedule_write
+        intervals:
+            groups:
+                - cron_job_schedule_read
+                - cron_job_schedule_write
+        jobType:
+            groups:
+                - cron_job_schedule_read
+                - cron_job_schedule_write
+        queue:
+            groups:
+                - cron_job_schedule_read
+                - cron_job_schedule_write
+        time:
+            groups:
+                - cron_job_schedule_read
+                - cron_job_schedule_write

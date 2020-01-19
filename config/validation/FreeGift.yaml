@@ -1,0 +1,14 @@
+App\Entity\FreeGift:
+    properties:
+        description:
+            - Type:
+                type: string
+        isBasedOn:
+            - Type:
+                type: App\Entity\FreeGift
+        name:
+            - Type:
+                type: string
+        note:
+            - Type:
+                type: string

@@ -1,0 +1,16 @@
+App\Entity\UnsubscribeListItem:
+    properties:
+        item:
+            - Type:
+                type: App\Entity\Campaign
+        email:
+            - Email:
+                mode: strict
+            - Length:
+                max: 254
+        note:
+            - Type:
+                type: string
+        unsubscribeReason:
+            - Type:
+                type: App\Entity\UnsubscribeReason

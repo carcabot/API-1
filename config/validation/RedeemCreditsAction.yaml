@@ -1,0 +1,9 @@
+App\Entity\RedeemCreditsAction:
+    properties:
+        instrument:
+            - Type:
+                type: App\Entity\Order
+        object:
+            - Type:
+                type: App\Entity\Contract
+                

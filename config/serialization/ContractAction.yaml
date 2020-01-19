@@ -1,0 +1,62 @@
+App\Entity\ContractAction:
+    attributes:
+        id:
+            groups:
+                # -
+        instrument:
+            groups:
+                - contract_action_read
+                - contract_action_write
+                - create_contract_action_read
+                - create_contract_action_write                  
+                - update_contract_action_read
+                - update_contract_action_write                
+        actionStatus:
+            groups:
+                - contract_action_read
+                - contract_action_write
+                - create_contract_action_read
+                - create_contract_action_write                  
+                - update_contract_action_read
+                - update_contract_action_write                
+        object:
+            groups:
+                - contract_action_read
+                - contract_action_write
+                - create_contract_action_read
+                - create_contract_action_write                
+                - update_contract_action_read
+                - update_contract_action_write  
+
+        result:
+            groups:
+                - contract_action_read
+                - contract_action_write
+                - create_contract_action_read
+                - create_contract_action_write                
+                - update_contract_action_read
+                - update_contract_action_write                              
+
+        # BlameableTrait
+        agent:
+            groups:
+                - contract_action_read
+                - create_contract_action_read
+                - update_contract_action_read
+        creator:
+            groups:
+                - contract_action_read
+                - create_contract_action_read
+                - update_contract_action_read
+                
+        # TimestampableTrait
+        dateCreated:
+            groups:
+                - contract_action_read
+                - create_contract_action_read
+                - update_contract_action_read
+        dateModified:
+            groups:
+                - contract_action_read
+                - create_contract_action_read
+                - update_contract_action_read

@@ -1,0 +1,50 @@
+App\Entity\MaintenanceConfiguration:
+    attributes:
+        id:
+            groups:
+                # -
+        about:
+            groups:
+                - maintenance_configuration_read
+                - maintenance_configuration_write
+        description:
+            groups:
+                - maintenance_configuration_read
+                - maintenance_configuration_write
+        plannedEndDate:
+            groups:
+                - maintenance_configuration_read
+                - maintenance_configuration_write
+        plannedStartDate:
+            groups:
+                - maintenance_configuration_read
+                - maintenance_configuration_write
+        status:
+            groups:
+                - maintenance_configuration_read
+                - maintenance_configuration_write
+        text:
+            groups:
+                - maintenance_configuration_read
+                - maintenance_configuration_write
+        usedIn:
+            groups:
+                - maintenance_configuration_read
+                - maintenance_configuration_write
+
+        # BlameableTrait
+        agent:
+            groups:
+                - maintenance_configuration_read
+        creator:
+            groups:
+                - maintenance_configuration_read
+
+        # TimestampableTrait
+        dateCreated:
+            groups:
+                - maintenance_configuration_read
+        dateModified:
+            groups:
+                - maintenance_configuration_read
+        

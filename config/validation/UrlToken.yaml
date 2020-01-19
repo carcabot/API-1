@@ -1,0 +1,10 @@
+App\Entity\UrlToken:
+    properties:
+        token:
+            - Type:
+                type: string
+            - NotNull: ~
+        validFrom:
+            - DateTime: ~
+        validThrough:
+            - DateTime: ~

@@ -1,0 +1,17 @@
+App\Entity\AdvisoryNotice:
+    constraints:
+        - App\Validator\Constraints\ValidityOverlapDate: ~
+    properties:
+        description:
+            - Type:
+                type: string
+        file:
+            - Type:
+                type: App\Entity\DigitalDocument
+            - NotNull: ~
+        validFrom:
+            - DateTime: ~
+            - NotNull: ~
+        validThrough:
+            - DateTime: ~
+            - NotNull: ~

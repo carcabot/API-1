@@ -1,0 +1,132 @@
+App\Entity\TariffRateTerms:
+    attributes:
+        id:
+            groups:
+                # -
+        addonServiceList:
+            groups:
+                - tariff_rate_terms_read
+                - tariff_rate_terms_write
+        billFromServiceProvider:
+            groups:
+                - tariff_rate_terms_read
+                - tariff_rate_terms_write
+        bundledProductsOrServices:
+            groups:
+                - tariff_rate_terms_read
+                - tariff_rate_terms_write
+        contractDuration:
+            groups:
+                - tariff_rate_terms_read
+                - tariff_rate_terms_write
+        contractRenewal:
+            groups:
+                - tariff_rate_terms_read
+                - tariff_rate_terms_write
+        discount:
+            groups:
+                - tariff_rate_terms_read
+                - tariff_rate_terms_write
+                - contract_form_read
+        earlyTerminationCharges:
+            groups:
+                - tariff_rate_terms_read
+                - tariff_rate_terms_write
+        fixedRate:
+            groups:
+                - tariff_rate_terms_read
+                - tariff_rate_terms_write
+        freeGiftList:
+            groups:
+                - tariff_rate_terms_read
+                - tariff_rate_terms_write
+                - contract_form_read
+        incentives:
+            groups:
+                - tariff_rate_terms_read
+                - tariff_rate_terms_write
+        latePaymentCharges:
+            groups:
+                - tariff_rate_terms_read
+                - tariff_rate_terms_write
+        meterInstallationFee:
+            groups:
+                - tariff_rate_terms_read
+                - tariff_rate_terms_write
+        nonStandardPlan:
+            groups:
+                - tariff_rate_terms_read
+                - tariff_rate_terms_write
+                - contract_form_read
+        otherFeeAndCharges:
+            groups:
+                - tariff_rate_terms_read
+                - tariff_rate_terms_write
+        planName:
+            groups:
+                - tariff_rate_terms_read
+                - tariff_rate_terms_write
+                - contract_form_read
+        planType:
+            groups:
+                - tariff_rate_terms_read
+                - tariff_rate_terms_write
+                - contract_form_read
+        prevailingMeterCharge:
+            groups:
+                - tariff_rate_terms_read
+                - tariff_rate_terms_write
+        registrationFee:
+            groups:
+                - tariff_rate_terms_read
+                - tariff_rate_terms_write
+        securityDeposit:
+            groups:
+                - tariff_rate_terms_read
+                - tariff_rate_terms_write
+        securityDepositList:
+            groups:
+                - tariff_rate_terms_read
+                - tariff_rate_terms_write
+        serviceFee:
+            groups:
+                - tariff_rate_terms_read
+                - tariff_rate_terms_write
+                - contract_form_read
+        serviceProvider:
+            groups:
+                - tariff_rate_terms_read
+                - tariff_rate_terms_write
+        smartMeter:
+            groups:
+                - tariff_rate_terms_read
+                - tariff_rate_terms_write
+        standardPlan:
+            groups:
+                - tariff_rate_terms_read
+                - tariff_rate_terms_write
+                - contract_form_read
+        tariffRate:
+            groups:
+                - tariff_rate_terms_read
+                - tariff_rate_terms_write
+        version:
+            groups:
+                - tariff_rate_terms_read
+                - tariff_rate_terms_write
+
+        # BlameableTrait
+        agent:
+            groups:
+                - tariff_rate_terms_read
+        creator:
+            groups:
+                - tariff_rate_terms_read
+
+        # TimestampableTrait
+        dateCreated:
+            groups:
+                - tariff_rate_terms_read
+        dateModified:
+            groups:
+                - tariff_rate_terms_read

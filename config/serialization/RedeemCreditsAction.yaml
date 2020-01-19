@@ -1,0 +1,12 @@
+App\Entity\RedeemCreditsAction:
+    attributes:
+        instrument:
+            groups:
+                - redeem_credits_action_read
+                - redeem_credits_action_write
+                - update_credits_action_read
+        object:
+            groups:
+                - redeem_credits_action_read
+                - redeem_credits_action_write                
+                - update_credits_action_read

@@ -1,0 +1,33 @@
+App\Entity\CustomerBlacklistConfiguration:
+    attributes:
+        id:
+            groups:
+            # -
+        action:
+            groups:
+                - customer_blacklist_configuration_read
+                - customer_blacklist_configuration_write
+        description:
+            groups:
+                - customer_blacklist_configuration_read
+                - customer_blacklist_configuration_write
+        enabled:
+            groups:
+                - customer_blacklist_configuration_read
+                - customer_blacklist_configuration_write
+
+        # BlameableTrait
+        agent:
+            groups:
+                - customer_blacklist_configuration_read
+        creator:
+            groups:
+                - customer_blacklist_configuration_read
+
+        # TimestampableTrait
+        dateCreated:
+            groups:
+                - customer_blacklist_configuration_read
+        dateModified:
+            groups:
+                - customer_blacklist_configuration_read        

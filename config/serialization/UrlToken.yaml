@@ -1,0 +1,16 @@
+App\Entity\UrlToken:
+    attributes:
+        id:
+            groups:
+            # -
+        token:
+            groups:
+                - url_token_read
+        validFrom:
+            groups:
+                - url_token_read
+                - url_token_write
+        validThrough:
+            groups:
+                - url_token_read
+                - url_token_write

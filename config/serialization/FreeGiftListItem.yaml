@@ -1,0 +1,8 @@
+App\Entity\FreeGiftListItem:
+    attributes:
+        item:
+            groups:
+                - free_gift_list_item_read
+                - free_gift_list_item_write
+                - contract_form_read
+                - list_item_read

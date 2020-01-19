@@ -1,0 +1,312 @@
+App\Entity\CustomerAccount:
+    attributes:
+        id:
+            groups:
+                # -
+        accountNumber:
+            groups:
+                - quotation_file_generate
+                - contract_form_read
+                - customer_account_read
+                - customer_blacklist_read
+                - employee_role_read
+                - partner_commission_statement_generate
+                - partner_write
+                - ticket_read
+                - user_read
+                - update_credits_action_read
+                - role_homepage_customer_account_read
+                - role_homepage_user_read
+                - application_request_sign_on_behalf_read
+                - public_read
+        activities:
+            groups:
+                - customer_account_read
+                - customer_account_write
+                - role_homepage_customer_account_read
+                - role_homepage_user_read
+        addresses:
+            groups:
+                - quotation_file_generate
+                - contract_form_read
+                - customer_account_read
+                - customer_account_write
+                - employee_role_read
+                - ticket_read
+                - role_homepage_customer_account_read
+                - role_homepage_user_read
+                - public_read
+        applicationRequests:
+            groups:
+                - quotation_file_generate
+                - customer_account_read
+                - employee_role_read
+                - ticket_read
+        categories:
+            groups:
+                - quotation_file_generate
+                - contract_form_read
+                - customer_account_read
+                - customer_account_write
+                - employee_role_read
+                - partner_commission_statement_generate
+                - ticket_read
+                - user_read
+                - role_homepage_customer_account_read
+                - role_homepage_user_read
+                - application_request_sign_on_behalf_read
+                - public_read
+        contracts:
+            groups:
+                - customer_account_read
+                - employee_role_read
+                - ticket_read
+                - user_read
+        corporationDetails:
+            groups:
+                - quotation_file_generate
+                - contract_form_read
+                - customer_account_read
+                - customer_account_write
+                - employee_role_read
+                - partner_commission_statement_generate
+                - ticket_read
+                - user_read
+                - role_homepage_customer_account_read
+                - role_homepage_user_read
+                - public_read
+        customerPortalEnabled:
+            groups:
+                - customer_account_read
+                - customer_account_write
+                - user_read
+        dateBlacklisted:
+            groups:
+                - customer_account_read
+                - public_read
+        defaultCreditsContract:
+            groups:
+                - customer_account_read
+                - customer_account_write
+                - employee_role_read
+                - ticket_read
+                - user_read
+        doNotContact:
+            groups:
+                - customer_account_read
+                - customer_account_write
+                - contract_form_read
+                - employee_role_read
+                - ticket_read
+        externalCustomerNumber:
+            groups:
+                - customer_account_read
+                - customer_account_write
+                - contract_form_read
+                - employee_role_read
+                - ticket_read
+        image:
+            groups:
+                - quotation_file_generate
+                - customer_account_read
+                - customer_account_write
+                - employee_role_read
+                - ticket_read
+                - role_homepage_customer_account_read
+                - role_homepage_user_read
+        lifetimeMoneyCreditsEarnings:
+            groups:
+                - customer_account_read
+                - customer_account_write
+                - employee_role_read
+                - ticket_read
+        lifetimePointCreditsEarnings:
+            groups:
+                - customer_account_read
+                - customer_account_write
+                - employee_role_read
+                - ticket_read
+        lpgUser:
+            groups:
+                - customer_account_read
+                - customer_account_write
+                - contract_form_read
+                - employee_role_read
+                - ticket_read
+        moneyCreditsActions:
+            groups:
+                - customer_account_read
+                - customer_account_write
+                - employee_role_read
+                - ticket_read
+        moneyCreditsBalance:
+            groups:
+                - customer_account_read
+                - employee_role_read
+                - ticket_read
+                - update_credits_action_read
+        notes:
+            groups:
+                - customer_account_read
+                - customer_account_write
+                - employee_role_read
+                - ticket_read
+                - role_homepage_customer_account_read
+                - role_homepage_user_read
+        partnerDetails:
+            groups:
+                - customer_account_read
+                - customer_account_write
+                - employee_role_read
+                - ticket_read
+                - user_read
+                - role_homepage_customer_account_read
+                - role_homepage_user_read
+        pendingMoneyCreditsEarnings:
+            groups:
+                - customer_account_read
+                - customer_account_write
+                - employee_role_read
+                - ticket_read
+        pendingPointCreditsEarnings:
+            groups:
+                - customer_account_read
+                - customer_account_write
+                - employee_role_read
+                - ticket_read
+        personDetails:
+            groups:
+                - quotation_file_generate
+                - authorization_letter_generate
+                - contract_form_read
+                - customer_account_read
+                - customer_account_write
+                - employee_role_read
+                - partner_commission_statement_generate
+                - ticket_read
+                - update_credits_action_read
+                - user_read
+                - user_write
+                - role_homepage_customer_account_read
+                - role_homepage_user_read
+                - application_request_sign_on_behalf_read
+                - public_read
+        pointCreditsActions:
+            groups:
+                - customer_account_read
+                - customer_account_write
+                - employee_role_read
+                - ticket_read
+        pointCreditsBalance:
+            groups:
+                - customer_account_read
+                - employee_role_read
+                - ticket_read
+                - update_credits_action_read
+        preferredContactMethod:
+            groups:
+                - quotation_file_generate
+                - customer_account_read
+                - customer_account_write
+                - contract_form_read
+                - employee_role_read
+                - ticket_read
+        referralCode:
+            groups:
+                - customer_account_read
+                - public_read
+        relationships:
+            groups:
+                - customer_account_read
+                - employee_role_read
+                - ticket_read
+                - user_read
+                - role_homepage_customer_account_read
+                - role_homepage_user_read
+        status:
+            groups:
+                - customer_account_read
+                - customer_account_write
+                - employee_role_read
+                - ticket_read
+                - user_read
+                - public_read
+        supplementaryFiles:
+            groups:
+                - quotation_file_generate
+                - customer_account_read
+                - customer_account_write
+                - role_homepage_customer_account_read
+                - role_homepage_user_read
+        tenant:
+            groups:
+                - customer_account_read
+                - customer_account_write
+                - contract_form_read
+                - employee_role_read
+                - ticket_read
+        totalMoneyCreditsWithdrawn:
+            groups:
+                - customer_account_read
+                - customer_account_write
+                - employee_role_read
+                - ticket_read
+        type:
+            groups:
+                - quotation_file_generate
+                - customer_account_read
+                - customer_account_write
+                - contract_form_read
+                - employee_role_read
+                - ticket_read
+                - user_read
+                - user_write
+                - role_homepage_customer_account_read
+                - role_homepage_user_read
+                - application_request_sign_on_behalf_read
+                - public_read
+        user:
+            groups:
+                - quotation_file_generate
+                - customer_account_read
+                - employee_role_read
+                - ticket_read
+                - role_homepage_customer_account_read
+
+        # BlameableTrait
+        agent:
+            groups:
+                - customer_account_read
+                - employee_role_read
+                - ticket_read
+        creator:
+            groups:
+                - customer_account_read
+                - employee_role_read
+                - ticket_read
+
+        # SourceableTrait
+        acquiredFrom:
+            groups:
+                - customer_account_read
+                - customer_account_write
+                - employee_role_read
+                - ticket_read
+        source:
+            groups:
+                - customer_account_read
+                - customer_account_write
+                - employee_role_read
+                - ticket_read
+                
+        # TimestampableTrait
+        dateCreated:
+            groups:
+                - customer_account_read
+                - employee_role_read
+                - ticket_read
+        dateModified:
+            groups:
+                - customer_account_read
+                - employee_role_read
+                - ticket_read

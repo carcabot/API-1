@@ -1,0 +1,16 @@
+App\Entity\FaqConfiguration:
+    properties:
+        category:
+            - Type:
+                type: App\Entity\FaqConfigurationCategory
+        name:
+            - Type:
+                type: string
+            - NotNull: ~
+        position:
+            - Type:
+                type: integer
+        text:
+            - Type:
+                  type: string
+            - NotNull: ~

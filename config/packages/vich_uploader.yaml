@@ -1,0 +1,26 @@
+parameters:
+    # Adds a fallback VARNISH_URL if the env var is not set.
+    # This allows you to run cache:warmup even if your
+    # environment variables are not available yet.
+    # You should not need to change this value.
+    env(APP_URL): ''
+
+vich_uploader:
+    db_driver: orm
+    storage: flysystem
+
+    mappings:
+        file:
+            uri_prefix: '%env(APP_URL)%/uploads'
+            upload_destination: file_fs
+            namer: Vich\UploaderBundle\Naming\HashNamer
+            delete_on_remove: true
+            delete_on_update: false
+            inject_on_load: false
+        internal_file:
+            uri_prefix: '%env(APP_URL)%/internal'
+            upload_destination: internal_file_fs
+            namer: Vich\UploaderBundle\Naming\HashNamer
+            delete_on_remove: true
+            delete_on_update: false
+            inject_on_load: false

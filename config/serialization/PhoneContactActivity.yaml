@@ -1,0 +1,12 @@
+App\Entity\PhoneContactActivity:
+    attributes:
+        direction:
+            groups:
+                - activity_read
+                - phone_contact_activity_read
+                - phone_contact_activity_write
+        recipientTelephoneNumber:
+            groups:
+                - activity_read
+                - phone_contact_activity_read
+                - phone_contact_activity_write

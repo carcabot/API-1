@@ -1,0 +1,181 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Migration;
+
+use Doctrine\DBAL\Schema\Schema;
+use Doctrine\Migrations\AbstractMigration;
+
+final class Version20180803102621 extends AbstractMigration
+{
+    public function up(Schema $schema): void
+    {
+        $this->abortIf('postgresql' !== $this->connection->getDatabasePlatform()->getName(), 'Migration can only be executed safely on \'postgresql\'.');
+
+        $this->addSql('CREATE SEQUENCE service_level_agreement_notifications_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
+        $this->addSql('CREATE SEQUENCE ticket_types_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
+        $this->addSql('CREATE SEQUENCE service_level_agreement_timers_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
+        $this->addSql('CREATE SEQUENCE country_calendars_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
+        $this->addSql('CREATE SEQUENCE opening_hours_specifications_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
+        $this->addSql('CREATE SEQUENCE ticket_categories_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
+        $this->addSql('CREATE SEQUENCE service_level_agreements_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
+        $this->addSql('CREATE SEQUENCE tickets_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
+        $this->addSql('CREATE TABLE service_level_agreement_notifications (id INT NOT NULL, agent_id INT DEFAULT NULL, creator_id INT DEFAULT NULL, name TEXT NOT NULL, date_created TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT NULL, date_modified TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT NULL, value_max_value NUMERIC(19, 4) DEFAULT NULL, value_min_value NUMERIC(19, 4) DEFAULT NULL, value_unit_code TEXT DEFAULT NULL, value_value NUMERIC(19, 4) DEFAULT NULL, PRIMARY KEY(id))');
+        $this->addSql('CREATE INDEX IDX_C5B6E7573414710B ON service_level_agreement_notifications (agent_id)');
+        $this->addSql('CREATE INDEX IDX_C5B6E75761220EA6 ON service_level_agreement_notifications (creator_id)');
+        $this->addSql('CREATE TABLE ticket_types (id INT NOT NULL, agent_id INT DEFAULT NULL, creator_id INT DEFAULT NULL, description TEXT DEFAULT NULL, name TEXT NOT NULL, date_created TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT NULL, date_modified TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT NULL, PRIMARY KEY(id))');
+        $this->addSql('CREATE INDEX IDX_7100EABB3414710B ON ticket_types (agent_id)');
+        $this->addSql('CREATE INDEX IDX_7100EABB61220EA6 ON ticket_types (creator_id)');
+        $this->addSql('CREATE TABLE ticket_types_ticket_categories (ticket_type_id INT NOT NULL, ticket_category_id INT NOT NULL, PRIMARY KEY(ticket_type_id, ticket_category_id))');
+        $this->addSql('CREATE INDEX IDX_47E51E0C980D5C1 ON ticket_types_ticket_categories (ticket_type_id)');
+        $this->addSql('CREATE INDEX IDX_47E51E07ED69B9D ON ticket_types_ticket_categories (ticket_category_id)');
+        $this->addSql('CREATE TABLE service_level_agreement_timers (id INT NOT NULL, agent_id INT DEFAULT NULL, creator_id INT DEFAULT NULL, description TEXT DEFAULT NULL, name TEXT NOT NULL, date_created TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT NULL, date_modified TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT NULL, value_max_value NUMERIC(19, 4) DEFAULT NULL, value_min_value NUMERIC(19, 4) DEFAULT NULL, value_unit_code TEXT DEFAULT NULL, value_value NUMERIC(19, 4) DEFAULT NULL, PRIMARY KEY(id))');
+        $this->addSql('CREATE INDEX IDX_379068123414710B ON service_level_agreement_timers (agent_id)');
+        $this->addSql('CREATE INDEX IDX_3790681261220EA6 ON service_level_agreement_timers (creator_id)');
+        $this->addSql('CREATE TABLE country_calendars (id INT NOT NULL, agent_id INT DEFAULT NULL, creator_id INT DEFAULT NULL, country_code VARCHAR(255) NOT NULL, description VARCHAR(255) DEFAULT NULL, name VARCHAR(255) NOT NULL, valid_from TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, valid_through TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, date_created TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT NULL, date_modified TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT NULL, PRIMARY KEY(id))');
+        $this->addSql('CREATE INDEX IDX_313C876F3414710B ON country_calendars (agent_id)');
+        $this->addSql('CREATE INDEX IDX_313C876F61220EA6 ON country_calendars (creator_id)');
+        $this->addSql('CREATE TABLE country_calendars_opening_hours_specifications (country_calendar_id INT NOT NULL, opening_hours_specification_id INT NOT NULL, PRIMARY KEY(country_calendar_id, opening_hours_specification_id))');
+        $this->addSql('CREATE INDEX IDX_9A2C34D01FD78803 ON country_calendars_opening_hours_specifications (country_calendar_id)');
+        $this->addSql('CREATE UNIQUE INDEX UNIQ_9A2C34D0AF738CDC ON country_calendars_opening_hours_specifications (opening_hours_specification_id)');
+        $this->addSql('CREATE TABLE opening_hours_specifications (id INT NOT NULL, closes TIME(0) WITHOUT TIME ZONE NOT NULL, day_of_week TEXT NOT NULL, name TEXT NOT NULL, opens TIME(0) WITHOUT TIME ZONE NOT NULL, valid_from TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, valid_through TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, PRIMARY KEY(id))');
+        $this->addSql('CREATE TABLE ticket_categories (id INT NOT NULL, agent_id INT DEFAULT NULL, creator_id INT DEFAULT NULL, description TEXT DEFAULT NULL, name TEXT NOT NULL, task_indicator BOOLEAN DEFAULT NULL, type VARCHAR(254) NOT NULL, date_created TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT NULL, date_modified TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT NULL, PRIMARY KEY(id))');
+        $this->addSql('CREATE INDEX IDX_AC60D43C3414710B ON ticket_categories (agent_id)');
+        $this->addSql('CREATE INDEX IDX_AC60D43C61220EA6 ON ticket_categories (creator_id)');
+        $this->addSql('COMMENT ON COLUMN ticket_categories.type IS \'(DC2Type:ticket_category_type_enum)\'');
+        $this->addSql('CREATE TABLE ticket_categories_ticket_categories (ticket_category_source INT NOT NULL, ticket_category_target INT NOT NULL, PRIMARY KEY(ticket_category_source, ticket_category_target))');
+        $this->addSql('CREATE INDEX IDX_36BC051652F6DE19 ON ticket_categories_ticket_categories (ticket_category_source)');
+        $this->addSql('CREATE INDEX IDX_36BC05164B138E96 ON ticket_categories_ticket_categories (ticket_category_target)');
+        $this->addSql('CREATE TABLE service_level_agreements (id INT NOT NULL, timer_id INT DEFAULT NULL, agent_id INT DEFAULT NULL, creator_id INT DEFAULT NULL, description TEXT DEFAULT NULL, name TEXT NOT NULL, priority VARCHAR(254) NOT NULL, date_created TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT NULL, date_modified TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT NULL, PRIMARY KEY(id))');
+        $this->addSql('CREATE INDEX IDX_A7E27640EE98D9B9 ON service_level_agreements (timer_id)');
+        $this->addSql('CREATE INDEX IDX_A7E276403414710B ON service_level_agreements (agent_id)');
+        $this->addSql('CREATE INDEX IDX_A7E2764061220EA6 ON service_level_agreements (creator_id)');
+        $this->addSql('COMMENT ON COLUMN service_level_agreements.priority IS \'(DC2Type:priority_enum)\'');
+        $this->addSql('CREATE TABLE service_level_agreements_opening_hours_specifications (service_level_agreement_id INT NOT NULL, opening_hours_specification_id INT NOT NULL, PRIMARY KEY(service_level_agreement_id, opening_hours_specification_id))');
+        $this->addSql('CREATE INDEX IDX_50D13781C771E43A ON service_level_agreements_opening_hours_specifications (service_level_agreement_id)');
+        $this->addSql('CREATE INDEX IDX_50D13781AF738CDC ON service_level_agreements_opening_hours_specifications (opening_hours_specification_id)');
+        $this->addSql('CREATE TABLE service_level_agreements_ticket_categories (service_level_agreement_id INT NOT NULL, ticket_category_id INT NOT NULL, PRIMARY KEY(service_level_agreement_id, ticket_category_id))');
+        $this->addSql('CREATE INDEX IDX_A697EFE8C771E43A ON service_level_agreements_ticket_categories (service_level_agreement_id)');
+        $this->addSql('CREATE INDEX IDX_A697EFE87ED69B9D ON service_level_agreements_ticket_categories (ticket_category_id)');
+        $this->addSql('CREATE TABLE service_level_agreements_ticket_types (service_level_agreement_id INT NOT NULL, ticket_type_id INT NOT NULL, PRIMARY KEY(service_level_agreement_id, ticket_type_id))');
+        $this->addSql('CREATE INDEX IDX_697C3663C771E43A ON service_level_agreements_ticket_types (service_level_agreement_id)');
+        $this->addSql('CREATE INDEX IDX_697C3663C980D5C1 ON service_level_agreements_ticket_types (ticket_type_id)');
+        $this->addSql('CREATE TABLE tickets (id INT NOT NULL, category_id INT DEFAULT NULL, customer_id INT DEFAULT NULL, employee_assigned_id INT DEFAULT NULL, parent_id INT DEFAULT NULL, person_details_id INT DEFAULT NULL, sub_category_id INT DEFAULT NULL, type_id INT DEFAULT NULL, agent_id INT DEFAULT NULL, creator_id INT DEFAULT NULL, acquired_from_id INT DEFAULT NULL, completion_date TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, description TEXT DEFAULT NULL, planned_completion_date TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, priority VARCHAR(254) NOT NULL, resolution_officer TEXT DEFAULT NULL, start_date TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, status VARCHAR(254) NOT NULL, ticket_number VARCHAR(128) NOT NULL, source VARCHAR(254) DEFAULT NULL, source_url TEXT DEFAULT NULL, date_created TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT NULL, date_modified TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT NULL, PRIMARY KEY(id))');
+        $this->addSql('CREATE UNIQUE INDEX UNIQ_54469DF4ECD2759F ON tickets (ticket_number)');
+        $this->addSql('CREATE INDEX IDX_54469DF412469DE2 ON tickets (category_id)');
+        $this->addSql('CREATE INDEX IDX_54469DF49395C3F3 ON tickets (customer_id)');
+        $this->addSql('CREATE INDEX IDX_54469DF46076DB78 ON tickets (employee_assigned_id)');
+        $this->addSql('CREATE UNIQUE INDEX UNIQ_54469DF4727ACA70 ON tickets (parent_id)');
+        $this->addSql('CREATE UNIQUE INDEX UNIQ_54469DF48DA16437 ON tickets (person_details_id)');
+        $this->addSql('CREATE INDEX IDX_54469DF4F7BFE87C ON tickets (sub_category_id)');
+        $this->addSql('CREATE UNIQUE INDEX UNIQ_54469DF4C54C8C93 ON tickets (type_id)');
+        $this->addSql('CREATE INDEX IDX_54469DF43414710B ON tickets (agent_id)');
+        $this->addSql('CREATE INDEX IDX_54469DF461220EA6 ON tickets (creator_id)');
+        $this->addSql('CREATE INDEX IDX_54469DF4B43AA055 ON tickets (acquired_from_id)');
+        $this->addSql('COMMENT ON COLUMN tickets.priority IS \'(DC2Type:priority_enum)\'');
+        $this->addSql('COMMENT ON COLUMN tickets.status IS \'(DC2Type:ticket_status_enum)\'');
+        $this->addSql('COMMENT ON COLUMN tickets.source IS \'(DC2Type:source_enum)\'');
+        $this->addSql('CREATE TABLE tickets_activities (ticket_id INT NOT NULL, activity_id INT NOT NULL, PRIMARY KEY(ticket_id, activity_id))');
+        $this->addSql('CREATE INDEX IDX_A711CF9B700047D2 ON tickets_activities (ticket_id)');
+        $this->addSql('CREATE UNIQUE INDEX UNIQ_A711CF9B81C06096 ON tickets_activities (activity_id)');
+        $this->addSql('CREATE TABLE tickets_digital_documents (ticket_id INT NOT NULL, file_id INT NOT NULL, PRIMARY KEY(ticket_id, file_id))');
+        $this->addSql('CREATE INDEX IDX_2F394D3B700047D2 ON tickets_digital_documents (ticket_id)');
+        $this->addSql('CREATE UNIQUE INDEX UNIQ_2F394D3B93CB796C ON tickets_digital_documents (file_id)');
+        $this->addSql('CREATE TABLE tickets_notes (ticket_id INT NOT NULL, note_id INT NOT NULL, PRIMARY KEY(ticket_id, note_id))');
+        $this->addSql('CREATE INDEX IDX_F97C7333700047D2 ON tickets_notes (ticket_id)');
+        $this->addSql('CREATE UNIQUE INDEX UNIQ_F97C733326ED0855 ON tickets_notes (note_id)');
+        $this->addSql('ALTER TABLE service_level_agreement_notifications ADD CONSTRAINT FK_C5B6E7573414710B FOREIGN KEY (agent_id) REFERENCES users (id) ON DELETE SET NULL NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE service_level_agreement_notifications ADD CONSTRAINT FK_C5B6E75761220EA6 FOREIGN KEY (creator_id) REFERENCES users (id) ON DELETE SET NULL NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE ticket_types ADD CONSTRAINT FK_7100EABB3414710B FOREIGN KEY (agent_id) REFERENCES users (id) ON DELETE SET NULL NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE ticket_types ADD CONSTRAINT FK_7100EABB61220EA6 FOREIGN KEY (creator_id) REFERENCES users (id) ON DELETE SET NULL NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE ticket_types_ticket_categories ADD CONSTRAINT FK_47E51E0C980D5C1 FOREIGN KEY (ticket_type_id) REFERENCES ticket_types (id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE ticket_types_ticket_categories ADD CONSTRAINT FK_47E51E07ED69B9D FOREIGN KEY (ticket_category_id) REFERENCES ticket_categories (id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE service_level_agreement_timers ADD CONSTRAINT FK_379068123414710B FOREIGN KEY (agent_id) REFERENCES users (id) ON DELETE SET NULL NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE service_level_agreement_timers ADD CONSTRAINT FK_3790681261220EA6 FOREIGN KEY (creator_id) REFERENCES users (id) ON DELETE SET NULL NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE country_calendars ADD CONSTRAINT FK_313C876F3414710B FOREIGN KEY (agent_id) REFERENCES users (id) ON DELETE SET NULL NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE country_calendars ADD CONSTRAINT FK_313C876F61220EA6 FOREIGN KEY (creator_id) REFERENCES users (id) ON DELETE SET NULL NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE country_calendars_opening_hours_specifications ADD CONSTRAINT FK_9A2C34D01FD78803 FOREIGN KEY (country_calendar_id) REFERENCES country_calendars (id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE country_calendars_opening_hours_specifications ADD CONSTRAINT FK_9A2C34D0AF738CDC FOREIGN KEY (opening_hours_specification_id) REFERENCES opening_hours_specifications (id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE ticket_categories ADD CONSTRAINT FK_AC60D43C3414710B FOREIGN KEY (agent_id) REFERENCES users (id) ON DELETE SET NULL NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE ticket_categories ADD CONSTRAINT FK_AC60D43C61220EA6 FOREIGN KEY (creator_id) REFERENCES users (id) ON DELETE SET NULL NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE ticket_categories_ticket_categories ADD CONSTRAINT FK_36BC051652F6DE19 FOREIGN KEY (ticket_category_source) REFERENCES ticket_categories (id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE ticket_categories_ticket_categories ADD CONSTRAINT FK_36BC05164B138E96 FOREIGN KEY (ticket_category_target) REFERENCES ticket_categories (id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE service_level_agreements ADD CONSTRAINT FK_A7E27640EE98D9B9 FOREIGN KEY (timer_id) REFERENCES service_level_agreement_timers (id) NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE service_level_agreements ADD CONSTRAINT FK_A7E276403414710B FOREIGN KEY (agent_id) REFERENCES users (id) ON DELETE SET NULL NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE service_level_agreements ADD CONSTRAINT FK_A7E2764061220EA6 FOREIGN KEY (creator_id) REFERENCES users (id) ON DELETE SET NULL NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE service_level_agreements_opening_hours_specifications ADD CONSTRAINT FK_50D13781C771E43A FOREIGN KEY (service_level_agreement_id) REFERENCES service_level_agreements (id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE service_level_agreements_opening_hours_specifications ADD CONSTRAINT FK_50D13781AF738CDC FOREIGN KEY (opening_hours_specification_id) REFERENCES opening_hours_specifications (id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE service_level_agreements_ticket_categories ADD CONSTRAINT FK_A697EFE8C771E43A FOREIGN KEY (service_level_agreement_id) REFERENCES service_level_agreements (id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE service_level_agreements_ticket_categories ADD CONSTRAINT FK_A697EFE87ED69B9D FOREIGN KEY (ticket_category_id) REFERENCES ticket_categories (id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE service_level_agreements_ticket_types ADD CONSTRAINT FK_697C3663C771E43A FOREIGN KEY (service_level_agreement_id) REFERENCES service_level_agreements (id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE service_level_agreements_ticket_types ADD CONSTRAINT FK_697C3663C980D5C1 FOREIGN KEY (ticket_type_id) REFERENCES ticket_types (id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE tickets ADD CONSTRAINT FK_54469DF412469DE2 FOREIGN KEY (category_id) REFERENCES ticket_categories (id) NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE tickets ADD CONSTRAINT FK_54469DF49395C3F3 FOREIGN KEY (customer_id) REFERENCES customer_accounts (id) NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE tickets ADD CONSTRAINT FK_54469DF46076DB78 FOREIGN KEY (employee_assigned_id) REFERENCES users (id) NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE tickets ADD CONSTRAINT FK_54469DF4727ACA70 FOREIGN KEY (parent_id) REFERENCES tickets (id) ON DELETE SET NULL NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE tickets ADD CONSTRAINT FK_54469DF48DA16437 FOREIGN KEY (person_details_id) REFERENCES people (id) ON DELETE SET NULL NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE tickets ADD CONSTRAINT FK_54469DF4F7BFE87C FOREIGN KEY (sub_category_id) REFERENCES ticket_categories (id) ON DELETE SET NULL NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE tickets ADD CONSTRAINT FK_54469DF4C54C8C93 FOREIGN KEY (type_id) REFERENCES ticket_types (id) ON DELETE SET NULL NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE tickets ADD CONSTRAINT FK_54469DF43414710B FOREIGN KEY (agent_id) REFERENCES users (id) ON DELETE SET NULL NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE tickets ADD CONSTRAINT FK_54469DF461220EA6 FOREIGN KEY (creator_id) REFERENCES users (id) ON DELETE SET NULL NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE tickets ADD CONSTRAINT FK_54469DF4B43AA055 FOREIGN KEY (acquired_from_id) REFERENCES customer_accounts (id) ON DELETE SET NULL NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE tickets_activities ADD CONSTRAINT FK_A711CF9B700047D2 FOREIGN KEY (ticket_id) REFERENCES tickets (id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE tickets_activities ADD CONSTRAINT FK_A711CF9B81C06096 FOREIGN KEY (activity_id) REFERENCES activities (id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE tickets_digital_documents ADD CONSTRAINT FK_2F394D3B700047D2 FOREIGN KEY (ticket_id) REFERENCES tickets (id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE tickets_digital_documents ADD CONSTRAINT FK_2F394D3B93CB796C FOREIGN KEY (file_id) REFERENCES digital_documents (id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE tickets_notes ADD CONSTRAINT FK_F97C7333700047D2 FOREIGN KEY (ticket_id) REFERENCES tickets (id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE tickets_notes ADD CONSTRAINT FK_F97C733326ED0855 FOREIGN KEY (note_id) REFERENCES notes (id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE');
+    }
+
+    public function down(Schema $schema): void
+    {
+        $this->abortIf('postgresql' !== $this->connection->getDatabasePlatform()->getName(), 'Migration can only be executed safely on \'postgresql\'.');
+
+        $this->addSql('ALTER TABLE ticket_types_ticket_categories DROP CONSTRAINT FK_47E51E0C980D5C1');
+        $this->addSql('ALTER TABLE service_level_agreements_ticket_types DROP CONSTRAINT FK_697C3663C980D5C1');
+        $this->addSql('ALTER TABLE tickets DROP CONSTRAINT FK_54469DF4C54C8C93');
+        $this->addSql('ALTER TABLE service_level_agreements DROP CONSTRAINT FK_A7E27640EE98D9B9');
+        $this->addSql('ALTER TABLE country_calendars_opening_hours_specifications DROP CONSTRAINT FK_9A2C34D01FD78803');
+        $this->addSql('ALTER TABLE country_calendars_opening_hours_specifications DROP CONSTRAINT FK_9A2C34D0AF738CDC');
+        $this->addSql('ALTER TABLE service_level_agreements_opening_hours_specifications DROP CONSTRAINT FK_50D13781AF738CDC');
+        $this->addSql('ALTER TABLE ticket_types_ticket_categories DROP CONSTRAINT FK_47E51E07ED69B9D');
+        $this->addSql('ALTER TABLE ticket_categories_ticket_categories DROP CONSTRAINT FK_36BC051652F6DE19');
+        $this->addSql('ALTER TABLE ticket_categories_ticket_categories DROP CONSTRAINT FK_36BC05164B138E96');
+        $this->addSql('ALTER TABLE service_level_agreements_ticket_categories DROP CONSTRAINT FK_A697EFE87ED69B9D');
+        $this->addSql('ALTER TABLE tickets DROP CONSTRAINT FK_54469DF412469DE2');
+        $this->addSql('ALTER TABLE tickets DROP CONSTRAINT FK_54469DF4F7BFE87C');
+        $this->addSql('ALTER TABLE service_level_agreements_opening_hours_specifications DROP CONSTRAINT FK_50D13781C771E43A');
+        $this->addSql('ALTER TABLE service_level_agreements_ticket_categories DROP CONSTRAINT FK_A697EFE8C771E43A');
+        $this->addSql('ALTER TABLE service_level_agreements_ticket_types DROP CONSTRAINT FK_697C3663C771E43A');
+        $this->addSql('ALTER TABLE tickets DROP CONSTRAINT FK_54469DF4727ACA70');
+        $this->addSql('ALTER TABLE tickets_activities DROP CONSTRAINT FK_A711CF9B700047D2');
+        $this->addSql('ALTER TABLE tickets_digital_documents DROP CONSTRAINT FK_2F394D3B700047D2');
+        $this->addSql('ALTER TABLE tickets_notes DROP CONSTRAINT FK_F97C7333700047D2');
+        $this->addSql('DROP SEQUENCE service_level_agreement_notifications_id_seq CASCADE');
+        $this->addSql('DROP SEQUENCE ticket_types_id_seq CASCADE');
+        $this->addSql('DROP SEQUENCE service_level_agreement_timers_id_seq CASCADE');
+        $this->addSql('DROP SEQUENCE country_calendars_id_seq CASCADE');
+        $this->addSql('DROP SEQUENCE opening_hours_specifications_id_seq CASCADE');
+        $this->addSql('DROP SEQUENCE ticket_categories_id_seq CASCADE');
+        $this->addSql('DROP SEQUENCE service_level_agreements_id_seq CASCADE');
+        $this->addSql('DROP SEQUENCE tickets_id_seq CASCADE');
+        $this->addSql('DROP TABLE service_level_agreement_notifications');
+        $this->addSql('DROP TABLE ticket_types');
+        $this->addSql('DROP TABLE ticket_types_ticket_categories');
+        $this->addSql('DROP TABLE service_level_agreement_timers');
+        $this->addSql('DROP TABLE country_calendars');
+        $this->addSql('DROP TABLE country_calendars_opening_hours_specifications');
+        $this->addSql('DROP TABLE opening_hours_specifications');
+        $this->addSql('DROP TABLE ticket_categories');
+        $this->addSql('DROP TABLE ticket_categories_ticket_categories');
+        $this->addSql('DROP TABLE service_level_agreements');
+        $this->addSql('DROP TABLE service_level_agreements_opening_hours_specifications');
+        $this->addSql('DROP TABLE service_level_agreements_ticket_categories');
+        $this->addSql('DROP TABLE service_level_agreements_ticket_types');
+        $this->addSql('DROP TABLE tickets');
+        $this->addSql('DROP TABLE tickets_activities');
+        $this->addSql('DROP TABLE tickets_digital_documents');
+        $this->addSql('DROP TABLE tickets_notes');
+    }
+}

@@ -1,0 +1,30 @@
+App\Entity\AddonService:
+    attributes:
+        id:
+            groups:
+                # -
+        description:
+            groups:
+                - addon_service_read
+                - addon_service_write
+                - contract_form_read
+        isBasedOn:
+            groups:
+                - addon_service_read
+                - addon_service_write
+                - contract_form_read
+        name:
+            groups:
+                - addon_service_read
+                - addon_service_write
+                - contract_form_read
+        note:
+            groups:
+                - addon_service_read
+                - addon_service_write
+                - contract_form_read
+        optional:
+            groups:
+                - addon_service_read
+                - addon_service_write
+                - contract_form_read

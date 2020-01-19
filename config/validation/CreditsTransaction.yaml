@@ -1,0 +1,10 @@
+App\Entity\CreditsTransaction:
+    properties:
+        creditsTransactionNumber:
+            - Type:
+                type: string
+            - NotNull: ~
+        validFrom:
+            - DateTime: ~
+        validThrough:
+            - DateTime: ~

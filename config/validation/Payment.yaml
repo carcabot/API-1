@@ -1,0 +1,47 @@
+App\Entity\Payment:
+    properties:
+        amount:
+            - Type:
+                type: App\Entity\MonetaryAmount
+        bankAccountHolderName:
+            - Type:
+                type: string
+        bankAccountNumber:
+            - Type:
+                type: string
+        bankCode:
+            - Type:
+                type: string
+        bankName:
+            - Type:
+                type: string
+        confirmationNumber:
+            - Type:
+                type: string
+        contactNumber:
+            - Misd\PhoneNumberBundle\Validator\Constraints\PhoneNumber: ~
+        email:
+            - Type:
+                type: string
+        invoiceNumber:
+            - Type:
+                type: string
+        paymentMethod:
+            - Type:
+                type: string
+        paymentNumber:
+            - Type:
+                type: string
+            - NotNull: ~
+        paymentReceipt:
+            - Type:
+                type: App\Entity\DigitalDocument
+        paymentUrl:
+            - Url: ~
+        returnMessage:
+            - Type:
+                type: string
+        status:
+            - Type:
+                type: App\Enum\PaymentStatus
+            - NotNull: ~

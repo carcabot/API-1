@@ -1,0 +1,24 @@
+mailgun_bounce_event:
+    path: /mailgun/event/bounce
+    controller: App\WebService\Email\Provider\Mailgun\Controller\BounceEventController
+    methods: [POST]
+
+mailgun_click_event:
+  path: /mailgun/event/click
+  controller: App\WebService\Email\Provider\Mailgun\Controller\ClickEventController
+  methods: [POST]
+
+mailgun_complain_event:
+  path: /mailgun/event/complain
+  controller: App\WebService\Email\Provider\Mailgun\Controller\ComplainEventController
+  methods: [POST]
+
+mailgun_deliver_event:
+  path: /mailgun/event/deliver
+  controller: App\WebService\Email\Provider\Mailgun\Controller\DeliverEventController
+  methods: [POST]
+
+mailgun_open_event:
+  path: /mailgun/event/open
+  controller: App\WebService\Email\Provider\Mailgun\Controller\OpenEventController
+  methods: [POST]

@@ -1,0 +1,73 @@
+App\Entity\MessageTemplate:
+    attributes:
+        id:
+            groups:
+                # -
+        body:
+            groups:
+                - message_template_read
+                - message_template_write
+        description:
+            groups:
+                - message_template_read
+                - message_template_write
+        endDate:
+            groups:
+                - message_template_read
+                - message_template_write
+        messageAttachments:
+            groups:
+                - message_template_read
+                - message_template_write
+        messageNumber:
+            groups:
+                - message_template_read
+                - message_template_write
+        plannedEndDate:
+            groups:
+                - message_template_read
+                - message_template_write
+        plannedStartDate:
+            groups:
+                - message_template_read
+                - message_template_write
+        recipients:
+            groups:
+                - message_template_read
+                - message_template_write
+        recipientsFilters:
+            groups:
+                - message_template_read
+                - message_template_write
+        startDate:
+            groups:
+                - message_template_read
+                - message_template_write
+        status:
+            groups:
+                - message_template_read
+                - message_template_write
+        title:
+            groups:
+                - message_template_read
+                - message_template_write
+        type:
+            groups:
+                - message_template_read
+                - message_template_write
+
+        # BlameableTrait
+        agent:
+            groups:
+                - message_template_read
+        creator:
+            groups:
+                - message_template_read
+
+        # TimestampableTrait
+        dateCreated:
+            groups:
+                - message_template_read
+        dateModified:
+            groups:
+                - message_template_read

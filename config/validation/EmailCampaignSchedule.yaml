@@ -1,0 +1,17 @@
+App\Entity\EmailCampaignSchedule:
+    properties:
+        campaign:
+            - Type:
+                type: App\Entity\Campaign
+            - NotNull: ~
+        date:
+            - DateTime: ~
+            - NotNull: ~
+        fromPosition:
+            - Type:
+                type: integer
+            - NotNull: ~
+        toPosition:
+            - Type:
+                type: integer
+            - NotNull: ~

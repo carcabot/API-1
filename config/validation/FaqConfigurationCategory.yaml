@@ -1,0 +1,13 @@
+App\Entity\FaqConfigurationCategory:
+    properties:
+        enabled:
+            - Type:
+                type: boolean
+            - NotNull: ~
+        name:
+            - Type:
+                type: string
+            - NotNull: ~
+        position:
+            - Type:
+                type: integer

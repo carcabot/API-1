@@ -1,0 +1,53 @@
+App\Entity\CreditsTransaction:
+    attributes:
+        id:
+            groups:
+                # -
+        creditsTransactionNumber:
+            groups:
+                - credits_transaction_read
+                - credits_transaction_write
+                - money_credits_transaction_read
+                - money_credits_transaction_write
+                - point_credits_transaction_read
+                - point_credits_transaction_write
+        validFrom:
+            groups:
+                - credits_transaction_read
+                - credits_transaction_write
+                - money_credits_transaction_read
+                - money_credits_transaction_write
+                - point_credits_transaction_read
+                - point_credits_transaction_write
+        validThrough:
+            groups:
+                - credits_transaction_read
+                - credits_transaction_write
+                - money_credits_transaction_read
+                - money_credits_transaction_write
+                - point_credits_transaction_read
+                - point_credits_transaction_write
+
+        # BlameableTrait
+        agent:
+            groups:
+                - credits_transaction_read
+                - money_credits_transaction_read
+                - point_credits_transaction_read
+        creator:
+            groups:
+                - credits_transaction_read
+                - money_credits_transaction_read
+                - point_credits_transaction_read
+
+        # TimestampableTrait
+        dateCreated:
+            groups:
+                - credits_transaction_read
+                - money_credits_transaction_read
+                - point_credits_transaction_read
+        dateModified:
+            groups:
+                - credits_transaction_read
+                - money_credits_transaction_read
+                - point_credits_transaction_read

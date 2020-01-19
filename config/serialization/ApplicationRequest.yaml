@@ -1,0 +1,312 @@
+App\Entity\ApplicationRequest:
+    attributes:
+        id:
+            groups:
+                # -
+        acquirerCode:
+            groups:
+                - application_request_read
+                - application_request_write
+                - application_request_sign_on_behalf_read
+        acquirerName:
+            groups:
+                - application_request_read
+                - application_request_write
+                - application_request_sign_on_behalf_read
+        activities:
+            groups:
+                - application_request_read
+                - application_request_write
+        addonServices:
+            groups:
+                - application_request_read
+                - application_request_write
+                - application_request_sign_on_behalf_read
+        addresses:
+            groups:
+                - application_request_read
+                - application_request_write
+                - application_request_sign_on_behalf_read
+        advisoryNotice:
+            groups:
+                - application_request_read
+                - application_request_write
+                - application_request_sign_on_behalf_read
+        applicationRequestNumber:
+            groups:
+                - application_request_read
+                - partner_commission_statement_generate
+                - application_request_sign_on_behalf_read
+        averageConsumption:
+            groups:
+                - application_request_read
+                - application_request_write
+        billSubscriptionTypes:
+            groups:
+                - application_request_read
+                - application_request_write
+                - application_request_sign_on_behalf_read
+        contactPerson:
+            groups:
+                - application_request_read
+                - application_request_write
+                - application_request_sign_on_behalf_read
+        contract:
+            groups:
+                - application_request_read
+                - application_request_write
+        contractSubtype:
+            groups:
+                - application_request_read
+                - application_request_write
+                - application_request_sign_on_behalf_read
+        contractType:
+            groups:
+                - application_request_read
+                - application_request_write
+                - application_request_sign_on_behalf_read
+        corporationDetails:
+            groups:
+                - application_request_read
+                - application_request_write
+        customer:
+            groups:
+                - application_request_read
+                - application_request_write
+                - application_request_sign_on_behalf_read
+        customerOf:
+            groups:
+                - application_request_read
+                - application_request_write
+        customerRepresentative:
+            groups:
+                - application_request_read
+                - application_request_write
+                - authorization_letter_generate
+                - application_request_sign_on_behalf_read
+        customerType:
+            groups:
+                - application_request_read
+                - application_request_write
+                - application_request_sign_on_behalf_read
+        customized:
+            groups:
+                - application_request_read
+                - application_request_write
+                - application_request_sign_on_behalf_read
+        dateSubmitted:
+            groups:
+                - application_request_read
+                - partner_commission_statement_generate
+                - application_request_sign_on_behalf_read
+        depositAmount:
+            groups:
+                - application_request_read
+                - application_request_write
+        depositRefundType:
+            groups:
+                - application_request_read
+                - application_request_write
+        ebsAccountNumber:
+            groups:
+                - application_request_read
+                - application_request_write
+                - partner_commission_statement_generate
+                - application_request_sign_on_behalf_read
+        externalApplicationRequestNumber:
+            groups:
+                - application_request_read
+                - application_request_write
+                - application_request_sign_on_behalf_read
+        giroOption:
+            groups:
+                - application_request_read
+                - application_request_write
+        location:
+            groups:
+                - application_request_read
+                - application_request_write
+                - application_request_sign_on_behalf_read
+        lead:
+            groups:
+                - application_request_read
+                - application_request_write
+        meterType:
+            groups:
+                - application_request_read
+                - application_request_write
+                - application_request_sign_on_behalf_read
+        msslAccountNumber:
+            groups:
+                - application_request_read
+                - application_request_write
+                - partner_commission_statement_generate
+                - application_request_sign_on_behalf_read
+        paymentMode:
+            groups:
+                - application_request_read
+                - application_request_write
+                - application_request_sign_on_behalf_read
+        personDetails:
+            groups:
+                - application_request_read
+                - application_request_write
+                - application_request_sign_on_behalf_read
+        preferredEndDate:
+            groups:
+                - application_request_read
+                - application_request_write
+                - application_request_sign_on_behalf_read
+        preferredStartDate:
+            groups:
+                - application_request_read
+                - application_request_write
+                - application_request_sign_on_behalf_read
+        promotion:
+            groups:
+                - application_request_read
+                - application_request_write
+        quotation:
+            groups:
+                - application_request_read
+                - application_request_write
+        quotationOffer:
+                - application_request_read
+                - application_request_write
+        recurringOption:
+            groups:
+                - application_request_read
+                - application_request_write
+                - application_request_sign_on_behalf_read
+        referralCode:
+            groups:
+                - application_request_read
+                - application_request_write
+                - application_request_sign_on_behalf_read
+        referralSource:
+            groups:
+                - application_request_read
+                - application_request_write
+                - application_request_sign_on_behalf_read
+        refundee:
+            groups:
+                - application_request_read
+                - application_request_write
+        refundeeDetails:
+            groups:
+                - application_request_read
+                - application_request_write
+        remark:
+            groups:
+                - application_request_read
+                - application_request_write
+        representativeDetails:
+            groups:
+                - application_request_read
+                - application_request_write
+                - application_request_sign_on_behalf_read
+        salesRepName:
+            groups:
+                - application_request_read
+                - application_request_write
+                - application_request_sign_on_behalf_read
+        selfApplication:
+            groups:
+                - application_request_read
+                - application_request_write
+                - application_request_sign_on_behalf_read
+        selfReadMeterOption:
+            groups:
+                - application_request_read
+                - application_request_write
+                - application_request_sign_on_behalf_read
+        specifiedReferralSource:
+            groups:
+                - application_request_read
+                - application_request_write
+                - application_request_sign_on_behalf_read
+        status:
+            groups:
+                - application_request_read
+                - application_request_write
+                - partner_commission_statement_generate
+                - application_request_sign_on_behalf_read
+        statusHistory:
+            groups:
+                - application_request_read
+        submitter:
+            groups:
+                - application_request_read
+                - partner_commission_statement_generate
+                - application_request_sign_on_behalf_read
+        supplementaryFiles:
+            groups:
+                - application_request_read
+                - application_request_write
+                - application_request_sign_on_behalf_read
+        tariffRate:
+            groups:
+                - application_request_read
+                - application_request_write
+                - application_request_sign_on_behalf_read
+        terminationDate:
+            groups:
+                - application_request_read
+                - application_request_write
+        terminationReason:
+            groups:
+                - application_request_read
+                - application_request_write
+        type:
+            groups:
+                - application_request_read
+                - application_request_write
+                - partner_commission_statement_generate
+                - application_request_sign_on_behalf_read
+        urlToken:
+            groups:
+                - application_request_read
+                - application_request_write
+
+        # BlameableTrait
+        agent:
+            groups:
+                - application_request_read
+                - application_request_sign_on_behalf_read
+        creator:
+            groups:
+                - application_request_read
+                - partner_commission_statement_generate
+                - application_request_sign_on_behalf_read
+
+        # SourceableTrait
+        acquiredFrom:
+            groups:
+                - application_request_read
+                - application_request_write
+                - partner_commission_statement_generate
+                - application_request_sign_on_behalf_read
+        source:
+            groups:
+                - application_request_read
+                - application_request_write
+                - partner_commission_statement_generate
+                - application_request_sign_on_behalf_read
+        sourceUrl:
+            groups:
+                - application_request_read
+                - application_request_write
+                - partner_commission_statement_generate
+                - application_request_sign_on_behalf_read
+
+        # TimestampableTrait
+        dateCreated:
+            groups:
+                - application_request_read
+                - partner_commission_statement_generate
+                - application_request_sign_on_behalf_read
+        dateModified:
+            groups:
+                - application_request_read
+                - partner_commission_statement_generate
+                - application_request_sign_on_behalf_read

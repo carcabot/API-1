@@ -1,0 +1,12 @@
+App\Entity\DeactivateContractCreditsAction:
+    properties:
+        description:
+            - Type:
+                type: string
+        instrument:
+            - Type:
+                type: App\Entity\ApplicationRequest
+        object:
+            - Type:
+                type: App\Entity\Contract
+            - NotNull: ~

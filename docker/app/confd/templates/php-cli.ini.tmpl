@@ -1,0 +1,14 @@
+apc.enable_cli = 1
+date.timezone = UTC
+memory_limit = 1G
+opcache.enable_cli = 1
+opcache.interned_strings_buffer = 8
+opcache.max_accelerated_files = 20000
+opcache.memory_consumption = 128
+opcache.validate_timestamps = {{if (ne (getv "/deploy/env") "development")}}0{{else}}1{{end}}
+precision = -1
+realpath_cache_size = 4096K
+realpath_cache_ttl = 600
+serialize_precision = -1
+session.auto_start = Off
+short_open_tag = Off

@@ -1,0 +1,5 @@
+App\Entity\DirectMailCampaignSourceListItem:
+    properties:
+        item:
+            - Type:
+                type: App\Entity\PostalAddress

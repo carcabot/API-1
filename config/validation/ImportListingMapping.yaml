@@ -1,0 +1,14 @@
+App\Entity\ImportListingMapping:
+    properties:
+        source:
+            - Type:
+                type: string
+            - NotNull: ~
+        target:
+            - Type:
+                type: App\Enum\ImportListingTargetFields
+            - NotNull: ~
+        targetClass:
+            - Type:
+                type: string
+            - NotNull: ~

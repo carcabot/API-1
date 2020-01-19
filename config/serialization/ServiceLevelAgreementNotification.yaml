@@ -1,0 +1,29 @@
+App\Entity\ServiceLevelAgreementNotification:
+    attributes:
+        id:
+            groups:
+                # -
+        name:
+            groups:
+                - service_level_agreement_notification_read
+                - service_level_agreement_notification_write
+        value:
+            groups:
+                - service_level_agreement_notification_read
+                - service_level_agreement_notification_write
+
+        # BlameableTrait
+        agent:
+            groups:
+                - service_level_agreement_notification_read
+        creator:
+            groups:
+                - service_level_agreement_notification_read
+
+        # TimestampableTrait
+        dateCreated:
+            groups:
+                - service_level_agreement_notification_read
+        dateModified:
+            groups:
+                - service_level_agreement_notification_read

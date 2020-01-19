@@ -1,0 +1,12 @@
+App\Entity\SourceList:
+    attributes:
+        vennDiagramFormula:
+            groups:
+                - direct_mail_campaign_source_list_read
+                - direct_mail_campaign_source_list_write
+                - email_campaign_source_list_read
+                - email_campaign_source_list_write
+                - sms_campaign_source_list_read
+                - sms_campaign_source_list_write
+                - source_list_read
+                - source_list_write

@@ -1,0 +1,27 @@
+App\Entity\EmailActivity:
+    properties:
+        about:
+            - Type:
+                type: string
+        bccRecipients:
+            - All:
+                - Type:
+                    type: string
+        ccRecipients:
+            - All:
+                - Type:
+                    type: string
+        messageAttachments:
+            - All:
+                - Type:
+                    type: App\Entity\DigitalDocument
+        template:
+            - Type:
+                type: string
+        toRecipients:
+            - All:
+                - Type:
+                    type: string
+        type:
+            - Type:
+                type: App\Enum\EmailType

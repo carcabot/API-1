@@ -1,0 +1,60 @@
+App\Entity\InternalDocument:
+    attributes:
+        id:
+            groups:
+                # -
+        contentFile:
+            groups:
+                # -
+        contentPath:
+            groups:
+                # -
+        name:
+            groups:
+                - internal_document_read
+                - internal_document_write
+                - report_read
+        owner:
+            groups:
+                - internal_document_read
+                - internal_document_write
+                - report_read
+        text:
+            groups:
+                - internal_document_read
+                - internal_document_write
+                - report_read
+        type:
+            groups:
+                - internal_document_read
+                - internal_document_write
+                - report_read
+        url:
+            groups:
+                - internal_document_read
+                - internal_document_write
+                - report_read
+
+        # BlameableTrait
+        agent:
+            groups:
+                - internal_document_read
+                - internal_document_write
+                - report_read
+        creator:
+            groups:
+                - internal_document_read
+                - internal_document_write
+                - report_read
+                
+        # TimestampableTrait
+        dateCreated:
+            groups:
+                - internal_document_read
+                - internal_document_write
+                - report_read
+        dateModified:
+            groups:
+                - internal_document_read
+                - internal_document_write
+                - report_read

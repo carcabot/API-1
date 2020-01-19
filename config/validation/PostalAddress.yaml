@@ -1,0 +1,35 @@
+App\Entity\PostalAddress:
+    properties:
+        addressCountry:
+            - Type:
+                type: string
+        addressLocality:
+            - Type:
+                type: string
+        addressRegion:
+            - Type:
+                type: string
+        buildingName:
+            - Type:
+                type: string
+        floor:
+            - Type:
+                type: string
+        houseNumber:
+            - Type:
+                type: string
+        postalCode:
+            - Type:
+                type: string
+            - Length:
+                max: 20
+        streetAddress:
+            - Type:
+                type: string
+        type:
+            - Type:
+                type: App\Enum\PostalAddressType
+            - NotNull: ~
+        unitNumber:
+            - Type:
+                type: string

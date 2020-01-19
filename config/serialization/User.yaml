@@ -1,0 +1,91 @@
+App\Entity\User:
+    attributes:
+        id:
+            groups:
+                # -
+        accountNonExpired:
+            groups:
+                # -
+        accountNonLocked:
+            groups:
+                # -
+        credentialsNonExpired:
+            groups:
+                # -
+        customerAccount:
+            groups:
+                - quotation_file_generate
+                - user_read
+                - user_write
+                - partner_commission_statement_generate
+                - role_homepage_user_read
+        dateActivated:
+            groups:
+                - user_read
+                - user_write_admin
+        dateCreated:
+            groups:
+                - user_read
+        dateLastLogon:
+            groups:
+                - user_read
+        email:
+            groups:
+                - user_read
+                - user_write
+                - role_homepage_user_read
+        enabled:
+            groups:
+                # -
+        expoPushNotificationTokens:
+            groups:
+                # -
+        loginHistories:
+            groups:
+                #- user_read
+        mobileDeviceLogin:
+            groups:
+                - user_read
+        password:
+            groups:
+                - user_write
+        plainPassword:
+            groups:
+                # -
+        modules:
+            groups:
+                # @todo must remove this in the future!
+                - user_read
+                - user_read_private
+                - user_write
+        roles:
+            groups:
+                # @todo must remove this in the future!
+                - user_read
+                - user_read_private
+                - user_write
+        twoFactorAuthentication:
+            groups:
+                - user_read
+                - user_write
+        twoFactorAuthenticationCode:
+            groups:
+                - user_read
+                - user_write
+        twoFactorAuthenticationRecipient:
+            groups:
+                - user_read
+                - user_write
+        twoFactorAuthenticationType:
+            groups:
+                - user_read
+                - user_write
+        username:
+            groups:
+                - user_read
+                - user_write
+        userRoles:
+            max_depth: 1
+            groups:
+                - user_read
+                - user_write              

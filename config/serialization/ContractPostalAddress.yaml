@@ -1,0 +1,27 @@
+App\Entity\ContractPostalAddress:
+    attributes:
+        id:
+            groups:
+                # -
+        address:
+            groups:
+                - contract_postal_address_read
+                - contract_postal_address_write
+                - contract_form_read
+                - ticket_read
+        contract:
+            groups:
+                - contract_postal_address_read
+                - contract_postal_address_write
+        validFrom:
+            groups:
+                - contract_postal_address_read
+                - contract_postal_address_write
+                - contract_form_read
+                - ticket_read
+        validThrough:
+            groups:
+                - contract_postal_address_read
+                - contract_postal_address_write
+                - contract_form_read
+                - ticket_read

@@ -1,0 +1,79 @@
+App\Entity\WebPage:
+    attributes:
+        id:
+            groups:
+                # -
+        coverImage:
+            groups:
+                - affiliate_program_read
+                - affiliate_program_write
+                - promotion_read
+                - tariff_rate_read
+                - web_page_read
+                - web_page_write
+        description:
+            groups:
+                - affiliate_program_read
+                - affiliate_program_write
+                - promotion_read
+                - tariff_rate_read
+                - web_page_read
+                - web_page_write
+        disambiguatingDescription:
+            groups:
+                - affiliate_program_read
+                - affiliate_program_write
+                - promotion_read
+                - tariff_rate_read
+                - web_page_read
+                - web_page_write
+        image:
+            groups:
+                - affiliate_program_read
+                - affiliate_program_write
+                - promotion_read
+                - tariff_rate_read
+                - web_page_read
+                - web_page_write
+        position:
+            groups:
+                - promotion_read
+                - tariff_rate_read
+                - web_page_read
+                - web_page_write
+        status:
+            groups:
+                - affiliate_program_read
+                - affiliate_program_write
+                - promotion_read
+                - tariff_rate_read
+                - web_page_read
+                - web_page_write
+
+        # BlameableTrait
+        agent:
+            groups:
+                - affiliate_program_read
+                - promotion_read
+                - tariff_rate_read
+                - web_page_read
+        creator:
+            groups:
+                - affiliate_program_read
+                - promotion_read
+                - tariff_rate_read
+                - web_page_read
+
+        # TimestampableTrait
+        dateCreated:
+            groups:
+                - affiliate_program_read
+                - promotion_read
+                - tariff_rate_read
+                - web_page_read
+        dateModified:
+            groups:
+                - affiliate_program_read
+                - promotion_read
+                - tariff_rate_read
+                - web_page_read

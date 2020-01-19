@@ -1,0 +1,6 @@
+App\Entity\SecurityDepositListItem:
+    attributes:
+        item:
+            groups:
+                - security_deposit_list_item_read
+                - security_deposit_list_item_write

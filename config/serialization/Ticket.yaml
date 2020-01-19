@@ -1,0 +1,134 @@
+App\Entity\Ticket:
+    attributes:
+        id:
+            groups:
+                # -
+        activities:
+            groups:
+                - ticket_read
+                - ticket_write
+        assignee:
+            groups:
+                - ticket_read
+                - ticket_write
+        category:
+            groups:
+                - ticket_read
+                - ticket_write
+        channel:
+            groups:
+                - ticket_read
+                - ticket_write
+        contract:
+            groups:
+                - ticket_read
+                - ticket_write
+        customer:
+            groups:
+                - ticket_read
+                - ticket_write
+        dateClosed:
+            groups:
+                - ticket_read
+                - ticket_write
+        dateOpened:
+            groups:
+                - ticket_read
+                - ticket_write
+        description:
+            groups:
+                - ticket_read
+                - ticket_write
+        notes:
+            groups:
+                - ticket_read
+                - ticket_write
+        parent:
+            groups:
+                - ticket_read
+                - ticket_write
+        paused:
+            groups:
+                - ticket_read
+        personDetails:
+            groups:
+                - ticket_read
+                - ticket_write
+        plannedCompletionDate:
+            groups:
+                - ticket_read
+                - ticket_write
+        priority:
+            groups:
+                - ticket_read
+                - ticket_write
+        resolutionOfficer:
+            groups:
+                - ticket_read
+                - ticket_write
+        serviceLevelAgreement:
+            groups:
+                - ticket_read
+        serviceLevelAgreementActions:
+            groups:
+                - ticket_read
+        startDate:
+            groups:
+                - ticket_read
+                - ticket_write
+        status:
+            groups:
+                - ticket_read
+                - ticket_write
+        subcategory:
+            groups:
+                - ticket_read
+                - ticket_write
+        supplementaryFiles:
+            groups:
+                - ticket_read
+                - ticket_write
+        ticketNumber:
+            groups:
+                - ticket_read
+                - ticket_write
+        timeLeft:
+            groups:
+                - ticket_read
+        timer:
+            groups:
+                - ticket_read
+        type:
+            groups:
+                - ticket_read
+                - ticket_write
+
+        # BlameableTrait
+        agent:
+            groups:
+                - ticket_read
+        creator:
+            groups:
+                - ticket_read
+
+        # SourceableTrait
+        acquiredFrom:
+            groups:
+                - ticket_read
+                - ticket_write
+        source:
+            groups:
+                - ticket_read
+                - ticket_write
+        sourceUrl:
+            groups:
+                - ticket_read
+                - ticket_write
+                
+        # TimestampableTrait
+        dateCreated:
+            groups:
+                - ticket_read
+        dateModified:
+            groups:
+                - ticket_read

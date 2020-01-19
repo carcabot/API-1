@@ -1,0 +1,50 @@
+App\Entity\PartnerCommissionStatement:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields:
+                - statementNumber
+    properties:
+        bankAccountNumber:
+            - Type:
+                type: string
+        bankName:
+            - Type:
+                type: string
+        confirmationNumber:
+            - Type:
+                type: string
+        data:
+            - All:
+                - Type:
+                    type: App\Entity\PartnerCommissionStatementData
+        endDate:
+            - DateTime: ~
+        file:
+            - Type:
+                type: App\Entity\DigitalDocument
+        partner:
+            - Type:
+                type: App\Entity\Partner
+        paymentMethod:
+            - Type:
+                type: string
+        paymentReceipt:
+            - Type:
+                type: App\Entity\DigitalDocument
+        paymentStatus:
+            - Type:
+                type: App\Enum\PaymentStatus
+        startDate:
+            - DateTime: ~
+        statementNumber:
+            - Type:
+                type: string
+            - NotNull: ~
+        status:
+            - Type:
+                type: App\Enum\CommissionStatementStatus
+        totalPaymentDue:
+            - Type:
+                type: App\Entity\MonetaryAmount
+            - NotNull: ~
+            - Valid: ~

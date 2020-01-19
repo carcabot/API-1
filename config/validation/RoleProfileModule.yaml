@@ -1,0 +1,47 @@
+App\Entity\RoleProfileModule:
+    properties:
+        category:
+            - Type:
+                type: App\Enum\ModuleCategory
+            - NotNull: ~                
+        children:
+            - All:
+                - Type:
+                    type: App\Entity\RoleProfileModule
+        description:
+            - Type:
+                type: string
+        enabled:
+            - Type:
+                type: bool
+            - NotNull: ~                
+        name:
+            - Type:
+                type: App\Enum\ModuleType
+            - NotNull: ~           
+        parent:
+            - Type:
+                type: App\Entity\RoleProfileModule    
+        permissions:
+            - Choice:
+                callback: [App\Enum\Permission, keys]
+                multiple: true
+        profile:
+            - Type:
+                type: App\Entity\Profile                            
+        role:
+            - Type:
+                type: App\Entity\Role  
+        # BlameableTrait
+        agent:
+            - Type:
+                type: App\Entity\User
+        creator:
+            - Type:
+                type: App\Entity\User
+
+        # TimestampableTrait
+        dateCreated:
+            - DateTime: ~
+        dateModified:
+            - DateTime: ~

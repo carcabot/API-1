@@ -1,0 +1,31 @@
+App\Entity\Order:
+    constraints:
+        - App\Validator\Constraints\OrderPointsSufficient: ~
+        - App\Validator\Constraints\OrderInventoryLevel: ~
+    properties:
+        customer:
+            - Type:
+                type: App\Entity\CustomerAccount
+            - NotNull: ~
+        items:
+            - All:
+                - Type:
+                    type: App\Entity\OrderItem
+        object:
+            - Type:
+                type: App\Entity\Contract
+            - NotNull: ~
+        orderDate:
+            - DateTime: ~
+        orderNumber:
+            - Type:
+                type: string
+            - NotNull: ~
+        orderStatus:
+            - Type:
+                type: App\Enum\OrderStatus
+            - NotNull: ~
+        totalPrice:
+            - Type:
+                type: App\Entity\PriceSpecification
+            - Valid: ~

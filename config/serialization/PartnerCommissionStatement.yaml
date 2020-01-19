@@ -1,0 +1,75 @@
+App\Entity\PartnerCommissionStatement:
+    attributes:
+        id:
+            groups:
+                # -
+        bankAccountNumber:
+            groups:
+                - partner_commission_statement_read
+                - partner_commission_statement_write
+                - partner_commission_statement_generate
+        bankName:
+            groups:
+                - partner_commission_statement_read
+                - partner_commission_statement_write
+                - partner_commission_statement_generate
+        confirmationNumber:
+            groups:
+                - partner_commission_statement_read
+                - partner_commission_statement_write
+                - partner_commission_statement_generate
+        data:
+            groups:
+                - partner_commission_statement_read
+                - partner_commission_statement_generate
+        endDate:
+            groups:
+                - partner_commission_statement_read
+                - partner_commission_statement_generate
+        file:
+            groups:
+                - partner_commission_statement_read
+        partner:
+            groups:
+                - partner_commission_statement_read
+                - partner_commission_statement_generate
+        paymentMethod:
+            groups:
+                - partner_commission_statement_read
+                - partner_commission_statement_write
+                - partner_commission_statement_generate
+        paymentReceipt:
+            groups:
+                - partner_commission_statement_read
+                - partner_commission_statement_write
+                - partner_commission_statement_generate
+        paymentStatus:
+            groups:
+                - partner_commission_statement_read
+                - partner_commission_statement_generate
+        startDate:
+            groups:
+                - partner_commission_statement_read
+                - partner_commission_statement_generate
+        statementNumber:
+            groups:
+                - partner_commission_statement_read
+                - partner_commission_statement_generate
+        status:
+            groups:
+                - partner_commission_statement_read
+                - partner_commission_statement_generate
+        totalPaymentDue:
+            groups:
+                - partner_commission_statement_read
+                - partner_commission_statement_generate
+
+        # TimestampableTrait
+        dateCreated:
+            groups:
+                - partner_commission_statement_read
+                - partner_commission_statement_generate
+        dateModified:
+            groups:
+                - partner_commission_statement_read
+                - partner_commission_statement_generate

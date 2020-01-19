@@ -1,0 +1,49 @@
+App\Entity\CountryCalendar:
+    attributes:
+        id:
+            groups:
+                # -
+        countryCode:
+            groups:
+                - country_calendar_read
+                - country_calendar_write
+        description:
+            groups:
+                - country_calendar_read
+                - country_calendar_write
+        enabled:
+            groups:
+                - country_calendar_read
+                - country_calendar_write
+        name:
+            groups:
+                - country_calendar_read
+                - country_calendar_write
+        openingHours:
+            groups:
+                - country_calendar_read
+                - country_calendar_write
+        validFrom:
+            groups:
+                - country_calendar_read
+                - country_calendar_write
+        validThrough:
+            groups:
+                - country_calendar_read
+                - country_calendar_write
+
+        # BlameableTrait
+        agent:
+            groups:
+                - country_calendar_read
+        creator:
+            groups:
+                - country_calendar_read
+
+        # TimestampableTrait
+        dateCreated:
+            groups:
+                - country_calendar_read
+        dateModified:
+            groups:
+                - country_calendar_read

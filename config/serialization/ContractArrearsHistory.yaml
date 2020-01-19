@@ -1,0 +1,15 @@
+App\Entity\ContractArrearsHistory:
+    attributes:
+        id:
+            groups:
+                # -
+        date:
+            groups:
+                - contract_arrears_history_read
+                - contract_billing_summary_read
+                - contract_billing_information_read
+        text:
+            groups:
+                - contract_arrears_history_read
+                - contract_billing_summary_read
+                - contract_billing_information_read

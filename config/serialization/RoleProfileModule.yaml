@@ -1,0 +1,56 @@
+App\Entity\RoleProfileModule:
+    attributes:
+        id:
+            groups:
+                # -
+        category:
+            groups:
+                - role_profile_module_read
+                - role_profile_module_write
+        children:
+            groups:
+                - role_profile_module_read
+                - role_profile_module_write
+        description:
+            groups:
+                - role_profile_module_read
+                - role_profile_module_write
+        enabled:
+            groups:
+                - role_profile_module_read
+                - role_profile_module_write               
+        name:
+            groups:
+                - role_profile_module_read
+                - role_profile_module_write        
+        parent:
+            groups:
+                - role_profile_module_read
+                - role_profile_module_write 
+        permissions:
+            groups:
+                - role_profile_module_read
+                - role_profile_module_write   
+        profile:
+            groups:
+                - role_profile_module_read
+                - role_profile_module_write  
+        role:
+            groups:
+                - role_profile_module_read
+                - role_profile_module_write                                   
+        # BlameableTrait
+        agent:
+            groups:        
+                - role_profile_module_read
+        creator:
+            groups:        
+                - role_profile_module_read
+
+        # TimestampableTrait
+        dateCreated:
+            groups:        
+                - role_profile_module_read
+        dateModified:
+            groups:        
+                - role_profile_module_read   

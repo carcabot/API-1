@@ -1,0 +1,49 @@
+App\Entity\ServiceLevelAgreement:
+    attributes:
+        id:
+            groups:
+                # -
+        description:
+            groups:
+                - service_level_agreement_read
+                - service_level_agreement_write
+        name:
+            groups:
+                - service_level_agreement_read
+                - service_level_agreement_write
+        operationExclusions:
+            groups:
+                - service_level_agreement_read
+                - service_level_agreement_write
+        priority:
+            groups:
+                - service_level_agreement_read
+                - service_level_agreement_write
+        ticketCategories:
+            groups:
+                - service_level_agreement_read
+                - service_level_agreement_write
+        ticketTypes:
+            groups:
+                - service_level_agreement_read
+                - service_level_agreement_write
+        timer:
+            groups:
+                - service_level_agreement_read
+                - service_level_agreement_write
+
+        # BlameableTrait
+        agent:
+            groups:
+                - service_level_agreement_read
+        creator:
+            groups:
+                - service_level_agreement_read
+
+        # TimestampableTrait
+        dateCreated:
+            groups:
+                - service_level_agreement_read
+        dateModified:
+            groups:
+                - service_level_agreement_read

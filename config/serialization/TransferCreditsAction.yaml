@@ -1,0 +1,12 @@
+App\Entity\TransferCreditsAction:
+    attributes:
+        object:
+            groups:
+                - transfer_credits_action_read
+                - transfer_credits_action_write
+                - update_credits_action_read
+        recipient:
+            groups:
+                - transfer_credits_action_read
+                - transfer_credits_action_write
+                - update_credits_action_read

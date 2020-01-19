@@ -1,0 +1,13 @@
+includes:
+    - vendor/jangregor/phpstan-prophecy/src/extension.neon
+    - vendor/phpstan/phpstan-strict-rules/rules.neon
+    - vendor/phpstan/phpstan-doctrine/extension.neon
+
+parameters:
+    excludes_analyse:
+        - %rootDir%/../../../src/Migration/**
+    ignoreErrors:
+        - '#Call to an undefined method Symfony\\Component\\Serializer\\Normalizer\\NormalizerInterface::denormalize\(\)#'
+        - '#Call to an undefined method Symfony\\Component\\Serializer\\Normalizer\\NormalizerInterface::supportsDenormalization\(\)#'
+        - '#Call to an undefined static method SoapClient::__construct().#'
+        - '#Parameter \#1 \$servers of class App\\Disque\\Client constructor expects array<Disque\\Disque\\Connection\\Credentials>, array<int, Disque\\Connection\\Credentials> given\.#'

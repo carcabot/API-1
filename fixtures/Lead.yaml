@@ -1,0 +1,29 @@
+App\Entity\Lead:
+    lead:
+        activities: []
+        addresses: []
+        applicationRequests: []
+        assignee:
+        assignor:
+        averageConsumption: '@quantitative_value'
+        bridgeId:
+        contractSubtype:
+        contractType: <generateContractType()>
+        corporationDetails:
+        customerOf:
+        dateFollowedUp:
+        doNotContact:
+        existingCustomer:
+        leadNumber:
+        lpgUser:
+        meterType: <generateMeterType()>
+        notes: []
+        personDetails:
+        preferredContactMethod:
+        purchaseTimeFrame: '@quantitative_value'
+        score:
+        status: <generateLeadStatus()>
+        tariffRate:
+        tenant:
+        type: <generateLeadType()>    
+    

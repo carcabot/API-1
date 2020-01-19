@@ -1,0 +1,74 @@
+App\Entity\MonetaryAmount:
+    attributes:
+        currency:
+            groups:
+                - affiliate_program_transaction_read
+                - affiliate_program_transaction_write
+                - application_request_read
+                - application_request_write
+                - campaign_read
+                - campaign_write
+                - commission_rate_read
+                - commission_rate_write
+                - contract_billing_summary_read
+                - contract_financial_history_read
+                - contract_read
+                - credits_scheme_read
+                - credits_scheme_write
+                - customer_account_read
+                - earn_contract_affiliate_credits_action_read
+                - earn_customer_affiliate_credits_action_read
+                - employee_role_read
+                - money_credits_transaction_read
+                - money_credits_transaction_write
+                - offer_list_item_read
+                - offer_list_item_write
+                - partner_commission_statement_data_read
+                - partner_commission_statement_data_write
+                - partner_commission_statement_generate
+                - partner_commission_statement_read
+                - partner_commission_statement_write
+                - payment_read
+                - payment_write
+                - point_credits_exchange_rate_read
+                - point_credits_exchange_rate_write
+                - referral_credits_scheme_read
+                - referral_credits_scheme_write
+                - security_deposit_read
+                - security_deposit_write
+        value:
+            groups:
+                - affiliate_program_transaction_read
+                - affiliate_program_transaction_write
+                - application_request_read
+                - application_request_write
+                - campaign_read
+                - campaign_write
+                - commission_rate_read
+                - commission_rate_write
+                - contract_billing_summary_read
+                - contract_financial_history_read
+                - contract_read
+                - credits_scheme_read
+                - credits_scheme_write
+                - customer_account_read
+                - earn_contract_affiliate_credits_action_read
+                - earn_customer_affiliate_credits_action_read
+                - employee_role_read
+                - money_credits_transaction_read
+                - money_credits_transaction_write
+                - offer_list_item_read
+                - offer_list_item_write
+                - partner_commission_statement_data_read
+                - partner_commission_statement_data_write
+                - partner_commission_statement_generate
+                - partner_commission_statement_read
+                - partner_commission_statement_write
+                - payment_read
+                - payment_write
+                - point_credits_exchange_rate_read
+                - point_credits_exchange_rate_write
+                - referral_credits_scheme_read
+                - referral_credits_scheme_write
+                - security_deposit_read
+                - security_deposit_write

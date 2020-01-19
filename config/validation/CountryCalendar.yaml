@@ -1,0 +1,39 @@
+App\Entity\CountryCalendar:
+    properties:
+        countryCode:
+            - Type:
+                type: string
+            - NotNull: ~
+        description:
+            - Type:
+                type: string
+        enabled:
+            - Type:
+                type: bool
+            - NotNull: ~
+        name:
+            - Type:
+                type: string
+            - NotNull: ~
+        openingHours:
+            - All:
+                - Type:
+                    type: App\Entity\OpeningHoursSpecification
+        validFrom:
+            - DateTime: ~
+        validThrough:
+            - DateTime: ~
+
+        # BlameableTrait
+        agent:
+            - Type:
+                type: App\Entity\User
+        creator:
+            - Type:
+                type: App\Entity\User
+
+        # TimestampableTrait
+        dateCreated:
+            - DateTime: ~
+        dateModified:
+            - DateTime: ~

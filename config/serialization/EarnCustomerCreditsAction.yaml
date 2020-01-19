@@ -1,0 +1,22 @@
+App\Entity\EarnCustomerCreditsAction:
+    attributes:
+        instrument:
+            groups:
+                - earn_customer_credits_action_read
+                - earn_customer_credits_action_write
+                - update_credits_action_read
+        object:
+            groups:
+                - earn_customer_credits_action_read
+                - earn_customer_credits_action_write
+                - update_credits_action_read
+        scheme:
+            groups:
+                - earn_customer_credits_action_read
+                - earn_customer_credits_action_write
+                - update_credits_action_read
+        sender:
+            groups:
+                - earn_customer_credits_action_read
+                - earn_customer_credits_action_write
+                - update_credits_action_read

@@ -1,0 +1,41 @@
+App\Entity\DisqueJob:
+    attributes:
+        id:
+            groups:
+            # -
+        body:
+            groups:
+                - disque_job_read
+                - disque_job_write
+        jobNumber:
+            groups:
+                - disque_job_read
+                - disque_job_write
+        queue:
+            groups:
+                - disque_job_read
+                - disque_job_write
+        status:
+            groups:
+                - disque_job_read
+                - disque_job_write
+        type:
+            group:
+                - disque_job_read
+                - disque_job_write
+
+        # BlameableTrait
+        agent:
+            groups:
+                - disque_job_read
+        creator:
+            groups:
+                - disque_job_read
+
+        # TimestampableTrait
+        dateCreated:
+            groups:
+                - disque_job_read
+        dateModified:
+            groups:
+                - disque_job_read

@@ -1,0 +1,6 @@
+App\Entity\CampaignExpectationListItem:
+    attributes:
+        item:
+            groups:
+                - campaign_expectation_list_item_read
+                - campaign_expectation_list_item_write

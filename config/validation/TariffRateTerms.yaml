@@ -1,0 +1,82 @@
+App\Entity\TariffRateTerms:
+    properties:
+        addonServiceList:
+            - Type:
+                type: App\Entity\AddonServiceList
+        billFromServiceProvider:
+            - Type:
+                type: bool
+        bundledProductsOrServices:
+            - Type:
+                type: string
+        contractDuration:
+            - Type:
+                type: string
+        contractRenewal:
+            - Type:
+                type: string
+        discount:
+            - Type:
+                type: string
+        earlyTerminationCharges:
+            - Type:
+                type: string
+        fixedRate:
+            - Type:
+                type: string
+        freeGiftList:
+            - Type:
+                type: App\Entity\FreeGiftList
+        incentives:
+            - Type:
+                type: string
+        latePaymentCharges:
+            - Type:
+                type: string
+        meterInstallationFee:
+            - Type:
+                type: string
+        nonStandardPlan:
+            - Type:
+                type: string
+        otherFeeAndCharges:
+            - Type:
+                type: string
+        planName:
+            - Type:
+                type: string
+        planType:
+            - Type:
+                type: string
+        prevailingMeterCharge:
+            - Type:
+                type: string
+        registrationFee:
+            - Type:
+               type: string
+        securityDeposit:
+            - Type:
+               type: string
+        securityDepositList:
+            - Type:
+                type: App\Entity\SecurityDepositList
+        serviceFee:
+            - Type:
+                type: string
+        serviceProvider:
+            - Type:
+                type: string
+        smartMeter:
+            - Type:
+                type: bool
+        standardPlan:
+            - Type:
+                type: string
+        tariffRate:
+            - Type:
+                type: App\Entity\TariffRate
+            - NotNull: ~
+        version:
+            - Type:
+                type: string
+        

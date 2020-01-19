@@ -1,0 +1,5 @@
+App\Entity\MailgunBounceEvent:
+    attributes:
+        dateBounced:
+            groups:
+                - mailgun_bounce_event_read

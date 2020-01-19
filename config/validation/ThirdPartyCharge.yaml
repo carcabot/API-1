@@ -1,0 +1,41 @@
+App\Entity\ThirdPartyCharge:
+    properties:
+        category:
+            - Type:
+                type: App\Enum\ThirdPartyChargeCategory
+        description:
+            - Type:
+                type: string
+        enabled:
+            - Type:
+                type: bool
+            - NotNull: ~
+        name:
+            - Type:
+                type: string
+        rate:  
+            - Type:
+                type: App\Entity\QuantitativeValue
+            - NotNull: ~
+        thirdPartyChargeNumber:
+            - Type:
+                type: string
+            - NotNull: ~
+        validFrom:
+            - DateTime: ~
+        validThrough:
+            - DateTime: ~
+
+        # BlameableTrait
+        agent:
+            - Type:
+                type: App\Entity\User
+        creator:
+            - Type:
+                type: App\Entity\User
+
+        # TimestampableTrait
+        dateCreated:
+            - DateTime: ~
+        dateModified:
+            - DateTime: ~  

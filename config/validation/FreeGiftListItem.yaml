@@ -1,0 +1,5 @@
+App\Entity\FreeGiftListItem:
+    properties:
+        item:
+            - Type:
+                type: App\Entity\FreeGift

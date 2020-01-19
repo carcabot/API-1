@@ -1,0 +1,6 @@
+App\Entity\UpdateContractAction:
+    properties:
+        type:
+            - Type:
+                type: App\Enum\ContractActionType
+            - NotNull: ~

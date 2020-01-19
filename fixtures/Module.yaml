@@ -1,0 +1,302 @@
+App\Entity\Module:
+    module_{1}:
+        category: <generateModuleCategoryCRM('CRM')>
+        children: []
+        description: 'Dashboard'
+        enabled: true
+        name: <generateModuleType('DASHBOARD')>
+        parent:
+    module_{2}:
+        category: <generateModuleCategoryCRM('CRM')>
+        children: []
+        description: 'Template'
+        enabled: true
+        name: <generateModuleType('TEMPLATE')>
+        parent:  
+    module_{3}:
+        category: <generateModuleCategoryCRM('CRM')>
+        children: []
+        description: 'Administration'
+        enabled: true
+        name: <generateModuleType('ADMINISTRATION')>
+        parent:               
+    module_{4}:
+        category: <generateModuleCategoryCRM('CRM')>
+        children: []
+        description: 'Sale'
+        enabled: true
+        name: <generateModuleType('SALE')>
+        parent:
+    module_{5}:
+        category: <generateModuleCategoryCRM('CRM')>
+        children: []
+        description: 'Service'
+        enabled: true
+        name: <generateModuleType('SERVICE')>
+        parent:                  
+    module_{6}:
+        category: <generateModuleCategoryCRM('CRM')>
+        children: []
+        description: 'Marketing'
+        enabled: true
+        name: <generateModuleType('MARKETING')>
+        parent: 
+    module_{7}:
+        category: <generateModuleCategoryCRM('CRM')>
+        children: []
+        description: 'Customer Portal'
+        enabled: true
+        name: <generateModuleType('CUSTOMER_PORTAL')>
+        parent:        
+    module_{8}:
+        category: <generateModuleCategoryCRM('CRM')>
+        children: []
+        description: 'Authorization Management'
+        enabled: true
+        name: <generateModuleType('AUTHORIZATION_MANAGEMENT')>
+        parent:    
+    module_{9}:
+        category: <generateModuleCategoryCRM('CRM')>
+        children: []
+        description: 'Role'
+        enabled: true
+        name: <generateModuleType('ROLE')>
+        parent:
+    module_{10}:
+        category: <generateModuleCategoryCRM('CRM')>
+        children: []
+        description: 'Profile'
+        enabled: true
+        name: <generateModuleType('PROFILE')>
+        parent:
+    module_{11}:
+        category: <generateModuleCategoryCRM('CRM')>
+        children: []
+        description: 'Department'
+        enabled: true
+        name: <generateModuleType('DEPARTMENT')>
+        parent:  
+    module_{12}:
+        category: <generateModuleCategoryCRM('CRM')>
+        children: []
+        description: 'User Management'
+        enabled: true
+        name: <generateModuleType('USER_MANAGEMENT')>
+        parent:  
+    module_{13}:
+        category: <generateModuleCategoryCRM('CRM')>
+        children: []
+        description: 'Administrator'
+        enabled: true
+        name: <generateModuleType('ADMINISTRATOR')>
+        parent: 
+    module_{14}:
+        category: <generateModuleCategoryCRM('CRM')>
+        children: []
+        description: 'Configuration Management'
+        enabled: true
+        name: <generateModuleType('CONFIGURATION_MANAGEMENT')>
+        parent: 
+    module_{15}:
+        category: <generateModuleCategoryCRM('CRM')>
+        children: []
+        description: 'Global Setting'
+        enabled: true
+        name: <generateModuleType('GLOBAL_SETTING')>
+        parent:                                            
+    module_{16}:
+        category: <generateModuleCategoryCRM('CRM')>
+        children: []
+        description: 'Application Request Management'
+        enabled: true
+        name: <generateModuleType('APPLICATION_REQUEST_MANAGEMENT')>
+        parent: 
+    module_{17}:
+        category: <generateModuleCategoryCRM('CRM')>
+        children: []
+        description: 'Application Request'
+        enabled: true
+        name: <generateModuleType('APPLICATION_REQUEST')>
+        parent:
+    module_{18}:
+        category: <generateModuleCategoryCRM('CRM')>
+        children: []
+        description: 'Application Request'
+        enabled: true
+        name: <generateModuleType('APPLICATION_REQUEST')>
+        parent: 
+    module_{19}:
+        category: <generateModuleCategoryCRM('CRM')>
+        children: []
+        description: 'Partnership Management'
+        enabled: true
+        name: <generateModuleType('PARTNERSHIP_MANAGEMENT')>
+        parent:
+    module_{20}:
+        category: <generateModuleCategoryCRM('CRM')>
+        children: []
+        description: 'Partnership'
+        enabled: true
+        name: <generateModuleType('PARTNERSHIP')>
+        parent:      
+    module_{21}:
+        category: <generateModuleCategoryCRM('CRM')>
+        children: []
+        description: 'Commission Rate'
+        enabled: true
+        name: <generateModuleType('COMMISSION_RATE')>
+        parent:                                         
+    module_{22}:
+        category: <generateModuleCategoryCRM('CRM')>
+        children: []
+        description: 'Quotation Management'
+        enabled: true
+        name: <generateModuleType('QUOTATION_MANAGEMENT')>
+        parent:   
+    module_{23}:
+        category: <generateModuleCategoryCRM('CRM')>
+        children: []
+        description: 'Quotation'
+        enabled: true
+        name: <generateModuleType('QUOTATION')>
+        parent:
+    module_{24}:
+        category: <generateModuleCategoryCRM('CRM')>
+        children: []
+        description: 'Customer Management'
+        enabled: true
+        name: <generateModuleType('CUSTOMER_MANAGEMENT')>
+        parent:                  
+    module_{25}:
+        category: <generateModuleCategoryCRM('CRM')>
+        children: []
+        description: 'Customer'
+        enabled: true
+        name: <generateModuleType('CUSTOMER')>
+        parent:
+    module_{26}:
+        category: <generateModuleCategoryCRM('CRM')>
+        children: []
+        description: 'Case Management'
+        enabled: true
+        name: <generateModuleType('CASE_MANAGEMENT')>
+        parent:                       
+    module_{27}:
+        category: <generateModuleCategoryCRM('CRM')>
+        children: []
+        description: 'Case'
+        enabled: true
+        name: <generateModuleType('CASE')>
+        parent:
+    module_{28}:
+        category: <generateModuleCategoryCRM('CRM')>
+        children: []
+        description: 'Customer Management'
+        enabled: true
+        name: <generateModuleType('CUSTOMER_MANAGEMENT')>
+        parent:        
+    module_{29}:
+        category: <generateModuleCategoryCRM('CRM')>
+        children: []
+        description: 'Lead Management'
+        enabled: true
+        name: <generateModuleType('LEAD_MANAGEMENT')>
+        parent:    
+    module_{30}:
+        category: <generateModuleCategoryCRM('CRM')>
+        children: []
+        description: 'List Management'
+        enabled: true
+        name: <generateModuleType('LIST_MANAGEMENT')>
+        parent:                    
+    module_{31}:
+        category: <generateModuleCategoryCRM('CRM')>
+        children: []
+        description: 'Tariff Rate Management'
+        enabled: true
+        name: <generateModuleType('TARIFF_RATE_MANAGEMENT')>
+        parent:
+    module_{32}:
+        category: <generateModuleCategoryCRM('CRM')>
+        children: []
+        description: 'Tariff Rate'
+        enabled: true
+        name: <generateModuleType('TARIFF_RATE')>
+        parent:
+    module_{33}:
+        category: <generateModuleCategoryCRM('CRM')>
+        children: []
+        description: 'Campaign Management'
+        enabled: true
+        name: <generateModuleType('CAMPAIGN_MANAGEMENT')>
+        parent:    
+    module_{34}:
+        category: <generateModuleCategoryCRM('CRM')>
+        children: []
+        description: 'Campaign'
+        enabled: true
+        name: <generateModuleType('CAMPAIGN')>
+        parent:                    
+    module_{35}:
+        category: <generateModuleCategoryCRM('CRM')>
+        children: []
+        description: 'Source Builder'
+        enabled: true
+        name: <generateModuleType('SOURCE_BUILDER')>
+        parent:
+    module_{36}:
+        category: <generateModuleCategoryCRM('CRM')>
+        children: []
+        description: 'Mail Builder'
+        enabled: true
+        name: <generateModuleType('MAIL_BUILDER')>
+        parent:
+    module_{37}:
+        category: <generateModuleCategoryCRM('CRM')>
+        children: []
+        description: 'SMS Builder'
+        enabled: true
+        name: <generateModuleType('SMS_BUILDER')>
+        parent:                        
+    module_{38}:
+        category: <generateModuleCategoryCRM('CRM')>
+        children: []
+        description: 'Unsubscribe'
+        enabled: true
+        name: <generateModuleType('UNSUBSCRIBE')>
+        parent:
+    module_{39}:
+        category: <generateModuleCategoryCRM('CRM')>
+        children: []
+        description: 'Affiliate Program Management'
+        enabled: true
+        name: <generateModuleType('AFFILIATE_PROGRAM_MANAGEMENT')>
+        parent:
+    module_{40}:
+        category: <generateModuleCategoryCRM('CRM')>
+        children: []
+        description: 'Affiliate Program'
+        enabled: true
+        name: <generateModuleType('AFFILIATE_PROGRAM')>
+        parent:
+    module_{41}:
+        category: <generateModuleCategoryCRM('CRM')>
+        children: []
+        description: 'Loyalty Management'
+        enabled: true
+        name: <generateModuleType('LOYALTY_MANAGEMENT')>
+        parent:    
+    module_{42}:
+        category: <generateModuleCategoryCRM('CRM')>
+        children: []
+        description: 'Customer Portal Management'
+        enabled: true
+        name: <generateModuleType('CUSTOMER_PORTAL_MANAGEMENT')>
+        parent:                                       
+    module_{43}:
+        category: <generateModuleCategoryCRM('CRM')>
+        children: []
+        description: 'User'
+        enabled: true
+        name: <generateModuleType('USER')>
+        parent:                                               

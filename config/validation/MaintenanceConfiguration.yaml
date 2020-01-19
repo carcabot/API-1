@@ -1,0 +1,44 @@
+App\Entity\MaintenanceConfiguration:
+    constraints:
+        - App\Validator\Constraints\MaintenanceConfigurationDate: ~
+    properties:
+        about:
+            - Type:
+                type: string
+            - NotNull: ~
+        description:
+            - Type:
+                type: string
+        plannedEndDate:
+            - DateTime: ~
+            - NotNull: ~
+        plannedStartDate:
+            - DateTime: ~
+            - NotNull: ~
+        status:
+            - Type:
+                type: App\Enum\MaintenanceConfigurationStatus
+            - NotNull: ~
+        text:
+            - Type:
+                type: string
+            - NotNull: ~
+        usedIn:
+            - All:
+                - Type:
+                    type: string
+            - NotNull: ~
+              
+        # BlameableTrait
+        agent:
+            - Type:
+                type: App\Entity\User
+        creator:
+            - Type:
+                type: App\Entity\User
+
+        # TimestampableTrait
+        dateCreated:
+            - DateTime: ~
+        dateModified:
+            - DateTime: ~

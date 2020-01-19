@@ -1,0 +1,7 @@
+App\Entity\CustomerAccountListItem:
+    attributes:
+        item:
+            groups:
+                - list_item_read
+                - customer_account_list_item_read
+                - customer_account_list_item_write

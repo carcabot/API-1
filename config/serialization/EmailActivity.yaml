@@ -1,0 +1,37 @@
+App\Entity\EmailActivity:
+    attributes:
+        about:
+            groups:
+                - activity_read
+                - email_activity_read
+                - email_activity_write
+        bccRecipients:
+            groups:
+                - activity_read
+                - email_activity_read
+                - email_activity_write
+        ccRecipients:
+            groups:
+                - activity_read
+                - email_activity_read
+                - email_activity_write
+        messageAttachments:
+            groups:
+                - activity_read
+                - email_activity_read
+                - email_activity_write
+        template:
+            groups:
+                - activity_read
+                - email_activity_read
+                - email_activity_write
+        toRecipients:
+            groups:
+                - activity_read
+                - email_activity_read
+                - email_activity_write
+        type:
+            groups:
+                - activity_read
+                - email_activity_read
+                - email_activity_write

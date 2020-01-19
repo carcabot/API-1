@@ -1,0 +1,12 @@
+App\Entity\PointCreditsTransaction:
+    attributes:
+        amount:
+            groups:
+                - credits_transaction_read
+                - point_credits_transaction_read
+                - point_credits_transaction_write
+        balance:
+            groups:
+                - credits_transaction_read
+                - point_credits_transaction_read
+                - point_credits_transaction_write

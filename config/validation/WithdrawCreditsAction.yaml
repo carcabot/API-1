@@ -1,0 +1,11 @@
+App\Entity\WithdrawCreditsAction:
+    properties:
+        contract:
+            - Type:
+                type: App\Entity\Contract
+        instrument:
+            - Type:
+                type: App\Entity\Payment
+        object:
+            - Type:
+                type: App\Entity\CustomerAccount

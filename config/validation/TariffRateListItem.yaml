@@ -1,0 +1,5 @@
+App\Entity\TariffRateListItem:
+    properties:
+        item:
+            - Type:
+                type: App\Entity\TariffRate

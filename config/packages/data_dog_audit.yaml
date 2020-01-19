@@ -1,0 +1,4 @@
+data_dog_audit:
+    unaudited_entities:
+        - App\Entity\RunningNumber
+        - App\Entity\DisqueJob

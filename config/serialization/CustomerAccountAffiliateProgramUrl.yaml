@@ -1,0 +1,29 @@
+App\Entity\CustomerAccountAffiliateProgramUrl:
+    attributes:
+        id:
+            groups:
+                # -
+        affiliateProgram:
+            groups:
+                - customer_account_affiliate_program_url_read
+                - customer_account_affiliate_program_url_write
+        customer:
+            groups:
+                - customer_account_affiliate_program_url_read
+                - customer_account_affiliate_program_url_write
+        status:
+            groups:
+                - customer_account_affiliate_program_url_read
+                - customer_account_affiliate_program_url_write
+        url:
+            groups:
+                - customer_account_affiliate_program_url_read
+                - customer_account_affiliate_program_url_write
+
+        # TimestampableTrait
+        dateCreated:
+            groups:
+                - customer_account_affiliate_program_url_read
+        dateModified:
+            groups:
+                - customer_account_affiliate_program_url_read

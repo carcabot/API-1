@@ -1,0 +1,117 @@
+security:
+    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+    encoders:
+        App\Entity\User:
+            algorithm: argon2i
+
+    providers:
+        database_users:
+            entity:
+                class: App\Entity\User
+
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        authentication_token:
+            pattern: '^/authentication_token$'
+            provider: database_users
+            stateless: true
+            json_login:
+                check_path: /authentication_token
+                success_handler: lexik_jwt_authentication.handler.authentication_success
+                failure_handler: lexik_jwt_authentication.handler.authentication_failure
+            guard:
+                authenticators:
+                    - App\Security\Guard\SecurePasswordAuthenticator
+
+        main:
+            pattern: '^/'
+            provider: database_users
+            stateless: true
+            anonymous: true
+            switch_user: 
+                role: ROLE_ALLOWED_TO_SWITCH
+                parameter: X-Switch-User
+            guard:
+                authenticators:
+                    - app.jwt_token_authenticator
+
+    role_hierarchy:
+        ROLE_HOMEPAGE:
+            - ROLE_ALLOWED_TO_SWITCH
+
+        ROLE_PARTNER:
+            - ROLE_USER
+
+        ROLE_API_USER:
+            - ROLE_ALLOWED_TO_SWITCH
+            - ROLE_USER
+
+        ROLE_ADMIN:
+            - ROLE_API_USER
+
+        ROLE_SUPER_ADMIN:
+            - ROLE_ADMIN
+
+    access_control:
+        - { path: ^/dummy, role: IS_AUTHENTICATED_ANONYMOUSLY, methods: [GET] }
+        - { path: ^/mailgun/event, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/authentication_token, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/change_password, role: IS_AUTHENTICATED_FULLY }
+        - { path: ^/reset_password, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/faq_configurations, role: IS_AUTHENTICATED_ANONYMOUSLY, methods: [GET] }
+        - { path: ^/verify_password, role: IS_AUTHENTICATED_FULLY }
+        - { path: ^/digital_documents, role: IS_AUTHENTICATED_FULLY }
+        - { path: ^/users, role: IS_AUTHENTICATED_FULLY }
+        - { path: ^/create/user, role: IS_AUTHENTICATED_ANONYMOUSLY, methods: [POST] }
+        - { path: ^/sign_on_behalf_application_request, role: IS_AUTHENTICATED_ANONYMOUSLY, methods: [POST] }
+        - { path: ^/won_quotation, role: IS_AUTHENTICATED_ANONYMOUSLY, methods: [POST] }
+        - { path: ^/unsubscribe_list_items, role: IS_AUTHENTICATED_ANONYMOUSLY, methods: [POST] }
+        - { path: ^/unsubscribe_reasons, role: IS_AUTHENTICATED_ANONYMOUSLY, methods: [GET] }
+
+        # opened because of signup
+        - { path: ^/people, role: IS_AUTHENTICATED_ANONYMOUSLY, methods: [POST, PUT] }
+        - { path: ^/validation, role: IS_AUTHENTICATED_ANONYMOUSLY }
+
+        # homepage specific endpoints
+        - { path: ^/addon_services, roles: [ROLE_HOMEPAGE, ROLE_USER], methods: [GET] }
+        - { path: ^/addon_service_lists, roles: [ROLE_HOMEPAGE, ROLE_USER], methods: [GET] }
+        - { path: ^/addon_service_list_items, roles: [ROLE_HOMEPAGE, ROLE_USER], methods: [GET] }
+        - { path: ^/advisory_notices, roles: [ROLE_HOMEPAGE, ROLE_USER], methods: [GET] }
+        - { path: ^/application_requests, roles: [ROLE_HOMEPAGE, ROLE_USER], methods: [POST] }
+        - { path: ^/contact_points, roles: [ROLE_HOMEPAGE, ROLE_USER], methods: [POST] }
+        - { path: ^/corporations, roles: [ROLE_HOMEPAGE, ROLE_USER], methods: [POST, PUT] }
+        - { path: ^/customer_accounts, roles: [ROLE_HOMEPAGE, ROLE_USER], methods: [POST, PUT, GET] }
+        - { path: ^/customer_account_relationships, roles: [ROLE_HOMEPAGE, ROLE_USER], methods: [POST, GET] }
+        - { path: ^/free_gifts, roles: [ROLE_HOMEPAGE, ROLE_USER], methods: [GET] }
+        - { path: ^/free_gift_lists, roles: [ROLE_HOMEPAGE, ROLE_USER], methods: [GET] }
+        - { path: ^/free_gift_list_items, roles: [ROLE_HOMEPAGE, ROLE_USER], methods: [GET] }
+        - { path: ^/identifications, roles: [ROLE_HOMEPAGE, ROLE_USER], methods: [POST] }
+        - { path: ^/leads, roles: [ROLE_HOMEPAGE, ROLE_USER], methods: [POST, PUT] }
+        - { path: ^/maintenance_configurations, roles: [ROLE_HOMEPAGE, ROLE_USER], methods: [GET] }
+        - { path: ^/postal_addresses, roles: [ROLE_HOMEPAGE, ROLE_USER], methods: [POST] }
+        - { path: ^/promotions, roles: [ROLE_HOMEPAGE, ROLE_USER], methods: [GET] }
+        - { path: ^/services/postal_addresses, roles: [ROLE_HOMEPAGE, ROLE_USER], methods: [GET] }
+        - { path: ^/tariff_rates, roles: [ROLE_HOMEPAGE, ROLE_USER], methods: [GET] }
+        - { path: ^/tariff_rate_lists, roles: [ROLE_HOMEPAGE, ROLE_USER], methods: [GET] }
+        - { path: ^/tariff_rate_list_items, roles: [ROLE_HOMEPAGE, ROLE_USER], methods: [GET] }
+        - { path: ^/tariff_rate_terms, roles: [ROLE_HOMEPAGE, ROLE_USER], methods: [GET] }
+        - { path: ^/verify_recaptcha_token, roles: [ROLE_HOMEPAGE, ROLE_USER], methods: [POST] }
+
+        # web service sms inbound
+        - { path: ^/fortdigital/sms/inbound, role: IS_AUTHENTICATED_ANONYMOUSLY, methods: [GET] }
+
+        # restricted to higher level users
+        - { path: ^/activities, roles: [ROLE_API_USER] }
+        - { path: ^/cron_job_schedules, roles: [ROLE_API_USER] }
+        - { path: ^/disque_jobs, roles: [ROLE_API_USER] }
+        - { path: ^/email_activities, roles: [ROLE_API_USER] }
+        - { path: ^/faq_configurations, roles: [ROLE_API_USER], methods: [POST, PUT] }
+        - { path: ^/phone_contact_activities, roles: [ROLE_API_USER] }
+        - { path: ^/sms_activities, roles: [ROLE_API_USER] }
+        - { path: ^/notes, roles: [ROLE_API_USER] }
+
+        # the rest shall be closed
+        - { path: ^/, roles: [ROLE_USER] }

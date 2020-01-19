@@ -1,0 +1,78 @@
+App\Entity\TariffRate:
+    properties:
+        chargeDescription:
+            - Type:
+                type: string
+        contracts:
+            - All:
+                - Type:
+                    type: App\Entity\Contract
+        contractTypes:
+            - Choice:
+                callback: [App\Enum\ContractType, keys]
+                multiple: true
+            - NotNull: ~
+        customizable:
+            - Type:
+                type: bool               
+        description:
+            - Type:
+                type: string
+        internalUseOnly:
+            - Type:
+                type: bool
+        inventoryLevel:
+            - Type:
+                type: App\Entity\QuantitativeValue
+            - NotNull: ~
+            - Valid: ~
+        isBasedOn:
+            - Type:
+                type: App\Entity\TariffRate
+        isDailyRate:
+            - Type:
+                type: bool                  
+        minContractTerm:
+            - Type:
+                type: App\Entity\QuantitativeValue
+            - NotNull: ~
+            - Valid: ~
+        name:
+            - Type:
+                type: string
+        page:
+            - Type:
+                type: App\Entity\WebPage
+        promotions:
+            - All:
+                  - Type:
+                        type: App\Entity\Promotion
+        remark:
+            - Type:
+                type: string
+        startDate:
+            - DateTime: ~
+        status:
+            - Type:
+                type: App\Enum\TariffRateStatus
+            - NotNull: ~
+        dailyRates:
+            - All:
+                - Type:
+                    type: App\Entity\TariffDailyRate            
+        tariffRateNumber:
+            - Type:
+                type: string
+            - NotNull: ~
+        type:    
+            - Type:
+                type: App\Enum\TariffRateType
+            - NotNull: ~        
+        usedIn:
+            - All:
+                - Type:
+                    type: string
+        validFrom:
+            - DateTime: ~
+        validThrough:
+            - DateTime: ~

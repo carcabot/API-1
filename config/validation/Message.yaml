@@ -1,0 +1,24 @@
+App\Entity\Message:
+    properties:
+        dateRead:
+            - DateTime: ~
+        dateReceived:
+            - DateTime: ~
+        dateSent:
+            - DateTime: ~
+        messageTemplate:
+            - Type:
+                  type: App\Entity\MessageTemplate
+        recipient:
+            - Type:
+                  type: App\Entity\MessageRecipientListItem
+        responseDetails:
+            - Type:
+                  type: array
+        responseMessage:
+            - Type:
+                  type: string
+        status:
+            - Type:
+                type: App\Enum\MessageStatus
+            - NotNull: ~

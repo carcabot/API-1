@@ -1,0 +1,205 @@
+App\Entity\UpdateCreditsAction:
+    attributes:
+        id:
+            groups:
+                # -
+        amount:
+            groups:
+                - update_credits_action_read
+                - update_credits_action_write
+                - allocate_credits_action_read
+                - allocate_credits_action_write
+                - earn_contract_affiliate_credits_action_read
+                - earn_contract_affiliate_credits_action_write
+                - earn_contract_credits_action_read
+                - earn_contract_credits_action_write
+                - earn_customer_affiliate_credits_action_read
+                - earn_customer_affiliate_credits_action_write
+                - earn_customer_credits_action_read
+                - earn_customer_credits_action_write
+                - expire_contract_credits_action_read
+                - expire_contract_credits_action_write
+                - expire_customer_credits_action_read
+                - expire_customer_credits_action_write
+                - redeem_credits_action_read
+                - redeem_credits_action_write
+                - transfer_credits_action_read
+                - transfer_credits_action_write
+                - withdraw_credits_action_read
+                - withdraw_credits_action_write
+        creditsTransaction:
+            groups:
+                - update_credits_action_read
+                - update_credits_action_write
+                - allocate_credits_action_read
+                - allocate_credits_action_write
+                - earn_contract_affiliate_credits_action_read
+                - earn_contract_affiliate_credits_action_write
+                - earn_contract_credits_action_read
+                - earn_contract_credits_action_write
+                - earn_customer_affiliate_credits_action_read
+                - earn_customer_affiliate_credits_action_write
+                - earn_customer_credits_action_read
+                - earn_customer_credits_action_write
+                - expire_contract_credits_action_read
+                - expire_contract_credits_action_write
+                - expire_customer_credits_action_read
+                - expire_customer_credits_action_write
+                - redeem_credits_action_read
+                - redeem_credits_action_write
+                - transfer_credits_action_read
+                - transfer_credits_action_write
+                - withdraw_credits_action_read
+                - withdraw_credits_action_write                
+        currency:
+            groups:
+                - update_credits_action_read
+                - update_credits_action_write
+                - allocate_credits_action_read
+                - allocate_credits_action_write
+                - earn_contract_affiliate_credits_action_read
+                - earn_contract_affiliate_credits_action_write
+                - earn_contract_credits_action_read
+                - earn_contract_credits_action_write
+                - earn_customer_affiliate_credits_action_read
+                - earn_customer_affiliate_credits_action_write
+                - earn_customer_credits_action_read
+                - earn_customer_credits_action_write
+                - expire_contract_credits_action_read
+                - expire_contract_credits_action_write
+                - expire_customer_credits_action_read
+                - expire_customer_credits_action_write
+                - redeem_credits_action_read
+                - redeem_credits_action_write
+                - transfer_credits_action_read
+                - transfer_credits_action_write
+                - withdraw_credits_action_read
+                - withdraw_credits_action_write    
+        endTime:    
+            groups:
+                - update_credits_action_read
+                - update_credits_action_write
+                - allocate_credits_action_read
+                - allocate_credits_action_write
+                - earn_contract_affiliate_credits_action_read
+                - earn_contract_affiliate_credits_action_write
+                - earn_contract_credits_action_read
+                - earn_contract_credits_action_write
+                - earn_customer_affiliate_credits_action_read
+                - earn_customer_affiliate_credits_action_write
+                - earn_customer_credits_action_read
+                - earn_customer_credits_action_write
+                - expire_contract_credits_action_read
+                - expire_contract_credits_action_write
+                - expire_customer_credits_action_read
+                - expire_customer_credits_action_write
+                - redeem_credits_action_read
+                - redeem_credits_action_write
+                - transfer_credits_action_read
+                - transfer_credits_action_write
+                - withdraw_credits_action_read
+                - withdraw_credits_action_write                         
+        status:
+            groups:
+                - update_credits_action_read
+                - update_credits_action_write
+                - allocate_credits_action_read
+                - allocate_credits_action_write
+                - earn_contract_affiliate_credits_action_read
+                - earn_contract_affiliate_credits_action_write
+                - earn_contract_credits_action_read
+                - earn_contract_credits_action_write
+                - earn_customer_affiliate_credits_action_read
+                - earn_customer_affiliate_credits_action_write
+                - earn_customer_credits_action_read
+                - earn_customer_credits_action_write
+                - expire_contract_credits_action_read
+                - expire_contract_credits_action_write
+                - expire_customer_credits_action_read
+                - expire_customer_credits_action_write
+                - redeem_credits_action_read
+                - redeem_credits_action_write
+                - transfer_credits_action_read
+                - transfer_credits_action_write
+                - withdraw_credits_action_read
+                - withdraw_credits_action_write
+        startTime:
+            groups:
+                - update_credits_action_read
+                - update_credits_action_write
+                - allocate_credits_action_read
+                - allocate_credits_action_write
+                - earn_contract_affiliate_credits_action_read
+                - earn_contract_affiliate_credits_action_write
+                - earn_contract_credits_action_read
+                - earn_contract_credits_action_write
+                - earn_customer_affiliate_credits_action_read
+                - earn_customer_affiliate_credits_action_write
+                - earn_customer_credits_action_read
+                - earn_customer_credits_action_write
+                - expire_contract_credits_action_read
+                - expire_contract_credits_action_write
+                - expire_customer_credits_action_read
+                - expire_customer_credits_action_write
+                - redeem_credits_action_read
+                - redeem_credits_action_write
+                - transfer_credits_action_read
+                - transfer_credits_action_write
+                - withdraw_credits_action_read
+                - withdraw_credits_action_write                
+                
+        # BlameableTrait
+        agent:
+            groups:
+                - update_credits_action_read
+                - allocate_credits_action_read
+                - earn_contract_affiliate_credits_action_read
+                - earn_contract_credits_action_read
+                - earn_customer_affiliate_credits_action_read
+                - earn_customer_credits_action_read
+                - expire_contract_credits_action_read
+                - expire_customer_credits_action_read
+                - redeem_credits_action_read
+                - transfer_credits_action_read
+                - withdraw_credits_action_read                
+        creator:
+            groups:
+                - update_credits_action_read
+                - allocate_credits_action_read
+                - earn_contract_affiliate_credits_action_read
+                - earn_contract_credits_action_read
+                - earn_customer_affiliate_credits_action_read
+                - earn_customer_credits_action_read
+                - expire_contract_credits_action_read
+                - expire_customer_credits_action_read
+                - redeem_credits_action_read
+                - transfer_credits_action_read
+                - withdraw_credits_action_read
+                
+        # TimestampableTrait
+        dateCreated:
+            groups:
+                - update_credits_action_read
+                - allocate_credits_action_read
+                - earn_contract_affiliate_credits_action_read
+                - earn_contract_credits_action_read
+                - earn_customer_affiliate_credits_action_read
+                - earn_customer_credits_action_read
+                - expire_contract_credits_action_read
+                - expire_customer_credits_action_read
+                - redeem_credits_action_read
+                - transfer_credits_action_read
+                - withdraw_credits_action_read                
+        dateModified:
+            groups:
+                - update_credits_action_read
+                - allocate_credits_action_read
+                - earn_contract_affiliate_credits_action_read
+                - earn_contract_credits_action_read
+                - earn_customer_affiliate_credits_action_read
+                - earn_customer_credits_action_read
+                - expire_contract_credits_action_read
+                - expire_customer_credits_action_read
+                - redeem_credits_action_read
+                - transfer_credits_action_read
+                - withdraw_credits_action_read

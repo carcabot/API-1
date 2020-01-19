@@ -1,0 +1,71 @@
+App\Entity\Campaign:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields:
+                - campaignNumber
+    properties:
+        about:
+            - Type:
+                type: string
+        actualCost:
+            - Type:
+                type: App\Entity\MonetaryAmount
+        assignee:
+            - Type:
+                type: App\Entity\User
+        campaignNumber:
+            - Type:
+                type: string
+            - NotNull: ~
+        category:
+            - Type:
+                type: App\Enum\CampaignCategory
+            - NotNull: ~
+        currentStage:
+            - Type:
+                type: App\Enum\CampaignStage
+        description:
+            - Type:
+                type: string
+        endDate:
+            - DateTime: ~
+        estimatedCost:
+            - Type:
+                type: App\Entity\MonetaryAmount
+        expectationList:
+            - Type:
+                type: App\Entity\CampaignExpectationList
+        name:
+            - Type:
+                type: string
+        note:
+            - Type:
+                type: string
+        priority:
+            - Type:
+                type: App\Enum\CampaignPriority
+        objective:
+            - Type:
+                type: string
+        plannedEndDate:
+            - DateTime: ~
+        plannedStartDate:
+            - DateTime: ~
+        startDate:
+            - DateTime: ~
+        status:
+            - Type:
+                type: App\Enum\CampaignStatus
+            - NotNull: ~
+        tariffRate:
+            - Type:
+                type: App\Entity\TariffRate
+        template:
+            - Type:
+                type: App\Entity\CampaignTemplate
+        recipientLists:
+            - All:
+                - Type:
+                    type: App\Entity\SourceList
+            - Valid:
+                traverse: true

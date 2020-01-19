@@ -1,0 +1,38 @@
+App\Entity\Contract:
+    contract:
+        actions: []
+        addonServices: []
+        addresses: []
+        averageConsumption: '@quantitative_value'
+        billingPeriodId:
+        billSubscriptionTypes: [<generateBillSubscriptionTypes()>]
+        closureNoticePeriod: '@quantitative_value'
+        contactPerson: <generateDummyCustomerAccount()>
+        contractNumber: <randomNumber()>
+        contractPeriod: '@quantitative_value'
+        corporationDetails:
+        customer: <generateDummyCustomerAccount()>
+        customerType: <generateAccountType()>
+        customized: <boolean()>
+        depositAmount: '@monetary_amount'
+        depositRefundType:
+        ebsAccountNumber:
+        endDate: <dateTimeBetween( "now", "+300 days")>
+        giroOption:
+        lockInDate: <dateTimeBetween("now", "+300 days")>
+        meterType: <generateMeterType()>
+        msslAccountNumber:
+        name:
+        payments: []
+        personDetails:
+        pointCreditsActions: []
+        recurringOption:
+        refundee:
+        remark:
+        selfReadMeterOption: <generateSelfReadOption($meterType)>
+        startDate: <dateTimeBetween("-30 days", "now")>
+        status: <generateContractStatus()>
+        subtype: ""
+        supplementaryFiles: []
+        tariffRate: <generateDummyTariffRate()>
+        type: <generateContractType()>

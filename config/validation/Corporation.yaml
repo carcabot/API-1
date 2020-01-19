@@ -1,0 +1,41 @@
+App\Entity\Corporation:
+    properties:
+        contactPoints:
+            - All:
+                - Type:
+                    type: App\Entity\ContactPoint
+            - Valid:
+                traverse: true
+        description:
+            - Type:
+                type: string
+        dissolutionDate:
+            - DateTime: ~
+        employees:
+            - All:
+                - Type:
+                    type: App\Entity\EmployeeRole
+            - Valid:
+                traverse: true
+        foundingDate:
+            - DateTime: ~
+        identifiers:
+            - All:
+                - Type:
+                    type: App\Entity\Identification
+            - Valid:
+                traverse: true
+        industry:
+            - Type:
+                type: App\Enum\Industry
+        legalName:
+            - Type:
+                type: string
+        name:
+            - Type:
+                type: string
+        sameAsUrls:
+            - All:
+                - Url: ~
+        url:
+            - Url: ~

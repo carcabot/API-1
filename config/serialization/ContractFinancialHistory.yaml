@@ -1,0 +1,46 @@
+App\Entity\ContractFinancialHistory:
+    attributes:
+        id:
+            groups:
+                # -
+        amount:
+            groups:
+                - contract_financial_history_read
+                - contract_billing_summary_read
+                - contract_billing_information_read
+        dateCreated:
+            groups:
+                - contract_financial_history_read
+                - contract_billing_summary_read
+                - contract_billing_information_read
+        paymentMode:
+            groups:
+                - contract_financial_history_read
+                - contract_billing_summary_read
+                - contract_billing_information_read
+        paymentStatus:
+            groups:
+                - contract_financial_history_read
+                - contract_billing_summary_read
+                - contract_billing_information_read
+        referenceNumber:
+            groups:
+                - contract_financial_history_read
+                - contract_billing_summary_read
+                - contract_billing_information_read
+        status:
+            groups:
+                - contract_financial_history_read
+                - contract_billing_summary_read
+                - contract_billing_information_read
+        totalBilledConsumption:
+            groups:
+                - contract_financial_history_read
+                - contract_billing_summary_read
+                - contract_billing_information_read
+        type:
+            groups:
+                - contract_financial_history_read
+                - contract_billing_summary_read
+                - contract_billing_information_read
+

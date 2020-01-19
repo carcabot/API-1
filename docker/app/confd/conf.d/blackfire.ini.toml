@@ -1,0 +1,7 @@
+[template]
+src = "blackfire.ini.tmpl"
+dest = "/usr/local/etc/php/conf.d/blackfire.ini"
+keys = [
+    "/blackfire/host",
+    "/blackfire/port",
+]

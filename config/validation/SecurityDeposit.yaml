@@ -1,0 +1,14 @@
+App\Entity\SecurityDeposit:
+    properties:
+        amount:
+            - Type:
+                type: App\Entity\MonetaryAmount
+        isBasedOn:
+            - Type:
+                type: App\Entity\SecurityDeposit
+        name:
+            - Type:
+                type: string
+        type:
+            - Type:
+                type: string

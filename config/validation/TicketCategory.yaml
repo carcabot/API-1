@@ -1,0 +1,54 @@
+App\Entity\TicketCategory:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+              fields:
+                  - code
+    properties:
+        children:
+            - All:
+                - Type:
+                    type: App\Entity\TicketCategory
+            - NotNull: ~
+        code:
+            - Type:
+                  type: string
+            - NotNull: ~
+        description:
+            - Type:
+                type: string
+        enabled:
+            - Type:
+                type: bool
+        name:
+            - Type:
+                type: string
+            - NotNull: ~
+        parent:
+            - Type:
+                type: App\Entity\TicketCategory
+        taskIndicator:
+            - Type:
+                type: bool
+        ticketTypes:
+            - All:
+                - Type:
+                    type: App\Entity\TicketType
+            - NotNull: ~
+        type:
+            - Type:
+                type: App\Enum\TicketCategoryType
+            - NotNull: ~
+
+        # BlameableTrait
+        agent:
+            - Type:
+                type: App\Entity\User
+        creator:
+            - Type:
+                type: App\Entity\User
+
+        # TimestampableTrait
+        dateCreated:
+            - DateTime: ~
+        dateModified:
+            - DateTime: ~

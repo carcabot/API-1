@@ -1,0 +1,60 @@
+App\Entity\ThirdPartyCharge:
+    attributes:
+        id:
+            groups:
+                # -
+        category:
+            groups:
+                - third_party_charge_read
+                - third_party_charge_write
+                - third_party_charge_configuration_read
+        description:
+            groups:
+                - third_party_charge_read
+                - third_party_charge_write
+                - third_party_charge_configuration_read
+        enabled:
+            groups:
+                - third_party_charge_read
+                - third_party_charge_write
+                - third_party_charge_configuration_read
+        name:
+            groups:
+                - third_party_charge_read
+                - third_party_charge_write
+                - third_party_charge_configuration_read
+        rate:
+            groups:
+                - third_party_charge_read
+                - third_party_charge_write
+                - third_party_charge_configuration_read
+        thirdPartyChargeNumber:
+            groups:
+                - third_party_charge_read
+                - third_party_charge_write
+                - third_party_charge_configuration_read
+        validFrom:
+            groups:
+                - third_party_charge_read
+                - third_party_charge_write
+                - third_party_charge_configuration_read
+        validThrough:
+            groups:
+                - third_party_charge_read
+                - third_party_charge_write
+                - third_party_charge_configuration_read
+
+        # BlameableTrait
+        agent:
+            groups:
+                - third_party_charge_read
+        creator:
+            groups:
+                - third_party_charge_read
+        # TimestampableTrait
+        dateCreated:
+            groups:
+                - third_party_charge_read
+        dateModified:
+            groups:
+                - third_party_charge_read

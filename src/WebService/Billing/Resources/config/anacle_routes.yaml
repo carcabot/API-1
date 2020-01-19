@@ -1,0 +1,9 @@
+tariff_rate_create:
+    path: /anacleservice/promotioncode
+    controller: App\WebService\Billing\Controller\TariffRateController::createAction
+    methods: [POST]
+
+tariff_rate_update:
+    path: /anacleservice/promotioncode/{tariffRateNumber}
+    controller: App\WebService\Billing\Controller\TariffRateController::updateAction
+    methods: [PUT]

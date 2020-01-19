@@ -1,0 +1,17 @@
+App\Entity\MessageRecipientListItem:
+    attributes:
+        customer:
+            groups:
+                - list_item_read
+                - message_recipient_list_item_read
+                - message_recipient_list_item_write
+        message:
+            groups:
+                - list_item_read
+                - message_recipient_list_item_read
+                - message_recipient_list_item_write
+        messageAddresses:
+            groups:
+                - list_item_read
+                - message_recipient_list_item_read
+                - message_recipient_list_item_write

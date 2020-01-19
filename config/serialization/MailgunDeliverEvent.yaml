@@ -1,0 +1,5 @@
+App\Entity\MailgunDeliverEvent:
+    attributes:
+        dateDelivered:
+            groups:
+                - mailgun_deliver_event_read

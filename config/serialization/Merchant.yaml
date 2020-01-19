@@ -1,0 +1,21 @@
+App\Entity\Merchant:
+    attributes:
+        id:
+            groups:
+                # -
+        description:
+            groups:
+                - merchant_read
+                - merchant_write
+        image:
+            groups:
+                - merchant_read
+                - merchant_write
+        merchantNumber:
+            groups:
+                - merchant_read
+                - merchant_write
+        name:
+            groups:
+                - merchant_read
+                - merchant_write

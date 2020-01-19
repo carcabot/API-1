@@ -1,0 +1,20 @@
+App\Entity\PartnerCommissionStatementData:
+    properties:
+        amount:
+            - Type:
+                type: App\Entity\MonetaryAmount
+        applicationRequest:
+            - Type:
+                type: App\Entity\ApplicationRequest
+        commissionRate:
+            - Type:
+                type: App\Entity\CommissionRate
+        lead:
+            - Type:
+                type: App\Entity\Lead
+        statement:
+            - Type:
+                type: App\Entity\PartnerCommissionStatement
+        type:
+            - Type:
+                type: App\Enum\CommissionStatementDataType

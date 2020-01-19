@@ -1,0 +1,12 @@
+App\Entity\AllocateCreditsAction:
+    attributes:
+        object:
+            groups:
+                - allocate_credits_action_read
+                - allocate_credits_action_write
+                - update_credits_action_read
+        recipient:
+            groups:
+                - allocate_credits_action_read
+                - allocate_credits_action_write
+                - update_credits_action_read

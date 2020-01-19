@@ -1,0 +1,37 @@
+App\Entity\AffiliateProgram:
+    properties:
+        baseTrackingUrl:
+            - Url: ~
+        name:
+            - Type:
+                type: string
+        programNumber:
+            - Type:
+                type: string
+            - NotNull: ~
+        provider:
+            - Type:
+                type: App\Enum\AffiliateWebServicePartner
+            - NotNull: ~
+            - Valid: ~
+        terms:
+            - Type:
+                type: App\Entity\WebPage
+        validFrom:
+            - DateTime: ~
+        validThrough:
+            - DateTime: ~
+
+        # BlameableTrait
+        agent:
+            - Type:
+                type: App\Entity\User
+        creator:
+            - Type:
+                type: App\Entity\User
+
+        # TimestampableTrait
+        dateCreated:
+            - DateTime: ~
+        dateModified:
+            - DateTime: ~

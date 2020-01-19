@@ -1,0 +1,41 @@
+App\Entity\QuotationPostalAddress:
+    attributes:
+        id:
+            groups:
+                # -
+        addresses:        
+            groups:
+                - quotation_file_generate
+                - quotation_postal_address_read
+                - quotation_postal_address_write
+        ebsAccountNumber: 
+            groups:
+                - quotation_file_generate
+                - quotation_postal_address_read
+                - quotation_postal_address_write
+        msslAccountNumber:
+            groups:
+                - quotation_file_generate
+                - quotation_postal_address_read
+                - quotation_postal_address_write
+        # BlameableTrait
+        agent:
+            groups:
+                - quotation_file_generate
+                - quotation_postal_address_read
+        creator:
+            groups:
+                - quotation_file_generate
+                - quotation_postal_address_read
+
+        # TimestampableTrait
+        dateCreated:
+            groups:
+                - quotation_file_generate
+                - quotation_postal_address_read
+        dateModified:
+            groups:
+                - quotation_file_generate
+                - quotation_postal_address_read                        
+                        
+                               

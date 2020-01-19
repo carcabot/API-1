@@ -1,0 +1,5 @@
+[template]
+src = "www-performance.conf.tmpl"
+dest = "/usr/local/etc/php-fpm.d/zz-www-performance.conf"
+keys = [
+]

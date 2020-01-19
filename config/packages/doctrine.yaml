@@ -1,0 +1,125 @@
+parameters:
+    # Adds a fallback DATABASE_URL if the env var is not set.
+    # This allows you to run cache:warmup even if your
+    # environment variables are not available yet.
+    # You should not need to change this value.
+    env(DATABASE_URL): ''
+
+doctrine:
+    dbal:
+        # configure these for your database server
+        driver: pdo_pgsql
+        server_version: 9.6
+        url: '%env(resolve:DATABASE_URL)%'
+        types:
+            account_category_enum: App\Doctrine\DBAL\Types\AccountCategoryEnumType
+            account_type_enum: App\Doctrine\DBAL\Types\AccountTypeEnumType
+            action_status_enum: App\Doctrine\DBAL\Types\ActionStatusEnumType
+            affiliate_commission_status_enum: App\Doctrine\DBAL\Types\AffiliateCommissionStatusEnumType
+            affiliate_web_service_partner_enum: App\Doctrine\DBAL\Types\AffiliateWebServicePartnerEnumType
+            application_request_status_enum: App\Doctrine\DBAL\Types\ApplicationRequestStatusEnumType
+            application_request_type_enum: App\Doctrine\DBAL\Types\ApplicationRequestTypeEnumType
+            authorization_role_enum: App\Doctrine\DBAL\Types\AuthorizationRoleEnumType
+            bill_subscription_type_enum: App\Doctrine\DBAL\Types\BillSubscriptionTypeEnumType
+            blacklist_configuration_action_enum: App\Doctrine\DBAL\Types\BlacklistConfigurationActionEnumType
+            call_direction_enum: App\Doctrine\DBAL\Types\CallDirectionEnumType
+            campaign_category_enum: App\Doctrine\DBAL\Types\CampaignCategoryEnumType
+            campaign_priority_enum: App\Doctrine\DBAL\Types\CampaignPriorityEnumType
+            campaign_source_type_enum: App\Doctrine\DBAL\Types\CampaignSourceTypeEnumType
+            campaign_stage_enum: App\Doctrine\DBAL\Types\CampaignStageEnumType
+            campaign_status_enum: App\Doctrine\DBAL\Types\CampaignStatusEnumType
+            catalog_status_enum: App\Doctrine\DBAL\Types\CatalogStatusEnumType
+            commission_allocation_enum: App\Doctrine\DBAL\Types\CommissionAllocationEnumType
+            commission_category_enum: App\Doctrine\DBAL\Types\CommissionCategoryEnumType
+            commission_statement_data_type_enum: App\Doctrine\DBAL\Types\CommissionStatementDataTypeEnumType
+            commission_statement_status_enum: App\Doctrine\DBAL\Types\CommissionStatementStatusEnumType
+            commission_type_enum: App\Doctrine\DBAL\Types\CommissionTypeEnumType
+            contact_method_enum: App\Doctrine\DBAL\Types\ContactMethodEnumType
+            contract_action_type_enum: App\Doctrine\DBAL\Types\ContractActionTypeEnumType
+            contract_status_enum: App\Doctrine\DBAL\Types\ContractStatusEnumType
+            contract_subtype_enum: App\Doctrine\DBAL\Types\ContractSubtypeEnumType
+            contract_type_enum: App\Doctrine\DBAL\Types\ContractTypeEnumType
+            credits_type_enum: App\Doctrine\DBAL\Types\CreditsTypeEnumType
+            customer_account_status_enum: App\Doctrine\DBAL\Types\CustomerAccountStatusEnumType
+            customer_relationship_type_enum: App\Doctrine\DBAL\Types\CustomerRelationshipTypeEnumType
+            day_of_week_enum: App\Doctrine\DBAL\Types\DayOfWeekEnumType
+            document_type_enum: App\Doctrine\DBAL\Types\DocumentTypeEnumType
+            dwelling_type_enum: App\Doctrine\DBAL\Types\DwellingTypeEnumType
+            email_type_enum: App\Doctrine\DBAL\Types\EmailTypeEnumType
+            gender_type_enum: App\Doctrine\DBAL\Types\GenderTypeEnumType
+            identification_name_enum: App\Doctrine\DBAL\Types\IdentificationNameEnumType
+            import_listing_target_fields_enum: App\Doctrine\DBAL\Types\ImportListingTargetFieldsEnumType
+            industry_enum: App\Doctrine\DBAL\Types\IndustryEnumType
+            item_list_type_enum: App\Doctrine\DBAL\Types\ItemListTypeEnumType
+            job_status_enum: App\Doctrine\DBAL\Types\JobStatusEnumType
+            lead_score_enum: App\Doctrine\DBAL\Types\LeadScoreEnumType
+            lead_status_enum: App\Doctrine\DBAL\Types\LeadStatusEnumType
+            maintenance_configuration_status_enum: App\Doctrine\DBAL\Types\MaintenanceConfigurationStatusEnumType
+            marital_status_enum: App\Doctrine\DBAL\Types\MaritalStatusEnumType
+            message_status_enum: App\Doctrine\DBAL\Types\MessageStatusEnumType
+            message_type_enum: App\Doctrine\DBAL\Types\MessageTypeEnumType
+            meter_type_enum: App\Doctrine\DBAL\Types\MeterTypeEnumType
+            module_category_enum: App\Doctrine\DBAL\Types\ModuleCategoryEnumType
+            module_type_enum: App\Doctrine\DBAL\Types\ModuleTypeEnumType
+            note_type_enum: App\Doctrine\DBAL\Types\NoteTypeEnumType
+            offer_type_enum: App\Doctrine\DBAL\Types\OfferTypeEnumType
+            order_status_enum: App\Doctrine\DBAL\Types\OrderStatusEnumType
+            payment_mode_enum: App\Doctrine\DBAL\Types\PaymentModeEnumType
+            payment_status_enum: App\Doctrine\DBAL\Types\PaymentStatusEnumType
+            permission_enum: App\Doctrine\DBAL\Types\PermissionEnumType
+            phone_number: Misd\PhoneNumberBundle\Doctrine\DBAL\Types\PhoneNumberType
+            postal_address_type_enum: App\Doctrine\DBAL\Types\PostalAddressTypeEnumType
+            priority_enum: App\Doctrine\DBAL\Types\PriorityEnumType
+            promotion_status_enum: App\Doctrine\DBAL\Types\PromotionStatusEnumType
+            queue_name_enum: App\Doctrine\DBAL\Types\QueueNameEnumType
+            quotation_price_plan_type_enum: App\Doctrine\DBAL\Types\QuotationPricePlanTypeEnumType
+            quotation_status_enum: App\Doctrine\DBAL\Types\QuotationStatusEnumType
+            referral_source_enum: App\Doctrine\DBAL\Types\ReferralSourceEnumType
+            refund_type_enum: App\Doctrine\DBAL\Types\RefundTypeEnumType
+            role_enum: App\Doctrine\DBAL\Types\RoleEnumType
+            sms_direction_enum: App\Doctrine\DBAL\Types\SMSDirectionEnumType
+            sms_type_enum: App\Doctrine\DBAL\Types\SMSTypeEnumType
+            sms_web_service_partner_enum: App\Doctrine\DBAL\Types\SMSWebServicePartnerEnumType
+            source_enum: App\Doctrine\DBAL\Types\SourceEnumType
+            tariff_rate_status_enum: App\Doctrine\DBAL\Types\TariffRateStatusEnumType
+            tariff_rate_type_enum: App\Doctrine\DBAL\Types\TariffRateTypeEnumType
+            third_party_charge_enum: App\Doctrine\DBAL\Types\ThirdPartyChargeCategoryEnumType
+            ticket_category_type_enum: App\Doctrine\DBAL\Types\TicketCategoryTypeEnumType
+            ticket_status_enum: App\Doctrine\DBAL\Types\TicketStatusEnumType
+            tsvector: App\Doctrine\DBAL\Types\TsvectorType
+            two_factor_authentication_status_enum: App\Doctrine\DBAL\Types\TwoFactorAuthenticationStatusEnumType
+            two_factor_authentication_type_enum: App\Doctrine\DBAL\Types\TwoFactorAuthenticationTypeEnumType
+            unsubscribe_reason_status_enum: App\Doctrine\DBAL\Types\UnsubscribeReasonStatusEnumType
+            url_status_enum: App\Doctrine\DBAL\Types\URLStatusEnumType
+            voltage_type_enum: App\Doctrine\DBAL\Types\VoltageTypeEnumType
+            web_page_status_enum: App\Doctrine\DBAL\Types\WebPageStatusEnumType
+    orm:
+        auto_generate_proxy_classes: '%kernel.debug%'
+        naming_strategy: wmc.doctrine.orm.naming_strategy
+        auto_mapping: true
+        mappings:
+            App:
+                is_bundle: false
+                type: annotation
+                dir: '%kernel.project_dir%/src/Entity'
+                prefix: App\Entity
+                alias: App
+        dql:
+            numeric_functions:
+                jsonb_array_length: App\Doctrine\ORM\Query\AST\Functions\JsonbArrayLengthFunction
+                setweight: App\Doctrine\ORM\Query\AST\Functions\SetWeightFunction
+                ts_match: App\Doctrine\ORM\Query\AST\Functions\TsMatchFunction
+                ts_rank: App\Doctrine\ORM\Query\AST\Functions\TsRankFunction
+                ts_rank_cd: App\Doctrine\ORM\Query\AST\Functions\TsRankCdFunction
+                ###> opsway/doctrine-dbal-postgresql ###
+                jsonb_contains: Opsway\Doctrine\ORM\Query\AST\Functions\Contains
+                ###< opsway/doctrine-dbal-postgresql ###
+            string_functions:
+                phraseto_tsquery: App\Doctrine\ORM\Query\AST\Functions\PhraseToTsqueryFunction
+                plainto_tsquery: App\Doctrine\ORM\Query\AST\Functions\PlainToTsqueryFunction
+                to_tsquery: App\Doctrine\ORM\Query\AST\Functions\ToTsqueryFunction
+                to_tsvector: App\Doctrine\ORM\Query\AST\Functions\ToTsvectorFunction
+                tsvector_concat: App\Doctrine\ORM\Query\AST\Functions\TsvectorConcatFunction
+                # oro/doctrine-extensions
+                cast: Oro\ORM\Query\AST\Functions\Cast
+                # oro/doctrine-extensions

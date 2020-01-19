@@ -1,0 +1,50 @@
+App\Entity\AffiliateProgramTransaction:
+    properties:
+        affiliateProgram:
+            - Type:
+                type: App\Entity\AffiliateProgram
+            - NotNull: ~
+        commissionAmount:
+            - Type:
+                type: App\Entity\MonetaryAmount
+            - NotNull: ~
+        commissionStatus:
+            - Type:
+                type: App\Enum\AffiliateCommissionStatus
+        customer:
+            - Type:
+                type: App\Entity\CustomerAccount
+            - NotNull: ~
+            - Valid: ~
+        moneyCommissionConfiguration:
+            - Type:
+                type: App\Entity\AffiliateProgramCommissionConfiguration
+        moneyCreditsAmount:
+            - Type:
+                type: App\Entity\MonetaryAmount
+            - NotNull: ~
+        orderAmount:
+            - Type:
+                type: App\Entity\MonetaryAmount
+            - NotNull: ~
+        pointCommissionConfiguration:
+            - Type:
+                type: App\Entity\AffiliateProgramCommissionConfiguration
+        pointCreditsAmount:
+            - Type:
+                type: App\Entity\QuantitativeValue
+            - NotNull: ~
+        pointCreditsExchangeRate:
+            - Type:
+                type: App\Entity\PointCreditsExchangeRate
+        provider:
+            - Type:
+                type: App\Enum\AffiliateWebServicePartner
+            - NotNull: ~
+            - Valid: ~
+        transactionDate:
+            - DateTime: ~
+        transactionNumber:
+            - Type:
+                type: string
+            - NotNull: ~

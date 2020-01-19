@@ -1,0 +1,7 @@
+App\Entity\AddonServiceListItem:
+    attributes:
+        item:
+            groups:
+                - list_item_read
+                - addon_service_list_item_read
+                - addon_service_list_item_write

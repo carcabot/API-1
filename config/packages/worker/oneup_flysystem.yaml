@@ -1,0 +1,25 @@
+# Read the documentation: https://github.com/1up-lab/OneupFlysystemBundle/tree/master/Resources/doc/index.md
+parameters:
+    # Adds a fallback VARNISH_URL if the env var is not set.
+    # This allows you to run cache:warmup even if your
+    # environment variables are not available yet.
+    # You should not need to change this value.
+    env(S3_DOCUMENT_BUCKET_NAME): ''
+    env(S3_DOCUMENT_PATH_PREFIX): ''
+
+oneup_flysystem:
+    adapters:
+        file_adapter:
+            awss3v3:
+                client: app.aws.s3_client
+                bucket: '%env(S3_DOCUMENT_BUCKET_NAME)%'
+                prefix: '%env(S3_DOCUMENT_PATH_PREFIX)%'
+                options:
+                    CacheControl: 'public, max-age=31536000'
+        internal_file_adapter:
+            awss3v3:
+                client: app.aws.s3_client
+                bucket: '%env(S3_DOCUMENT_BUCKET_NAME)%'
+                prefix: '%env(S3_DOCUMENT_PATH_PREFIX)%'
+                options:
+                    CacheControl: 'public, max-age=31536000'

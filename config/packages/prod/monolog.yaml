@@ -1,0 +1,32 @@
+monolog:
+    handlers:
+        main:
+            type: fingers_crossed
+            action_level: error
+            handler: nested
+            excluded_404s:
+                # regex: exclude all 404 errors from the logs
+                - ^/
+        nested:
+            type: rotating_file
+            path: "%kernel.logs_dir%/%kernel.environment%.log"
+            level: debug
+        bridge:
+            level: info
+            type: rotating_file
+            path: "%kernel.logs_dir%/%kernel.environment%-bridge.log"
+            channels: [bridge]
+        disque:
+            level: info
+            type: rotating_file
+            path: "%kernel.logs_dir%/%kernel.environment%-disque.log"
+            channels: [disque]
+        web_service:
+            level: info
+            type: rotating_file
+            path: "%kernel.logs_dir%/%kernel.environment%-web_service.log"
+            channels: [web_service]
+        console:
+            type:   console
+            process_psr_3_messages: false
+            channels: ["!event", "!doctrine"]

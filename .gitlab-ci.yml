@@ -1,0 +1,215 @@
+image: xlazer/docker-lazer-api-ci
+
+variables:
+    DOCKER_DRIVER: overlay2
+
+cache:
+    paths:
+        - .php_cs.cache
+        - build/composer-cache/files
+
+stages:
+    - lint
+    - test
+    - build
+    - deploy
+
+.composer-install: &composer-install composer install --prefer-dist --no-scripts --no-progress --no-suggest --optimize-autoloader --classmap-authoritative
+
+php-cs-fixer:
+    stage: lint
+    script:
+        - *composer-install
+        - vendor/bin/php-cs-fixer fix --dry-run --diff
+    except:
+        - tags
+
+phpstan:
+    stage: lint
+    script:
+        - *composer-install
+        - php -d memory_limit=-1 vendor/bin/phpstan analyse -l 7 -c phpstan.neon src tests
+    except:
+        - tags
+
+phpunit:
+    stage: test
+    script:
+        - *composer-install
+        - phpdbg -qrr -d memory_limit=-1 vendor/bin/phpunit --coverage-text --colors=never
+    except:
+        - tags
+
+.docker-login: &docker-login docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+.kaniko-login: &kaniko-login echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
+.k8s-connect: &k8s-connect |
+    apk add --no-cache curl
+    mkdir /lib64 && ln -s /lib/libc.musl-x86_64.so.1 /lib64/ld-linux-x86-64.so.2
+    DOCTL_VERSION=1.20.1
+    curl -L https://github.com/digitalocean/doctl/releases/download/v${DOCTL_VERSION}/doctl-${DOCTL_VERSION}-linux-amd64.tar.gz | tar xz
+    ./doctl auth init -t $K8S_DEPLOY_TOKEN
+    ./doctl kubernetes cluster kubeconfig save $K8S_CLUSTER_NAME
+    cp doctl $HOME/.kube
+
+.build: &build
+    stage: build
+    image:
+        name: gcr.io/kaniko-project/executor:debug
+        entrypoint: [""]
+    script:
+        - |-
+            if [ ! -z "$CI_COMMIT_TAG" ]; then
+                release_channel=$CI_COMMIT_TAG
+            elif [ "$CI_COMMIT_REF_SLUG" = 'master' ]; then
+                release_channel=stable
+            elif [ "$CI_COMMIT_REF_SLUG" = 'develop' ]; then
+                release_channel=dev
+            fi
+
+            [ -n "$release_channel" ] || { echo 'Could not determine release channel'; exit 1; } \
+
+            export CONTAINER_RELEASE_IMAGE=$CI_REGISTRY_IMAGE/$PROJECT:$release_channel
+        - *kaniko-login
+        - /kaniko/executor --context $CI_PROJECT_DIR --dockerfile $DOCKERFILE_PATH --destination $CONTAINER_RELEASE_IMAGE
+    only:
+        - master
+        - tags
+    except:
+        - merge-requests
+
+build app:
+    <<: *build
+    variables:
+        BUILD_CONTEXT: '.'
+        DOCKERFILE_PATH: ./docker/app/Dockerfile
+        PROJECT: app
+
+.deploy: &deploy
+    stage: deploy
+    before_script:
+        - which ssh-agent || (apk add --no-cache openssh-client)
+        - eval $(ssh-agent -s)
+        - echo "$DEPLOY_SERVER_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
+        - mkdir -p ~/.ssh
+        - chmod 700 ~/.ssh
+        - ssh-keyscan -H $VPN_SERVER_IP >> ~/.ssh/known_hosts
+        - ssh-keyscan -H $DEPLOY_SERVER_IP >> ~/.ssh/known_hosts
+    script:
+        - |-
+            server_port=22
+            if [ ! -z "$DEPLOY_SERVER_PORT" ]; then
+                server_port=$DEPLOY_SERVER_PORT
+            fi
+        - ssh -tt $VPN_SERVER_USERNAME@$VPN_SERVER_IP "ssh $DEPLOY_SERVER_USERNAME@$DEPLOY_SERVER_IP -p $server_port \"
+            docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY &&
+            cd $SOURCE_DIR &&
+            VERSION=$CI_COMMIT_TAG docker-compose pull app &&
+            docker-compose rm -f -s app &&
+            VERSION=$CI_COMMIT_TAG docker-compose run --rm app bin/console doctrine:migrations:migrate --no-interaction &&
+            VERSION=$CI_COMMIT_TAG docker-compose up -d app &&
+            sh app-healthcheck.sh &&
+            docker-compose rm -f -s application-requests-worker campaigns-worker contracts-worker cron-worker reports-worker webservices-worker &&
+            VERSION=$CI_COMMIT_TAG docker-compose up -d application-requests-worker campaigns-worker contracts-worker cron-worker reports-worker webservices-worker\""
+    except:
+        - merge-requests
+    allow_failure: true
+
+.deploy-k8s: &deploy-k8s
+    stage: deploy
+    image: roffe/kubectl
+    script:
+        - |-
+            new_version=$CI_COMMIT_SHORT_SHA
+            if [ ! -z "$CI_COMMIT_TAG" ]; then
+                new_version=$CI_COMMIT_TAG
+            fi
+
+            image_tag=$CI_COMMIT_TAG
+            if [ "$CI_COMMIT_REF_SLUG" = 'master' ]; then
+                image_tag=stable
+            elif [ "$CI_COMMIT_REF_SLUG" = 'develop' ]; then
+                image_tag=dev
+            fi
+
+            export NEW_VERSION=$new_version
+            export DOCKER_IMAGE=$CI_REGISTRY_IMAGE/app:$image_tag
+        - *k8s-connect
+        - sh scripts/bg-deploy.sh $NEW_VERSION $K8S_NAMESPACE $K8S_RELEASE_NAME $DOCKER_IMAGE
+    except:
+        - merge-requests
+    allow_failure: true
+
+deploy test:
+    <<: *deploy-k8s
+    environment: test
+    only:
+        - master
+    variables:
+        K8S_NAMESPACE: test
+        K8S_RELEASE_NAME: test
+
+###> STAGING ###
+deploy staging-iswitch:
+    <<: *deploy-k8s
+    environment: staging-iswitch
+    only:
+        - master
+    variables:
+        K8S_NAMESPACE: staging
+        K8S_RELEASE_NAME: staging-iswitch
+
+#deploy staging-peererenergy:
+#    <<: *deploy
+#    environment: staging-peererenergy
+#    only:
+#        - master
+#    variables:
+#        DEPLOY_SERVER_IP: $STAGING_SERVER_IP
+#        DEPLOY_SERVER_USERNAME: $STAGING_SERVER_USERNAME
+#        SOURCE_DIR: $STAGING_PEERERENERGY_SOURCE_DIR
+
+deploy staging-unionpower:
+    <<: *deploy-k8s
+    environment: staging-unionpower
+    only:
+        - master
+    variables:
+        K8S_NAMESPACE: staging
+        K8S_RELEASE_NAME: staging-unionpower
+###< STAGING ###
+
+###> PRODUCTION ###
+deploy iswitch:
+    <<: *deploy
+    environment: iswitch
+    only:
+        - tags
+    variables:
+        DEPLOY_SERVER_IP: $ISWITCH_SERVER_IP
+        DEPLOY_SERVER_PORT: $ISWITCH_SERVER_PORT
+        DEPLOY_SERVER_USERNAME: $ISWITCH_SERVER_USERNAME
+        SOURCE_DIR: $ISWITCH_SOURCE_DIR
+    when: manual
+
+#deploy peererenergy:
+#    <<: *deploy
+#    environment: peererenergy
+#    only:
+#        - tags
+#    variables:
+#        DEPLOY_SERVER_IP: $PEERERENERGY_SERVER_IP
+#        DEPLOY_SERVER_USERNAME: $PEERERENERGY_SERVER_USERNAME
+#        SOURCE_DIR: $PEERERENERGY_SOURCE_DIR
+#    when: manual
+
+deploy unionpower:
+    <<: *deploy
+    environment: unionpower
+    only:
+        - tags
+    variables:
+        DEPLOY_SERVER_IP: $UNIONPOWER_SERVER_IP
+        DEPLOY_SERVER_USERNAME: $UNIONPOWER_SERVER_USERNAME
+        SOURCE_DIR: $UNIONPOWER_SOURCE_DIR
+    when: manual
+###< PRODUCTION ###

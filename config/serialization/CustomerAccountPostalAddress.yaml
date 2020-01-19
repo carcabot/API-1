@@ -1,0 +1,28 @@
+App\Entity\CustomerAccountPostalAddress:
+    attributes:
+        id:
+            groups:
+                # -
+        address:
+            groups:
+                - customer_account_postal_address_read
+                - customer_account_postal_address_write
+                - contract_form_read
+                - public_read
+                - ticket_read
+        customerAccount:
+            groups:
+                - customer_account_postal_address_read
+                - customer_account_postal_address_write
+        validFrom:
+            groups:
+                - customer_account_postal_address_read
+                - customer_account_postal_address_write
+                - contract_form_read
+                - ticket_read
+        validThrough:
+            groups:
+                - customer_account_postal_address_read
+                - customer_account_postal_address_write
+                - contract_form_read
+                - ticket_read

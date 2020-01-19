@@ -1,0 +1,24 @@
+App\Entity\FreeGift:
+    attributes:
+        id:
+            groups:
+                # -
+        description:
+            groups:
+                - free_gift_read
+                - free_gift_write
+                - contract_form_read
+        isBasedOn:
+            groups:
+                - free_gift_read
+                - free_gift_write
+        name:
+            groups:
+                - free_gift_read
+                - free_gift_write
+                - contract_form_read
+        note:
+            groups:
+                - free_gift_read
+                - free_gift_write
+                - contract_form_read

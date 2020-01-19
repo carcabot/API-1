@@ -1,0 +1,10 @@
+App\Entity\AllocateCreditsAction:
+    properties:
+        object:
+            - Type:
+                type: App\Entity\CustomerAccount
+            - NotNull: ~
+        recipient:
+            - Type:
+                type: App\Entity\Contract
+            - NotNull: ~

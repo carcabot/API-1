@@ -1,0 +1,17 @@
+App\Entity\MessageRecipientListItem:
+    properties:
+        customer:
+            - Type:
+                type: App\Entity\CustomerAccount
+            - NotNull: ~
+        message:
+            - Type:
+                type: App\Entity\Message
+            - NotNull: ~
+        messageAddresses:
+            - All:
+                - Type:
+                    type: string
+            - Valid:
+                traverse: true
+            - NotNull: ~

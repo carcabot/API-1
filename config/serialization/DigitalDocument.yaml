@@ -1,0 +1,60 @@
+App\Entity\DigitalDocument:
+    attributes:
+        id:
+            groups:
+                # -
+        contentFile:
+            groups:
+                # -
+        contentPath:
+            groups:
+                # -
+        name:
+            groups:
+                - digital_document_read
+                - digital_document_write
+                - affiliate_program_read
+                - merchant_read
+                - offer_category_read
+        text:
+            groups:
+                - digital_document_read
+                - digital_document_write
+                - affiliate_program_read
+                - merchant_read
+                - offer_category_read
+        url:
+            groups:
+                - digital_document_read
+                - digital_document_write
+                - affiliate_program_read
+                - merchant_read
+                - offer_category_read
+
+        # BlameableTrait
+        agent:
+            groups:
+                - digital_document_read
+                - affiliate_program_read
+                - merchant_read
+                - offer_category_read
+        creator:
+            groups:
+                - digital_document_read
+                - affiliate_program_read
+                - merchant_read
+                - offer_category_read
+                
+        # TimestampableTrait
+        dateCreated:
+            groups:
+                - digital_document_read
+                - affiliate_program_read
+                - merchant_read
+                - offer_category_read
+        dateModified:
+            groups:
+                - digital_document_read
+                - affiliate_program_read
+                - merchant_read
+                - offer_category_read

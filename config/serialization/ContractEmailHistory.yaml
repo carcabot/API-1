@@ -1,0 +1,22 @@
+App\Entity\ContractEmailHistory:
+    attributes:
+        id:
+            groups:
+                - contract_email_history_read
+                - contract_billing_summary_read
+                - contract_billing_information_read
+        about:
+            groups:
+                - contract_email_history_read
+                - contract_billing_summary_read
+                - contract_billing_information_read
+        attachments:
+            groups:
+                - contract_email_history_read
+                - contract_billing_summary_read
+                - contract_billing_information_read
+        toRecipients:
+            groups:
+                - contract_email_history_read
+                - contract_billing_summary_read
+                - contract_billing_information_read

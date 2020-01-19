@@ -1,0 +1,10 @@
+App\Entity\MailgunClickEvent:
+    properties:
+        url:
+            - Type:
+                type: string
+            - NotNull: ~
+        datesClicked:
+            - All:
+                - DateTime: ~
+                - NotNull: ~

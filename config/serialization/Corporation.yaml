@@ -1,0 +1,142 @@
+App\Entity\Corporation:
+    attributes:
+        id:
+            groups:
+                # -
+        contactPoints:
+            groups:
+                - corporation_read
+                - corporation_write
+                - application_request_read
+                - contract_form_read
+                - contract_read
+                - customer_account_read
+                - employee_role_read
+                - lead_read
+                - lead_import_write
+                - user_read
+                - role_homepage_customer_account_read
+                - role_homepage_user_read
+                - public_read
+        description:
+            groups:
+                - corporation_read
+                - corporation_write
+                - application_request_read
+                - contract_read
+                - customer_account_read
+                - employee_role_read
+                - lead_read
+                - lead_import_write
+                - user_read
+        dissolutionDate:
+            groups:
+                - corporation_read
+                - corporation_write
+                - application_request_read
+                - contract_read
+                - customer_account_read
+                - employee_role_read
+                - lead_read
+                - lead_import_write
+                - user_read
+        employees:
+            groups:
+                - corporation_read
+                - corporation_write
+                - application_request_read
+                - contract_read
+                - customer_account_read
+                - employee_role_read
+                - lead_read
+                - user_read
+                - role_homepage_customer_account_read
+                - role_homepage_user_read
+        foundingDate:
+            groups:
+                - corporation_read
+                - corporation_write
+                - application_request_read
+                - contract_read
+                - customer_account_read
+                - employee_role_read
+                - lead_read
+                - lead_import_write
+                - user_read
+        identifiers:
+            groups:
+                - corporation_read
+                - corporation_write
+                - application_request_read
+                - contract_form_read
+                - contract_read
+                - customer_account_read
+                - employee_role_read
+                - lead_read
+                - lead_import_write
+                - quotation_file_generate
+                - user_read
+                - role_homepage_customer_account_read
+                - role_homepage_user_read
+                - public_read
+        industry:
+            groups:
+                - corporation_read
+                - corporation_write
+                - application_request_read
+                - contract_read
+                - customer_account_read
+                - employee_role_read
+                - lead_read
+                - lead_import_write
+                - user_read
+                - public_read
+        legalName:
+            groups:
+                - corporation_read
+                - corporation_write
+                - application_request_read
+                - contract_read
+                - customer_account_read
+                - employee_role_read
+                - lead_read
+                - lead_import_write
+                - user_read
+                - public_read
+        name:
+            groups:
+                - corporation_read
+                - corporation_write
+                - application_request_read
+                - contract_form_read
+                - contract_read
+                - customer_account_read
+                - employee_role_read
+                - lead_read
+                - lead_import_write
+                - user_read
+                - role_homepage_customer_account_read
+                - role_homepage_user_read
+                - public_read
+        sameAsUrls:
+            groups:
+                - corporation_read
+                - corporation_write
+                - application_request_read
+                - contract_read
+                - customer_account_read
+                - employee_role_read
+                - lead_read
+                - lead_import_write
+                - user_read
+        url:
+            groups:
+                - corporation_read
+                - corporation_write
+                - application_request_read
+                - contract_read
+                - customer_account_read
+                - employee_role_read
+                - lead_read
+                - lead_import_write
+                - user_read

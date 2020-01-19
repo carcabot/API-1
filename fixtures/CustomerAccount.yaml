@@ -1,0 +1,25 @@
+App\Entity\CustomerAccount:
+    customer_account:
+        categories: <generateCustomerAccountCategory()> 
+        type: <generateCustomerAccountType()>     
+        status: <generateCustomerAccountStatus()>
+        accountNumber:
+        activities: []
+        addresses: []
+        applicationRequests: []
+        contracts: []
+        corporationDetails:
+        doNotContact:
+        externalCustomerNumber:
+        image:
+        lpgUser:
+        moneyCreditsActions: []
+        notes: []
+        partnerDetails:
+        personDetails:
+        pointCreditsActions: []
+        preferredContactMethod:
+        relationships: []
+        supplementaryFiles: []
+        tenant:
+        user:

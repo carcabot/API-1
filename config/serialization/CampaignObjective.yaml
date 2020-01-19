@@ -1,0 +1,30 @@
+App\Entity\CampaignObjective:
+    attributes:
+        name:
+            groups:
+                - campaign_objective_read
+                - campaign_objective_write
+        description:
+            groups:
+                - campaign_objective_read
+                - campaign_objective_write
+        enabled:
+            groups:
+                - campaign_objective_read
+                - campaign_objective_write
+
+        # BlameableTrait
+        agent:
+            groups:
+                - campaign_objective_read
+        creator:
+            groups:
+                - campaign_objective_read
+
+        # TimestampableTrait
+        dateCreated:
+            groups:
+                - campaign_objective_read
+        dateModified:
+            groups:
+                - campaign_objective_read

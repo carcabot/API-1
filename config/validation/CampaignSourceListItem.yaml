@@ -1,0 +1,11 @@
+App\Entity\CampaignSourceListItem:
+    properties:
+        source:
+            - Type:
+                type: App\Enum\CampaignSourceType
+        customer:
+            - Type:
+                type: App\Entity\CustomerAccount
+        lead:
+            - Type:
+                type: App\Entity\Lead

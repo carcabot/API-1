@@ -1,0 +1,43 @@
+App\Entity\Note:
+    attributes:
+        id:
+            groups:
+                # -
+        files:
+            groups:
+                - note_read
+                - note_write
+                - quotation_note_read
+                - quotation_note_write                 
+        text:
+            groups:
+                - note_read
+                - note_write
+                - quotation_note_read
+                - quotation_note_write                 
+        type:
+            groups:
+                - note_read
+                - note_write
+                - quotation_note_read
+                - quotation_note_write                 
+
+        # BlameableTrait
+        agent:
+            groups:
+                - note_read
+                - quotation_note_read                
+        creator:
+            groups:
+                - note_read
+                - quotation_note_read                
+
+        # TimestampableTrait
+        dateCreated:
+            groups:
+                - note_read
+                - quotation_note_read                
+        dateModified:
+            groups:
+                - note_read
+                - quotation_note_read                

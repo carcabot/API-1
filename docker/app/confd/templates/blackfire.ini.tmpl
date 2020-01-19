@@ -1,0 +1,6 @@
+{{if (and (exists "/blackfire/host") (exists "/blackfire/port"))}}
+{{if (and (getv "/blackfire/host") (getv "/blackfire/port"))}}
+extension=blackfire.so
+blackfire.agent_socket = "tcp://{{getv "/blackfire/host"}}:{{getv "/blackfire/port"}}"
+{{end}}
+{{end}}

@@ -1,0 +1,64 @@
+App\Entity\MessageTemplate:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields:
+                - messageNumber
+    properties:
+        body:
+            - Type:
+                  type: string
+            - NotNull: ~
+        description:
+            - Type:
+                  type: string
+        endDate:
+            - DateTime: ~
+        messageAttachments:
+            - All:
+                  - Type:
+                        type: App\Entity\DigitalDocument
+            - Valid:
+                  traverse: true
+        messageNumber:
+            - Type:
+                  type: string
+            - NotNull: ~
+        plannedEndDate:
+            - DateTime: ~
+        plannedStartDate:
+            - DateTime: ~
+            - NotNull: ~
+        recipients:
+            - All:
+                  - Type:
+                        type: App\Entity\MessageRecipientListItem
+            - Valid:
+                  traverse: true
+        startDate:
+            - DateTime: ~
+        status:
+            - Type:
+                  type: App\Enum\MessageStatus
+            - NotNull: ~
+        title:
+            - Type:
+                  type: string
+            - NotNull: ~
+        type:
+            - Type:
+                type: App\Enum\MessageType
+            - NotNull: ~
+
+        # BlameableTrait
+        agent:
+            - Type:
+                type: App\Entity\User
+        creator:
+            - Type:
+                type: App\Entity\User
+
+        # TimestampableTrait
+        dateCreated:
+            - DateTime: ~
+        dateModified:
+            - DateTime: ~

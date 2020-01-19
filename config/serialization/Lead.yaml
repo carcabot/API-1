@@ -1,0 +1,181 @@
+App\Entity\Lead:
+    attributes:
+        id:
+            groups:
+                # -
+        activities:
+            groups:
+                - lead_read
+                - lead_write
+        addresses:
+            groups:
+                - lead_read
+                - lead_write
+                - lead_import_write
+                - public_read
+        applicationRequests:
+            groups:
+                - lead_read
+                - lead_write
+        assignee:
+            groups:
+                - lead_read
+                - lead_write
+        assignor:
+            groups:
+                - lead_read
+        averageConsumption:
+            groups:
+                - lead_read
+                - lead_write
+                - lead_import_write
+                - public_read
+        contractSubtype:
+            groups:
+                - lead_read
+                - lead_write
+                - lead_import_write
+                - public_read
+        contractType:
+            groups:
+                - lead_read
+                - lead_write
+                - lead_import_write
+                - public_read
+        corporationDetails:
+            groups:
+                - lead_read
+                - lead_write
+                - lead_import_write
+                - public_read
+        customerOf:
+            groups:
+                - lead_read
+                - lead_write
+                - lead_import_write
+                - public_read
+        dateFollowedUp:
+            groups:
+                - lead_read
+                - lead_write
+        doNotContact:
+            groups:
+                - lead_read
+                - lead_write
+                - lead_import_write
+        existingCustomer:
+            groups:
+                - lead_read
+                - lead_write
+                - lead_import_write
+        leadNumber:
+            groups:
+                - lead_read
+                - lead_import_read
+                - partner_commission_statement_generate
+                - public_read
+        lpgUser:
+            groups:
+                - lead_read
+                - lead_write
+                - lead_import_write
+        meterType:
+            groups:
+                - lead_read
+                - lead_write
+                - lead_import_write
+                - public_read
+        notes:
+            groups:
+                - lead_read
+                - lead_write
+        personDetails:
+            groups:
+                - lead_read
+                - lead_write
+                - lead_import_write
+                - public_read
+        preferredContactMethod:
+            groups:
+                - lead_read
+                - lead_write
+                - lead_import_write
+        purchaseTimeFrame:
+            groups:
+                - lead_read
+                - lead_write
+                - lead_import_write
+        referralSource:
+            groups:
+                - lead_read
+                - lead_write
+                - lead_import_write
+                - public_read
+        score:
+            groups:
+                - lead_read
+                - lead_write
+                - lead_import_write
+        specifiedReferralSource:
+            groups:
+                - lead_read
+                - lead_write
+                - lead_import_write
+                - public_read
+        status:
+            groups:
+                - lead_read
+                - lead_write
+                - lead_import_write
+        tariffRate:
+            groups:
+                - lead_read
+                - lead_write
+        tenant:
+            groups:
+                - lead_read
+                - lead_write
+                - lead_import_write
+        type:
+            groups:
+                - lead_read
+                - lead_write
+                - lead_import_write
+                - partner_commission_statement_generate
+                - public_read
+
+        # BlameableTrait
+        agent:
+            groups:
+                - lead_read
+        creator:
+            groups:
+                - lead_read
+                - partner_commission_statement_generate
+                
+        # SourceableTrait
+        acquiredFrom:
+            groups:
+                - lead_read
+                - lead_write
+                - partner_commission_statement_generate
+        source:
+            groups:
+                - lead_read
+                - lead_write
+                - partner_commission_statement_generate
+        sourceUrl:
+            groups:
+                - lead_read
+                - lead_write
+                - partner_commission_statement_generate
+
+        # TimestampableTrait
+        dateCreated:
+            groups:
+                - lead_read
+                - partner_commission_statement_generate
+        dateModified:
+            groups:
+                - lead_read
+                - partner_commission_statement_generate

@@ -1,0 +1,4 @@
+App\Entity\MailgunComplainEvent:
+    attributes:
+        dateComplained:
+            - mailgun_complain_event_read

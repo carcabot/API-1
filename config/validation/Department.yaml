@@ -1,0 +1,37 @@
+App\Entity\Department:
+    properties:
+        children:
+            - All:
+                - Type:
+                    type: App\Entity\Department                  
+        description:
+            - Type:
+                type: string
+        enabled:
+            - Type:
+                type: bool
+            - NotNull: ~                
+        name:
+            - Type:
+                type: string
+            - NotNull: ~            
+        parent:
+            - Type:
+                type: App\Entity\Department              
+        roles:
+            - All:
+                - Type:
+                    type: App\Entity\Role 
+        # BlameableTrait
+        agent:
+            - Type:
+                type: App\Entity\User
+        creator:
+            - Type:
+                type: App\Entity\User
+
+        # TimestampableTrait
+        dateCreated:
+            - DateTime: ~
+        dateModified:
+            - DateTime: ~

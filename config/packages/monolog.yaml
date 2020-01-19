@@ -1,0 +1,18 @@
+monolog:
+    channels: [bridge, disque, web_service]
+    handlers:
+        bridge:
+            level: debug
+            type: stream
+            path: "%kernel.logs_dir%/%kernel.environment%-bridge.log"
+            channels: [bridge]
+        disque:
+            level: debug
+            type: stream
+            path: "%kernel.logs_dir%/%kernel.environment%-disque.log"
+            channels: [disque]
+        web_service:
+            level: debug
+            type: stream
+            path: "%kernel.logs_dir%/%kernel.environment%-web_service.log"
+            channels: [web_service]

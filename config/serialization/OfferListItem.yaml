@@ -1,0 +1,26 @@
+App\Entity\OfferListItem:
+    attributes:
+        inventoryLevel:
+            groups:
+                - offer_list_item_read
+                - offer_list_item_write
+        item:
+            groups:
+                - offer_list_item_read
+                - offer_list_item_write
+        monetaryExchangeValue:
+            groups:
+                - offer_list_item_read
+                - offer_list_item_write
+        priceSpecification:
+            groups:
+                - offer_list_item_read
+                - offer_list_item_write
+        validFrom:
+            groups:
+                - offer_list_item_read
+                - offer_list_item_write
+        validThrough:
+            groups:
+                - offer_list_item_read
+                - offer_list_item_write

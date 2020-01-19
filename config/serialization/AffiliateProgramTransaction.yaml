@@ -1,0 +1,66 @@
+App\Entity\AffiliateProgramTransaction:
+    attributes:
+        id:
+            groups:
+                # -
+        affiliateProgram:
+            groups:
+                - affiliate_program_transaction_read
+                - affiliate_program_transaction_write
+        commissionAmount:
+            groups:
+                - affiliate_program_transaction_read
+                - affiliate_program_transaction_write
+        commissionStatus:
+            groups:
+                - affiliate_program_transaction_read
+                - affiliate_program_transaction_write
+        customer:
+            groups:
+                - affiliate_program_transaction_read
+                - affiliate_program_transaction_write
+        moneyCommissionConfiguration:
+            groups:
+                - affiliate_program_transaction_read
+                - affiliate_program_transaction_write
+        moneyCreditsAmount:
+            groups:
+                - affiliate_program_transaction_read
+                - affiliate_program_transaction_write
+        orderAmount:
+            groups:
+                - affiliate_program_transaction_read
+                - affiliate_program_transaction_write
+        pointCommissionConfiguration:
+            groups:
+                - affiliate_program_transaction_read
+                - affiliate_program_transaction_write
+        pointCreditsAmount:
+            groups:
+                - affiliate_program_transaction_read
+                - affiliate_program_transaction_write
+        pointCreditsExchangeRate:
+            groups:
+                - affiliate_program_transaction_read
+                - affiliate_program_transaction_write
+        provider:
+            groups:
+                - affiliate_program_transaction_read
+                - affiliate_program_transaction_write
+        transactionDate:
+            groups:
+                - affiliate_program_transaction_read
+                - affiliate_program_transaction_write
+        transactionNumber:
+            groups:
+                - affiliate_program_transaction_read
+                - affiliate_program_transaction_write
+
+        # TimestampableTrait
+        dateCreated:
+            groups:
+                - affiliate_program_transaction_read
+        dateModified:
+            groups:
+                - affiliate_program_transaction_read
+            

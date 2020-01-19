@@ -1,0 +1,18 @@
+App\Entity\ContractPostalAddress:
+    properties:
+        address:
+            - Type:
+                type: App\Entity\PostalAddress
+            - NotNull: ~
+            - Valid:
+                traverse: true
+        contract:
+            - Type:
+                type: App\Entity\Contract
+            - NotNull: ~
+            - Valid:
+                traverse: true
+        validFrom:
+            - DateTime: ~
+        validThrough:
+            - DateTime: ~

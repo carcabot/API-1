@@ -1,0 +1,33 @@
+App\Entity\QuotationPriceConfiguration:
+    attributes:
+        category:
+            groups:
+                - quotation_file_generate
+                - quotation_price_configuration_read
+                - quotation_price_configuration_write
+        duration:
+            groups:
+                - quotation_file_generate
+                - quotation_price_configuration_read
+                - quotation_price_configuration_write
+        isBasedOn:
+            groups:
+                - quotation_file_generate
+                - quotation_price_configuration_read
+                - quotation_price_configuration_write
+        offerInput:
+            groups:
+                - quotation_file_generate
+                - quotation_price_configuration_read
+                - quotation_price_configuration_write
+        term:
+            groups:
+                - quotation_file_generate
+                - quotation_price_configuration_read
+                - quotation_price_configuration_write
+        thirdPartyChargeConfiguration:
+            groups:
+                - quotation_file_generate
+                - quotation_price_configuration_read
+                - quotation_price_configuration_write
+

@@ -1,0 +1,31 @@
+App\Entity\OrderItem:
+    attributes:
+        id:
+            groups:
+                # -
+        offerListItem:
+            groups:
+                - order_item_read
+                - order_item_write
+        order:
+            groups:
+                - order_item_read
+                - order_item_write
+        orderItemNumber:
+            groups:
+                - order_item_read
+        orderItemStatus:
+            groups:
+                - order_item_read
+                - order_item_write
+        orderQuantity:
+            groups:
+                - order_item_read
+                - order_item_write
+        unitPrice:
+            groups:
+                - order_item_read
+        serialNumbers:
+            groups:
+                - order_item_read
+                - order_item_write

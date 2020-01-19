@@ -1,0 +1,58 @@
+App\Entity\CommissionRate:
+    attributes:
+        id:
+            groups:
+                # -
+        category:
+            groups:
+                - commission_rate_read
+                - commission_rate_write
+        currency:
+            groups:
+                - commission_rate_read
+                - commission_rate_write
+        description:
+            groups:
+                - commission_rate_read
+                - commission_rate_write
+        endDate:
+            groups:
+                - commission_rate_read
+                - commission_rate_write
+        name:
+            groups:
+                - commission_rate_read
+                - commission_rate_write
+        partners:
+            groups:
+                - commission_rate_read
+                - commission_rate_write
+        startDate:
+            groups:
+                - commission_rate_read
+                - commission_rate_write
+        type:
+            groups:
+                - commission_rate_read
+                - commission_rate_write
+        value:
+            groups:
+                - commission_rate_read
+                - commission_rate_write
+
+        # BlameableTrait
+        agent:
+            groups:
+                - commission_rate_read
+        creator:
+            groups:
+                - commission_rate_read
+                
+        # TimestampableTrait
+        dateCreated:
+            groups:
+                - commission_rate_read
+        dateModified:
+            groups:
+                - commission_rate_read
+            

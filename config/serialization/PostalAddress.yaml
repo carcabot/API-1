@@ -1,0 +1,192 @@
+App\Entity\PostalAddress:
+    attributes:
+        id:
+            groups:
+                # - 
+        addressCountry:
+            groups:
+                - quotation_file_generate
+                - postal_address_read
+                - postal_address_write
+                - customer_account_postal_address_read
+                - contract_form_read
+                - contract_postal_address_read
+                - direct_mail_campaign_source_list_item_read
+                - direct_mail_campaign_source_list_read
+                - source_list_read
+                - lead_import_write
+                - application_request_sign_on_behalf_read
+                - public_read
+        addressLocality:
+            groups:
+                - quotation_file_generate
+                - postal_address_read
+                - postal_address_write
+                - customer_account_postal_address_read
+                - contract_form_read
+                - contract_postal_address_read
+                - direct_mail_campaign_source_list_item_read
+                - direct_mail_campaign_source_list_read
+                - source_list_read
+                - lead_import_write
+                - application_request_sign_on_behalf_read
+                - public_read
+        addressRegion:
+            groups:
+                - quotation_file_generate
+                - postal_address_read
+                - postal_address_write
+                - customer_account_postal_address_read
+                - contract_form_read
+                - contract_postal_address_read
+                - direct_mail_campaign_source_list_item_read
+                - direct_mail_campaign_source_list_read
+                - source_list_read
+                - lead_import_write
+                - application_request_sign_on_behalf_read
+                - public_read
+        buildingName:
+            groups:
+                - quotation_file_generate
+                - postal_address_read
+                - postal_address_write
+                - customer_account_postal_address_read
+                - contract_form_read
+                - contract_postal_address_read
+                - direct_mail_campaign_source_list_item_read
+                - direct_mail_campaign_source_list_read
+                - source_list_read
+                - lead_import_write
+                - application_request_sign_on_behalf_read
+                - public_read
+        floor:
+            groups:
+                - quotation_file_generate
+                - postal_address_read
+                - postal_address_write
+                - customer_account_postal_address_read
+                - contract_form_read
+                - contract_postal_address_read
+                - direct_mail_campaign_source_list_item_read
+                - direct_mail_campaign_source_list_read
+                - source_list_read
+                - lead_import_write
+                - application_request_sign_on_behalf_read
+                - public_read
+        houseNumber:
+            groups:
+                - quotation_file_generate
+                - postal_address_read
+                - postal_address_write
+                - customer_account_postal_address_read
+                - contract_form_read
+                - contract_postal_address_read
+                - direct_mail_campaign_source_list_item_read
+                - direct_mail_campaign_source_list_read
+                - source_list_read
+                - lead_import_write
+                - application_request_sign_on_behalf_read
+                - public_read
+        postalCode:
+            groups:
+                - quotation_file_generate
+                - postal_address_read
+                - postal_address_write
+                - customer_account_postal_address_read
+                - contract_form_read
+                - contract_postal_address_read
+                - direct_mail_campaign_source_list_item_read
+                - direct_mail_campaign_source_list_read
+                - source_list_read
+                - lead_import_write
+                - application_request_sign_on_behalf_read
+                - public_read
+        streetAddress:
+            groups:
+                - quotation_file_generate
+                - postal_address_read
+                - postal_address_write
+                - customer_account_postal_address_read
+                - contract_form_read
+                - contract_postal_address_read
+                - direct_mail_campaign_source_list_item_read
+                - direct_mail_campaign_source_list_read
+                - source_list_read
+                - lead_import_write
+                - application_request_sign_on_behalf_read
+                - public_read
+        type:
+            groups:
+                - quotation_file_generate
+                - postal_address_read
+                - postal_address_write
+                - customer_account_postal_address_read
+                - contract_form_read
+                - contract_postal_address_read
+                - direct_mail_campaign_source_list_item_read
+                - direct_mail_campaign_source_list_read
+                - source_list_read
+                - lead_import_write
+                - application_request_sign_on_behalf_read
+                - public_read
+        unitNumber:
+            groups:
+                - quotation_file_generate
+                - postal_address_read
+                - postal_address_write
+                - customer_account_postal_address_read
+                - contract_form_read
+                - contract_postal_address_read
+                - direct_mail_campaign_source_list_item_read
+                - direct_mail_campaign_source_list_read
+                - source_list_read
+                - lead_import_write
+                - application_request_sign_on_behalf_read
+                - public_read
+
+        # BlameableTrait
+        agent:
+            groups:
+                - quotation_file_generate
+                - postal_address_read
+                - customer_account_postal_address_read
+                - contract_form_read
+                - contract_postal_address_read
+                - direct_mail_campaign_source_list_item_read
+                - direct_mail_campaign_source_list_read
+                - source_list_read
+                - application_request_sign_on_behalf_read
+        creator:
+            groups:
+                - quotation_file_generate
+                - postal_address_read
+                - customer_account_postal_address_read
+                - contract_form_read
+                - contract_postal_address_read
+                - direct_mail_campaign_source_list_item_read
+                - direct_mail_campaign_source_list_read
+                - source_list_read
+                - application_request_sign_on_behalf_read
+        # TimestampableTrait
+        dateCreated:
+            groups:
+                - quotation_file_generate
+                - postal_address_read
+                - customer_account_postal_address_read
+                - contract_form_read
+                - contract_postal_address_read
+                - direct_mail_campaign_source_list_item_read
+                - direct_mail_campaign_source_list_read
+                - source_list_read
+                - application_request_sign_on_behalf_read
+        dateModified:
+            groups:
+                - quotation_file_generate
+                - postal_address_read
+                - customer_account_postal_address_read
+                - contract_form_read
+                - contract_postal_address_read
+                - direct_mail_campaign_source_list_item_read
+                - direct_mail_campaign_source_list_read
+                - source_list_read
+                - application_request_sign_on_behalf_read

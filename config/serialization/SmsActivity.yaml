@@ -1,0 +1,14 @@
+App\Entity\SmsActivity:
+    attributes:
+        recipientMobileNumber:
+            groups:
+                - activity_read
+                - activity_sms_history_read
+                - sms_activity_read
+                - sms_activity_write
+        type:
+            groups:
+                - activity_read
+                - activity_sms_history_read
+                - sms_activity_read
+                - sms_activity_write

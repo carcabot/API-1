@@ -1,0 +1,11 @@
+App\Entity\CommissionRate:
+    commission_rate:
+        category: <generateCommissionCategory()>
+        description: <sentence()>
+        endDate:
+        isBasedOn:
+        name: <catchPhrase()>
+        partners: []
+        startDate:
+        type: <generateCommissionType()>
+        value: <randomNumber()>

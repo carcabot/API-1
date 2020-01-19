@@ -1,0 +1,5 @@
+App\Entity\CustomerAccountListItem:
+    properties:
+        item:
+            - Type:
+                type: App\Entity\CustomerAccount

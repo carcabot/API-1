@@ -1,0 +1,37 @@
+App\Entity\Module:
+    properties:
+        category:
+            - Type:
+                type: App\Enum\ModuleCategory
+            - NotNull: ~                
+        children:
+            - All:
+                - Type:
+                    type: App\Entity\Module  
+        description:
+            - Type:
+                type: string
+        enabled:
+            - Type:
+                type: bool
+            - NotNull: ~                
+        name:
+            - Type:
+                type: App\Enum\ModuleType
+            - NotNull: ~          
+        parent:
+            - Type:
+                type: App\Entity\Module                      
+        # BlameableTrait
+        agent:
+            - Type:
+                type: App\Entity\User
+        creator:
+            - Type:
+                type: App\Entity\User
+
+        # TimestampableTrait
+        dateCreated:
+            - DateTime: ~
+        dateModified:
+            - DateTime: ~

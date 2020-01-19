@@ -1,0 +1,33 @@
+App\Entity\ExpireCreditsUseHistory:
+    attributes:
+        id:
+            groups:
+                # -
+        expireAction:
+            groups:
+                - expire_credits_use_history_read
+                - expire_credits_use_history_write
+        useAction:
+            groups:
+                - expire_credits_use_history_read
+                - expire_credits_use_history_write
+        useAmount:
+            groups:
+                - expire_credits_use_history_read
+                - expire_credits_use_history_write
+
+        # BlameableTrait
+        agent:
+            groups:
+                - expire_credits_use_history_read
+        creator:
+            groups:
+                - expire_credits_use_history_read
+
+        # TimestampableTrait
+        dateCreated:
+            groups:
+                - expire_credits_use_history_read
+        dateModified:
+            groups:
+                - expire_credits_use_history_read

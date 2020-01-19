@@ -1,0 +1,11 @@
+web_service_billing_routes:
+    resource: App\WebService\Billing\Services\RouteLoader::loadRoutes
+    type: service
+
+web_service_email_routes:
+    resource: App\WebService\Email\Services\RouteLoader::loadRoutes
+    type: service
+
+web_service_sms_routes:
+    resource: App\WebService\SMS\Services\RouteLoader::loadRoutes
+    type: service

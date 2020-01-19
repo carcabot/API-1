@@ -1,0 +1,14 @@
+App\Entity\QuotationNote:
+    properties:
+        offers:
+            - All:
+                - Type:
+                    type: App\Entity\PriceConfiguration
+        retailer:
+            - Type:
+                type: string
+        terms:
+            - All:
+                - Type:
+                    type: App\Entity\QuantitativeValue
+            - NotNull: ~

@@ -1,0 +1,21 @@
+App\Entity\ContactPoint:
+    properties:
+        contactType:
+            - Type:
+                type: string
+        emails:
+            - All:
+                - Email:
+                    mode: strict
+                - Length:
+                    max: 254
+    getters:
+        faxNumbers:
+            - All:
+                - Misd\PhoneNumberBundle\Validator\Constraints\PhoneNumber: ~
+        mobilePhoneNumbers:
+            - All:
+                - Misd\PhoneNumberBundle\Validator\Constraints\PhoneNumber: ~
+        telephoneNumbers:
+            - All:
+                - Misd\PhoneNumberBundle\Validator\Constraints\PhoneNumber: ~

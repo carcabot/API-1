@@ -1,0 +1,49 @@
+App\Entity\PointCreditsExchangeRate:
+    attributes:
+        id:
+            groups:
+                # -
+        baseAmount:
+            groups:
+                - point_credits_exchange_rate_read
+                - point_credits_exchange_rate_write
+        defaultRate:
+            groups:
+                - point_credits_exchange_rate_read
+                - point_credits_exchange_rate_write
+        isBasedOn:
+            groups:
+                - point_credits_exchange_rate_read
+                - point_credits_exchange_rate_write
+        remark:
+            groups:
+                - point_credits_exchange_rate_read
+                - point_credits_exchange_rate_write
+        validFrom:
+            groups:
+                - point_credits_exchange_rate_read
+                - point_credits_exchange_rate_write
+        validThrough:
+            groups:
+                - point_credits_exchange_rate_read
+                - point_credits_exchange_rate_write
+        value:
+            groups:
+                - point_credits_exchange_rate_read
+                - point_credits_exchange_rate_write
+
+        # BlameableTrait
+        agent:
+            groups:
+                - point_credits_exchange_rate_read
+        creator:
+            groups:
+                - point_credits_exchange_rate_read
+
+        # TimestampableTrait
+        dateCreated:
+            groups:
+                - point_credits_exchange_rate_read
+        dateModified:
+            groups:
+                - point_credits_exchange_rate_read

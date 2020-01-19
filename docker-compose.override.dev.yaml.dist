@@ -1,0 +1,89 @@
+version: '3.4'
+
+services:
+    app:
+        build:
+            context: .
+            dockerfile: docker/app/Dockerfile
+        image: ${CONTAINER_REGISTRY_URL}/app:dev
+        volumes:
+            - .:/srv/api:rw,cached
+            # If you develop on Linux, comment out the following volumes to just use bind-mounted project directory from host
+            # - ./var:/srv/api/var:rw
+
+    blackfire:
+        env_file: ./docker/blackfire/.env
+        environment:
+            - TERM
+        image: blackfire/blackfire
+
+    cache-proxy:
+        build:
+             context: .
+             dockerfile: docker/varnish/Dockerfile
+        ports:
+            - 80:80
+
+    fix-mongodb-permissions:
+        image: 'bitnami/mongodb:latest'
+        user: root
+        command: chown -R 1001:1001 /bitnami
+        volumes:
+          - ./docker/mongodb/data:/bitnami:rw
+
+    mongo-cache-db:
+        volumes:
+          - ./docker/mongodb/data:/bitnami:rw
+
+    nginx-backend:
+        volumes:
+            - ./public:/srv/api/public:ro
+
+    application-requests-worker:
+        image: ${CONTAINER_REGISTRY_URL}/app:dev
+        volumes:
+            - .:/srv/api:rw,cached
+            # If you develop on Linux, comment out the following volumes to just use bind-mounted project directory from host
+            # - ./var:/srv/api/var:rw
+
+    campaigns-worker:
+        image: ${CONTAINER_REGISTRY_URL}/app:dev
+        volumes:
+            - .:/srv/api:rw,cached
+            # If you develop on Linux, comment out the following volumes to just use bind-mounted project directory from host
+            # - ./var:/srv/api/var:rw
+
+    contracts-worker:
+        image: ${CONTAINER_REGISTRY_URL}/app:dev
+        volumes:
+            - .:/srv/api:rw,cached
+            # If you develop on Linux, comment out the following volumes to just use bind-mounted project directory from host
+            # - ./var:/srv/api/var:rw
+
+    cron-worker:
+        image: ${CONTAINER_REGISTRY_URL}/app:dev
+        volumes:
+            - .:/srv/api:rw,cached
+            # If you develop on Linux, comment out the following volumes to just use bind-mounted project directory from host
+            # - ./var:/srv/api/var:rw
+
+    messages-worker:
+        image: ${CONTAINER_REGISTRY_URL}/app:dev
+        volumes:
+            - .:/srv/api:rw,cached
+            # If you develop on Linux, comment out the following volumes to just use bind-mounted project directory from host
+            # - ./var:/srv/api/var:rw
+
+    reports-worker:
+        image: ${CONTAINER_REGISTRY_URL}/app:dev
+        volumes:
+            - .:/srv/api:rw,cached
+            # If you develop on Linux, comment out the following volumes to just use bind-mounted project directory from host
+            # - ./var:/srv/api/var:rw
+
+    webservices-worker:
+        image: ${CONTAINER_REGISTRY_URL}/app:dev
+        volumes:
+            - .:/srv/api:rw,cached
+            # If you develop on Linux, comment out the following volumes to just use bind-mounted project directory from host
+            # - ./var:/srv/api/var:rw

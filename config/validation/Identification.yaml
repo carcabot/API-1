@@ -1,0 +1,31 @@
+App\Entity\Identification:
+    properties:
+        description:
+            - Type:
+                type: string
+        name:
+            - Type:
+                type: App\Enum\IdentificationName
+            - NotNull: ~
+        validFrom:
+            - DateTime: ~
+        validThrough:
+            - DateTime: ~
+        value:
+            - Type:
+                type: string
+            - NotNull: ~
+
+        # BlameableTrait
+        agent:
+            - Type:
+                type: App\Entity\User
+        creator:
+            - Type:
+                type: App\Entity\User
+
+        # TimestampableTrait
+        dateCreated:
+            - DateTime: ~
+        dateModified:
+            - DateTime: ~

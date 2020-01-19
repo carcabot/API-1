@@ -1,0 +1,17 @@
+App\Entity\ImportListingMapping:
+    attributes:
+        id:
+            groups:
+            # -
+        source:
+            groups:
+                - import_listing_mapping_read
+                - import_listing_mapping_write
+        target:
+            groups:
+                - import_listing_mapping_read
+                - import_listing_mapping_write
+        targetClass:
+            groups:
+                - import_listing_mapping_read
+                - import_listing_mapping_write

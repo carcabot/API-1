@@ -3396,6 +3396,12 @@
                 "url": "https://github.com/thephpleague/uri.git",
                 "reference": "f2bceb755f1108758cf4cf925e4cd7699ce686aa"
             },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/uri/zipball/f2bceb755f1108758cf4cf925e4cd7699ce686aa",
+                "reference": "f2bceb755f1108758cf4cf925e4cd7699ce686aa",
+                "shasum": ""
+            },
             "require": {
                 "ext-fileinfo": "*",
                 "ext-intl": "*",
@@ -4493,7 +4499,7 @@
                     "email": "shelburt02@gmail.com"
                 },
                 {
-                    "name": "Théo FIDRY",
+                    "name": "Théo Fidry",
                     "email": "theo.fidry@gmail.com"
                 }
             ],
@@ -8947,28 +8953,28 @@
         },
         {
             "name": "symfony/var-exporter",
-            "version": "v4.2.8",
+            "version": "v4.4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-exporter.git",
-                "reference": "57e00f3e0a3deee65b67cf971455b98afeacca46"
+                "reference": "1a76a943f2af334da13bc9f33f49392fa530eec9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-exporter/zipball/57e00f3e0a3deee65b67cf971455b98afeacca46",
-                "reference": "57e00f3e0a3deee65b67cf971455b98afeacca46",
+                "url": "https://api.github.com/repos/symfony/var-exporter/zipball/1a76a943f2af334da13bc9f33f49392fa530eec9",
+                "reference": "1a76a943f2af334da13bc9f33f49392fa530eec9",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.1.3"
             },
             "require-dev": {
-                "symfony/var-dumper": "^4.1.1"
+                "symfony/var-dumper": "^4.1.1|^5.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.2-dev"
+                    "dev-master": "4.4-dev"
                 }
             },
             "autoload": {
@@ -9003,7 +9009,7 @@
                 "instantiate",
                 "serialize"
             ],
-            "time": "2019-04-09T20:09:28+00:00"
+            "time": "2020-01-04T13:00:46+00:00"
         },
         {
             "name": "symfony/workflow",
@@ -9705,6 +9711,7 @@
                 "code",
                 "zf2"
             ],
+            "abandoned": "laminas/laminas-code",
             "time": "2018-08-13T20:36:59+00:00"
         },
         {
@@ -9769,6 +9776,7 @@
                 "psr",
                 "psr-7"
             ],
+            "abandoned": "laminas/laminas-diactoros",
             "time": "2018-09-05T19:29:37+00:00"
         },
         {
@@ -9823,6 +9831,7 @@
                 "events",
                 "zf2"
             ],
+            "abandoned": "laminas/laminas-eventmanager",
             "time": "2018-04-25T15:33:34+00:00"
         }
     ],
